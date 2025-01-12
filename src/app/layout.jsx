@@ -1,7 +1,6 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "../common/style/globals.css";
 import Navbar from "@/common/component/navbar/Navbar";
-import Footer from "@/common/module/Footer";
 import { Providers } from "@/common/component/element/Providers";
 
 const plus_Jakarta_Sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
@@ -25,9 +24,6 @@ export default function RootLayout({ children }) {
             <Navbar />
           </div>
           {children}
-          <div className="flex justify-center items-center">
-            <Footer />
-          </div>
         </Providers>
       </body>
     </html>

@@ -1,8 +1,6 @@
 "use client";
-import ImgScale from "@/common/module/Hero/component/ImgScale";
-import Rails from "@/common/component/element/Rails";
-import GridSparkles from "@/common/component/element/GridSparkles";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import Image from "@/common/component/element/Image";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
@@ -11,6 +9,8 @@ import { Parallax } from "@/common/constant/Parallax";
 import ImageModal from "@/common/component/element/ImageModal";
 import { useTheme } from "next-themes";
 import TypewriterHeading from "@/common/component/element/TypewriterHeading";
+import GridSparkles from "@/common/component/element/GridSparkles";
+import Rails from "@/common/component/element/Rails";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -41,17 +41,16 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="absolute w-[100%] top-[20%] h-[500px] z-[-99]">
+        <div className="absolute w-[100%] top-[20%] h-[500px] z-[-1]">
           <Rails />
           <GridSparkles />
-          <div className="bg-gradient-to-b from-white dark:from-black from-20% to-transparent absolute inset-0"></div>
-          <div className="bg-gradient-to-l from-white dark:from-black from-1% to-transparent to-30% absolute inset-0"></div>
-          <div className="bg-gradient-to-r from-white dark:from-black from-1% to-transparent to-30% absolute inset-0"></div>
-          <div className="bg-gradient-to-t from-white dark:from-black from-1% to-transparent to-30% absolute inset-0"></div>
+          <div className="bg-gradient-to-b from-white dark:from-black from-0% via-white/80 dark:via-black/80 to-transparent absolute inset-0"></div>
+          <div className="bg-gradient-to-l from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
+          <div className="bg-gradient-to-r from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
         </div>
 
         <motion.div
-          className="w-[100%] h-full xl:mt-20 mt-40 sm:mt-36 flex gap-4 lg:px-20 overflow-hidden"
+          className="w-[100%] h-full xl:mt-20 mt-40 sm:mt-36 flex gap-4 lg:px-20 overflow-hidden relative z-10"
           style={{
             translateY: t,
             translateX: c,
