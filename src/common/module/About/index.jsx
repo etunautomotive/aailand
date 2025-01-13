@@ -1,6 +1,10 @@
 import React from "react";
 import ComponentTransition from "../../component/element/ComponentTransition";
 import Image from "next/image";
+import WesleyLogo from "@/../public/weslogo.png";
+import JoshuaLogo from "@/../public/joshb.jpeg";
+import AneeshLogo from "@/../public/aneeshlogo.png";
+import MorganLogo from "@/../public/morganlogo.png";
 
 const About = () => {
   const teamMembers = [
@@ -8,27 +12,27 @@ const About = () => {
       name: "Wesley Bookland",
       role: "CEO",
       bio: "Starting in the auto industry as a BDR, Wesley quickly progressed to a closer, then to a team lead. He went on to hire and build the founding team, demonstrating exceptional leadership and vision for the company.",
-      image: "/weslogo.png",
+      image: WesleyLogo,
     },
     {
       name: "Joshua Boyd",
       role: "CTO",
       bio: "A long-time friend and college teammate of Wesley, Joshua joined the sales team as a BDR, progressed to closer, and then to tech lead. His technical leadership has been instrumental in the company's growth.",
-      image: "/joshb.jpeg",
+      image: JoshuaLogo,
       hasGlow: true,
       objectPosition: "center 15%",
     },
     {
-      name: "Aneesh Vhat",
+      name: "Aneesh Bhat",
       role: "Tech Lead",
       bio: "Hired under Joshua's leadership, Aneesh has played a crucial role in building and managing the unified system architecture, bringing technical expertise to separate ventures.",
-      image: "/aneeshlogo.png",
+      image: AneeshLogo,
     },
     {
       name: "Morgan Kennedy",
       role: "User / Closer",
       bio: "A long-time best friend of Wesley Bookland, Morgan transitioned from blue-collar work to pursue white-collar opportunities, becoming a top-performing sales agent under Wesley's leadership.",
-      image: "/morganlogo.png",
+      image: MorganLogo,
       hasGlow: true,
     },
   ];

@@ -1,10 +1,15 @@
+import DetailedContactViewDark from "@/../public/detailedcontactviewdark.png";
+import AgentPageLight from "@/../public/AgentPageLight.png";
+import AgentPageDark from "@/../public/agentspagedark.png";
+import DetailedContactViewLight from "@/../public/ContDetailedPageLight.png";
+
 export const HeroImage = [
   {
-    lightImg: "/ContDetailedPageLight.png",
-    darkImg: "/detailedcontactviewdark.png",
+    lightImg: DetailedContactViewLight,
+    darkImg: DetailedContactViewDark,
   },
   {
-    lightImg: "/AgentPageLight.png",
-    darkImg: "/agentspagedark.png",
+    lightImg: AgentPageLight,
+    darkImg: AgentPageDark,
   },
 ];

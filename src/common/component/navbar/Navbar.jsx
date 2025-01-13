@@ -6,16 +6,12 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { NavigationItem } from "@/common/constant/NavigationItem";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
-import { ButtonSpot } from "../element/ButtonSpot";
 import DarkmodeSwitch from "../element/DarkmodeSwitch";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-
-// const Logos = dynamic(() => import('./Logo'), {
-//   ssr: false
-// })
+import LightAutoAI from "@/../public/lightautoai.svg";
+import DarkAutoAI from "@/../public/darkautoai.svg";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -55,11 +51,7 @@ const Navbar = () => {
           <Link href="/" className="group relative flex items-center">
             {mounted && (
               <Image
-                src={
-                  currentTheme === "dark"
-                    ? "/lightautoai.svg"
-                    : "/darkautoai.svg"
-                }
+                src={currentTheme === "dark" ? LightAutoAI : DarkAutoAI}
                 alt="AutoAI Logo"
                 width={80}
                 height={52}
@@ -102,7 +94,7 @@ const Navbar = () => {
           <DarkmodeSwitch />
           <SparkleButton
             className="!text-sm !py-2.5 !px-5 scale-95"
-            onClick={() => (window.location.href = "/app/signin")}
+            onClick={() => (window.location.href = "/signin")}
           >
             Sign In
           </SparkleButton>
