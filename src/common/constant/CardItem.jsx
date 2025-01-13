@@ -1,6 +1,6 @@
 import BulkSMSLight from "@/../public/BulkSMSLight.png";
 import ConversationPageLight from "@/../public/ConversationPageLight.png";
-import PipelineLight from "@/../public/pipelinezoomlight.png";
+import PipelineLight from "@/../public/Pipelinezoomlight.png";
 import ContactLight from "@/../public/contactzoomlight.png";
 import DetailConWhiteLight from "@/../public/detailconwhitezoom.png";
 import PipelinePageDark from "@/../public/pipelinepagedark.png";
