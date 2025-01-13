@@ -71,7 +71,7 @@ const NavMobile = ({ open, handleOpen, close }) => {
           <SparkleButton
             className="!text-sm !py-2.5 !px-5"
             onClick={() => {
-              window.location.href = "/sign-in";
+              window.location.href = "/app/signin";
               close();
             }}
           >

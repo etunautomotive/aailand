@@ -102,7 +102,7 @@ const Navbar = () => {
           <DarkmodeSwitch />
           <SparkleButton
             className="!text-sm !py-2.5 !px-5 scale-95"
-            onClick={() => (window.location.href = "/sign-in")}
+            onClick={() => (window.location.href = "/app/signin")}
           >
             Sign In
           </SparkleButton>
