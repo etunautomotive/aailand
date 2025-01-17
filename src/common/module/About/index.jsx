@@ -2,7 +2,7 @@ import React from "react";
 import ComponentTransition from "../../component/element/ComponentTransition";
 import Image from "next/image";
 import WesleyLogo from "@/../public/weslogo.png";
-import JoshuaLogo from "@/../public/joshb.jpeg";
+import JoshuaLogo from "@/../public/joshlogo.png";
 import AneeshLogo from "@/../public/aneeshlogo.png";
 import MorganLogo from "@/../public/morganlogo.png";
 
@@ -10,30 +10,39 @@ const About = () => {
   const teamMembers = [
     {
       name: "Wesley Bookland",
-      role: "CEO",
-      bio: "Starting in the auto industry as a BDR, Wesley quickly progressed to a closer, then to a team lead. He went on to hire and build the founding team, demonstrating exceptional leadership and vision for the company.",
+      role: "Co-Founder - CEO",
+      bio: "Wesley started in automotive sales four years ago, quickly rising to own and operate his own team. In his first year, he achieved over $1.6 million in gross sales with a lean team of four salespeople, two of whom are now on the founding team – Josh and Morgan. This success inspired him to co-found AutomotiveAI, leveraging AI to transform automotive sales processes.",
       image: WesleyLogo,
+      hasGlow: true,
+      objectPosition: "center 25%",
+      imageScale: "scale-150",
     },
     {
       name: "Joshua Boyd",
-      role: "CTO",
-      bio: "A long-time friend and college teammate of Wesley, Joshua joined the sales team as a BDR, progressed to closer, and then to tech lead. His technical leadership has been instrumental in the company's growth.",
+      role: "Co-Founder - CTO",
+      bio: "Joshua joined Wesley Bookland's first team, where he broke multiple store and team records in automotive sales. He quickly transitioned to building custom technical solutions for Wesley’s team and eventually other leading Western automotive companies before AAI. As CTO, he drives development and ensures the product delivers real value to users.",
       image: JoshuaLogo,
       hasGlow: true,
-      objectPosition: "center 15%",
+      objectPosition: "center 20%",
+      imageScale: "scale-150",
     },
     {
       name: "Aneesh Bhat",
-      role: "Tech Lead",
-      bio: "Hired under Joshua's leadership, Aneesh has played a crucial role in building and managing the unified system architecture, bringing technical expertise to separate ventures.",
+      role: "Backend & Systems Architect",
+      bio: "Aneesh designs and builds the systems that power the product. He previously worked at Red Hat, specializing in scalable, enterprise-grade solutions. Recently, he was accepted into a Data Science and Machine Learning program at the Indian Institute of Technology, further expanding his expertise.",
       image: AneeshLogo,
+      hasGlow: true,
+      objectPosition: "center 20%",
+      imageScale: "scale-150",
     },
     {
       name: "Morgan Kennedy",
-      role: "User / Closer",
-      bio: "A long-time best friend of Wesley Bookland, Morgan transitioned from blue-collar work to pursue white-collar opportunities, becoming a top-performing sales agent under Wesley's leadership.",
+      role: "VP of Sales",
+      bio: "Morgan brings extensive domain expertise in automotive sales, with 4 years at leading Western automotive companies. He previously ranked as a consistent top performer, specializing in customer solutions. Recently at AutomotiveAI, he focuses on bridging product theory with measurable results through documented real-world use cases.",
       image: MorganLogo,
       hasGlow: true,
+      objectPosition: "center 25%",
+      imageScale: "scale-150",
     },
   ];
 

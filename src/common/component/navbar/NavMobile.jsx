@@ -77,7 +77,12 @@ const NavMobile = ({ open, handleOpen, close }) => {
           >
             Sign In
           </SparkleButton>
-          <SparkleButton className="!text-sm !py-2.5 !px-5">
+          <SparkleButton
+            className="!text-sm !py-2.5 !px-5 scale-95"
+            onClick={() =>
+              window.open("https://app.usemotion.com/meet/wes-b/AAI", "_blank")
+            }
+          >
             Schedule a Demo
           </SparkleButton>
         </div>

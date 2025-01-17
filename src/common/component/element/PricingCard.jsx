@@ -3,9 +3,10 @@ import { FaCheck } from "react-icons/fa";
 import { PricingItem } from "@/common/constant/PricingItem";
 import clsx from "clsx";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
-import Link from "next/link";
 
 export default function PricingCard() {
+  const [showBooking, setShowBooking] = React.useState(false);
+
   return (
     <div className="flex justify-center w-full max-w-xl relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-[24px] blur-2xl opacity-10 group-hover:opacity-30 transition-all duration-1000 pointer-events-none" />
@@ -65,14 +66,35 @@ export default function PricingCard() {
           </div>
 
           <div className="mt-10">
-            <Link href="/contact">
-              <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center">
-                Get Early Access
-              </SparkleButton>
-            </Link>
+            <SparkleButton
+              className="w-full !py-4 !text-lg flex items-center justify-center"
+              onClick={() => setShowBooking(true)}
+            >
+              Get Early Access
+            </SparkleButton>
           </div>
         </div>
       ))}
+
+      {showBooking && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-black rounded-lg w-full max-w-4xl relative">
+            <button
+              onClick={() => setShowBooking(false)}
+              className="absolute top-4 right-4 text-black dark:text-white"
+            >
+              Close
+            </button>
+            <iframe
+              src="https://app.usemotion.com/meet/wes-b/AAI"
+              title="Motion Booking Page"
+              width="100%"
+              height="840px"
+              frameBorder="0"
+            />
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         @keyframes cardPulse {
