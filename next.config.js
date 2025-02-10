@@ -4,6 +4,7 @@ const nextConfig = {
     domains: ["images.unsplash.com"],
   },
   basePath: "/landing",
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
