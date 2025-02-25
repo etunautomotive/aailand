@@ -1,10 +1,30 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const GridSparkles = () => {
   const sparkleCount = 50;
   const gridSize = 20;
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const agentColors = {
     light: [
@@ -48,6 +68,11 @@ const GridSparkles = () => {
     return positions;
   };
 
+  // Don't render anything during SSR
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {getRandomGridPosition().map((pos, index) => (
@@ -61,8 +86,8 @@ const GridSparkles = () => {
             scale: pos.size,
           }}
           animate={{
-            x: pos.isHorizontal ? window.innerWidth + 20 : pos.x,
-            y: pos.isHorizontal ? pos.y : window.innerHeight + 20,
+            x: pos.isHorizontal ? windowSize.width + 20 : pos.x,
+            y: pos.isHorizontal ? pos.y : windowSize.height + 20,
             opacity: [0, 1, 1, 0],
           }}
           transition={{

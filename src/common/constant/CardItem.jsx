@@ -10,13 +10,13 @@ export const CardItem = [
     img: ConversationPageLight,
     title: "SMS/Call",
     content:
-      "Communication is literally the most important part of all sales processes. We've done the foundation right, providing a beautiful user experience and then bridged that with AI for automatic data collection and autonomous agent text.",
+      "One system for texts and calls that connects to everything else in the deal - pricing, trade-ins, financing. Your team saves hours not copying data between systems, and customers get faster responses. With instant rich text messaging, crystal clear audio calls, and seamless integration between all your tools, you'll wonder how you ever worked without it.",
   },
   {
     img: BulkSMSLight,
-    title: "Bulk SMS",
+    title: "Bulk SMS & Data Mining",
     content:
-      "We've proven it with over 10 dealers: Bulk SMS outreach delivers response rates of 25-30% and conversion rates around 5%. With an average gross per copy of $4,000–$6,000, and dealers managing thousands of names at any time, this translates into hundreds of thousands in gross revenue—all driven by a single tool in our system. It's automation that doesn't just scale—it delivers measurable impact.",
+      "We turn dead data into deals. Our AI-powered bulk SMS campaigns deliver 25-30% response rates by automatically mining your database and personalizing messages. Stop paying for new leads when you're sitting on a goldmine - our system helps you extract maximum value from data you already own.",
   },
   {
     img: PipelineLight,
@@ -28,13 +28,13 @@ export const CardItem = [
     img: ContactLight,
     title: "Contact Management",
     content:
-      "The Contact Center allows instant access to all leads ever entered in your system. It's snappy to pull even the oldest contacts and trigger them into one of multiple campaigns we have vertical agents trained on.",
+      "Our Contact Center gives you immediate access to your entire lead history. It's fast enough to retrieve even years-old contacts in seconds. You can instantly activate these contacts in specialized campaigns managed by our AI agents. This turns dormant data into active opportunities without manual effort.",
   },
   {
     img: DetailConWhiteLight,
     title: "Customer Cards",
     content:
-      "The best salespeople spend time selling, not doing data entry. Yet the industry average is just 35% of time on direct selling. We've solved this by making customer data collection autonomous and instant. Every interaction automatically enriches the customer profile, letting salespeople focus on what matters: selling.",
+      "Great salespeople should sell, not type. But today, only 35% of their time goes to actual selling. We fixed this problem at its root: our system captures customer data automatically. Every conversation builds the customer profile without manual entry. This means your team can focus entirely on what generates revenue: talking to customers and closing deals.",
   },
 ];
 

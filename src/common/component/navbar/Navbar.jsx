@@ -103,7 +103,12 @@ const Navbar = () => {
             </SparkleButton>
             <SparkleButton
               className="!text-sm !py-2.5 !px-5 scale-95"
-              onClick={() => setShowBooking(true)}
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1",
+                  "_blank"
+                )
+              }
             >
               Schedule a Demo
             </SparkleButton>
@@ -121,8 +126,8 @@ const Navbar = () => {
               Close
             </button>
             <iframe
-              src="https://app.usemotion.com/meet/wes-b/AAI"
-              title="Motion Booking Page"
+              src="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
+              title="Calendly Booking Page"
               width="100%"
               height="840px"
               frameBorder="0"

@@ -5,6 +5,16 @@ export const NavigationItem = [
   },
 
   {
+    src: "/services",
+    title: "Services",
+  },
+
+  {
+    src: "/agents",
+    title: "Agents",
+  },
+
+  {
     src: "/about",
     title: "About",
   },

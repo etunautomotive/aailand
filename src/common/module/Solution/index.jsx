@@ -2,11 +2,7 @@
 
 import React, { useState } from "react";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import {
-  CardItem,
-  VerticalIntelligenceCards,
-  VerticalIntelligenceTitle,
-} from "@/common/constant/CardItem";
+import { CardItem } from "@/common/constant/CardItem";
 import Image from "@/common/component/element/Image";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -183,73 +179,6 @@ const Solution = () => {
         onClose={() => setSelectedImage(null)}
         imageSrc={selectedImage}
       />
-
-      <div className="flex justify-center my-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-center dark:bg-gradient-to-r from-white from-50% to-[#9c9c9c] bg-text bg-clip-text text-transparent py-4 px-2">
-          {VerticalIntelligenceTitle}
-        </h1>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 py-10">
-        {VerticalIntelligenceCards.map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{
-              scale: 1.02,
-              y: -5,
-              transition: { duration: 0.2 },
-            }}
-          >
-            <ComponentTransition
-              delay={index * 0.1}
-              className="flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col items-center text-center p-6 transition-all duration-300"
-              style={{
-                borderColor: `${getTypeColor(item.title)
-                  .split(" ")[1]
-                  .replace("via-", "")}/20`,
-                "--hover-border-color": `${getTypeColor(item.title)
-                  .split(" ")[1]
-                  .replace("via-", "")}/40`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor =
-                  e.currentTarget.style.getPropertyValue(
-                    "--hover-border-color"
-                  );
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = `${getTypeColor(item.title)
-                  .split(" ")[1]
-                  .replace("via-", "")}/20`;
-              }}
-            >
-              <div
-                className="absolute -inset-0.5 bg-gradient-to-r rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
-                style={{
-                  background: `linear-gradient(90deg, ${getTypeColor(item.title)
-                    .split(" ")[1]
-                    .replace("via-", "")} 0%, ${getTypeColor(item.title)
-                    .split(" ")[1]
-                    .replace("via-", "")} 100%)`,
-                }}
-              />
-              <div className="relative">
-                <h2
-                  className={`text-4xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
-                    item.title,
-                    resolvedTheme
-                  )} bg-clip-text text-transparent`}
-                >
-                  {item.title}
-                </h2>
-                <p className="mt-6 text-center text-neutral-700 dark:text-neutral-300">
-                  {item.content}
-                </p>
-              </div>
-            </ComponentTransition>
-          </motion.div>
-        ))}
-      </div>
     </div>
   );
 };
