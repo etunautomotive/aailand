@@ -10,8 +10,8 @@ const About = () => {
   const teamMembers = [
     {
       name: "Wesley Bookland",
-      role: "Co-Founder - CEO",
-      bio: "Wesley started in automotive sales four years ago, quickly rising to own and operate his own team. In his first year, he achieved over $1.6 million in gross sales with a lean team of four salespeople, two of whom are now on the founding team – Josh and Morgan. This success inspired him to co-found AutomotiveAI, leveraging AI to transform automotive sales processes.",
+      role: "Founder & CMO",
+      bio: "Previously built a $1.6M automotive sales team with just 4 salespeople in his first year. Identified critical inefficiencies in automotive sales processes that could be solved with AI, leading to the founding of AutomotiveAI.",
       image: WesleyLogo,
       hasGlow: true,
       objectPosition: "center 25%",
@@ -19,8 +19,8 @@ const About = () => {
     },
     {
       name: "Joshua Boyd",
-      role: "Co-Founder - CTO",
-      bio: "Joshua joined Wesley Bookland's first team, where he broke multiple store and team records in automotive sales. He quickly transitioned to building custom technical solutions for Wesley’s team and eventually other leading Western automotive companies before AAI. As CTO, he drives development and ensures the product delivers real value to users.",
+      role: "Founder & CEO",
+      bio: "Broke multiple store records in automotive sales before transitioning to building custom tech solutions for leading Western automotive companies. Drives product vision and development, ensuring solutions deliver measurable value to dealerships.",
       image: JoshuaLogo,
       hasGlow: true,
       objectPosition: "center 20%",
@@ -28,8 +28,8 @@ const About = () => {
     },
     {
       name: "Aneesh Bhat",
-      role: "Backend & Systems Architect",
-      bio: "Aneesh designs and builds the systems that power the product. He previously worked at Red Hat, specializing in scalable, enterprise-grade solutions. Recently, he was accepted into a Data Science and Machine Learning program at the Indian Institute of Technology, further expanding his expertise.",
+      role: "Founder & CTO",
+      bio: "Ex-Red Hat engineer specializing in enterprise-grade solutions. Designs and builds the scalable systems powering AutomotiveAI. Recently accepted into IIT's Data Science and Machine Learning program to further enhance AI capabilities.",
       image: AneeshLogo,
       hasGlow: true,
       objectPosition: "center 20%",
@@ -38,7 +38,7 @@ const About = () => {
     {
       name: "Morgan Kennedy",
       role: "VP of Sales",
-      bio: "Morgan brings extensive domain expertise in automotive sales, with 4 years at leading Western automotive companies. He previously ranked as a consistent top performer, specializing in customer solutions. Recently at AutomotiveAI, he focuses on bridging product theory with measurable results through documented real-world use cases.",
+      bio: "Top performer with 4 years at leading automotive companies. Bridges product development with real-world implementation, documenting measurable results and ROI for dealerships adopting AutomotiveAI solutions.",
       image: MorganLogo,
       hasGlow: true,
       objectPosition: "center 25%",

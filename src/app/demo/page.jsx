@@ -28,9 +28,7 @@ export default function DemoPage() {
             Schedule a Demo
           </h1>
           <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl mx-auto mt-4">
-            Book a personalized demo with our team to see how our AI agents can
-            transform your dealership's operations and boost your sales
-            performance.
+            Let the system speak for itself.
           </p>
         </div>
 

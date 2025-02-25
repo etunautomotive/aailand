@@ -28,8 +28,8 @@ const agentData = [
       "Seamless Process Integration",
     ],
     benefits: [
-      "Reduces response time by 85%",
-      "Increases lead conversion by 32%",
+      "Reduces response time significantly",
+      "Increases lead conversion",
       "Automates document collection",
       "24/7 customer engagement",
     ],
@@ -55,7 +55,7 @@ const agentData = [
       "Never miss a follow-up call",
       "Ensures accurate settlement details",
       "Provides real-time conversation insights",
-      "Reduces miscommunication by 47%",
+      "Reduces miscommunication",
     ],
     icon: "/agent-call-icon.svg",
     color: "purple",
@@ -76,8 +76,8 @@ const agentData = [
       "Submission Optimization",
     ],
     benefits: [
-      "Increases approval rates by 28%",
-      "Reduces submission errors by 93%",
+      "Increases approval rates",
+      "Reduces submission errors",
       "Optimizes terms for both dealer and customer",
       "Accelerates the financing process",
     ],
@@ -100,7 +100,7 @@ const agentData = [
       "Outcome Optimization",
     ],
     benefits: [
-      "Increases closing rate by 35%",
+      "Increases closing rate",
       "Provides personalized negotiation strategies",
       "Equips salespeople with finance expertise",
       "Creates consistent closing experiences",
@@ -376,7 +376,7 @@ const AgentsPage = () => {
       : agentData.filter((agent) => agent.status === activeTab);
 
   return (
-    <div className="h-auto max-w-[1500px] px-5 lg:px-10 py-20 relative">
+    <div className="h-auto w-full max-w-[1500px] px-4 sm:px-5 lg:px-10 py-12 sm:py-20 relative">
       <div className="absolute w-[100%] h-full z-[-1]">
         <GridSparkles />
         <div className="bg-gradient-to-b from-white dark:from-black from-0% via-white/80 dark:via-black/80 to-transparent absolute inset-0"></div>
@@ -385,14 +385,14 @@ const AgentsPage = () => {
       </div>
 
       {/* Page Header - Added pt-16 for padding to prevent navbar overlap */}
-      <div className="flex justify-center mb-16 pt-16">
-        <h1 className="text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent py-4 px-2">
+      <div className="flex justify-center mb-8 sm:mb-16 pt-10 sm:pt-16">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent py-4 px-2">
           Our Intelligent Agents
         </h1>
       </div>
 
-      <div className="text-center mb-16 max-w-3xl mx-auto">
-        <p className="text-lg text-neutral-700 dark:text-neutral-300">
+      <div className="text-center mb-8 sm:mb-16 max-w-3xl mx-auto px-2 sm:px-4">
+        <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300">
           Our platform features specialized AI agents designed specifically for
           automotive dealerships. Each agent is trained on industry-specific
           processes and optimized to handle different aspects of the sales
@@ -402,10 +402,10 @@ const AgentsPage = () => {
 
       {/* Filter tabs - horizontal instead of sidebar */}
       <div className="flex justify-center mb-16">
-        <div className="inline-flex p-1 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+        <div className="flex flex-col sm:flex-row p-1 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm w-full max-w-md">
           <button
             onClick={() => setActiveTab("all")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
               activeTab === "all"
                 ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-sm"
                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -415,7 +415,7 @@ const AgentsPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("stable")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
               activeTab === "stable"
                 ? "bg-gradient-to-r from-green-500 to-green-400 text-white shadow-sm"
                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -425,7 +425,7 @@ const AgentsPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("development")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
               activeTab === "development"
                 ? "bg-gradient-to-r from-blue-500 to-blue-400 text-white shadow-sm"
                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -435,7 +435,7 @@ const AgentsPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("planning")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
               activeTab === "planning"
                 ? "bg-gradient-to-r from-yellow-500 to-yellow-400 text-white shadow-sm"
                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -462,12 +462,12 @@ const AgentsPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="mt-32 text-center">
+      <div className="mt-16 sm:mt-32 text-center px-4">
         <ComponentTransition delay={0.3}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
             Ready to transform your dealership?
           </h2>
-          <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Our AI agents work together seamlessly to optimize every step of
             your sales process, from lead generation to deal closure.
           </p>
