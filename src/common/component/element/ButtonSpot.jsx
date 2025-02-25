@@ -31,8 +31,6 @@ export const ButtonSpot = ({ title, className }) => {
     }
 
     return () => {
-      const btn = btnRef.current;
-
       if (btn) {
         btn.removeEventListener("mousemove", handleMouseMove);
         btn.removeEventListener("mouseleave", handleMouseLeave);

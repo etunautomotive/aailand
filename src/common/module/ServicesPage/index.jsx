@@ -148,8 +148,8 @@ const ServicesPage = () => {
           </h1>
           <p className="text-base md:text-xl text-neutral-700 dark:text-neutral-300 mb-6 px-4">
             We help dealerships sell more cars through AI-powered software and
-            hands-on services. We don't just give you tools - we work alongside
-            you with expertise from top dealers.
+            hands-on services. We don&apos;t just give you tools - we work
+            alongside you with expertise from top dealers.
           </p>
         </div>
       </section>

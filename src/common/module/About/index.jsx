@@ -20,7 +20,7 @@ const About = () => {
     {
       name: "Joshua Boyd",
       role: "Founder & CEO",
-      bio: "Broke multiple store records in automotive sales before transitioning to building custom tech solutions for leading Western automotive companies. Drives product vision and development, ensuring solutions deliver measurable value to dealerships.",
+      bio: "Broke multiple store records in automotive sales with Wesley before transitioning to building custom tech solutions for leading Western automotive companies. Drives product vision and development, ensuring solutions deliver measurable value to dealerships.",
       image: JoshuaLogo,
       hasGlow: true,
       objectPosition: "center 20%",

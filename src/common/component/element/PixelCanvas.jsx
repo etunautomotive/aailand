@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 class Pixel {
   constructor(canvas, context, x, y, color, speed, delay) {
@@ -103,8 +103,7 @@ const PixelCanvas = ({
   const timeIntervalRef = useRef(1000 / 60);
   const timePreviousRef = useRef(0);
 
-  // Convert color string to RGB values for canvas
-  const getRGBFromColor = (colorStr) => {
+  const getRGBFromColor = useCallback((colorStr) => {
     // Handle common color formats
     if (colorStr.includes("green") || colorStr === "green")
       return { r: 34, g: 197, b: 94 }; // green-500
@@ -115,34 +114,37 @@ const PixelCanvas = ({
     if (colorStr.includes("yellow") || colorStr === "yellow")
       return { r: 234, g: 179, b: 8 }; // yellow-500
     return { r: 59, g: 130, b: 246 }; // Default blue-500
-  };
+  }, []);
 
-  const getDistanceToCanvasCenter = (x, y, canvas) => {
+  const getDistanceToCanvasCenter = useCallback((x, y, canvas) => {
     const dx = x - canvas.width / 2;
     const dy = y - canvas.height / 2;
     return Math.sqrt(dx * dx + dy * dy);
-  };
+  }, []);
 
-  const createPixels = (canvas, ctx, gap, speed) => {
-    const pixels = [];
-    const rgb = getRGBFromColor(color);
-    const colorStr = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1.0)`;
+  const createPixels = useCallback(
+    (canvas, ctx, gap, speed) => {
+      const pixels = [];
+      const rgb = getRGBFromColor(color);
+      const colorStr = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1.0)`;
 
-    for (let x = 0; x < canvas.width; x += gap) {
-      for (let y = 0; y < canvas.height; y += gap) {
-        if (Math.random() < 0.7) {
-          const delay = getDistanceToCanvasCenter(x, y, canvas);
-          pixels.push(
-            new Pixel(canvas, ctx, x, y, colorStr, speed * 0.001, delay)
-          );
+      for (let x = 0; x < canvas.width; x += gap) {
+        for (let y = 0; y < canvas.height; y += gap) {
+          if (Math.random() < 0.7) {
+            const delay = getDistanceToCanvasCenter(x, y, canvas);
+            pixels.push(
+              new Pixel(canvas, ctx, x, y, colorStr, speed * 0.001, delay)
+            );
+          }
         }
       }
-    }
 
-    return pixels;
-  };
+      return pixels;
+    },
+    [color, getRGBFromColor, getDistanceToCanvasCenter]
+  );
 
-  const animate = (fnName) => {
+  const animate = useCallback((fnName) => {
     if (!canvasRef.current) return;
 
     animationRef.current = requestAnimationFrame(() => animate(fnName));
@@ -168,16 +170,19 @@ const PixelCanvas = ({
     if (allIdle) {
       cancelAnimationFrame(animationRef.current);
     }
-  };
+  }, []);
 
-  const handleAnimation = (name) => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
-    animate(name);
-  };
+  const handleAnimation = useCallback(
+    (name) => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+      animate(name);
+    },
+    [animate]
+  );
 
-  const initCanvas = () => {
+  const initCanvas = useCallback(() => {
     if (!canvasRef.current || !parentRef.current) return;
 
     const canvas = canvasRef.current;
@@ -191,7 +196,7 @@ const PixelCanvas = ({
 
     const ctx = canvas.getContext("2d");
     pixelsRef.current = createPixels(canvas, ctx, gap, speed);
-  };
+  }, [gap, speed, createPixels]);
 
   useEffect(() => {
     parentRef.current = canvasRef.current?.parentNode;
@@ -200,19 +205,17 @@ const PixelCanvas = ({
     if (parentRef.current) {
       initCanvas();
 
+      // Create handler functions that we can reference for removal
+      const handleMouseEnter = () => handleAnimation("appear");
+      const handleMouseLeave = () => handleAnimation("disappear");
+      const handleFocusIn = () => handleAnimation("appear");
+      const handleFocusOut = () => handleAnimation("disappear");
+
       // Add event listeners to parent
-      parentRef.current.addEventListener("mouseenter", () =>
-        handleAnimation("appear")
-      );
-      parentRef.current.addEventListener("mouseleave", () =>
-        handleAnimation("disappear")
-      );
-      parentRef.current.addEventListener("focusin", () =>
-        handleAnimation("appear")
-      );
-      parentRef.current.addEventListener("focusout", () =>
-        handleAnimation("disappear")
-      );
+      parentRef.current.addEventListener("mouseenter", handleMouseEnter);
+      parentRef.current.addEventListener("mouseleave", handleMouseLeave);
+      parentRef.current.addEventListener("focusin", handleFocusIn);
+      parentRef.current.addEventListener("focusout", handleFocusOut);
 
       // Set up resize observer
       const resizeObserver = new ResizeObserver(() => {
@@ -226,23 +229,15 @@ const PixelCanvas = ({
         }
 
         if (parentRef.current) {
-          parentRef.current.removeEventListener("mouseenter", () =>
-            handleAnimation("appear")
-          );
-          parentRef.current.removeEventListener("mouseleave", () =>
-            handleAnimation("disappear")
-          );
-          parentRef.current.removeEventListener("focusin", () =>
-            handleAnimation("appear")
-          );
-          parentRef.current.removeEventListener("focusout", () =>
-            handleAnimation("disappear")
-          );
+          parentRef.current.removeEventListener("mouseenter", handleMouseEnter);
+          parentRef.current.removeEventListener("mouseleave", handleMouseLeave);
+          parentRef.current.removeEventListener("focusin", handleFocusIn);
+          parentRef.current.removeEventListener("focusout", handleFocusOut);
           resizeObserver.disconnect();
         }
       };
     }
-  }, [gap, speed, color]);
+  }, [gap, speed, color, handleAnimation, initCanvas]);
 
   return (
     <canvas
