@@ -14,6 +14,7 @@ export const metadata = {
     "automotive sales, AI agents, automated data collection, bulk SMS, Credit App, Dealertrack, automotive CRM",
   author: "Automotive AI",
   email: "sales@automotiveai.ca",
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
 };
 
 export default function RootLayout({ children }) {
@@ -23,10 +24,10 @@ export default function RootLayout({ children }) {
         className={`${plus_Jakarta_Sans.className} dark:bg-black min-h-screen flex flex-col`}
       >
         <Providers>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center w-full">
             <Navbar />
           </div>
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow w-full overflow-x-hidden">{children}</main>
           <Footer />
         </Providers>
       </body>

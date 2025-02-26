@@ -3,6 +3,8 @@ import { FaCheck } from "react-icons/fa";
 import { PricingItem } from "@/common/constant/PricingItem";
 import clsx from "clsx";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
+import CalendlyWidget from "@/common/component/calendly/CalendlyWidget";
+import Link from "next/link";
 
 export default function PricingCard() {
   const [showBooking, setShowBooking] = React.useState(false);
@@ -66,12 +68,11 @@ export default function PricingCard() {
           </div>
 
           <div className="mt-10">
-            <SparkleButton
-              className="w-full !py-4 !text-lg flex items-center justify-center"
-              onClick={() => setShowBooking(true)}
-            >
-              Get Early Access
-            </SparkleButton>
+            <Link href="/demo">
+              <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center">
+                Get Early Access
+              </SparkleButton>
+            </Link>
           </div>
         </div>
       ))}
@@ -81,16 +82,13 @@ export default function PricingCard() {
           <div className="bg-white dark:bg-black rounded-lg w-full max-w-4xl relative">
             <button
               onClick={() => setShowBooking(false)}
-              className="absolute top-4 right-4 text-black dark:text-white"
+              className="absolute top-4 right-4 text-black dark:text-white z-20 p-2 bg-white dark:bg-black rounded-full"
             >
-              Close
+              ✕
             </button>
-            <iframe
-              src="https://app.usemotion.com/meet/wes-b/AAI"
-              title="Motion Booking Page"
-              width="100%"
-              height="840px"
-              frameBorder="0"
+            <CalendlyWidget
+              url="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
+              height="700px"
             />
           </div>
         </div>

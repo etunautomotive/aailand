@@ -249,11 +249,13 @@ const Agents = () => {
 
       {/* View all agents button */}
       <div className="text-center mt-8">
-        <Link href="/agents" className="inline-block">
-          <SparkleButton className="scale-90 text-sm">
-            View All Agents in Detail
-          </SparkleButton>
-        </Link>
+        <div className="w-auto inline-block">
+          <Link href="/agents" className="inline-block">
+            <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
+              View All Agents in Detail
+            </SparkleButton>
+          </Link>
+        </div>
       </div>
     </div>
   );

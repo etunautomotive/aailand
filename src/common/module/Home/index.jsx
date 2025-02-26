@@ -5,7 +5,7 @@ import Agents from "../Agents";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       <Hero />
       <Solution />
       <Agents />

@@ -173,9 +173,26 @@ const AgentDetailCard = ({ agent, index }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, {
     once: false,
-    amount: 0.2,
-    margin: "-100px 0px",
+    amount: 0.15,
+    margin: "0px",
+    triggerOnce: false,
   });
+
+  const [forceVisible, setForceVisible] = useState(false);
+
+  React.useEffect(() => {
+    if (isInView) {
+      setForceVisible(true);
+      const timer = setTimeout(() => {
+        if (!isInView) {
+          setForceVisible(false);
+        }
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
+
+  const isVisible = isInView || forceVisible;
 
   return (
     <motion.div
@@ -183,16 +200,18 @@ const AgentDetailCard = ({ agent, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="mb-32 relative"
+      className="mb-32 relative w-full"
       id={agent.id}
     >
       <ComponentTransition
         delay={index * 0.1}
-        className="flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col p-8 transition-all duration-300 mx-auto"
+        className={`flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col p-4 sm:p-8 transition-all duration-300 mx-auto w-full ${
+          isVisible ? "border-opacity-40" : "border-opacity-20"
+        }`}
         style={{
           borderColor: `${getTypeColor(agent.color)
             .split(" ")[1]
-            .replace("via-", "")}/20`,
+            .replace("via-", "")}/${isVisible ? "40" : "20"}`,
           "--hover-border-color": `${getTypeColor(agent.color)
             .split(" ")[1]
             .replace("via-", "")}/40`,
@@ -202,20 +221,26 @@ const AgentDetailCard = ({ agent, index }) => {
             e.currentTarget.style.getPropertyValue("--hover-border-color");
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = `${getTypeColor(agent.color)
-            .split(" ")[1]
-            .replace("via-", "")}/20`;
+          if (!isVisible) {
+            e.currentTarget.style.borderColor = `${getTypeColor(agent.color)
+              .split(" ")[1]
+              .replace("via-", "")}/20`;
+          }
         }}
       >
         <PixelCanvas
           color={agent.color}
           gap={10}
           speed={45}
-          className="opacity-5 group-hover:opacity-40 transition-opacity duration-500"
+          className={`transition-opacity duration-500 ${
+            isVisible ? "opacity-40" : "opacity-5"
+          } group-hover:opacity-60`}
         />
 
         <div
-          className="absolute -inset-0.5 bg-gradient-to-r rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
+          className={`absolute -inset-0.5 bg-gradient-to-r rounded-3xl transition-all duration-500 ${
+            isVisible ? "opacity-20" : "opacity-0"
+          } group-hover:opacity-30 blur-xl`}
           style={{
             background: `linear-gradient(90deg, ${getTypeColor(agent.color)
               .split(" ")[1]
@@ -226,14 +251,14 @@ const AgentDetailCard = ({ agent, index }) => {
         />
 
         {/* Header section with icon and title */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8 relative z-10">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-8 mb-6 sm:mb-8 relative z-10">
+          <div className="flex-1 w-full">
             <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
               <h2
-                className={`text-4xl md:text-5xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
+                className={`text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
                   agent.color,
                   resolvedTheme
-                )} bg-clip-text text-transparent text-center md:text-left`}
+                )} bg-clip-text text-transparent text-center md:text-left break-words`}
               >
                 {agent.title}
               </h2>
@@ -248,16 +273,16 @@ const AgentDetailCard = ({ agent, index }) => {
               </span>
             </div>
 
-            <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-300 text-center md:text-left relative z-10">
+            <p className="mt-4 text-base sm:text-lg text-neutral-700 dark:text-neutral-300 text-center md:text-left relative z-10">
               {agent.content}
             </p>
           </div>
         </div>
 
         {/* Features and Benefits section */}
-        <div className="grid md:grid-cols-2 gap-8 mt-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8 relative z-10">
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-black dark:text-white">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black dark:text-white">
               Key Features
             </h3>
             <ul className="space-y-2">
@@ -278,7 +303,7 @@ const AgentDetailCard = ({ agent, index }) => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-black dark:text-white">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black dark:text-white">
               Benefits
             </h3>
             <ul className="space-y-2">
@@ -301,63 +326,69 @@ const AgentDetailCard = ({ agent, index }) => {
 
         {/* Integration section - only for stable agents */}
         {agent.status === "stable" && (
-          <div className="mt-12 p-6 rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800">
-            <h3 className="text-2xl font-semibold text-black dark:text-white mb-4">
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black dark:text-white mb-4">
               Integration
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 mb-4">
               AAI Text seamlessly integrates with your existing CRM and
               communication systems, providing a frictionless experience for
               both your team and customers.
             </p>
             <div className="flex justify-center">
-              <Link href="/demo">
-                <SparkleButton className="scale-90 text-sm">
-                  Learn About Integration
-                </SparkleButton>
-              </Link>
+              <div className="w-auto inline-block">
+                <Link href="/demo">
+                  <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
+                    Learn About Integration
+                  </SparkleButton>
+                </Link>
+              </div>
             </div>
           </div>
         )}
 
         {/* Coming soon section - for development agents */}
         {agent.status === "development" && (
-          <div className="mt-12 p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
-            <h3 className="text-2xl font-semibold text-black dark:text-white mb-4">
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black dark:text-white mb-4">
               Coming Soon
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 mb-4">
               Our team is working hard to bring {agent.title} to your
               dealership. Join our early access program to be among the first to
               experience this powerful agent.
             </p>
             <div className="flex justify-center">
-              <Link href="/demo">
-                <SparkleButton className="scale-90 text-sm">
-                  Join Early Access
-                </SparkleButton>
-              </Link>
+              <div className="w-auto inline-block">
+                <Link href="/demo">
+                  <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
+                    Join Early Access
+                  </SparkleButton>
+                </Link>
+              </div>
             </div>
           </div>
         )}
 
         {/* Planning section - for planning agents */}
         {agent.status === "planning" && (
-          <div className="mt-12 p-6 rounded-2xl bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800/50">
-            <h3 className="text-2xl font-semibold text-black dark:text-white mb-4">
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-2xl bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-800/50">
+            <h3 className="text-xl sm:text-2xl font-semibold text-black dark:text-white mb-4">
               In Development
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 mb-4">
               {agent.title} will be the culmination of our agent ecosystem,
               bringing together all the capabilities of our other agents to
               create a comprehensive sales solution.
             </p>
             <div className="flex justify-center">
-              <Link href="/demo">
-                <SparkleButton className="scale-90 text-sm">
-                  Get Notified
-                </SparkleButton>
-              </Link>
+              <div className="w-auto inline-block">
+                <Link href="/demo">
+                  <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
+                    Get Notified
+                  </SparkleButton>
+                </Link>
+              </div>
             </div>
           </div>
         )}
@@ -368,24 +399,18 @@ const AgentDetailCard = ({ agent, index }) => {
 
 const AgentsPage = () => {
   const { theme, resolvedTheme } = useTheme();
-  const [activeTab, setActiveTab] = useState("all");
-
-  const filteredAgents =
-    activeTab === "all"
-      ? agentData
-      : agentData.filter((agent) => agent.status === activeTab);
 
   return (
-    <div className="h-auto w-full max-w-[1500px] px-4 sm:px-5 lg:px-10 py-12 sm:py-20 relative">
-      <div className="absolute w-[100%] h-full z-[-1]">
+    <div className="h-auto w-full max-w-[1500px] px-4 sm:px-5 lg:px-10 py-12 sm:py-20 relative overflow-hidden">
+      <div className="absolute w-full h-full z-[-1]">
         <GridSparkles />
         <div className="bg-gradient-to-b from-white dark:from-black from-0% via-white/80 dark:via-black/80 to-transparent absolute inset-0"></div>
         <div className="bg-gradient-to-l from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
         <div className="bg-gradient-to-r from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
       </div>
 
-      {/* Page Header - Added pt-16 for padding to prevent navbar overlap */}
-      <div className="flex justify-center mb-8 sm:mb-16 pt-10 sm:pt-16">
+      {/* Page Header - Added more top padding */}
+      <div className="flex justify-center mb-8 sm:mb-16 pt-16 sm:pt-24">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent py-4 px-2">
           Our Intelligent Agents
         </h1>
@@ -400,83 +425,102 @@ const AgentsPage = () => {
         </p>
       </div>
 
-      {/* Filter tabs - horizontal instead of sidebar */}
-      <div className="flex justify-center mb-16">
-        <div className="flex flex-col sm:flex-row p-1 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm w-full max-w-md">
-          <button
-            onClick={() => setActiveTab("all")}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
-              activeTab === "all"
-                ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white shadow-sm"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            }`}
+      {/* Scroll indicator animation */}
+      <div className="flex justify-center items-center mb-12 sm:mb-16">
+        <motion.div
+          className="flex flex-col items-center cursor-pointer"
+          onClick={() => {
+            window.scrollBy({
+              top: 300,
+              behavior: "smooth",
+            });
+          }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+            Scroll to explore
+          </p>
+          <motion.div
+            className="w-8 h-12 border-2 border-neutral-400 dark:border-neutral-600 rounded-full flex justify-center items-start p-1"
+            initial={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
           >
-            All Agents
-          </button>
-          <button
-            onClick={() => setActiveTab("stable")}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
-              activeTab === "stable"
-                ? "bg-gradient-to-r from-green-500 to-green-400 text-white shadow-sm"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            }`}
+            <motion.div
+              className="w-1.5 h-3 bg-neutral-500 dark:bg-neutral-400 rounded-full"
+              animate={{
+                y: [0, 6, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+          <motion.div
+            className="mt-2"
+            animate={{
+              y: [0, 5, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+            }}
           >
-            Stable
-          </button>
-          <button
-            onClick={() => setActiveTab("development")}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all mb-1 sm:mb-0 ${
-              activeTab === "development"
-                ? "bg-gradient-to-r from-blue-500 to-blue-400 text-white shadow-sm"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            }`}
-          >
-            In Development
-          </button>
-          <button
-            onClick={() => setActiveTab("planning")}
-            className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeTab === "planning"
-                ? "bg-gradient-to-r from-yellow-500 to-yellow-400 text-white shadow-sm"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-            }`}
-          >
-            Planning
-          </button>
-        </div>
+            <svg
+              width="16"
+              height="10"
+              viewBox="0 0 16 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L8 8L15 1"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Agent cards - Full width content */}
       <div className="max-w-4xl mx-auto">
-        {filteredAgents.length > 0 ? (
-          filteredAgents.map((agent, index) => (
-            <AgentDetailCard key={agent.id} agent={agent} index={index} />
-          ))
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-lg text-gray-500 dark:text-gray-400">
-              No agents found in this category.
-            </p>
-          </div>
-        )}
+        {agentData.map((agent, index) => (
+          <AgentDetailCard key={agent.id} agent={agent} index={index} />
+        ))}
       </div>
 
       {/* CTA Section */}
-      <div className="mt-16 sm:mt-32 text-center px-4">
+      <div className="mt-16 sm:mt-32 text-center px-2 sm:px-4">
         <ComponentTransition delay={0.3}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
             Ready to transform your dealership?
           </h2>
-          <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-700 dark:text-neutral-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
             Our AI agents work together seamlessly to optimize every step of
             your sales process, from lead generation to deal closure.
           </p>
           <div className="flex justify-center">
-            <Link href="/demo">
-              <SparkleButton className="scale-90 text-sm">
-                Schedule a Demo
-              </SparkleButton>
-            </Link>
+            <div className="w-auto inline-block">
+              <Link href="/demo">
+                <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
+                  Schedule a Demo
+                </SparkleButton>
+              </Link>
+            </div>
           </div>
         </ComponentTransition>
       </div>

@@ -15,7 +15,7 @@ export default function Pricing() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full max-w-[1500px] mx-auto px-5 md:px-10 xl:px-20 py-32 relative">
+    <div className="min-h-screen w-full mx-auto px-5 md:px-10 xl:px-20 py-32 relative flex justify-center">
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[500px]">
           <div
@@ -28,7 +28,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center max-w-[1500px] w-full">
         <ComponentTransition className="flex justify-center py-5">
           <SectionHeading
             title="Early Adopter Pricing"
