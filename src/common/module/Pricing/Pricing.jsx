@@ -45,7 +45,7 @@ export default function Pricing() {
           </h1>
           <p className="text-base md:text-xl text-center text-neutral-500 dark:text-neutral-300 max-w-2xl">
             Get in touch with our team to discuss custom pricing options
-            tailored to your dealership's needs.
+            tailored to your dealership&apos;s needs.
           </p>
         </ComponentTransition>
 

@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <p className="text-sm text-black dark:text-white">
               © {new Date().getFullYear()} AAI Technologies Inc. All rights
-              reserved.
+              reserved
             </p>
           </div>
           <div className="flex space-x-6">
