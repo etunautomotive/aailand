@@ -41,11 +41,11 @@ export default function Pricing() {
           className="flex justify-center items-center flex-col mb-16"
         >
           <h1 className="text-3xl md:text-5xl py-5 text-center bg-clip-text dark:bg-gradient-to-r from-white from-50% to-[#8f8f8f] bg-text md:w-[80%] text-transparent font-bold">
-            Join Our Founding Members
+            Contact Us For Pricing
           </h1>
           <p className="text-base md:text-xl text-center text-neutral-500 dark:text-neutral-300 max-w-2xl">
-            Be part of our journey. Early adopters get lifetime discounts and
-            potential advisory shares.
+            Get in touch with our team to discuss custom pricing options
+            tailored to your dealership's needs.
           </p>
         </ComponentTransition>
 
