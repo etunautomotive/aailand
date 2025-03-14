@@ -6,11 +6,10 @@ export const PricingItem = [
     payTime: " Us",
     recommended: "Lifetime Deal",
     benefit: {
-      1: "Lifetime 50% discount on regular pricing",
-      2: "Priority access to new features",
-      3: "Potential advisory shares",
-      4: "Direct access to founding team",
-      5: "Influence product roadmap",
+      1: "Priority access to new features",
+      2: "Direct access to founding team",
+      3: "Influence product roadmap",
+      4: "Potential advisory shares",
     },
   },
 ];
