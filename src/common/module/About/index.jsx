@@ -4,7 +4,7 @@ import Image from "next/image";
 import WesleyLogo from "@/../public/weslogo.png";
 import JoshuaLogo from "@/../public/joshlogo.png";
 import AneeshLogo from "@/../public/aneeshlogo.png";
-import JustinLogo from "@/../public/justinlogo.png";
+import JustinLogo from "@/../public/JustinLogo.png";
 import MorganLogo from "@/../public/morganlogo.png";
 const About = () => {
   const teamMembers = [
