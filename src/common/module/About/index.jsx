@@ -10,7 +10,7 @@ const About = () => {
   const teamMembers = [
     {
       name: "Joshua Boyd",
-      role: "Founder & CEO",
+      role: "CEO",
       bio: "Record-breaking car salesperson who pivoted to engineering. Built tech for auto dealers across North America. Now combines industry knowledge with technical skills to create AI tools that deliver real ROI for dealerships.",
       image: JoshuaLogo,
       hasGlow: true,
@@ -19,7 +19,7 @@ const About = () => {
     },
     {
       name: "Aneesh Bhat",
-      role: "Founder & CTO",
+      role: "CTO",
       bio: "Ex-Red Hat engineer specializing in enterprise-grade solutions. Designs and builds the scalable systems powering AutomotiveAI. Recently accepted into IIT's Data Science and Machine Learning program to further enhance AI capabilities.",
       image: AneeshLogo,
       hasGlow: true,
@@ -28,7 +28,7 @@ const About = () => {
     },
     {
       name: "Wesley Bookland",
-      role: "Founder & CMO",
+      role: "CMO",
       bio: "Previously built a $1.6M automotive sales team with just 4 salespeople in his first year. Identified critical inefficiencies in automotive sales processes that could be solved with AI, leading to the founding of AutomotiveAI.",
       image: WesleyLogo,
       hasGlow: true,
@@ -44,7 +44,7 @@ const About = () => {
     },
     {
       name: "Justin Frank",
-      role: "Founder - Director of Sales & Training",
+      role: "Director of Sales & Training",
       bio: "17+ years in dealership finance and 7 years in online auto sales. Trained 400+ sales agents on revolutionary processes generating $4M monthly in gross..",
       image: JustinLogo,
       hasGlow: true,
