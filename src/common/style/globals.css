@@ -135,3 +135,9 @@ body {
 .btn span {
   z-index: 10;
 }
+
+.card-white-border {
+  border: 2px solid #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+}

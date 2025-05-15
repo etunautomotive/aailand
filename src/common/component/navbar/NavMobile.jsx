@@ -5,7 +5,16 @@ import Link from "next/link";
 import DarkmodeSwitch from "../element/DarkmodeSwitch";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 
-const NavMobile = ({ open, handleOpen, close }) => {
+const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
+  // Function to schedule a demo
+  const scheduleDemoHandler = () => {
+    window.open(
+      "https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1",
+      "_blank"
+    );
+    close();
+  };
+
   return (
     <div>
       <label className={`hamburger relative z-[999] ${open ? "open" : ""}`}>
@@ -66,22 +75,22 @@ const NavMobile = ({ open, handleOpen, close }) => {
         <div className="absolute top-5 right-5">
           <DarkmodeSwitch />
         </div>
-        <NavigationMenuMobile open={open} close={close} />
+        <NavigationMenuMobile open={open} close={close} variant={variant} />
         <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-4">
-          <SparkleButton
-            className="!text-sm !py-2.5 !px-5"
-            onClick={() => {
-              window.location.href = "/signin";
-              close();
-            }}
-          >
-            Sign In
-          </SparkleButton>
+          {variant !== "sales" && (
+            <SparkleButton
+              className="!text-sm !py-2.5 !px-5"
+              onClick={() => {
+                window.location.href = "/signin";
+                close();
+              }}
+            >
+              Sign In
+            </SparkleButton>
+          )}
           <SparkleButton
             className="!text-sm !py-2.5 !px-5 scale-95"
-            onClick={() =>
-              window.open("https://app.usemotion.com/meet/wes-b/AAI", "_blank")
-            }
+            onClick={scheduleDemoHandler}
           >
             Schedule a Demo
           </SparkleButton>

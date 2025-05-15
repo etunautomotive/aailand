@@ -1,0 +1,16 @@
+.animate-scroll {
+  animation-name: scroll-x;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--animation-direction, forwards);
+  animation-duration: var(--animation-duration, 20s);
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+} 

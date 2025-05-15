@@ -65,7 +65,6 @@ const SparkleButton = ({ onClick, children, className = "" }) => {
         </svg>
         <span className={styles.text}>{children}</span>
       </button>
-      <div className={styles.bodydrop}></div>
       <span aria-hidden="true" className={styles["particle-pen"]}>
         {[...Array(15)].map((_, i) => (
           <svg

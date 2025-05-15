@@ -26,7 +26,7 @@ const Anim = {
   },
 };
 
-const NavigationMenuMobile = ({ open, close }) => {
+const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
   const Child = {
     Isopen: {
       opacity: 1,
@@ -38,6 +38,32 @@ const NavigationMenuMobile = ({ open, close }) => {
     },
   };
   const pathname = usePathname();
+  
+  // If it's the sales variant, we don't show any navigation items
+  if (variant === "sales") {
+    return (
+      <div>
+        <motion.div
+          className="right-0 w-full lg:px-10 px-5 top-0 absolute flex h-screen bg-neutral-900"
+          initial={false}
+          variants={Anim}
+          animate={open ? "open" : "closed"}
+        >
+          <div className="mt-20 w-full flex items-center justify-center">
+            <motion.div
+              className="text-white text-xl"
+              initial={false}
+              animate={open ? "Isopen" : "closed"}
+              variants={Child}
+            >
+              Schedule a demo to learn more!
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+  
   return (
     <div>
       <motion.div
