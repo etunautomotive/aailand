@@ -4,8 +4,32 @@ import NavigationMenuMobile from "./NavigationMenuMobile";
 import Link from "next/link";
 import DarkmodeSwitch from "../element/DarkmodeSwitch";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@heroui/react";
+import { useState } from "react";
 
 const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
+  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // TODO: handle form submission (API call, etc.)
+  };
+
   // Function to schedule a demo
   const scheduleDemoHandler = () => {
     window.open(
@@ -90,12 +114,68 @@ const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
           )}
           <SparkleButton
             className="!text-sm !py-2.5 !px-5 scale-95"
-            onClick={scheduleDemoHandler}
+            onClick={onOpen}
           >
             Schedule a Demo
           </SparkleButton>
         </div>
       </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1 text-center text-2xl font-bold">
+                Schedule a Demo
+              </ModalHeader>
+              <ModalBody>
+                {submitted ? (
+                  <div className="text-center text-green-600 font-semibold py-6">
+                    Thank you! We'll be in touch soon.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={form.lastName}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={form.phone}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <Button color="primary" type="submit" className="w-full mt-2">
+                      Submit
+                    </Button>
+                  </form>
+                )}
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

@@ -6,6 +6,15 @@ import { Shield, Check, Star, ChevronRight, Sparkles } from 'lucide-react';
 import styles from './cta-section.module.css';
 import { useTheme } from 'next-themes';
 import PixelCanvas from '../element/PixelCanvas';
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@heroui/react";
 
 const AnimatedCard = ({ children, delay = 0 }) => {
   return (
@@ -70,6 +79,9 @@ const FeatureCard = ({ icon, title, detail, isDarkMode, color = "purple" }) => {
 const CTASection = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme } = useTheme();
+  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   useEffect(() => {
     setMounted(true);
@@ -78,8 +90,14 @@ const CTASection = () => {
   // Determine the current theme
   const isDarkMode = mounted && (theme === 'dark' || (theme === 'system' && resolvedTheme === 'dark'));
 
-  const handlePurchaseClick = () => {
-    window.open("https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1", "_blank");
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // TODO: handle form submission (API call, etc.)
   };
 
   const features = [
@@ -160,10 +178,9 @@ const CTASection = () => {
           <div className="flex justify-center mb-8 relative z-0">
             <SparkleButton
               className="!text-base !py-4 !px-8 !flex !items-center"
-              onClick={handlePurchaseClick}
+              onClick={onOpen}
             >
               Book a Strategy Call
-              <ChevronRight className="ml-2 w-5 h-5" />
             </SparkleButton>
           </div>
         </AnimatedCard>
@@ -197,6 +214,62 @@ const CTASection = () => {
           </p>
         </AnimatedCard>
       </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1 text-center text-2xl font-bold">
+                Book a Strategy Call
+              </ModalHeader>
+              <ModalBody>
+                {submitted ? (
+                  <div className="text-center text-green-600 font-semibold py-6">
+                    Thank you! We'll be in touch soon.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={form.lastName}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={form.phone}
+                      onChange={handleChange}
+                      required
+                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <Button color="primary" type="submit" className="w-full mt-2">
+                      Submit
+                    </Button>
+                  </form>
+                )}
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </section>
   );
 };

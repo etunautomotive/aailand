@@ -112,21 +112,21 @@ const WhatYoullLearn = () => {
 
   return (
     <motion.section 
-      className="container mx-auto py-24 text-center relative z-10 my-16 rounded-lg bg-white dark:bg-black shadow-lg"
+      className="container mx-auto py-32 text-center relative z-12 my-16 rounded-lg bg-white dark:bg-black shadow-lg"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
       variants={containerVariants}
     >
-      <div className="text-center max-w-5xl mx-auto">
+      <div className="text-center max-w-5xl mx-auto py-6 overflow-visible">
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent leading-[1.4] pb-2 overflow-visible"
           variants={titleVariants}
         >
           This Isn't Just Sales Training. It's the Playbook That <PurpleHighlight>Changed the Game</PurpleHighlight>.
         </motion.h2>
-        <motion.p 
-          className="text-xl text-gray-700 dark:text-gray-300 mx-auto max-w-3xl mb-12 text-center"
+        <motion.p
+          className="text-xl text-gray-700 dark:text-gray-300 mx-auto max-w-3xl mb-12 text-center leading-relaxed"
           variants={titleVariants}
         >
           Built by dealership operators who closed thousands of non-prime deals over the phone.

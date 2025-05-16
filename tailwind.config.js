@@ -1,3 +1,4 @@
+const {heroui} = require('@heroui/theme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -6,6 +7,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/theme/dist/components/modal.js"
   ],
   theme: {
     extend: {
@@ -49,5 +51,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [heroui()],
 };

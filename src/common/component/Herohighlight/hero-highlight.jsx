@@ -38,7 +38,6 @@ const PurpleHighlight = ({ children }) => {
       style={{
         position: 'relative',
         display: 'inline-block',
-        overflow: 'hidden',
         padding: '0 6px',
         borderRadius: '4px',
       }}
