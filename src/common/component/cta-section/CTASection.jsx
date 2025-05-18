@@ -180,7 +180,7 @@ const CTASection = () => {
               className="!text-base !py-4 !px-8 !flex !items-center"
               onClick={onOpen}
             >
-              Book a Strategy Call
+              Get Module 1 Free
             </SparkleButton>
           </div>
         </AnimatedCard>
@@ -210,24 +210,25 @@ const CTASection = () => {
         
         <AnimatedCard delay={0.6}>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Questions? Contact us at <a href="mailto:support@automotiveai.ca" className="font-medium underline text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300">support@automotiveai.ca</a>
+            Questions? Contact us at <a href="mailto:support@automotiveai.ca" className="font-medium underline text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300">justin@automotiveai.ca</a>
           </p>
         </AnimatedCard>
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
-        <ModalContent>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable hideCloseButton>
+        <ModalContent className="modern-modal bg-white text-neutral-900 dark:bg-zinc-900 dark:text-white" hideCloseButton>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-center text-2xl font-bold">
-                Book a Strategy Call
-              </ModalHeader>
+              <div className="modal-header text-center">Text Us Now For Module 1 Free!</div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-4">
+                This free training has already helped hundreds of dealerships boost profit fast. Enter your info, and we'll send you the first module right away. no credit card, no strings attached.
+              </p>
               <ModalBody>
                 {submitted ? (
-                  <div className="text-center text-green-600 font-semibold py-6">
+                  <div className="text-center font-semibold py-6 text-green-400 dark:text-green-600">
                     Thank you! We'll be in touch soon.
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                     <input
                       type="text"
                       name="firstName"
@@ -235,7 +236,6 @@ const CTASection = () => {
                       value={form.firstName}
                       onChange={handleChange}
                       required
-                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                     <input
                       type="text"
@@ -244,7 +244,6 @@ const CTASection = () => {
                       value={form.lastName}
                       onChange={handleChange}
                       required
-                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                     <input
                       type="tel"
@@ -253,19 +252,18 @@ const CTASection = () => {
                       value={form.phone}
                       onChange={handleChange}
                       required
-                      className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
-                    <Button color="primary" type="submit" className="w-full mt-2">
+                    <button type="submit" className="modern-modal__submit">
                       Submit
-                    </Button>
+                    </button>
                   </form>
                 )}
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+              <div className="modal-footer">
+                <button className="modern-modal__close" onClick={onClose}>
                   Close
-                </Button>
-              </ModalFooter>
+                </button>
+              </div>
             </>
           )}
         </ModalContent>

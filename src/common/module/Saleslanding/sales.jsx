@@ -148,22 +148,24 @@ export default function SalesLanding() {
                 className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
                 onClick={onOpen}
               >
-                Book a strategy call
+                Get Module 1 Free
               </SparkleButton>
-              <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
-                <ModalContent>
+              <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable hideCloseButton>
+                <ModalContent className="modern-modal bg-white text-neutral-900 dark:bg-zinc-900 dark:text-white" hideCloseButton>
                   {(onClose) => (
                     <>
-                      <ModalHeader className="flex flex-col gap-1 text-center text-2xl font-bold">
-                        Book a Strategy Call
-                      </ModalHeader>
+                      <div className="modal-header text-center">Text Us Now For Module 1 Free!
+                      </div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-4">
+                        This free training has already helped hundreds of dealerships boost profit fast. Enter your info, and we'll send you the first module right away. no credit card, no strings attached.
+                      </p>
                       <ModalBody>
                         {submitted ? (
-                          <div className="text-center text-green-600 font-semibold py-6">
+                          <div className="text-center font-semibold py-6 text-green-400 dark:text-green-600">
                             Thank you! We'll be in touch soon.
                           </div>
                         ) : (
-                          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                             <input
                               type="text"
                               name="firstName"
@@ -171,7 +173,6 @@ export default function SalesLanding() {
                               value={form.firstName}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
                             <input
                               type="text"
@@ -180,7 +181,6 @@ export default function SalesLanding() {
                               value={form.lastName}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
                             <input
                               type="tel"
@@ -189,19 +189,18 @@ export default function SalesLanding() {
                               value={form.phone}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
-                            <Button color="primary" type="submit" className="w-full mt-2">
+                            <button type="submit" className="modern-modal__submit">
                               Submit
-                            </Button>
+                            </button>
                           </form>
                         )}
                       </ModalBody>
-                      <ModalFooter>
-                        <Button color="danger" variant="light" onPress={onClose}>
+                      <div className="modal-footer">
+                        <button className="modern-modal__close" onClick={onClose}>
                           Close
-                        </Button>
-                      </ModalFooter>
+                        </button>
+                      </div>
                     </>
                   )}
                 </ModalContent>
@@ -235,8 +234,25 @@ export default function SalesLanding() {
         </motion.div>
         {/* What You'll Learn Section */}
         <WhatYoullLearn />
-        {/* Curriculum Section */}
+        {/* Inserted Get Module 1 Free button between WhatYoullLearn and CurriculumSection */}
+        <div className="flex justify-center my-10">
+          <SparkleButton
+            className="!text-base !py-4 !px-8 !flex !items-center"
+            onClick={onOpen}
+          >
+            Get Module 1 Free
+          </SparkleButton>
+        </div>
         <CurriculumSection />
+        {/* Inserted Get Module 1 Free button between CurriculumSection and FAQ */}
+        <div className="flex justify-center my-10">
+          <SparkleButton
+            className="!text-base !py-4 !px-8 !flex !items-center"
+            onClick={onOpen}
+          >
+            Get Module 1 Free
+          </SparkleButton>
+        </div>
         {/* FAQ Section */}
         <div className="w-full flex justify-center mt-16">
           <FAQ />

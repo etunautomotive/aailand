@@ -141,3 +141,137 @@ body {
   border-radius: 1rem;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
 }
+
+.modern-modal {
+  background: rgba(36, 35, 35, 0.98);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 40px 0 rgba(80, 0, 120, 0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 420px;
+  width: 100%;
+  color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: light) {
+  .modern-modal {
+    background: #f8fafc;
+    color: #18181b;
+    box-shadow: 0 8px 40px 0 rgba(80, 0, 120, 0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+    border: 1.5px solid #e5e7eb;
+  }
+}
+
+.modern-modal input {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid #a3a3a3;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+
+@media (prefers-color-scheme: light) {
+  .modern-modal input {
+    background: #f8fafc;
+    color: #18181b;
+    border: 1.5px solid #d1d5db;
+  }
+}
+
+.modern-modal input:focus {
+  outline: none;
+  border-color: #a78bfa;
+  background: rgba(168,139,250,0.08);
+}
+
+.modern-modal .modal-header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.modern-modal .modal-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modern-modal__x {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: var(--modal-text, #fff);
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+  z-index: 10;
+  line-height: 1;
+}
+.modern-modal__submit {
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 0.85rem 0;
+  margin-top: 0.5rem;
+  background: #e5e7eb;
+  color: #232325;
+  box-shadow: 0 2px 8px 0 rgba(80, 0, 120, 0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+.dark .modern-modal__submit, html.dark .modern-modal__submit {
+  background: linear-gradient(90deg, #444 0%, #232325 100%);
+  color: #fff;
+}
+@media (prefers-color-scheme: light) {
+  .modern-modal__submit {
+    background: #e5e7eb;
+    color: #232325;
+  }
+}
+.modern-modal__submit:hover {
+  background: #d1d5db;
+  color: #18181b;
+  box-shadow: 0 4px 16px 0 rgba(80, 0, 120, 0.10);
+}
+.dark .modern-modal__submit:hover, html.dark .modern-modal__submit:hover {
+  background: #232325;
+  color: #fff;
+}
+
+.modern-modal__close {
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #e5e7eb;
+  color: #232325;
+  margin-left: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.dark .modern-modal__close, html.dark .modern-modal__close {
+  background: #232325;
+  color: #fff;
+}
+@media (prefers-color-scheme: light) {
+  .modern-modal__close {
+    background: #e5e7eb;
+    color: #232325;
+  }
+}
+.modern-modal__close:hover {
+  background: #d1d5db;
+  color: #18181b;
+}
+.dark .modern-modal__close:hover, html.dark .modern-modal__close:hover {
+  background: #232325;
+  color: #fff;
+}

@@ -151,19 +151,17 @@ export default function SalesLanding() {
                 Book a strategy call
               </SparkleButton>
               <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
-                <ModalContent>
+                <ModalContent className="modern-modal">
                   {(onClose) => (
                     <>
-                      <ModalHeader className="flex flex-col gap-1 text-center text-2xl font-bold">
-                        Book a Strategy Call
-                      </ModalHeader>
+                      <div className="modal-header">Book a Strategy Call</div>
                       <ModalBody>
                         {submitted ? (
-                          <div className="text-center text-green-600 font-semibold py-6">
+                          <div className="text-center font-semibold py-6 text-green-400 dark:text-green-600">
                             Thank you! We'll be in touch soon.
                           </div>
                         ) : (
-                          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                             <input
                               type="text"
                               name="firstName"
@@ -171,7 +169,6 @@ export default function SalesLanding() {
                               value={form.firstName}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
                             <input
                               type="text"
@@ -180,7 +177,6 @@ export default function SalesLanding() {
                               value={form.lastName}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
                             <input
                               type="tel"
@@ -189,19 +185,18 @@ export default function SalesLanding() {
                               value={form.phone}
                               onChange={handleChange}
                               required
-                              className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
-                            <Button color="primary" type="submit" className="w-full mt-2">
+                            <button type="submit">
                               Submit
-                            </Button>
+                            </button>
                           </form>
                         )}
                       </ModalBody>
-                      <ModalFooter>
+                      <div className="modal-footer">
                         <Button color="danger" variant="light" onPress={onClose}>
                           Close
                         </Button>
-                      </ModalFooter>
+                      </div>
                     </>
                   )}
                 </ModalContent>
