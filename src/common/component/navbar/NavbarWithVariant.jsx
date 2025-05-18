@@ -5,8 +5,8 @@ import Navbar from "./Navbar";
 export default function NavbarWithVariant() {
   const pathname = usePathname();
   
-  // Use "sales" variant for any /saleslanding route
-  const variant = pathname.startsWith("/saleslanding") ? "sales" : "default";
+  // Use "sales" variant for any /saleslanding or /aailanding route
+  const variant = (pathname.startsWith("/saleslanding") || pathname.startsWith("/aailanding")) ? "sales" : "default";
   
   return <Navbar variant={variant} />;
 } 

@@ -53,12 +53,12 @@ const VslHero = ({ heading, subheading, videoId, actionButton }) => {
 
   // Helper to highlight the target phrase
   const renderHeading = (heading) => {
-    const target = "$300K in Gross Profit";
-    const idx = heading.indexOf(target);
+    const target = "Auto Pilot";
+    const idx = heading.toLowerCase().indexOf(target.toLowerCase());
     if (idx === -1) return heading;
     return <>
       {heading.slice(0, idx)}
-      <PurpleHighlight>{target}</PurpleHighlight>
+      <PurpleHighlight>{heading.slice(idx, idx + target.length)}</PurpleHighlight>
       {heading.slice(idx + target.length)}
     </>;
   };
@@ -77,7 +77,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton }) => {
             variants={headingVariants}
           >
             {heading && (
-              <h1 className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-4 px-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2 px-6 mb-2">
                 {renderHeading(heading)}
               </h1>
             )}

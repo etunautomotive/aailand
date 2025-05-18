@@ -3,7 +3,8 @@ import { PhoneCall, Brain, Target, TrendingUp, Bot, FileText } from 'lucide-reac
 import { motion, useInView } from 'framer-motion';
 import PurpleHighlight from '@/common/component/Herohighlight/hero-highlight';
 
-const features = [
+// Default features for fallback
+const defaultFeatures = [
   {
     icon: <PhoneCall className="text-purple-600 w-8 h-8" />,
     title: "Master the non-prime phone script that closes at 17%+",
@@ -36,7 +37,7 @@ const features = [
   },
 ];
 
-const WhatYoullLearn = () => {
+const WhatYoullLearn = ({ title, features, subtitle }) => {
   // Apple-inspired animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,7 +108,7 @@ const WhatYoullLearn = () => {
   };
 
   // Add ref and inView for scroll-triggered animation
-  const cardRefs = features.map(() => useRef(null));
+  const cardRefs = (features || defaultFeatures).map(() => useRef(null));
   const inViews = cardRefs.map(ref => useInView(ref, { once: true, amount: 0.5 }));
 
   return (
@@ -123,16 +124,20 @@ const WhatYoullLearn = () => {
           className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent leading-[1.4] pb-2 overflow-visible"
           variants={titleVariants}
         >
-          This Isn't Just Sales Training. It's the Playbook That <PurpleHighlight>Changed the Game</PurpleHighlight>.
+          {title || (<>
+            This Isn't Just Sales Training. It's the Playbook That <PurpleHighlight>Changed the Game</PurpleHighlight>.
+          </>)}
         </motion.h2>
-        <motion.p
-          className="text-xl text-gray-700 dark:text-gray-300 mx-auto max-w-3xl mb-12 text-center leading-relaxed"
-          variants={titleVariants}
-        >
-          Built by dealership operators who closed thousands of non-prime deals over the phone.
-        </motion.p>
+        {subtitle && (
+          <motion.p
+            className="text-xl text-gray-700 dark:text-gray-300 mx-auto max-w-3xl mb-12 text-center leading-relaxed"
+            variants={titleVariants}
+          >
+            {subtitle}
+          </motion.p>
+        )}
         <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
-          {features.map((feature, idx) => (
+          {(features || defaultFeatures).map((feature, idx) => (
             <motion.div
               key={idx}
               ref={cardRefs[idx]}

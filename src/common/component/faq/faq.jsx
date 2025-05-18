@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const faqs = [
+// Default FAQ data
+const defaultFaqs = [
   {
     question: 'How is this different from other automotive sales training?',
     answer: 'Our training is specifically built for non-prime sales over the phone, with proven scripts and techniques that work in the Canadian & US market. We focus exclusively on helping you build a reliable pipeline of non-prime deals without requiring more inventory or staff.'
@@ -19,7 +20,7 @@ const faqs = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQ({ title, faqs }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (idx) => {
@@ -29,10 +30,10 @@ export default function FAQ() {
   return (
     <section className="w-full min-h-[40vh] flex flex-col items-center justify-center px-4 py-8 bg-transparent">
       <h1 className="text-4xl md:text-6xl font-bold text-center mb-10 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2">
-        Frequently Asked Questions
+        {title || 'Frequently Asked Questions'}
       </h1>
       <div className="w-full max-w-2xl mt-6 divide-y divide-gray-200/50 dark:divide-gray-700/50">
-        {faqs.map((faq, idx) => (
+        {(faqs || defaultFaqs).map((faq, idx) => (
           <div key={idx}>
             <button
               className="w-full flex justify-between items-center py-6 text-lg text-left font-medium text-gray-900 dark:text-gray-100 focus:outline-none"

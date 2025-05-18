@@ -1,5 +1,5 @@
-import Aailander from "@/common/module/AAI-Lander/aailander";
+import AAILanding from "@/common/module/AAI-Lander/aailanding";
 
 export default function AailanderPage() {
-  return <Aailander />;
+  return <AAILanding />;
 }

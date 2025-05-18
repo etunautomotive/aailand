@@ -1,13 +1,15 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import { PricingItem } from "@/common/constant/PricingItem";
+import { PricingItem as DefaultPricingItem } from "@/common/constant/PricingItem";
 import clsx from "clsx";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import CalendlyWidget from "@/common/component/calendly/CalendlyWidget";
 import Link from "next/link";
 
-export default function PricingCard() {
+export default function PricingCard({ pricingItems }) {
   const [showBooking, setShowBooking] = React.useState(false);
+
+  const items = pricingItems || DefaultPricingItem;
 
   return (
     <div className="flex justify-center w-full max-w-xl relative group">
@@ -19,7 +21,7 @@ export default function PricingCard() {
         }}
       />
 
-      {PricingItem.map((item, index) => (
+      {items.map((item, index) => (
         <div
           key={index}
           className={clsx(

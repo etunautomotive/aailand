@@ -5,7 +5,13 @@ import SectionHeading from "@/common/component/element/SectionHeading";
 import React, { useEffect } from "react";
 import { AiFillSliders } from "react-icons/ai";
 
-export default function Pricing() {
+export default function Pricing({
+  sectionTitle = "Early Adopter Pricing",
+  mainTitle = "Contact Us For Pricing",
+  subtitle = "Get in touch with our team to discuss custom pricing options tailored to your dealership's needs.",
+  icon = <AiFillSliders size={30} />,
+  pricingItems
+}) {
   useEffect(() => {
     // Trigger a tiny scroll on mount
     window.scrollTo({
@@ -31,8 +37,8 @@ export default function Pricing() {
       <div className="relative z-10 flex flex-col items-center max-w-[1500px] w-full">
         <ComponentTransition className="flex justify-center py-5">
           <SectionHeading
-            title="Early Adopter Pricing"
-            icon={<AiFillSliders size={30} />}
+            title={sectionTitle}
+            icon={icon}
           />
         </ComponentTransition>
 
@@ -41,16 +47,22 @@ export default function Pricing() {
           className="flex justify-center items-center flex-col mb-16"
         >
           <h1 className="text-3xl md:text-5xl py-5 text-center bg-clip-text dark:bg-gradient-to-r from-white from-50% to-[#8f8f8f] bg-text md:w-[80%] text-transparent font-bold">
-            Contact Us For Pricing
+            {mainTitle}
           </h1>
           <p className="text-base md:text-xl text-center text-neutral-500 dark:text-neutral-300 max-w-2xl">
-            Get in touch with our team to discuss custom pricing options
-            tailored to your dealership&apos;s needs.
+            {typeof subtitle === "string"
+              ? subtitle.split('\n').map((line, idx) => (
+                  <React.Fragment key={idx}>
+                    {line}
+                    {idx !== subtitle.split('\n').length - 1 && <br />}
+                  </React.Fragment>
+                ))
+              : subtitle}
           </p>
         </ComponentTransition>
 
         <div className="w-full flex justify-center relative z-20">
-          <PricingCard />
+          <PricingCard pricingItems={pricingItems} />
         </div>
       </div>
     </div>

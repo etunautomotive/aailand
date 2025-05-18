@@ -10,8 +10,8 @@ import PixelCanvas from "@/common/component/element/PixelCanvas";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import Link from "next/link";
 
-// Agent data with detailed information and status
-const agentData = [
+// Default agent data with detailed information and status
+const defaultAgentData = [
   {
     id: "aai-text",
     title: "AAI Text",
@@ -397,7 +397,13 @@ const AgentDetailCard = ({ agent, index }) => {
   );
 };
 
-const AgentsPage = () => {
+const AgentsPage = ({
+  agentData = defaultAgentData,
+  header = "Our Intelligent Agents",
+  subheader = "Our platform features specialized AI agents designed specifically for automotive dealerships. Each agent is trained on industry-specific processes and optimized to handle different aspects of the sales journey, from initial contact to deal closure.",
+  ctaTitle = "Ready to transform your dealership?",
+  ctaSubtitle = "Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
+}) => {
   const { theme, resolvedTheme } = useTheme();
 
   return (
@@ -412,16 +418,13 @@ const AgentsPage = () => {
       {/* Page Header - Added more top padding */}
       <div className="flex justify-center mb-8 sm:mb-16 pt-16 sm:pt-24">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent py-4 px-2">
-          Our Intelligent Agents
+          {header}
         </h1>
       </div>
 
       <div className="text-center mb-8 sm:mb-16 max-w-3xl mx-auto px-2 sm:px-4">
         <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300">
-          Our platform features specialized AI agents designed specifically for
-          automotive dealerships. Each agent is trained on industry-specific
-          processes and optimized to handle different aspects of the sales
-          journey, from initial contact to deal closure.
+          {subheader}
         </p>
       </div>
 
@@ -507,11 +510,10 @@ const AgentsPage = () => {
       <div className="mt-16 sm:mt-32 text-center px-2 sm:px-4">
         <ComponentTransition delay={0.3}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
-            Ready to transform your dealership?
+            {ctaTitle}
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-neutral-700 dark:text-neutral-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-            Our AI agents work together seamlessly to optimize every step of
-            your sales process, from lead generation to deal closure.
+            {ctaSubtitle}
           </p>
           <div className="flex justify-center">
             <div className="w-auto inline-block">
