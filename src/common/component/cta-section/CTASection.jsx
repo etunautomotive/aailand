@@ -76,7 +76,40 @@ const FeatureCard = ({ icon, title, detail, isDarkMode, color = "purple" }) => {
   );
 };
 
-const CTASection = () => {
+const CTASection = ({
+  badgeText = "Limited Time Opportunity",
+  mainHeading = "Ready to Add $300k in Monthly Gross Profit?",
+  subheading = "Join hundreds of dealerships who are already using our proven system to increase their sales and profits.",
+  features = [
+    {
+      icon: <Shield className="w-5 h-5" />,
+      text: "30-Day Money-Back Guarantee",
+      detail: "Risk-free investment in your business growth",
+      color: "purple"
+    },
+    {
+      icon: <Check className="w-5 h-5" />,
+      text: "Used by 237+ Dealerships",
+      detail: "Proven results across North America",
+      color: "purple"
+    },
+    {
+      icon: <Star className="w-5 h-5" />,
+      text: "Lifetime Access",
+      detail: "One-time payment, permanent resources",
+      color: "purple"
+    }
+  ],
+  ctaButtonText = "Book a Strategy Call",
+  testimonial = {
+    quote: "We added $78,451 in gross profit in the first month alone by implementing this system.",
+    author: "Michael Jensen",
+    position: "Sales Director — AutoPrime Motors — Calgary, AB"
+  },
+  contactEmail = "justin@automotiveai.ca",
+  useModalInsteadOfCalendly = false,
+  onCtaClick
+}) => {
   const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme } = useTheme();
   const [form, setForm] = useState({ firstName: '', lastName: '', phone: '' });
@@ -100,33 +133,6 @@ const CTASection = () => {
     // TODO: handle form submission (API call, etc.)
   };
 
-  const features = [
-    {
-      icon: <Shield className="w-5 h-5" />,
-      text: "30-Day Money-Back Guarantee",
-      detail: "Risk-free investment in your business growth",
-      color: "purple"
-    },
-    {
-      icon: <Check className="w-5 h-5" />,
-      text: "Used by 237+ Dealerships",
-      detail: "Proven results across North America",
-      color: "purple"
-    },
-    {
-      icon: <Star className="w-5 h-5" />,
-      text: "Lifetime Access",
-      detail: "One-time payment, permanent resources",
-      color: "purple"
-    }
-  ];
-
-  const testimonial = {
-    quote: "We added $78,451 in gross profit in the first month alone by implementing this system.",
-    author: "Michael Jensen",
-    position: "Sales Director — AutoPrime Motors — Calgary, AB"
-  };
-
   return (
     <section className="w-full py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 max-w-5xl text-center">
@@ -142,20 +148,20 @@ const CTASection = () => {
           >
             <span className="flex items-center justify-center">
               <Sparkles className="w-4 h-4 mr-2" />
-              <span>Limited Time Opportunity</span>
+              <span>{badgeText}</span>
             </span>
           </motion.div>
         </AnimatedCard>
         
         <AnimatedCard delay={0.1}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            Ready to Add <span className={styles.gradientText}>$300k</span> in Monthly Gross Profit?
+            {mainHeading}
           </h2>
         </AnimatedCard>
         
         <AnimatedCard delay={0.2}>
           <p className="text-lg md:text-xl mb-10 mx-auto max-w-3xl text-gray-700 dark:text-gray-300">
-            Join hundreds of dealerships who are already using our proven system to increase their sales and profits.
+            {subheading}
           </p>
         </AnimatedCard>
         
@@ -178,9 +184,9 @@ const CTASection = () => {
           <div className="flex justify-center mb-8 relative z-0">
             <SparkleButton
               className="!text-base !py-4 !px-8 !flex !items-center"
-              onClick={onOpen}
+              onClick={useModalInsteadOfCalendly ? onOpen : onCtaClick}
             >
-              Get Module 1 Free
+              {ctaButtonText}
             </SparkleButton>
           </div>
         </AnimatedCard>
@@ -210,7 +216,7 @@ const CTASection = () => {
         
         <AnimatedCard delay={0.6}>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Questions? Contact us at <a href="mailto:support@automotiveai.ca" className="font-medium underline text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300">justin@automotiveai.ca</a>
+            Questions? Contact us at <a href={`mailto:${contactEmail}`} className="font-medium underline text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300">{contactEmail}</a>
           </p>
         </AnimatedCard>
       </div>
@@ -218,9 +224,9 @@ const CTASection = () => {
         <ModalContent className="modern-modal bg-white text-neutral-900 dark:bg-zinc-900 dark:text-white" hideCloseButton>
           {(onClose) => (
             <>
-              <div className="modal-header text-center">Text Us Now For Module 1 Free!</div>
+              <div className="modal-header text-center">Book a Strategy Call</div>
               <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-4">
-                This free training has already helped hundreds of dealerships boost profit fast. Enter your info, and we'll send you the first module right away. no credit card, no strings attached.
+                Enter your info and our team will reach out to schedule your strategy call. No obligation, just actionable insights for your dealership.
               </p>
               <ModalBody>
                 {submitted ? (

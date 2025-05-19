@@ -201,7 +201,7 @@ const AgentCard = ({ agent, index }) => {
   );
 };
 
-const Agents = () => {
+const Agents = ({ onCtaClick, buttonText = "Book a Strategy Call", useModalInsteadOfCalendly = false }) => {
   return (
     <div className="h-auto max-w-[1500px] px-5 lg:px-10 py-20 relative">
       <div className="absolute w-[100%] h-full z-[-1]">
@@ -236,11 +236,12 @@ const Agents = () => {
       {/* View all agents button */}
       <div className="text-center mt-8">
         <div className="w-auto inline-block">
-          <Link href="/agents" className="inline-block">
-            <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
-              View All Agents in Detail
-            </SparkleButton>
-          </Link>
+          <SparkleButton 
+            className="!text-sm !py-2.5 !px-5 scale-95"
+            onClick={useModalInsteadOfCalendly ? onCtaClick : undefined}
+          >
+            {buttonText}
+          </SparkleButton>
         </div>
       </div>
     </div>

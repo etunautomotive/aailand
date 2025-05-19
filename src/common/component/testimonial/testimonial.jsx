@@ -34,25 +34,53 @@ export default Testimonial;
 
 export const testimonialsData = [
   {
-    quote: "I was skeptical at first, but our dealership has seen a 42% increase in gross profit since implementing these strategies.",
+    quote: "I was skeptical at first, but othe agents turned out to be amazing and now I dont think we'd ever go back to doing things the old way.",
     name: "Robert Chen",
     position: "Owner",
-    dealership: "Pacific Auto Group",
-    location: "Edmonton, AB",
-  },
-  {
-    quote: "We went from $300K to $1.8M in 18 months using this exact training. The phone scripts and mindset modules were game-changers for our team.",
-    name: "Michael Jensen",
-    position: "Sales Director",
-    dealership: "AutoPrime Motors",
-    location: "Calgary, AB",
+    dealership: "West Auto Group",
+    location: "Atlanta, GA",
   },
   {
     quote: "Zero experience, now hitting record numbers. This system works if you work it.",
     name: "Sarah Kim",
     position: "BDC Manager",
     dealership: "Premium Autos",
+    location: "Dallas, TX",
+  },
+  {
+    quote: "AAI helped me break every 30-day record I had. 20 deals, over $30K profit all in one month.",
+    name: "Jaedynn Cutler",
+    position: "Finance Manager",
+    dealership: "Approval Express Canada",
     location: "Vancouver, BC",
+  },
+  {
+    quote: "Most intuitive tool I've used in the industry. Results were instant and setup was seamless.",
+    name: "Kailey Parkin",
+    position: "Sales Agent",
+    dealership: "Approval Express Canada",
+    location: "Vancouver, BC",
+  },
+  {
+    quote: "This cut out hours of follow-up every day. It's efficient, powerful, and backed by an amazing team.",
+    name: "Jacob Rego",
+    position: "Sales Manager",
+    dealership: "Powersport Canada",
+    location: "Edmonton, AB",
+  },
+  {
+    quote: "It's like having a sniper on your sales team — never misses, never gets tired. Total game changer.",
+    name: "Michael Filzwieser",
+    position: "GSM",
+    dealership: "Wutang Auto Group",
+    location: "Vancouver, BC",
+  },
+  {
+    quote: "This is by far the best system we have ever used. We have our lead qualification, logistics, and customer complaints process automated front to back. Our team is more efficient than ever and our customers are happier than ever.",
+    name: "Jack Ni",
+    position: "GM",
+    dealership: "Ride Collective",
+    location: "Vancouver Island, BC",
   },
 ];
 

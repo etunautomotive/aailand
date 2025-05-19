@@ -12,7 +12,7 @@ const dealerAvatars = [
   "https://randomuser.me/api/portraits/men/46.jpg"
 ];
 
-const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, subHeadingBelowTitle }) => {
+const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, dealerCount = 237 }) => {
   const headingVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -73,18 +73,11 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, s
               </h1>
             )}
           </motion.div>
-          {subHeadingBelowTitle && (
-            <div className="text-xl md:text-2xl font-semibold text-center text-neutral-300 dark:text-neutral-200 mt-2 mb-2">
-              {subHeadingBelowTitle}
+          {subheading && (
+            <div className="text-xl md:text-2xl font-semibold text-center text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+              {subheading}
             </div>
           )}
-          <motion.p 
-            className="lg:w-[70%] text-center lg:text-2xl mt-16 mb-10 dark:text-neutral-300 text-neutral-700"
-            variants={contentVariants}
-            custom={1}
-          >
-            {subheading}
-          </motion.p>
           <div className="absolute w-[100%] top-[20%] h-[600px] z-[-1]">
             <GridSparkles />
             <div className="bg-gradient-to-b from-white dark:from-black from-0% via-white/80 dark:via-black/80 to-transparent absolute inset-0"></div>
@@ -97,7 +90,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, s
             custom={2}
           >
             {aboveVideoText && (
-              <div className="max-w-4xl mx-auto w-full text-sm md:text-base font-normal text-center text-neutral-300 dark:text-neutral-200 mb-1 mt-1">
+              <div className="max-w-4xl mx-auto w-full text-sm md:text-base font-normal text-center text-neutral-500 dark:text-neutral-200 mb-1 mt-1">
                 {aboveVideoText}
               </div>
             )}
@@ -116,7 +109,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, s
             )}
             {/* Social Proof Bar - use new component */}
             <div className="mt-4">
-              <SocialProof />
+              <SocialProof dealerCount={dealerCount} />
             </div>
           </motion.div>
         </div>

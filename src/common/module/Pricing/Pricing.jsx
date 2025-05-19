@@ -10,7 +10,14 @@ export default function Pricing({
   mainTitle = "Contact Us For Pricing",
   subtitle = "Get in touch with our team to discuss custom pricing options tailored to your dealership's needs.",
   icon = <AiFillSliders size={30} />,
-  pricingItems
+  pricingItems,
+  badgeText,
+  offerTitle,
+  offerSubtitle,
+  features,
+  buttonText = "Book a Strategy Call",
+  useModalInsteadOfCalendly = false,
+  onCtaClick
 }) {
   useEffect(() => {
     // Trigger a tiny scroll on mount
@@ -62,7 +69,16 @@ export default function Pricing({
         </ComponentTransition>
 
         <div className="w-full flex justify-center relative z-20">
-          <PricingCard pricingItems={pricingItems} />
+          <PricingCard
+            pricingItems={pricingItems}
+            badgeText={badgeText}
+            offerTitle={offerTitle}
+            offerSubtitle={offerSubtitle}
+            features={features}
+            buttonText={buttonText}
+            useModalInsteadOfCalendly={useModalInsteadOfCalendly}
+            onCtaClick={onCtaClick}
+          />
         </div>
       </div>
     </div>

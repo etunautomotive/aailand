@@ -6,7 +6,7 @@ import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import CalendlyWidget from "@/common/component/calendly/CalendlyWidget";
 import Link from "next/link";
 
-export default function PricingCard({ pricingItems }) {
+export default function PricingCard({ pricingItems, badgeText, offerTitle, offerSubtitle, features, buttonText = "Book a Strategy Call", useModalInsteadOfCalendly = false, onCtaClick }) {
   const [showBooking, setShowBooking] = React.useState(false);
 
   const items = pricingItems || DefaultPricingItem;
@@ -30,19 +30,19 @@ export default function PricingCard({ pricingItems }) {
               "border-black/20 dark:border-white/20 shadow-2xl"
           )}
         >
-          {item.recommended && (
+          {(badgeText || item.recommended) && (
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-violet-500 text-white text-sm font-medium px-8 py-2 rounded-full shadow-lg">
-              {item.recommended}
+              {badgeText || item.recommended}
             </div>
           )}
 
           <div className="space-y-10">
             <div className="text-center space-y-3">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
-                {item.plan}
+                {offerTitle || item.plan}
               </h1>
               <p className="text-base text-neutral-500 dark:text-neutral-400">
-                {item.desc}
+                {offerSubtitle || item.desc}
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function PricingCard({ pricingItems }) {
             </div>
 
             <ul className="space-y-5">
-              {Object.values(item.benefit).map((benefit, i) => (
+              {(features || Object.values(item.benefit)).map((benefit, i) => (
                 <li key={i} className="flex items-start gap-4 text-base">
                   <FaCheck className="h-5 w-5 flex-shrink-0 text-blue-500 dark:text-blue-400 mt-1" />
                   <span className="text-neutral-700 dark:text-neutral-300">
@@ -70,11 +70,17 @@ export default function PricingCard({ pricingItems }) {
           </div>
 
           <div className="mt-10">
-            <Link href="/demo">
-              <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center">
-                Get Early Access
+            {useModalInsteadOfCalendly ? (
+              <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center" onClick={onCtaClick}>
+                {buttonText}
               </SparkleButton>
-            </Link>
+            ) : (
+              <Link href="/demo">
+                <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center">
+                  {buttonText}
+                </SparkleButton>
+              </Link>
+            )}
           </div>
         </div>
       ))}

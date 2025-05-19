@@ -7,11 +7,11 @@ const dealerAvatars = [
   "https://randomuser.me/api/portraits/men/46.jpg"
 ];
 
-const SocialProof = () => (
+const SocialProof = ({ dealerCount = 237, avatars = dealerAvatars }) => (
   <div className="flex items-center bg-white dark:bg-black/80 rounded-full px-6 py-3 shadow-md gap-6">
     {/* Avatars */}
     <div className="flex -space-x-3">
-      {dealerAvatars.map((src, idx) => (
+      {avatars.map((src, idx) => (
         <img
           key={idx}
           src={src}
@@ -35,7 +35,9 @@ const SocialProof = () => (
       ))}
     </div>
     {/* Text */}
-    <span className="ml-4 font-medium text-gray-800 dark:text-gray-200 text-lg whitespace-nowrap">Used by 237 Dealers</span>
+    <span className="ml-4 font-medium text-gray-800 dark:text-gray-200 text-lg whitespace-nowrap">
+      Used by {dealerCount} Dealers
+    </span>
   </div>
 );
 

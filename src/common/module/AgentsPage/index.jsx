@@ -337,11 +337,11 @@ const AgentDetailCard = ({ agent, index }) => {
             </p>
             <div className="flex justify-center">
               <div className="w-auto inline-block">
-                <Link href="/demo">
+                <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
                   <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
                     Learn About Integration
                   </SparkleButton>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -360,11 +360,11 @@ const AgentDetailCard = ({ agent, index }) => {
             </p>
             <div className="flex justify-center">
               <div className="w-auto inline-block">
-                <Link href="/demo">
+                <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
                   <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
                     Join Early Access
                   </SparkleButton>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -383,11 +383,11 @@ const AgentDetailCard = ({ agent, index }) => {
             </p>
             <div className="flex justify-center">
               <div className="w-auto inline-block">
-                <Link href="/demo">
+                <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
                   <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
                     Get Notified
                   </SparkleButton>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -517,11 +517,11 @@ const AgentsPage = ({
           </p>
           <div className="flex justify-center">
             <div className="w-auto inline-block">
-              <Link href="/demo">
+              <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
                 <SparkleButton className="!text-sm !py-2.5 !px-5 scale-95">
                   Schedule a Demo
                 </SparkleButton>
-              </Link>
+              </a>
             </div>
           </div>
         </ComponentTransition>
