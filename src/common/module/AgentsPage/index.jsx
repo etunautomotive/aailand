@@ -416,7 +416,7 @@ const AgentsPage = ({
       </div>
 
       {/* Page Header - Added more top padding */}
-      <div className="flex justify-center mb-8 sm:mb-16 pt-16 sm:pt-24">
+      <div className="flex justify-center mb-8 sm:mb-16 pt-4 sm:pt-8">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent py-4 px-2">
           {header}
         </h1>

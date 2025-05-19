@@ -109,9 +109,12 @@ export default function AAILanding() {
     <div className="flex justify-center w-full">
       <div className="w-full max-w-[1500px] mx-auto">
         <VslHero
-          heading="Run Your Dealership On Auto Pilot"
-          subheading="Discover the power of AutomotiveAI's 6 Pillars of Automation the complete solution for modern dealerships looking to scale without the stress."
+          heading={
+            <>Welcome to the operating system for the modern dealer.</>
+          }
+          subHeadingBelowTitle="Lean team. Smart tech. More Revenue. Massive profits."
           videoId="TECDj4JUx7o"
+          aboveVideoText="Watch: How Dealers Are using Automotive AI's 6 pillars of automation to Stop Bleeding Profit in 2025"
           actionButton={
             <>
               <SparkleButton
@@ -231,7 +234,7 @@ export default function AAILanding() {
             {
               icon: <PhoneCall className="text-purple-600 w-8 h-8" />, // Internal Staff Optimization
               title: "Internal Staff Optimization",
-              description: "Let AI handle inbound calls, outbound follow-up, appointment booking, and routing — freeing your best closers to focus.",
+              description: "Let AI handle inbound leads, outbound follow-up, appointment booking, and routing — freeing your best closers to focus.",
             },
             {
               icon: <Target className="text-purple-600 w-8 h-8" />, // Fixed Operations
@@ -241,24 +244,119 @@ export default function AAILanding() {
           ]}
         />
         {/* Inserted Get Module 1 Free button between WhatYoullLearn and CurriculumSection */}
-        <div className="flex justify-center my-10">
-          <SparkleButton
-            className="!text-base !py-4 !px-8 !flex !items-center"
-            onClick={onOpen}
-          >
-            Get Module 1 Free
-          </SparkleButton>
+        <div className="flex justify-center my-1">
+     
         </div>
-        <AgentsPage />
+        <AgentsPage
+          header="Meet Your New Co-Pilots, Built For Scale."
+          subheader="Our platform features specialized AI agents designed specifically for automotive dealerships. Each agent is trained on industry-specific processes and optimized to handle different aspects of the sales journey, from initial contact to deal closure."
+          agentData={[
+            {
+              id: "aai-text",
+              title: "AAI Text",
+              content: "AAI Text is well-trained on every process your dealership handles through text communication. From managing cold contacts to collecting trade-in pictures and documents, it leverages our foundation to ensure every step is seamless and efficient, handling everything from initial contact to credit pull authorization.",
+              status: "stable",
+              statusText: "High Stability Across Early Adopters",
+              features: [
+                "Automated Text Communication",
+                "Document Collection",
+                "Credit Authorization",
+                "Trade-in Picture Collection",
+                "Cold Contact Management",
+                "Seamless Process Integration",
+              ],
+              benefits: [
+                "Reduces response time significantly",
+                "Increases lead conversion",
+                "Automates document collection",
+                "24/7 customer engagement",
+              ],
+              icon: "/agent-text-icon.svg",
+              color: "green",
+            },
+            {
+              id: "aai-call",
+              title: "AAI Call",
+              content: "AAI Call is your calling co-pilot, serving as an invaluable helper in voice communications. It meticulously tracks calls, schedules follow-ups, and runs second confirmations to ensure settlement accuracy. Every conversation is monitored to maintain perfect information flow throughout the process.",
+              status: "development",
+              statusText: "In Development - Coming Soon",
+              features: [
+                "Call Tracking",
+                "Follow-up Scheduling",
+                "Settlement Confirmation",
+                "Conversation Monitoring",
+                "Voice Communication Assistant",
+                "Information Flow Management",
+              ],
+              benefits: [
+                "Never miss a follow-up call",
+                "Ensures accurate settlement details",
+                "Provides real-time conversation insights",
+                "Reduces miscommunication",
+              ],
+              icon: "/agent-call-icon.svg",
+              color: "purple",
+            },
+            {
+              id: "aai-finance",
+              title: "AAI Finance",
+              content: "AAI Finance activates once AAI Text collects the necessary information for credit and lender submissions. Drawing from experience with hundreds of thousands of deals, it operates like a seasoned finance manager who knows every deal across your team and optimizes each submission.",
+              status: "development",
+              statusText: "In Development - Coming Soon",
+              features: [
+                "Credit Analysis",
+                "Lender Submission",
+                "Deal Optimization",
+                "Finance Manager Expertise",
+                "Cross-team Deal Awareness",
+                "Submission Optimization",
+              ],
+              benefits: [
+                "Increases approval rates",
+                "Reduces submission errors",
+                "Optimizes terms for both dealer and customer",
+                "Accelerates the financing process",
+              ],
+              icon: "/agent-finance-icon.svg",
+              color: "red",
+            },
+            {
+              id: "aai-close",
+              title: "AAI Close",
+              content: "AAI Close builds the ultimate strategy for every deal by analyzing credit information from AAI Finance. It generates tailored scripts for salespeople, enabling them to approach each conversation with the expertise and insights of seasoned finance managers for optimal outcomes.",
+              status: "planning",
+              statusText: "Wrapping Everything Together",
+              features: [
+                "Deal Strategy",
+                "Tailored Scripts",
+                "Finance Expertise",
+                "Credit Analysis Integration",
+                "Conversation Strategy",
+                "Outcome Optimization",
+              ],
+              benefits: [
+                "Increases closing rate",
+                "Provides personalized negotiation strategies",
+                "Equips salespeople with finance expertise",
+                "Creates consistent closing experiences",
+              ],
+              icon: "/agent-close-icon.svg",
+              color: "yellow",
+            },
+          ]}
+          ctaTitle="Ready to transform your dealership?"
+          ctaSubtitle="Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
+        />
         {/* Inserted Get Module 1 Free button between CurriculumSection and FAQ */}
         <div className="flex justify-center my-10">
-          <SparkleButton
-            className="!text-base !py-4 !px-8 !flex !items-center"
-            onClick={onOpen}
-          >
-            Get Module 1 Free
-          </SparkleButton>
+   
         </div>
+        {/* Pricing Section */}
+        <Pricing 
+          sectionTitle="AutomotiveAI Platform Pricing"
+          mainTitle="Monthly pricing, no long-term commitment required"
+          subtitle={"We believe in earning your business every single month.\nNo contracts. No pressure. Just results."}
+        />
         {/* FAQ Section */}
         <div className="w-full flex justify-center mt-16">
           <FAQ 
@@ -266,7 +364,7 @@ export default function AAILanding() {
             faqs={[
               {
                 question: "What does Automotive AI actually do?",
-                answer: "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to full deal structuring, the system streamlines every step—while giving you full visibility into conversations, applications, and progress."
+                answer: "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to credit submissions, the system streamlines every step—while giving you full visibility into conversations, applications, and progress."
               },
               {
                 question: "Can it really talk to leads like a human?",
@@ -290,7 +388,7 @@ export default function AAILanding() {
               },
               {
                 question: "How is support handled?",
-                answer: "You're never left on your own. You'll have access to video tutorials, a private support chat, and ongoing optimization sessions. Whether you want help improving your scripts, adjusting compliance settings, or reviewing performance, our team is here to make sure the system continues to evolve with your goals."
+                answer: "You're never left on your own. You'll have access to video tutorials, a private support chat, and ongoing optimization sessions. Whether you want help improving your agents, adjusting compliance settings, or reviewing performance, our team is here to make sure the system continues to evolve with your goals."
               },
               {
                 question: "Is there a long-term commitment?",
@@ -299,12 +397,6 @@ export default function AAILanding() {
             ]}
           />
         </div>
-        {/* Pricing Section */}
-        <Pricing 
-          sectionTitle="AutomotiveAI Platform Pricing"
-          mainTitle="Monthly pricing, no long-term commitment required"
-          subtitle={"We believe in earning your business every single month.\nNo contracts. No pressure. Just results."}
-        />
         {/* CTA Section */}
         <CTASection />
       </div>

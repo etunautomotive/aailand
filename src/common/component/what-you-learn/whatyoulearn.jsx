@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { PhoneCall, Brain, Target, TrendingUp, Bot, FileText } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import PurpleHighlight from '@/common/component/Herohighlight/hero-highlight';
+import { GlowingEffect } from '@/common/component/ui/glowing-effect';
 
 // Default features for fallback
 const defaultFeatures = [
@@ -113,13 +114,13 @@ const WhatYoullLearn = ({ title, features, subtitle }) => {
 
   return (
     <motion.section 
-      className="container mx-auto py-32 text-center relative z-12 my-16 rounded-lg bg-white dark:bg-black shadow-lg"
+      className="container mx-auto py-16 text-center relative z-12 my-16 rounded-lg bg-white dark:bg-black shadow-lg"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
       variants={containerVariants}
     >
-      <div className="text-center max-w-5xl mx-auto py-6 overflow-visible">
+      <div className="text-center max-w-5xl mx-auto py-3 overflow-visible">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent leading-[1.4] pb-2 overflow-visible"
           variants={titleVariants}
@@ -138,28 +139,30 @@ const WhatYoullLearn = ({ title, features, subtitle }) => {
         )}
         <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
           {(features || defaultFeatures).map((feature, idx) => (
-            <motion.div
-              key={idx}
-              ref={cardRefs[idx]}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inViews[idx] ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="card-white-border flex items-start p-6 shadow-md hover:shadow-lg transition"
-              style={{ borderWidth: '1px' }}
-              whileHover="hover"
-            >
-              <motion.div 
-                className="mr-4 flex-shrink-0"
-                variants={iconVariants}
+            <div key={idx} className="relative rounded-xl min-h-[160px] flex">
+              <GlowingEffect glow className="z-0" disabled={false} borderWidth={3} />
+              <motion.div
+                ref={cardRefs[idx]}
+                initial={{ opacity: 0, y: 50 }}
+                animate={inViews[idx] ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="card-white-border flex items-start p-6 shadow-md hover:shadow-lg transition relative z-10 w-full h-full rounded-xl"
+                style={{ borderWidth: '1px' }}
                 whileHover="hover"
               >
-                {feature.icon}
+                <motion.div 
+                  className="mr-4 flex-shrink-0"
+                  variants={iconVariants}
+                  whileHover="hover"
+                >
+                  {feature.icon}
+                </motion.div>
+                <div className="text-left">
+                  <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">{feature.title}</h3>
+                  <p className="text-gray-700 dark:text-gray-300">{feature.description}</p>
+                </div>
               </motion.div>
-              <div className="text-left">
-                <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">{feature.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300">{feature.description}</p>
-              </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

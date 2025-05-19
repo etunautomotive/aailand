@@ -12,7 +12,7 @@ const dealerAvatars = [
   "https://randomuser.me/api/portraits/men/46.jpg"
 ];
 
-const VslHero = ({ heading, subheading, videoId, actionButton }) => {
+const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, subHeadingBelowTitle }) => {
   const headingVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -52,16 +52,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton }) => {
   };
 
   // Helper to highlight the target phrase
-  const renderHeading = (heading) => {
-    const target = "Auto Pilot";
-    const idx = heading.toLowerCase().indexOf(target.toLowerCase());
-    if (idx === -1) return heading;
-    return <>
-      {heading.slice(0, idx)}
-      <PurpleHighlight>{heading.slice(idx, idx + target.length)}</PurpleHighlight>
-      {heading.slice(idx + target.length)}
-    </>;
-  };
+  const renderHeading = (heading) => heading;
 
   return (
     <motion.div 
@@ -77,11 +68,16 @@ const VslHero = ({ heading, subheading, videoId, actionButton }) => {
             variants={headingVariants}
           >
             {heading && (
-              <h1 className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2 px-6 mb-2">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2 px-6 mb-2">
                 {renderHeading(heading)}
               </h1>
             )}
           </motion.div>
+          {subHeadingBelowTitle && (
+            <div className="text-xl md:text-2xl font-semibold text-center text-neutral-300 dark:text-neutral-200 mt-2 mb-2">
+              {subHeadingBelowTitle}
+            </div>
+          )}
           <motion.p 
             className="lg:w-[70%] text-center lg:text-2xl mt-16 mb-10 dark:text-neutral-300 text-neutral-700"
             variants={contentVariants}
@@ -100,6 +96,11 @@ const VslHero = ({ heading, subheading, videoId, actionButton }) => {
             variants={contentVariants}
             custom={2}
           >
+            {aboveVideoText && (
+              <div className="max-w-4xl mx-auto w-full text-sm md:text-base font-normal text-center text-neutral-300 dark:text-neutral-200 mb-1 mt-1">
+                {aboveVideoText}
+              </div>
+            )}
             <div className="w-full max-w-4xl mb-8">
               <VideoPlayer videoId={videoId} />
             </div>
