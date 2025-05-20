@@ -92,30 +92,31 @@ const CTASection = ({
       icon: <Shield className="w-5 h-5" />,
       text: "30-Day Money-Back Guarantee",
       detail: "Risk-free investment in your business growth",
-      color: "purple"
+      color: "purple",
     },
     {
       icon: <Check className="w-5 h-5" />,
       text: "Used by 237+ Dealerships",
       detail: "Proven results across North America",
-      color: "purple"
+      color: "purple",
     },
     {
       icon: <Star className="w-5 h-5" />,
       text: "Lifetime Access",
       detail: "One-time payment, permanent resources",
-      color: "purple"
-    }
+      color: "purple",
+    },
   ],
   ctaButtonText = "Book a Strategy Call",
   testimonial = {
-    quote: "We added $78,451 in gross profit in the first month alone by implementing this system.",
+    quote:
+      "We added $78,451 in gross profit in the first month alone by implementing this system.",
     author: "Michael Jensen",
-    position: "Sales Director — AutoPrime Motors — Calgary, AB"
+    position: "Sales Director — AutoPrime Motors — Calgary, AB",
   },
   contactEmail = "justin@automotiveai.ca",
   useModalInsteadOfCalendly = false,
-  onCtaClick
+  onCtaClick,
 }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, resolvedTheme } = useTheme();
@@ -297,33 +298,8 @@ const CTASection = ({
     }
   };
 
-  const features = [
-    {
-      icon: <Shield className="w-5 h-5" />,
-      text: "30-Day Money-Back Guarantee",
-      detail: "Risk-free investment in your business growth",
-      color: "purple",
-    },
-    {
-      icon: <Check className="w-5 h-5" />,
-      text: "Used by 237+ Dealerships",
-      detail: "Proven results across North America",
-      color: "purple",
-    },
-    {
-      icon: <Star className="w-5 h-5" />,
-      text: "Lifetime Access",
-      detail: "One-time payment, permanent resources",
-      color: "purple",
-    },
-  ];
-
-  const testimonial = {
-    quote:
-      "We added $78,451 in gross profit in the first month alone by implementing this system.",
-    author: "Michael Jensen",
-    position: "Sales Director — AutoPrime Motors — Calgary, AB",
-  };
+  // Default feature and testimonial values can be used directly from props
+  // since they are already provided in the parameters
 
   return (
     <section className="w-full py-16 relative overflow-hidden">
