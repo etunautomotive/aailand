@@ -22,7 +22,7 @@ const toggleTheme = () =>
     <button
     onClick={toggleTheme}
     aria-label='Switch'
-    className='flex items-center gap-2 py-2 px-2 w-auto dark:bg-neutral-100 bg-neutral-900 rounded-full  text-neutral-100 dark:text-neutral-900 '
+    className='flex items-center gap-2 py-2 px-2 w-auto dark:bg-neutral-100 bg-neutral-900 rounded-full text-neutral-100 dark:text-neutral-900 relative z-[60]'
   >
     {resolvedTheme === 'light' ? (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

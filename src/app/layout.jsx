@@ -1,6 +1,6 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "../common/style/globals.css";
-import Navbar from "@/common/component/navbar/Navbar";
+import NavbarWithVariant from "@/common/component/navbar/NavbarWithVariant";
 import { Providers } from "@/common/component/element/Providers";
 import Footer from "@/common/Footer";
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <div className="flex justify-center items-center w-full">
-            <Navbar />
+            <NavbarWithVariant />
           </div>
           <main className="flex-grow w-full overflow-x-hidden">{children}</main>
           <Footer />
