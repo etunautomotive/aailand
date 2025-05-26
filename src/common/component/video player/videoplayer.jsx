@@ -12,7 +12,7 @@ const VideoPlayer = ({ videoId, className = "" }) => {
     <div className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl ${className}`}>
       {!isPlaying ? (
         <>
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-[100]">
             <p className="text-4xl font-semibold text-white/90 drop-shadow-md mb-8">
               Click to Watch
             </p>
@@ -25,7 +25,7 @@ const VideoPlayer = ({ videoId, className = "" }) => {
             </button>
           </div>
           <div 
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center z-[90]"
             style={{ 
               backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
               opacity: 0.8
@@ -41,7 +41,7 @@ const VideoPlayer = ({ videoId, className = "" }) => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute top-0 left-0 w-full h-full z-[100]"
         ></iframe>
       )}
     </div>

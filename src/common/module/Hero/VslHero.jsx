@@ -99,7 +99,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
             </div>
             {actionButton && (
               <motion.div 
-                className="mt-6 mb-4 relative z-50"
+                className="mt-6 mb-4 relative z-[10]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
