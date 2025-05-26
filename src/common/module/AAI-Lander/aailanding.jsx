@@ -694,7 +694,7 @@ export default function AAILanding() {
             </>
           }
           subheading="Lean team. Smart tech. More Revenue. Massive profits."
-          videoId="TECDj4JUx7o"
+          videoId="wamN2O6Zo2U"
           aboveVideoText="Watch: How Dealers Are using Automotive AI's 6 pillars of automation to Stop Bleeding Profit in 2025"
           actionButton={
             <>
