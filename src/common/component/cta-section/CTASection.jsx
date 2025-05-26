@@ -15,6 +15,7 @@ import {
   Button,
   useDisclosure,
 } from "@heroui/react";
+import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
 
 const AnimatedCard = ({ children, delay = 0 }) => {
   return (
@@ -229,8 +230,8 @@ const CTASection = ({
 
       // Prepare payload - using same values as main form
       const payload = {
-        dealershipId: "677cfadeab5b29fd94679b71", // hardcoded dealership ID
-        userId: "aneeshbhat3719@gmail.com", // hardcoded user ID
+        dealershipId: DEALERSHIP_ID,
+        userId: USER_ID,
         firstName: form.firstName,
         lastName: form.lastName,
         phoneNumber: formattedPhone,
@@ -364,7 +365,7 @@ const CTASection = ({
         <AnimatedCard delay={0.5}>
           <div className="text-center mb-10">
             <blockquote className="text-xl font-medium mb-3 italic">
-              "{testimonial.quote}"
+              &quot;{testimonial.quote}&quot;
             </blockquote>
             <div className="flex items-center justify-center">
               <div className="h-10 w-10 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-500 mr-3">
@@ -412,14 +413,14 @@ const CTASection = ({
                 </h2>
                 <p className="text-sm text-gray-500 text-center my-3">
                   This free training has already helped hundreds of dealerships
-                  boost profit fast. Enter your info, and we'll send you the
+                  boost profit fast. Enter your info, and we&apos;ll send you the
                   first module right away. no credit card, no strings attached.
                 </p>
               </div>
               <ModalBody className="px-7 pt-1 pb-4">
                 {submitted ? (
                   <div className="text-center font-semibold py-6 text-green-500">
-                    Thank you! We'll be in touch soon.
+                    Thank you! We&apos;ll be in touch soon.
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-3">

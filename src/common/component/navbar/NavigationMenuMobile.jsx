@@ -47,11 +47,18 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
     },
   };
   const pathname = usePathname();
-  
+
   // Modal state for sales variant
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '' });
+  const [form, setForm] = useState({ firstName: "", lastName: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  // Handle opening modal for sales variant - moved outside conditional
+  React.useEffect(() => {
+    if (variant === "sales" && open) {
+      onOpen();
+    }
+  }, [open, onOpen, variant]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -65,10 +72,6 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
 
   // If it's the sales variant, show modal with form
   if (variant === "sales") {
-    React.useEffect(() => {
-      if (open) onOpen();
-    }, [open, onOpen]);
-
     return (
       <div>
         <motion.div
@@ -81,7 +84,7 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
             <Button color="primary" onPress={onOpen} className="text-xl">
               Schedule a Demo
             </Button>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissible>
               <ModalContent>
                 {(onClose) => (
                   <>
@@ -91,10 +94,13 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
                     <ModalBody>
                       {submitted ? (
                         <div className="text-center text-green-600 font-semibold py-6">
-                          Thank you! We'll be in touch soon.
+                          Thank you! We&apos;ll be in touch soon.
                         </div>
                       ) : (
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <form
+                          onSubmit={handleSubmit}
+                          className="flex flex-col gap-4"
+                        >
                           <input
                             type="text"
                             name="firstName"
@@ -122,7 +128,11 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
                             required
                             className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
-                          <Button color="primary" type="submit" className="w-full mt-2">
+                          <Button
+                            color="primary"
+                            type="submit"
+                            className="w-full mt-2"
+                          >
                             Submit
                           </Button>
                         </form>
@@ -142,7 +152,7 @@ const NavigationMenuMobile = ({ open, close, variant = "default" }) => {
       </div>
     );
   }
-  
+
   return (
     <div>
       <motion.div

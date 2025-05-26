@@ -39,6 +39,7 @@ import {
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import Pricing from "@/common/module/Pricing/Pricing";
 import { Timeline } from "@/components/ui/timeline";
+import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
 
 // Animation variants for SalesLanding page (outside component for performance)
 const staggerContainer = {
@@ -115,7 +116,7 @@ function FreeModuleModal({
             <ModalBody className="px-7 pt-1 pb-4">
               {submitted ? (
                 <div className="text-center font-semibold py-6 text-green-500">
-                  Thank you! We'll be in touch soon.
+                  Thank you! We&apos;ll be in touch soon.
                 </div>
               ) : (
                 <form onSubmit={onSubmit} className="flex flex-col gap-3">
@@ -361,8 +362,8 @@ export default function AAILanding() {
 
         // Prepare payload
         const payload = {
-          dealershipId: "677cfadeab5b29fd94679b71", // hardcoded dealership ID
-          userId: "aneeshbhat3719@gmail.com", // hardcoded user ID
+          dealershipId: DEALERSHIP_ID,
+          userId: USER_ID,
           firstName: form.firstName,
           lastName: form.lastName,
           phoneNumber: formattedPhone,
@@ -542,18 +543,18 @@ export default function AAILanding() {
         content: (
           <>
             <p>
-              We start by mapping out your dealership's ideal sales process and
-              defining the outcomes you want to achieve — whether it's more
-              approvals, faster speed to contact, or closing higher-value deals.
-              From there, we break your lead flow into key stages and assign
-              specialized AI agents to each one.
+              We start by mapping out your dealership&apos;s ideal sales process
+              and defining the outcomes you want to achieve — whether it&apos;s
+              more approvals, faster speed to contact, or closing higher-value
+              deals. From there, we break your lead flow into key stages and
+              assign specialized AI agents to each one.
             </p>
             <p>
               Each agent is designed with a distinct personality, purpose, and
               script logic that mirrors your best-performing reps from tone of
               voice to how objections are handled. This gives you a masterfully
               engineered, repeatable system that runs 24/7, and never needs
-              retraining. Once it's live, your team can plug in and scale
+              retraining. Once it&apos;s live, your team can plug in and scale
               without missing a beat.
             </p>
           </>
@@ -574,12 +575,12 @@ export default function AAILanding() {
         title: "Step 3: Activate Your AI Workforce",
         content: (
           <p>
-            With your system fully mapped and agents trained, it's time to put
-            them to work. Your AI agents immediately begin handling live leads
-            engaging, qualifying, following up, and pushing deals forward around
-            the clock. As they work, we monitor real-time performance, fine-tune
-            workflows, and optimize messaging to drive stronger results with
-            every conversation.
+            With your system fully mapped and agents trained, it&apos;s time to
+            put them to work. Your AI agents immediately begin handling live
+            leads engaging, qualifying, following up, and pushing deals forward
+            around the clock. As they work, we monitor real-time performance,
+            fine-tune workflows, and optimize messaging to drive stronger
+            results with every conversation.
           </p>
         ),
       },
@@ -589,12 +590,12 @@ export default function AAILanding() {
           <p>
             Once your agents are in motion, we shift focus to performance tuning
             and expansion. We analyze response rates, conversion data, and
-            workflow efficiency to identify what's working best. From there, we
-            double down optimizing scripts, expanding to new lead sources, and
-            cloning top-performing agents across more campaigns. You'll also get
-            direct access to our strategy team through a private WhatsApp group
-            and scheduled check-ins, ensuring you're always a step ahead as the
-            system scales with your dealership.
+            workflow efficiency to identify what&apos;s working best. From
+            there, we double down optimizing scripts, expanding to new lead
+            sources, and cloning top-performing agents across more campaigns.
+            You&apos;ll also get direct access to our strategy team through a
+            private WhatsApp group and scheduled check-ins, ensuring you&apos;re
+            always a step ahead as the system scales with your dealership.
           </p>
         ),
       },

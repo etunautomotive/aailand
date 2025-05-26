@@ -24,10 +24,7 @@ import {
   Button,
   useDisclosure,
 } from "@heroui/react";
-
-// Constants for form submission
-const DEALERSHIP_ID = "677cfadeab5b29fd94679b71"; // hardcoded dealership ID
-const USER_ID = "aneeshbhat3719@gmail.com"; // hardcoded user ID
+import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
 
 const playbookFeatures = [
   {
@@ -339,14 +336,14 @@ export default function SalesLanding() {
                         <p className="text-sm text-gray-500 text-center my-3">
                           This free training has already helped hundreds of
                           dealerships boost profit fast. Enter your info, and
-                          we'll send you the first module right away. no credit
-                          card, no strings attached.
+                          we&apos;ll send you the first module right away. no
+                          credit card, no strings attached.
                         </p>
                       </div>
                       <ModalBody className="px-7 pt-1 pb-4">
                         {submitted ? (
                           <div className="text-center font-semibold py-6 text-green-500">
-                            Thank you! We'll be in touch soon.
+                            Thank you! We&apos;ll be in touch soon.
                           </div>
                         ) : (
                           <form

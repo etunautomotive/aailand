@@ -130,7 +130,7 @@ const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
               <ModalBody>
                 {submitted ? (
                   <div className="text-center text-green-600 font-semibold py-6">
-                    Thank you! We'll be in touch soon.
+                    Thank you! We&apos;ll be in touch soon.
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">
