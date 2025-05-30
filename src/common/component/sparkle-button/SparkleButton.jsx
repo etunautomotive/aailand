@@ -32,7 +32,11 @@ const SparkleButton = ({ onClick, children, className = "" }) => {
 
   return (
     <div className={styles["sparkle-button"]}>
-      <button onClick={onClick} className={`${styles.button} ${className}`}>
+      <button
+        onClick={onClick}
+        className={`${styles.button} ${className}`}
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <span className={styles.spark}></span>
         <span className={styles.backdrop}></span>
         <svg

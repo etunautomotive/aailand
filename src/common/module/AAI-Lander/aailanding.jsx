@@ -2,20 +2,13 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import VslHero from "@/common/module/Hero/VslHero";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
-import Testimonial, {
-  testimonialsData,
-  testimonialsMovingCardsData,
-} from "@/common/component/testimonial/testimonial";
+import { testimonialsMovingCardsData } from "@/common/component/testimonial/testimonial";
 import { InfiniteMovingCards } from "@/common/component/testimonial/infinitemovingcards";
 import WhatYoullLearn from "@/common/component/what-you-learn/whatyoulearn.jsx";
-import ModuleCard from "@/common/component/module-card/module-card";
-import { GlowingEffect } from "@/common/component/module-card/glowing-effect";
-import { courseData } from "@/common/component/module-card/coursedata";
 import { motion } from "framer-motion";
 import FAQ from "@/common/component/faq/faq";
 import CTASection from "@/common/component/cta-section/CTASection";
 import AgentsPage from "@/common/module/AgentsPage";
-import Agents from "@/common/module/Agents";
 import {
   Modal,
   ModalContent,
@@ -700,7 +693,7 @@ export default function AAILanding() {
           actionButton={
             <>
               <SparkleButton
-                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
+                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200"
                 onClick={onOpen}
               >
                 Book a Strategy Call
