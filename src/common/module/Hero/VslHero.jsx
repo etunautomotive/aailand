@@ -8,7 +8,14 @@ import { AlertTriangle } from "lucide-react";
 
 
 
-const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, dealerCount = 237 }) => {
+const VslHero = ({
+  heading,
+  subheading,
+  videoId,
+  actionButton,
+  aboveVideoText,
+  dealerCount = 237,
+}) => {
   const headingVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -17,8 +24,8 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
       transition: {
         duration: 0.8,
         ease: [0.22, 1, 0.36, 1], // Apple-like cubic bezier curve
-      }
-    }
+      },
+    },
   };
 
   const contentVariants = {
@@ -30,8 +37,8 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
         duration: 0.7,
         delay: custom * 0.2,
         ease: [0.22, 1, 0.36, 1],
-      }
-    })
+      },
+    }),
   };
 
   // Container animations that control sequence
@@ -42,9 +49,9 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.15,
-        when: "beforeChildren"
-      }
-    }
+        when: "beforeChildren",
+      },
+    },
   };
 
   // Helper to highlight the target phrase
@@ -79,8 +86,8 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
             <div className="bg-gradient-to-l from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
             <div className="bg-gradient-to-r from-white dark:from-black from-0% to-transparent to-20% absolute inset-0"></div>
           </div>
-          <motion.div 
-            className="w-full flex flex-col items-center justify-center mb-10 z-20" 
+          <motion.div
+            className="w-full flex flex-col items-center justify-center mb-10 z-20"
             variants={contentVariants}
             custom={2}
           >
@@ -94,7 +101,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
                 </div>
               </div>
             )}
-            <div className="w-full max-w-4xl mb-8">
+            <div className="w-full max-w-4xl mb-8 md:mb-12 relative z-10">
               <VideoPlayer videoId={videoId} />
             </div>
             {actionButton && (
@@ -115,4 +122,4 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
   );
 };
 
-export default VslHero; 
+export default VslHero;
