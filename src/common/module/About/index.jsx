@@ -38,7 +38,7 @@ const About = () => {
     {
       name: "Morgan Kennedy",
       role: "Sales Development Representative ",
-      bio: "Morgan is a seasoned sales leader with a proven track record of driving growth and building strong relationships with dealerships. She brings a deep understanding of the automotive industry and the needs of dealerships to the team.",
+      bio: "Morgan is a seasoned sales leader with a proven track record of driving growth and building strong relationships with dealerships. He brings a deep understanding of the automotive industry and the needs of dealerships to the team.",
       image: MorganLogo,
       hasGlow: true,
     },
