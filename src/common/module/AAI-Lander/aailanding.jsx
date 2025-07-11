@@ -40,6 +40,7 @@ import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import Pricing from "@/common/module/Pricing/Pricing";
 import { Timeline } from "@/components/ui/timeline";
 import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
+import ProblemSection from "@/common/component/problem-section/problem-section";
 
 // Animation variants for SalesLanding page (outside component for performance)
 const staggerContainer = {
@@ -669,7 +670,7 @@ export default function AAILanding() {
       },
       {
         icon: <Check className="w-5 h-5" />,
-        text: "Used by 74+ Dealerships",
+        text: "Trusted by 123+ Dealerships",
         detail: "Proven results across North America",
         color: "purple",
       },
@@ -690,13 +691,13 @@ export default function AAILanding() {
         <VslHero
           heading={
             <>
-              Welcome to the operating system for the{" "}
-              <PurpleHighlight>modern dealer.</PurpleHighlight>
+              Revolutionary Auto, RV & Powersports AI Sales Force That{" "}
+              <PurpleHighlight>Works Your Leads 24/7</PurpleHighlight>
             </>
           }
           subheading="Lean team. Smart tech. More Revenue. Massive profits."
           videoId="wamN2O6Zo2U"
-          aboveVideoText="Watch: How Dealers Are using Automotive AI's 6 pillars of automation to Stop Bleeding Profit in 2025"
+          aboveVideoText="Watch: How AI Sales Force is Recapturing $50,000+ in Lost Deals Every Month for Dealers in 2025"
           actionButton={
             <>
               <SparkleButton
@@ -707,7 +708,7 @@ export default function AAILanding() {
               </SparkleButton>
             </>
           }
-          dealerCount={74}
+          dealerCount={123}
         />
         {/* Testimonial Section */}
         <motion.div
@@ -737,6 +738,8 @@ export default function AAILanding() {
             />
           </motion.div>
         </motion.div>
+        {/* Problem Section */}
+        <ProblemSection />
         {/* What You'll Learn Section */}
         <WhatYoullLearn
           title={
