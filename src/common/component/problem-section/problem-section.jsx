@@ -82,7 +82,7 @@ const ProblemSection = () => {
 
   return (
     <motion.section 
-      className="w-full py-16 md:py-24 bg-black text-white"
+      className="w-full py-16 md:py-24 bg-white dark:bg-black text-black dark:text-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
@@ -103,15 +103,15 @@ const ProblemSection = () => {
 
         {/* Story Section */}
         <motion.div 
-          className="bg-gray-900/50 rounded-2xl p-8 md:p-12 mb-12 border border-gray-800"
+          className="bg-gray-100 dark:bg-gray-900/50 rounded-2xl p-8 md:p-12 mb-12 border border-gray-300 dark:border-gray-800"
           variants={scaleIn}
         >
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200">
+            <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
               It's 9 PM on a Tuesday. Another hot lead just submitted their information on your website. But your sales
               team went home hours ago.
             </p>
-            <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200">
+            <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
               By morning, that lead has already applied to 3 more competitors, has booked an appointment to the top
               sales guy across the street, and is ready to buy...
             </p>
@@ -137,16 +137,16 @@ const ProblemSection = () => {
             {problemStats.map((problem, index) => (
               <motion.div
                 key={index}
-                className="flex items-start space-x-4 p-6 bg-gray-900/30 rounded-xl border border-gray-800 hover:bg-gray-900/50 transition-all duration-300"
+                className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300"
                 variants={fadeInUp}
                 whileHover={{ y: -5 }}
               >
                 {problem.icon}
                 <div>
-                  <p className="text-lg font-semibold mb-2 text-white">
+                  <p className="text-lg font-semibold mb-2 text-black dark:text-white">
                     {problem.title}
                   </p>
-                  <p className="text-gray-400">{problem.subtitle}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{problem.subtitle}</p>
                 </div>
               </motion.div>
             ))}
@@ -155,7 +155,7 @@ const ProblemSection = () => {
 
         {/* Final Impact */}
         <motion.div 
-          className="bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl p-8 md:p-12 border border-red-800/30"
+          className="bg-gradient-to-r from-red-100/40 to-red-50/40 dark:from-red-900/20 dark:to-red-800/20 rounded-2xl p-8 md:p-12 border border-red-200/50 dark:border-red-800/30"
           variants={scaleIn}
         >
           <div className="text-center max-w-4xl mx-auto">
@@ -163,14 +163,14 @@ const ProblemSection = () => {
               Weekend and after-hours leads sit cold until Monday morning
             </p>
             <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent my-8"></div>
-            <p className="text-2xl md:text-3xl font-bold mb-6 text-white">
+            <p className="text-2xl md:text-3xl font-bold mb-6 text-black dark:text-white">
               The real cost? The average dealer loses{" "}
-              <span className="text-red-400 text-4xl md:text-5xl">$2.3 million annually</span> in missed opportunities
+              <span className="text-red-500 dark:text-red-400 text-4xl md:text-5xl">$2.3 million annually</span> in missed opportunities
               from poor lead management alone.
             </p>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               While you're dealing with staff drama, training nightmares, and clunky software...{" "}
-              <span className="text-white font-semibold">
+              <span className="text-black dark:text-white font-semibold">
                 dealers adopting new technology (your competition) are stealing your customers.
               </span>
             </p>

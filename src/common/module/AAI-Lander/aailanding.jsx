@@ -41,6 +41,9 @@ import Pricing from "@/common/module/Pricing/Pricing";
 import { Timeline } from "@/components/ui/timeline";
 import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
 import ProblemSection from "@/common/component/problem-section/problem-section";
+import SolutionSection from "@/common/component/solution-section/solution-section";
+import LeadIntegrations from "@/common/component/lead-integrations/lead-integrations";
+import LandingAgents from "@/common/component/landing-agents/landing-agents";
 
 // Animation variants for SalesLanding page (outside component for performance)
 const staggerContainer = {
@@ -540,63 +543,66 @@ export default function AAILanding() {
   const timelineData = useMemo(
     () => [
       {
-        title: "Step 1: Customize Your Agents",
-        content: (
-          <>
-            <p>
-              We start by mapping out your dealership&apos;s ideal sales process
-              and defining the outcomes you want to achieve — whether it&apos;s
-              more approvals, faster speed to contact, or closing higher-value
-              deals. From there, we break your lead flow into key stages and
-              assign specialized AI agents to each one.
-            </p>
-            <p>
-              Each agent is designed with a distinct personality, purpose, and
-              script logic that mirrors your best-performing reps from tone of
-              voice to how objections are handled. This gives you a masterfully
-              engineered, repeatable system that runs 24/7, and never needs
-              retraining. Once it&apos;s live, your team can plug in and scale
-              without missing a beat.
-            </p>
-          </>
-        ),
-      },
-      {
-        title: "Step 2: Integrate & Connect",
+        title: "Step 0: You Are Here",
         content: (
           <p>
-            We seamlessly connect your traffic sources and AI agents to your
-            existing CRM, website, and lead channels—without disrupting your
-            current sales process. While your team keeps selling, the system
-            quietly learns and optimizes in the background.{" "}
+            Losing $50,000+ monthly to unworked leads and staff turnover.
           </p>
         ),
       },
       {
-        title: "Step 3: Activate Your AI Workforce",
+        title: "Step 1: Access Our Platform",
         content: (
           <p>
-            With your system fully mapped and agents trained, it&apos;s time to
-            put them to work. Your AI agents immediately begin handling live
-            leads engaging, qualifying, following up, and pushing deals forward
-            around the clock. As they work, we monitor real-time performance,
-            fine-tune workflows, and optimize messaging to drive stronger
-            results with every conversation.
+            Get your AI command center in 24 hours. Monitor every conversation and performance metric from your personalized dashboard. No technical setup required.
           </p>
         ),
       },
       {
-        title: "Step 4: Optimize & Scale",
+        title: "Step 2: Connect Your Twilio Account",
         content: (
           <p>
-            Once your agents are in motion, we shift focus to performance tuning
-            and expansion. We analyze response rates, conversion data, and
-            workflow efficiency to identify what&apos;s working best. From
-            there, we double down optimizing scripts, expanding to new lead
-            sources, and cloning top-performing agents across more campaigns.
-            You&apos;ll also get direct access to our strategy team through a
-            private WhatsApp group and scheduled check-ins, ensuring you&apos;re
-            always a step ahead as the system scales with your dealership.
+            Plug into enterprise-grade communication in under 10 minutes. We'll connect your Twilio account so AI agents can text and call through your existing channels.
+          </p>
+        ),
+      },
+      {
+        title: "Step 3: Customize Your Agents For Each Lead Source",
+        content: (
+          <p>
+            Mirror your best reps, but better. We map your sales process and create specialized AI agents for each stage. Each agent has distinct personality and scripts that match your top performers - running 24/7 without retraining.
+          </p>
+        ),
+      },
+      {
+        title: "Step 4: Launch Database Reactivation",
+        content: (
+          <p>
+           See ROI in 7 days. Re-engage dormant leads and past customers with 4-10% converting to appointments in week one often covering your entire monthly investment from this campaign alone.
+          </p>
+        ),
+      },
+      {
+        title: "Step 5: Integrate & Connect",
+        content: (
+          <p>
+            Zero disruption integration. We connect to your DMS and lead sources while your team keeps selling. Your staff won't notice until they see more qualified leads in Automotive AI.
+          </p>
+        ),
+      },
+      {
+        title: "Step 6: Activate Your AI Workforce",
+        content: (
+          <p>
+            24/7 sales army goes live. AI agents handle all leads instantly - engaging, qualifying, and following up around the clock. Response times drop from hours to seconds, follow-up rates hit 100%.
+          </p>
+        ),
+      },
+      {
+        title: "Step 7: Optimize & Scale",
+        content: (
+          <p>
+            Continuous improvement that compounds results. We analyze performance data and optimize everything - scripts, workflows, and expansion to new lead sources. Plus direct access to our strategy team via WhatsApp.
           </p>
         ),
       },
@@ -740,53 +746,64 @@ export default function AAILanding() {
         </motion.div>
         {/* Problem Section */}
         <ProblemSection />
+        {/* Solution Section */}
+        <SolutionSection />
+        {/* Additional Testimonials Section */}
+        <motion.div
+          className="mt-12 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={scaleIn}>
+            <InfiniteMovingCards
+              items={testimonialsMovingCardsData}
+              direction="left"
+              speed="fast"
+            />
+          </motion.div>
+        </motion.div>
         {/* What You'll Learn Section */}
         <WhatYoullLearn
           title={
             <>
-              The 6 Pillars of Automation We Deliver for Guaranteed Scale While{" "}
-              <PurpleHighlight>Increasing Profit</PurpleHighlight>
+              <PurpleHighlight>AI-Powered</PurpleHighlight> Support Across Departments
             </>
           }
           features={[
             {
               icon: <Bot className="text-purple-600 w-8 h-8" />,
-              title: "Sales Automation",
+              title: "Retail Sales",
               description:
-                "AI agents revive old leads, follow up instantly, and pre-qualify buyers 24/7. Say goodbye to missed opportunities and bottlenecks.",
-            },
-            {
-              icon: <Brain className="text-purple-600 w-8 h-8" />,
-              title: "Staffing & Training",
-              description:
-                "From job ads to onboarding and role-based training, we equip your team to perform — faster and with less turnover.",
-            },
-            {
-              icon: <FileText className="text-purple-600 w-8 h-8" />,
-              title: "Sales Process Compliance",
-              description:
-                "Centralized logs of all texts, calls, and follow-ups. Catch dropped balls, protect customer data, and enforce consistency.",
+                "Our AI sales agents provide comprehensive support for your frontline retail sales team, helping close more deals and improve customer interactions.",
             },
             {
               icon: <TrendingUp className="text-purple-600 w-8 h-8" />,
-              title: "Finance Department Automation",
+              title: "Non-Prime Financing",
               description:
-                "Push credit apps into Dealertrack or Credit App, and package every deal for speed and precision.",
-            },
-            {
-              icon: <PhoneCall className="text-purple-600 w-8 h-8" />,
-              title: "Internal Staff Optimization",
-              description:
-                "Let AI handle inbound leads, outbound follow-up, appointment booking, and routing freeing your best closers to focus.",
+                "Specialized AI assistance for qualifying leads with customers facing challenging financing scenarios, ensuring customers are qualified and ready to buy.",
             },
             {
               icon: <Target className="text-purple-600 w-8 h-8" />,
               title: "Fixed Operations",
               description:
-                "Drive more service traffic, automate service reminders, and boost service revenue year-round.",
+                "Streamlined support for service, parts, and maintenance departments to maximize efficiency and bookings",
+            },
+            {
+              icon: <PhoneCall className="text-purple-600 w-8 h-8" />,
+              title: "BDC",
+              description:
+                "Enhanced capabilities for your Business Development Center, improving lead management and customer communication.",
             },
           ]}
         />
+        {/* Lead Integrations Section */}
+        <LeadIntegrations />
+        {/* Timeline Section */}
+        <Timeline data={timelineData} />
+        {/* Landing Agents Section */}
+        <LandingAgents />
         <AgentsPage
           header="Meet Your New Co-Pilots, Built For Scale."
           subheader="Our platform features specialized AI agents designed specifically for automotive dealerships. Each agent is trained on industry-specific processes and optimized to handle different aspects of the sales journey, from initial contact to deal closure."
@@ -795,7 +812,6 @@ export default function AAILanding() {
           ctaSubtitle="Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
           onCtaClick={onOpen}
         />
-        <Timeline data={timelineData} />
         <Pricing
           sectionTitle="AutomotiveAI Platform Pricing"
           mainTitle="Monthly pricing, no long-term commitment required"
