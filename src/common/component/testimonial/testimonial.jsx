@@ -21,7 +21,7 @@ const Testimonial = ({
             {position}
             {dealership && position && ", "}
             {dealership}
-            {location && (dealership || position) && " — "}
+            {location && (dealership || position) && ", "}
             {location}
           </p>
         )}
@@ -69,7 +69,7 @@ export const testimonialsData = [
     location: "Edmonton, AB",
   },
   {
-    quote: "It's like having a sniper on your sales team — never misses, never gets tired. Total game changer.",
+    quote: "It's like having a sniper on your sales team. Never misses, never gets tired. Total game changer.",
     name: "Michael Filzwieser",
     position: "GSM",
     dealership: "Wutang Auto Group",
@@ -87,5 +87,5 @@ export const testimonialsData = [
 export const testimonialsMovingCardsData = testimonialsData.map(t => ({
   quote: t.quote,
   name: t.name,
-  title: [t.position, t.dealership, t.location].filter(Boolean).join(" — "),
+  title: [t.position, t.dealership, t.location].filter(Boolean).join(", "),
 }));

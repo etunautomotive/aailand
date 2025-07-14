@@ -9,7 +9,7 @@ const plus_Jakarta_Sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "Automotive AI - Revolutionizing Auto Sales",
   description:
-    "Seamlessly combining AI agents, automated data collection, and bulk SMS with autonomous responses—all integrated with lending platforms for a unified sales process.",
+    "Seamlessly combining AI agents, automated data collection, and bulk SMS with autonomous responses, all integrated with lending platforms for a unified sales process.",
   keywords:
     "automotive sales, AI agents, automated data collection, bulk SMS, Credit App, Dealertrack, automotive CRM",
   author: "Automotive AI",

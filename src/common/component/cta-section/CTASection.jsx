@@ -113,7 +113,7 @@ const CTASection = ({
     quote:
       "We added $78,451 in gross profit in the first month alone by implementing this system.",
     author: "Michael Jensen",
-    position: "Sales Director — AutoPrime Motors — Calgary, AB",
+            position: "Sales Director, AutoPrime Motors, Calgary, AB",
   },
   contactEmail = "justin@automotiveai.ca",
   useModalInsteadOfCalendly = false,

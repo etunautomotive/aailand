@@ -34,7 +34,7 @@ export const Timeline = ({
         </h2>
         <p
           className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Worried it&apos;s going to be complicated? It&apos;s not. We implement everything for you—fast, easy, and fully supported. Our founding team works hands on with you every step of the way until you are 100% satisfied.
+          Worried it&apos;s going to be complicated? It&apos;s not. We implement everything for you fast, easy, and fully supported. Our founding team works hands on with you every step of the way until you are 100% satisfied.
         </p>
       </div>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

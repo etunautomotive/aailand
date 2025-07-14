@@ -626,12 +626,12 @@ export default function AAILanding() {
       {
         question: "What does Automotive AI actually do?",
         answer:
-          "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to credit submissions, the system streamlines every step—while giving you full visibility into conversations, applications, and progress.",
+          "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to credit submissions, the system streamlines every step while giving you full visibility into conversations, applications, and progress.",
       },
       {
         question: "Can it really talk to leads like a human?",
         answer:
-          "Yes—and that's where it shines. The AI agents use custom-built conversation flows that mirror real sales conversations. They acknowledge customer messages, respond naturally, and stay on track even if a lead goes off-topic. You can even adjust the pacing of replies to avoid that 'bot' feel. Over time, the AI gets smarter, but it always stays within the approved tone and flow you choose.",
+          "Yes, and that's where it shines. The AI agents use custom-built conversation flows that mirror real sales conversations. They acknowledge customer messages, respond naturally, and stay on track even if a lead goes off-topic. You can even adjust the pacing of replies to avoid that 'bot' feel. Over time, the AI gets smarter, but it always stays within the approved tone and flow you choose.",
       },
       {
         question: "What happens if someone mentions a co-applicant?",
@@ -641,7 +641,7 @@ export default function AAILanding() {
       {
         question: "What's included in the system?",
         answer:
-          "You get a complete pipeline view of every deal stage, real-time updates during every conversation, and access to call recordings and transcripts. The system can also generate cover sheets for paper files and supports team collaboration across departments. It comes with access to a full sales academy—complete with training videos, interactive workbooks, and mindset development to help your reps improve performance fast.",
+          "You get a complete pipeline view of every deal stage, real-time updates during every conversation, and access to call recordings and transcripts. The system can also generate cover sheets for paper files and supports team collaboration across departments. It comes with access to a full sales academy complete with training videos, interactive workbooks, and mindset development to help your reps improve performance fast.",
       },
       {
         question: "Can it connect with our current systems?",
@@ -661,7 +661,7 @@ export default function AAILanding() {
       {
         question: "Is there a long-term commitment?",
         answer:
-          "No. Everything is month-to-month. The platform is designed to prove its value quickly—most dealers see ROI within the first few days of going live. You stay because it works, not because you're locked into a contract.",
+          "No. Everything is month-to-month. The platform is designed to prove its value quickly. Most dealers see ROI within the first few days of going live. You stay because it works, not because you're locked into a contract.",
       },
     ],
     []
@@ -840,7 +840,7 @@ export default function AAILanding() {
               "AAI helped me break every 30-day record I had. 20 deals, over $30K profit all in one month.",
             author: "Jaedynn Cutler",
             position:
-              "Finance Manager — Approval Express Canada — Vancouver, BC",
+              "Finance Manager, Approval Express Canada, Vancouver, BC",
           }}
           contactEmail="justin@automotiveai.ca"
           useModalInsteadOfCalendly={true}
