@@ -814,6 +814,16 @@ export default function AAILanding() {
         {/* Solution Section */}
         {console.log("AAI Landing: About to render SolutionSection")}
         <SolutionSection />
+        
+        {/* Schedule Demo CTA - After Solution Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            onClick={onOpen}
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
         {/* Additional Testimonials Section */}
         <motion.div
           className="mt-12 mb-12"
@@ -866,10 +876,30 @@ export default function AAILanding() {
         />
         {/* Lead Integrations Section */}
         <LeadIntegrations />
+        
+        {/* Schedule Demo CTA - After Lead Integrations Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            onClick={onOpen}
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
         {/* Timeline Section */}
         <Timeline data={timelineData} />
         {/* Landing Agents Section */}
         <LandingAgents />
+        
+        {/* Schedule Demo CTA - After Landing Agents Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            onClick={onOpen}
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
         <AgentsPage
           header="Don't have an Agent You're Looking for? Build a Custom One."
           subheader="Our foundational technology empowers you to create custom AI agents tailored to any process or department within your dealership. Choose from our proven foundation models and leverage our intuitive AI Agent Builder to design specialized solutions that fit your unique workflow requirements. Whether you need support for service scheduling, parts inventory, finance processing, or any other dealership operation, our platform provides the flexibility to build exactly what your business needs."
@@ -897,8 +927,8 @@ export default function AAILanding() {
         </div>
         <CTASection
           badgeText="Early Adopter Special"
-          mainHeading="Transform Your Dealership with AI-Powered Automation"
-          subheading="Join the growing network of forward-thinking dealers who are leveraging AI to increase sales, reduce costs, and boost profits."
+          mainHeading="Ready to Plug the $710,000 Leak That's Draining Your Dealership?"
+          subheading="Join 123+ smart dealerships who are already using our proven AI Sales Army to eliminate the annual loss from poor lead management and turn 'dead' data into profit-generating machines."
           features={ctaFeatures}
           ctaButtonText="Book a Strategy Call"
           testimonial={{

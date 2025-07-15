@@ -4,6 +4,7 @@ import VideoPlayer from "@/common/component/video player/videoplayer";
 import { motion } from "framer-motion";
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import SocialProof from "@/common/component/social-proof/SocialProof";
+import { AlertTriangle } from "lucide-react";
 
 const dealerAvatars = [
   "https://randomuser.me/api/portraits/men/32.jpg",
@@ -90,8 +91,13 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
             custom={2}
           >
             {aboveVideoText && (
-              <div className="max-w-4xl mx-auto w-full text-sm md:text-base font-normal text-center text-neutral-500 dark:text-neutral-200 mb-1 mt-1">
-                {aboveVideoText}
+              <div className="max-w-4xl mx-auto w-full mb-1 mt-1 flex justify-center">
+                <div className="bg-red-100 border-2 border-red-400 rounded-lg px-3 py-2 flex items-center gap-2 inline-flex">
+                  <AlertTriangle className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                  <div className="text-sm md:text-base font-normal text-red-700 whitespace-nowrap">
+                    {aboveVideoText}
+                  </div>
+                </div>
               </div>
             )}
             <div className="w-full max-w-4xl mb-8">

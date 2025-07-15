@@ -324,15 +324,13 @@ const CTASection = ({
 
         <AnimatedCard delay={0.1}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            Ready to Add <span className={styles.gradientText}>$300k</span> in
-            Monthly Gross Profit?
+            {mainHeading}
           </h2>
         </AnimatedCard>
 
         <AnimatedCard delay={0.2}>
           <p className="text-lg md:text-xl mb-10 mx-auto max-w-3xl text-gray-700 dark:text-gray-300">
-            Join hundreds of dealerships who are already using our proven system
-            to increase their sales and profits.
+            {subheading}
           </p>
         </AnimatedCard>
 
