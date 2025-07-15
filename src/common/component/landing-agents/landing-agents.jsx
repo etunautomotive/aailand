@@ -182,15 +182,12 @@ const LandingAgents = () => {
     { id: 8, title: "RV Agent", description: "Dedicated agent for RV sales and customer support", icon: Truck, status: "live", color: "green" },
     
     // Row 3
-    { id: 9, title: "Service Agent", description: "Manages service appointments and maintenance inquiries", icon: Wrench, status: "live", color: "green" },
+    { id: 9, title: "Service Agent", description: "Book service appointments and provides customer support", icon: Wrench, status: "live", color: "green" },
     { id: 10, title: "After Sale Agent", description: "Handles post-sale customer support and satisfaction", icon: ShoppingCart, status: "live", color: "green" },
-    { id: 11, title: "Referral Sales Agent", description: "Manages referral programs and customer referrals", icon: Users, status: "live", color: "green" },
-    { id: 12, title: "Co-App Agent", description: "Handles co-applicant information and joint applications", icon: UserPlus, status: "live", color: "green" },
+    { id: 11, title: "Referral Sales Agent", description: "Manages referral requests and customer referrals", icon: Users, status: "live", color: "green" },
+    { id: 12, title: "Co-App Agent", description: "Handles co-applicant requests information and provides encouragement", icon: UserPlus, status: "live", color: "green" },
     
-    // Coming Soon
-    { id: 13, title: "AAI Finance", description: "Advanced finance management and optimization", icon: Calculator, status: "soon", color: "red" },
-    { id: 14, title: "AAI Call", description: "Voice communication and call management", icon: Phone, status: "soon", color: "purple" },
-    { id: 15, title: "AAI Close", description: "Deal closing strategies and negotiation support", icon: Handshake, status: "soon", color: "yellow" },
+
   ];
 
   return (
@@ -207,14 +204,11 @@ const LandingAgents = () => {
           className="text-center mb-12"
           variants={fadeInUp}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-            Meet Your{" "}
-            <span className="bg-gradient-to-r from-green-400 via-green-500 to-green-400 bg-clip-text text-transparent">
-              AI Sales Team
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
+            Meet Your New Co-Pilots, Built For Scale.
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            15 specialized AI agents working together to transform your dealership's sales process
+            12 specialized AI agents working together to transform your dealership's sales process
           </p>
         </motion.div>
 
@@ -228,17 +222,7 @@ const LandingAgents = () => {
           ))}
         </motion.div>
 
-        {/* Coming Soon Agents - Centered */}
-        <motion.div
-          className="flex justify-center"
-          variants={staggerContainer}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
-            {agentData.filter(agent => agent.status === "soon").map((agent, index) => (
-              <AgentCard key={agent.id} agent={agent} index={index + 12} />
-            ))}
-          </div>
-        </motion.div>
+
 
         {/* Bottom CTA */}
         <motion.div

@@ -126,32 +126,18 @@ const getTypeColor = (color) => {
 };
 
 const getGradientText = (color, theme) => {
-  if (theme === "dark") {
-    switch (color.toLowerCase()) {
-      case "green":
-        return "from-green-400 to-green-200";
-      case "purple":
-        return "from-purple-400 to-purple-200";
-      case "red":
-        return "from-red-400 to-red-200";
-      case "yellow":
-        return "from-yellow-400 to-yellow-200";
-      default:
-        return "from-white to-white";
-    }
-  } else {
-    switch (color.toLowerCase()) {
-      case "green":
-        return "from-green-500 to-green-400";
-      case "purple":
-        return "from-purple-500 to-purple-400";
-      case "red":
-        return "from-red-500 to-red-400";
-      case "yellow":
-        return "from-yellow-500 to-yellow-400";
-      default:
-        return "from-black to-black";
-    }
+  // Use consistent gradients to avoid hydration mismatch
+  switch (color.toLowerCase()) {
+    case "green":
+      return "from-green-400 to-green-200";
+    case "purple":
+      return "from-purple-400 to-purple-200";
+    case "red":
+      return "from-red-400 to-red-200";
+    case "yellow":
+      return "from-yellow-400 to-yellow-200";
+    default:
+      return "from-gray-400 to-gray-200";
   }
 };
 

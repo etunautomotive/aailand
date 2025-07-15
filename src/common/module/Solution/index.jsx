@@ -24,32 +24,18 @@ const getTypeColor = (type) => {
 };
 
 const getGradientText = (type, theme) => {
-  if (theme === "dark") {
-    switch (type.toLowerCase()) {
-      case "aai text":
-        return "from-green-400 to-green-200";
-      case "aai call":
-        return "from-purple-400 to-purple-200";
-      case "aai finance":
-        return "from-red-400 to-red-200";
-      case "aai close":
-        return "from-yellow-400 to-yellow-200";
-      default:
-        return "from-white to-white";
-    }
-  } else {
-    switch (type.toLowerCase()) {
-      case "aai text":
-        return "from-green-500 to-green-400";
-      case "aai call":
-        return "from-purple-500 to-purple-400";
-      case "aai finance":
-        return "from-red-500 to-red-400";
-      case "aai close":
-        return "from-yellow-500 to-yellow-400";
-      default:
-        return "from-black to-black";
-    }
+  // Use consistent gradients to avoid hydration mismatch
+  switch (type.toLowerCase()) {
+    case "aai text":
+      return "from-green-400 to-green-200";
+    case "aai call":
+      return "from-purple-400 to-purple-200";
+    case "aai finance":
+      return "from-red-400 to-red-200";
+    case "aai close":
+      return "from-yellow-400 to-yellow-200";
+    default:
+      return "from-gray-400 to-gray-200";
   }
 };
 
