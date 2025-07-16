@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import "./sparkle-button.css";
 import styles from "./sparkle-button.module.css";
 
-const SparkleButton = ({ onClick, children, className = "" }) => {
+const SparkleButton = ({ onClick, href, children, className = "" }) => {
   useEffect(() => {
     const RANDOM = (min, max) =>
       Math.floor(Math.random() * (max - min + 1) + min);
@@ -30,9 +30,14 @@ const SparkleButton = ({ onClick, children, className = "" }) => {
     });
   }, []);
 
+  const ButtonElement = href ? 'a' : 'button';
+  const buttonProps = href 
+    ? { href, target: "_blank", rel: "noopener noreferrer" }
+    : { onClick };
+
   return (
     <div className={styles["sparkle-button"]}>
-      <button onClick={onClick} className={`${styles.button} ${className}`}>
+      <ButtonElement {...buttonProps} className={`${styles.button} ${className}`}>
         <span className={styles.spark}></span>
         <span className={styles.backdrop}></span>
         <svg
@@ -64,7 +69,7 @@ const SparkleButton = ({ onClick, children, className = "" }) => {
           />
         </svg>
         <span className={styles.text}>{children}</span>
-      </button>
+      </ButtonElement>
       <span aria-hidden="true" className={styles["particle-pen"]}>
         {[...Array(15)].map((_, i) => (
           <svg

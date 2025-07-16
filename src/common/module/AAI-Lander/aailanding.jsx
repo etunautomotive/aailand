@@ -768,12 +768,12 @@ export default function AAILanding() {
           }
           subheading="Lean team. Smart tech. More Revenue. Massive profits."
           videoId="wamN2O6Zo2U"
-          aboveVideoText="Watch: How AI Sales Force is Recapturing $50,000+ in Lost Deals Every Month for Dealers in 2025"
+          aboveVideoText="Watch: How AI Sales Force is Recapturing $50,000+ in Lost Deals Every Month"
           actionButton={
             <>
               <SparkleButton
                 className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
-                onClick={onOpen}
+                href="https://www.automotiveai.ca/demo/"
               >
                 Book a Strategy Call
               </SparkleButton>
@@ -819,7 +819,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            onClick={onOpen}
+            href="https://www.automotiveai.ca/demo/"
           >
             Schedule a Demo
           </SparkleButton>
@@ -881,7 +881,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            onClick={onOpen}
+            href="https://www.automotiveai.ca/demo/"
           >
             Schedule a Demo
           </SparkleButton>
@@ -895,7 +895,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            onClick={onOpen}
+            href="https://www.automotiveai.ca/demo/"
           >
             Schedule a Demo
           </SparkleButton>
@@ -906,7 +906,6 @@ export default function AAILanding() {
           agentData={agentsData}
           ctaTitle="Ready to transform your dealership?"
           ctaSubtitle="Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
-          onCtaClick={onOpen}
         />
         <Pricing
           sectionTitle="AutomotiveAI Platform Pricing"
@@ -919,8 +918,7 @@ export default function AAILanding() {
           offerSubtitle="Early Adopter Pricing"
           features={pricingFeatures}
           buttonText="Book a Strategy Call"
-          useModalInsteadOfCalendly={true}
-          onCtaClick={onOpen}
+          useModalInsteadOfCalendly={false}
         />
         <div className="w-full flex justify-center mt-16">
           <FAQ title="Frequently Asked Questions" faqs={faqData} />
@@ -939,8 +937,7 @@ export default function AAILanding() {
               "Finance Manager, Approval Express Canada, Vancouver, BC",
           }}
           contactEmail="justin@automotiveai.ca"
-          useModalInsteadOfCalendly={true}
-          onCtaClick={onOpen}
+          useModalInsteadOfCalendly={false}
         />
         <FreeModuleModal
           isOpen={isOpen}

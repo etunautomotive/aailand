@@ -351,12 +351,22 @@ const CTASection = ({
 
         <AnimatedCard delay={0.4}>
           <div className="flex justify-center mb-8 relative z-0">
-            <SparkleButton
-              className="!text-base !py-4 !px-8 !flex !items-center"
-              onClick={useModalInsteadOfCalendly ? onOpen : onCtaClick}
-            >
-              {ctaButtonText}
-            </SparkleButton>
+            {useModalInsteadOfCalendly ? (
+              <SparkleButton
+                className="!text-base !py-4 !px-8 !flex !items-center"
+                onClick={onOpen}
+              >
+                {ctaButtonText}
+              </SparkleButton>
+            ) : (
+              <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
+                <SparkleButton
+                  className="!text-base !py-4 !px-8 !flex !items-center"
+                >
+                  {ctaButtonText}
+                </SparkleButton>
+              </a>
+            )}
           </div>
         </AnimatedCard>
 
