@@ -359,7 +359,7 @@ const CTASection = ({
                 {ctaButtonText}
               </SparkleButton>
             ) : (
-              <a href="https://www.automotiveai.ca/demo/" target="_blank" rel="noopener noreferrer">
+                              <a href="/vsldemo">
                 <SparkleButton
                   className="!text-base !py-4 !px-8 !flex !items-center"
                 >

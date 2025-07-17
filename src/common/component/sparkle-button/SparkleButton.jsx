@@ -32,7 +32,7 @@ const SparkleButton = ({ onClick, href, children, className = "" }) => {
 
   const ButtonElement = href ? 'a' : 'button';
   const buttonProps = href 
-    ? { href, target: "_blank", rel: "noopener noreferrer" }
+    ? { href }
     : { onClick };
 
   return (

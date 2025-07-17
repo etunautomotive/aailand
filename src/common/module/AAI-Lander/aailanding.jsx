@@ -773,7 +773,7 @@ export default function AAILanding() {
             <>
               <SparkleButton
                 className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
-                href="https://www.automotiveai.ca/demo/"
+                href="/vsldemo"
               >
                 Book a Strategy Call
               </SparkleButton>
@@ -811,6 +811,17 @@ export default function AAILanding() {
         </motion.div>
         {/* Problem Section */}
         <ProblemSection />
+        
+        {/* Schedule Demo CTA - After Problem Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            href="/vsldemo"
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
+        
         {/* Solution Section */}
         {console.log("AAI Landing: About to render SolutionSection")}
         <SolutionSection />
@@ -819,7 +830,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            href="https://www.automotiveai.ca/demo/"
+            href="/vsldemo"
           >
             Schedule a Demo
           </SparkleButton>
@@ -881,7 +892,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            href="https://www.automotiveai.ca/demo/"
+            href="/vsldemo"
           >
             Schedule a Demo
           </SparkleButton>
@@ -895,7 +906,7 @@ export default function AAILanding() {
         <div className="w-full flex justify-center py-8">
           <SparkleButton
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
-            href="https://www.automotiveai.ca/demo/"
+            href="/vsldemo"
           >
             Schedule a Demo
           </SparkleButton>

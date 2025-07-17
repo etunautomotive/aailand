@@ -104,8 +104,8 @@ const ProblemSection = () => {
     },
     {
       icon: <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />,
-      title: "Legacy CRM systems require 47 clicks",
-      subtitle: "just to update a customer record",
+      title: "Legacy CRM systems require 47 clicks just to update a customer record",
+      subtitle: "(creates more work)",
     },
   ];
 
