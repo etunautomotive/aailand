@@ -58,7 +58,7 @@ const ProblemSection = () => {
     },
     {
       icon: <Clock className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />,
-      title: "65% of leads don't hear back within 24 hours of visiting your site",
+      title: "65% of leads don&apos;t hear back within 24 hours of visiting your site",
       subtitle: "(Foureyes 2025)",
     },
     {
@@ -137,7 +137,7 @@ const ProblemSection = () => {
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
-              It's 9 PM on a Tuesday. Another hot lead just submitted their information on your website. But your sales
+              It&apos;s 9 PM on a Tuesday. Another hot lead just submitted their information on your website. But your sales
               team went home hours ago.
             </p>
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
@@ -145,10 +145,10 @@ const ProblemSection = () => {
               sales guy across the street, and is ready to buy...
             </p>
             <p className="text-2xl md:text-3xl font-bold text-red-400 text-center mb-6">
-              Sound familiar? You're not alone.
+              Sound familiar? You&apos;re not alone.
             </p>
             <p className="text-xl md:text-2xl font-bold text-center text-black dark:text-white">
-              Here's what the industry research reveals:
+              Here&apos;s what the industry research reveals:
             </p>
           </div>
         </motion.div>
@@ -189,7 +189,7 @@ const ProblemSection = () => {
             variants={scaleIn}
           >
             <p className="text-2xl md:text-3xl font-bold text-red-500 dark:text-red-400">
-              That's 37% of your online leads lost
+                              That&apos;s 37% of your online leads lost
             </p>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mt-2">
               due to poor follow-up and CRM gaps alone.
@@ -213,7 +213,7 @@ const ProblemSection = () => {
             className="text-lg md:text-xl text-center mb-8 text-gray-700 dark:text-gray-300"
             variants={fadeInUp}
           >
-            While you're losing leads, here's what's happening to the ones you do contact:
+            While you&apos;re losing leads, here&apos;s what&apos;s happening to the ones you do contact:
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -246,7 +246,7 @@ const ProblemSection = () => {
               The Real Cost of Doing Nothing
             </h3>
             <p className="text-lg md:text-xl mb-4 text-gray-700 dark:text-gray-300">
-              Let's do the math on what this costs you:
+              Let&apos;s do the math on what this costs you:
             </p>
             
             <div className="bg-white dark:bg-gray-900/50 rounded-xl p-6 mb-6 border border-red-200 dark:border-red-800/30">
@@ -258,13 +258,13 @@ const ProblemSection = () => {
                   <strong>37% lost to poor follow-up = 1,776 wasted leads</strong>
                 </p>
                 <p className="text-lg text-black dark:text-white">
-                  If you properly followed up with just an <strong>8% conversion rate</strong> (well below top performers), that's <strong>142 additional sales per year</strong>.
+                  If you properly followed up with just an <strong>8% conversion rate</strong> (well below top performers), that&apos;s <strong>142 additional sales per year</strong>.
                 </p>
               </div>
             </div>
 
             <p className="text-2xl md:text-3xl font-bold mb-6 text-black dark:text-white">
-              At an average <span className="text-red-500 dark:text-red-400">$5,000 gross profit per sale</span>, you're losing{" "}
+                              At an average <span className="text-red-500 dark:text-red-400">$5,000 gross profit per sale</span>, you&apos;re losing{" "}
               <span className="text-red-500 dark:text-red-400 text-4xl md:text-5xl">$710,000 annually</span>.
             </p>
             
@@ -319,10 +319,10 @@ const ProblemSection = () => {
             variants={scaleIn}
           >
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4">
-              <strong>40% of sales leads close after three days</strong>, but most dealerships' follow-up drops off after initial contact.
+              <strong>40% of sales leads close after three days</strong>, but most dealerships&apos; follow-up drops off after initial contact.
             </p>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
-              While you're dealing with staff drama, training nightmares, and clunky software...
+              While you&apos;re dealing with staff drama, training nightmares, and clunky software...
             </p>
           </motion.div>
         </motion.div>
@@ -338,7 +338,7 @@ const ProblemSection = () => {
             </p>
             <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent my-8"></div>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-              The question isn't whether you can afford to fix this problem.
+              The question isn&apos;t whether you can afford to fix this problem.
             </p>
             <p className="text-2xl md:text-3xl font-bold text-black dark:text-white">
               <span className="text-red-500 dark:text-red-400">The question is: Can you afford to keep losing $710,000 every year?</span>

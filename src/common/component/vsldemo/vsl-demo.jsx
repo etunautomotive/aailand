@@ -55,14 +55,14 @@ const VSLDemo = () => {
                   <span className="text-green-400 font-bold mt-1">✓</span>
                                      <div>
                      <p className="text-black dark:text-white font-semibold">Live Profit Recovery Demo</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Watch AI agents handle YOUR actual customer scenarios and recover "dead" leads from your database</p>
+                     <p className="text-gray-700 dark:text-gray-300 text-sm">Watch AI agents handle YOUR actual customer scenarios and recover &quot;dead&quot; leads from your database</p>
                    </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-green-400 font-bold mt-1">✓</span>
                                      <div>
                      <p className="text-black dark:text-white font-semibold">$710,000 Loss Analysis</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">We'll show you exactly how much you're losing monthly and how to plug the leak immediately</p>
+                     <p className="text-gray-700 dark:text-gray-300 text-sm">We&apos;ll show you exactly how much you&apos;re losing monthly and how to plug the leak immediately</p>
                    </div>
                 </div>
                 <div className="flex items-start gap-3">

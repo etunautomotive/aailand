@@ -554,7 +554,7 @@ export default function AAILanding() {
         title: "Step 1: Create and Connect Your Twilio Account",
         content: (
           <p>
-            Plug into enterprise-grade communication in under 10 minutes. We'll connect your Twilio account so AI agents can text and call through your existing channels.
+            Plug into enterprise-grade communication in under 10 minutes. We&apos;ll connect your Twilio account so AI agents can text and call through your existing channels.
           </p>
         ),
       },
@@ -586,7 +586,7 @@ export default function AAILanding() {
         title: "Step 5: Integrate & Connect",
         content: (
           <p>
-            Zero disruption integration. We connect to your DMS and lead sources while your team keeps selling. Your staff won't notice until they see more qualified leads in Automotive AI.
+            Zero disruption integration. We connect to your DMS and lead sources while your team keeps selling. Your staff won&apos;t notice until they see more qualified leads in Automotive AI.
           </p>
         ),
       },

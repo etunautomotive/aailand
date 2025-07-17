@@ -122,7 +122,7 @@ const SolutionSection = () => {
       solution: "100% lead capture and instant response"
     },
     {
-      problem: "65% of leads don't hear back within 24 hours",
+      problem: "65% of leads don&apos;t hear back within 24 hours",
       solution: "Under 30-second response time, 24/7"
     },
     {
@@ -200,7 +200,7 @@ const SolutionSection = () => {
         >
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl font-bold mb-6 text-green-400">
-              What if I told you there's a way to capture EVERY lead, respond in under 60 seconds, and convert 391% more
+              What if I told you there&apos;s a way to capture EVERY lead, respond in under 60 seconds, and convert 391% more
               prospects into buyers... (yes 391% is the true number)
             </p>
             <p className="text-2xl md:text-3xl font-bold text-black dark:text-white">without hiring a single new salesperson?</p>
@@ -216,11 +216,11 @@ const SolutionSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-400 text-center">The Breakthrough:</h3>
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
               After 18 months of development and testing with{" "}
-              <span className="text-green-600 dark:text-green-400 font-bold">123+ dealerships</span>, we've cracked the code on the biggest
+              <span className="text-green-600 dark:text-green-400 font-bold">123+ dealerships</span>, we&apos;ve cracked the code on the biggest
               problem in automotive sales:
             </p>
             <p className="text-xl md:text-2xl font-bold text-center text-black dark:text-white bg-green-100/20 dark:bg-green-900/20 rounded-xl p-6 border border-green-300/30 dark:border-green-800/30">
-              How to scale your best salesperson's performance across unlimited leads, 24/7, without the human
+              How to scale your best salesperson&apos;s performance across unlimited leads, 24/7, without the human
               limitations.
             </p>
           </div>
@@ -238,10 +238,10 @@ const SolutionSection = () => {
             </span>
           </h3>
           <p className="text-xl md:text-2xl text-green-400 font-semibold mb-6">
-            The World's First Automotive, RV, & Powersports Sales Operating System
+            The World&apos;s First Automotive, RV, & Powersports Sales Operating System
           </p>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            This isn't just another chatbot or CRM tool. This is a complete AI-powered system that works alongside
+            This isn&apos;t just another chatbot or CRM tool. This is a complete AI-powered system that works alongside
             your existing staff to eliminate every single pain point you just read about.
           </p>
         </motion.div>
@@ -255,7 +255,7 @@ const SolutionSection = () => {
             className="text-2xl md:text-3xl font-bold text-center mb-8 text-green-400"
             variants={fadeInUp}
           >
-            Here's what your new AI sales army does:
+            Here&apos;s what your new AI sales army does:
           </motion.h3>
 
           <div className="space-y-12">
@@ -297,20 +297,20 @@ const SolutionSection = () => {
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200 font-bold">
-              If you're spending money on ad spend or third-party leads, you're going to convert instantly higher on those...
+              If you&apos;re spending money on ad spend or third-party leads, you&apos;re going to convert instantly higher on those...
             </p>
             
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-400 text-center">
-              But here's the REAL game-changer:
+              But here&apos;s the REAL game-changer:
             </h3>
             
             <p className="text-xl md:text-2xl font-bold mb-6 text-gray-700 dark:text-gray-200 text-center">
-              What about all that previous data you've already paid for?
+              What about all that previous data you&apos;ve already paid for?
             </p>
             
             <div className="space-y-4 mb-8">
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
-                Right now, sitting in your CRM, you have thousands of leads you spent good money on. Leads that went cold. Prospects who "weren't ready." Customers who bought elsewhere.
+                Right now, sitting in your CRM, you have thousands of leads you spent good money on. Leads that went cold. Prospects who &quot;weren&apos;t ready.&quot; Customers who bought elsewhere.
               </p>
               
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
@@ -318,11 +318,11 @@ const SolutionSection = () => {
               </p>
               
               <p className="text-xl font-bold text-green-600 dark:text-green-400 text-center">
-                They're dead wrong.
+                They&apos;re dead wrong.
               </p>
               
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
-                We're seeing dealers <span className="font-bold text-green-600 dark:text-green-400">re-engage 4-19% on every 100 old leads</span> they upload into their AI sales team and bringing them back into the sales cycle without spending a single dollar on new advertising.
+                We&apos;re seeing dealers <span className="font-bold text-green-600 dark:text-green-400">re-engage 4-19% on every 100 old leads</span> they upload into their AI sales team and bringing them back into the sales cycle without spending a single dollar on new advertising.
               </p>
             </div>
             
@@ -348,7 +348,7 @@ const SolutionSection = () => {
                 </div>
                 <div className="border-t border-green-300/30 dark:border-green-800/30 pt-3 mt-3">
                   <div className="flex justify-between items-center text-xl font-bold">
-                    <span>Total profit from "dead" customers:</span>
+                    <span>Total profit from &quot;dead&quot; customers:</span>
                     <span className="text-green-600 dark:text-green-400">$60,000</span>
                   </div>
                 </div>
@@ -361,7 +361,7 @@ const SolutionSection = () => {
             
             <div className="space-y-4 mb-6">
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
-                And that's at the <span className="font-bold">LOWEST</span> conversion rate. Imagine what happens when you hit 10%... 15%... or even 19% like one of our dealers on the east coast...
+                And that&apos;s at the <span className="font-bold">LOWEST</span> conversion rate. Imagine what happens when you hit 10%... 15%... or even 19% like one of our dealers on the east coast...
               </p>
               
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
@@ -369,7 +369,7 @@ const SolutionSection = () => {
               </p>
               
               <p className="text-xl font-bold text-center text-green-600 dark:text-green-400">
-                While your competition burns cash on new traffic, you're turning previous "failures" into today's deals.
+                While your competition burns cash on new traffic, you&apos;re turning previous &quot;failures&quot; into today&apos;s deals.
               </p>
               
               <p className="text-xl font-bold text-center text-gray-800 dark:text-gray-200 bg-green-100/30 dark:bg-green-900/20 rounded-xl p-4 border border-green-300/30 dark:border-green-800/30">
@@ -386,7 +386,7 @@ const SolutionSection = () => {
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-600 dark:text-green-400 text-center">The Unfair Advantage:</h3>
           <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 max-w-4xl mx-auto text-center">
-            This isn't about replacing your sales team. It's about{" "}
+            This isn&apos;t about replacing your sales team. It&apos;s about{" "}
             <span className="text-green-600 dark:text-green-400 font-bold">multiplying their effectiveness by 10x</span>. Your salespeople
             stop chasing cold leads and start closing pre-qualified, ready-to-buy customers who are already excited to
             meet them.
@@ -413,7 +413,7 @@ const SolutionSection = () => {
             <div className="mt-8 p-6 bg-green-100/30 dark:bg-green-900/20 rounded-xl border border-green-300/30 dark:border-green-800/30">
               <p className="text-xl font-bold text-center text-green-600 dark:text-green-400">
                 The result? Conversations so natural and knowledgeable, customers prefer talking to our AI over
-                inexperienced salespeople. (Seriously, we've seen the reviews)
+                inexperienced salespeople. (Seriously, we&apos;ve seen the reviews)
               </p>
             </div>
           </div>
@@ -464,7 +464,7 @@ const SolutionSection = () => {
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-400 text-center">The Promise:</h3>
           <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-200 max-w-4xl mx-auto text-center mb-6">
-            In the next 30 days, you'll watch your dealership transform from a lead-losing, staff-dependent operation
+            In the next 30 days, you&apos;ll watch your dealership transform from a lead-losing, staff-dependent operation
             into a <span className="text-green-600 dark:text-green-400 font-bold">profit-generating machine</span> that captures every opportunity and converts prospects at rates your competition can only dream of.
           </p>
                      <p className="text-xl md:text-2xl font-bold text-center text-green-600 dark:text-green-400">
@@ -479,10 +479,10 @@ const SolutionSection = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full px-6 py-3 mb-6 text-white">
             <Shield className="w-5 h-5" />
-            <span className="font-semibold">Don't just take our word for it.</span>
+            <span className="font-semibold">Don&apos;t just take our word for it.</span>
           </div>
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Here's what happened when 123+ dealers implemented this system...
+            Here&apos;s what happened when 123+ dealers implemented this system...
           </p>
         </motion.div>
       </div>

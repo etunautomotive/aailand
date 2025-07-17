@@ -208,7 +208,7 @@ const LandingAgents = () => {
             Meet Your New Co-Pilots, Built For Scale.
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            12 specialized AI agents working together to transform your dealership's sales process
+            12 specialized AI agents working together to transform your dealership&apos;s sales process
           </p>
         </motion.div>
 
