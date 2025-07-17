@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { useMobile } from "@/common/hooks/useMobile";
 import { 
   AlertTriangle, 
   Clock, 
@@ -13,43 +13,8 @@ import {
   UserX
 } from "lucide-react";
 
-// Animation variants following the project's pattern
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 const ProblemSection = () => {
+  const isMobile = useMobile();
   const leadFollowUpStats = [
     {
       icon: <FileX className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />,
@@ -110,30 +75,24 @@ const ProblemSection = () => {
   ];
 
   return (
-    <motion.section 
+    <section 
       className="w-full py-16 md:py-24 bg-white dark:bg-black text-black dark:text-white"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
-      variants={staggerContainer}
     >
       <div className="max-w-[1500px] mx-auto px-5 lg:px-10">
         {/* Main Title */}
-        <motion.div 
+        <div 
           className="text-center mb-12"
-          variants={fadeInUp}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             The <span className="text-red-500">$710,000 Problem</span> Every Dealer Faces
             <br />
             <span className="text-gray-300">(But Nobody Talks About)</span>
           </h2>
-        </motion.div>
+        </div>
 
         {/* Story Section */}
-        <motion.div 
+        <div 
           className="bg-gray-100 dark:bg-gray-900/50 rounded-2xl p-8 md:p-12 mb-12 border border-gray-300 dark:border-gray-800"
-          variants={scaleIn}
         >
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
@@ -151,27 +110,23 @@ const ProblemSection = () => {
               Here&apos;s what the industry research reveals:
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Lead Follow-Up Crisis */}
-        <motion.div 
+        <div 
           className="mb-12"
-          variants={staggerContainer}
         >
-          <motion.h3 
+          <h3 
             className="text-2xl md:text-3xl font-bold text-center mb-8 text-red-400"
-            variants={fadeInUp}
           >
             The Lead Follow-Up Crisis
-          </motion.h3>
+          </h3>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
             {leadFollowUpStats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300"
-                variants={fadeInUp}
-                whileHover={{ y: -5 }}
               >
                 {stat.icon}
                 <div>
@@ -180,13 +135,12 @@ const ProblemSection = () => {
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">{stat.subtitle}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.div 
+          <div 
             className="bg-red-50 dark:bg-red-900/20 rounded-xl p-6 border border-red-200 dark:border-red-800/30 text-center"
-            variants={scaleIn}
           >
             <p className="text-2xl md:text-3xl font-bold text-red-500 dark:text-red-400">
                               That&apos;s 37% of your online leads lost
@@ -194,35 +148,30 @@ const ProblemSection = () => {
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mt-2">
               due to poor follow-up and CRM gaps alone.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Conversion Catastrophe */}
-        <motion.div 
+        <div 
           className="mb-12"
-          variants={staggerContainer}
         >
-          <motion.h3 
+          <h3 
             className="text-2xl md:text-3xl font-bold text-center mb-8 text-red-400"
-            variants={fadeInUp}
           >
             The Conversion Catastrophe
-          </motion.h3>
+          </h3>
 
-          <motion.p 
+          <p 
             className="text-lg md:text-xl text-center mb-8 text-gray-700 dark:text-gray-300"
-            variants={fadeInUp}
           >
             While you&apos;re losing leads, here&apos;s what&apos;s happening to the ones you do contact:
-          </motion.p>
+          </p>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {conversionStats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300"
-                variants={fadeInUp}
-                whileHover={{ y: -5 }}
               >
                 {stat.icon}
                 <div className="mt-4">
@@ -231,15 +180,14 @@ const ProblemSection = () => {
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">{stat.subtitle}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* The Real Cost */}
-        <motion.div 
+        <div 
           className="bg-gradient-to-r from-red-100/40 to-red-50/40 dark:from-red-900/20 dark:to-red-800/20 rounded-2xl p-8 md:p-12 border border-red-200/50 dark:border-red-800/30 mb-12"
-          variants={scaleIn}
         >
           <div className="text-center max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-red-400">
@@ -274,34 +222,29 @@ const ProblemSection = () => {
               <strong>Cox Automotive</strong> confirms this pain is real: Just <strong>10 unsold new units per month</strong> costs dealers <strong>$28,730/month</strong> in lost gross profit and holding costs<strong>over $340,000 per year</strong> from missed opportunities alone.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Staff Nightmare */}
-        <motion.div 
+        <div 
           className="mb-12"
-          variants={staggerContainer}
         >
-          <motion.h3 
+          <h3 
             className="text-2xl md:text-3xl font-bold text-center mb-8 text-red-400"
-            variants={fadeInUp}
           >
             The Staff Nightmare Making It Worse
-          </motion.h3>
+          </h3>
 
-          <motion.p 
+          <p 
             className="text-lg md:text-xl text-center mb-8 text-gray-700 dark:text-gray-300"
-            variants={fadeInUp}
           >
             <strong>Industry data shows:</strong>
-          </motion.p>
+          </p>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
             {staffStats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900/50 transition-all duration-300"
-                variants={fadeInUp}
-                whileHover={{ y: -5 }}
               >
                 {stat.icon}
                 <div className="mt-4">
@@ -310,13 +253,12 @@ const ProblemSection = () => {
                   </p>
                   <p className="text-gray-600 dark:text-gray-400">{stat.subtitle}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.div 
+          <div 
             className="bg-gray-100 dark:bg-gray-900/50 rounded-xl p-6 border border-gray-200 dark:border-gray-800 text-center"
-            variants={scaleIn}
           >
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4">
               <strong>40% of sales leads close after three days</strong>, but most dealerships&apos; follow-up drops off after initial contact.
@@ -324,13 +266,12 @@ const ProblemSection = () => {
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
               While you&apos;re dealing with staff drama, training nightmares, and clunky software...
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Final Impact */}
-        <motion.div 
+        <div 
           className="bg-gradient-to-r from-red-100/40 to-red-50/40 dark:from-red-900/20 dark:to-red-800/20 rounded-2xl p-8 md:p-12 border border-red-200/50 dark:border-red-800/30"
-          variants={scaleIn}
         >
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl font-bold mb-6 text-black dark:text-white">
@@ -344,9 +285,9 @@ const ProblemSection = () => {
               <span className="text-red-500 dark:text-red-400">The question is: Can you afford to keep losing $710,000 every year?</span>
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Card, CardHeader, CardBody, Image } from "@heroui/react";
 import { 
@@ -79,7 +78,7 @@ const getStatusBadge = (status, color) => {
   }
 };
 
-const AgentCard = ({ agent, index }) => {
+const AgentCard = ({ agent }) => {
   const { resolvedTheme } = useTheme();
 
   // Function to get the appropriate image for each agent
@@ -115,12 +114,7 @@ const AgentCard = ({ agent, index }) => {
   };
 
   return (
-    <motion.div
-      variants={fadeInUp}
-      whileHover={{ y: -5 }}
-      className="group"
-    >
-      <Card className={`py-4 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl ${
+    <Card className={`py-4 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl ${
         agent.status === "live" 
           ? "hover:shadow-green-500/10" 
           : agent.color === "purple" 
@@ -162,7 +156,6 @@ const AgentCard = ({ agent, index }) => {
           />
         </CardBody>
       </Card>
-    </motion.div>
   );
 };
 
@@ -191,18 +184,13 @@ const LandingAgents = () => {
   ];
 
   return (
-    <motion.section
+    <section
       className="w-full py-16 md:py-24 text-black dark:text-white"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={staggerContainer}
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Header */}
-        <motion.div
+        <div
           className="text-center mb-12"
-          variants={fadeInUp}
         >
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
             Meet Your New Co-Pilots, Built For Scale.
@@ -210,31 +198,29 @@ const LandingAgents = () => {
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             12 specialized AI agents working together to transform your dealership&apos;s sales process
           </p>
-        </motion.div>
+        </div>
 
         {/* Live Agents Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12"
-          variants={staggerContainer}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12"
         >
           {agentData.filter(agent => agent.status === "live").map((agent, index) => (
-            <AgentCard key={agent.id} agent={agent} index={index} />
+            <AgentCard key={agent.id} agent={agent} />
           ))}
-        </motion.div>
+        </div>
 
 
 
         {/* Bottom CTA */}
-        <motion.div
+        <div
           className="text-center mt-12"
-          variants={fadeInUp}
         >
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-600/20 to-green-500/20 rounded-full px-6 py-3 border border-green-500/30 backdrop-blur-sm">
             <span className="text-green-400 font-semibold">Each agent specializes in a different stage of your sales funnel</span>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

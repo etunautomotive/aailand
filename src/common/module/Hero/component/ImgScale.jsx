@@ -28,7 +28,7 @@ const ImgScale = () => {
         src="/fabric.webp"
         alt="Image"
         priority
-        className="h-auto w-[500px]"
+        className="h-auto w-full max-w-[500px]"
 
       />
     </motion.div>

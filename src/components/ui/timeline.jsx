@@ -1,6 +1,7 @@
-"use client";;
-import { useScroll, useTransform, motion } from "motion/react";
+"use client";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { useMobile } from "@/common/hooks/useMobile";
 
 export const Timeline = ({
   data
@@ -8,6 +9,7 @@ export const Timeline = ({
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
+  const isMobile = useMobile();
 
   useEffect(() => {
     if (ref.current) {
@@ -16,11 +18,13 @@ export const Timeline = ({
     }
   }, [ref]);
 
+  // Disable scroll-linked animations on mobile for smoother performance
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 10%", "end 90%"],
   });
 
+  // Always call hooks in the same order; fall back to static values on mobile
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
@@ -41,7 +45,7 @@ export const Timeline = ({
         {data.map((item, index) => (
           <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
             <div
-              className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+              className="md:sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div
                 className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div
@@ -66,11 +70,11 @@ export const Timeline = ({
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] ">
+          className="hidden md:block absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] ">
           <motion.div
             style={{
-              height: heightTransform,
-              opacity: opacityTransform,
+              height: isMobile ? 0 : heightTransform,
+              opacity: isMobile ? 1 : opacityTransform,
             }}
             className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full" />
         </div>
