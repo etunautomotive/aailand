@@ -4,7 +4,6 @@ import Image from "next/image";
 import WesleyLogo from "@/../public/weslogo.png";
 import JoshuaLogo from "@/../public/joshlogo.png";
 import AneeshLogo from "@/../public/aneeshlogo.png";
-import JustinLogo from "@/../public/JustinLogo.png";
 import MorganLogo from "@/../public/morganlogo.png";
 const About = () => {
   const teamMembers = [
@@ -37,19 +36,10 @@ const About = () => {
     },
     {
       name: "Morgan Kennedy",
-      role: "Sales Development Representative ",
+      role: "Customer Success & Prompt Engineer",
       bio: "Morgan is a seasoned sales leader with a proven track record of driving growth and building strong relationships with dealerships. He brings a deep understanding of the automotive industry and the needs of dealerships to the team.",
       image: MorganLogo,
       hasGlow: true,
-    },
-    {
-      name: "Justin Frank",
-      role: "Director of Sales & Training",
-      bio: "17+ years in dealership finance and 7 years in online auto sales. Trained 400+ sales agents on revolutionary processes generating $4M monthly in gross..",
-      image: JustinLogo,
-      hasGlow: true,
-      objectPosition: "center 25%",
-      imageScale: "scale-150",
     },
   ];
 
