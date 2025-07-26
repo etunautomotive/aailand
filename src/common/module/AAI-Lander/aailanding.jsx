@@ -816,7 +816,7 @@ export default function AAILanding() {
             position:
               "Finance Manager — Approval Express Canada — Vancouver, BC",
           }}
-          contactEmail="justin@automotiveai.ca"
+          contactEmail="wes@automotiveai.ca"
           useModalInsteadOfCalendly={true}
           onCtaClick={onOpen}
         />
