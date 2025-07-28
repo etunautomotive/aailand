@@ -1,5 +1,5 @@
-import React from 'react';
-import { Play } from 'lucide-react';
+import React from "react";
+import { Play } from "lucide-react";
 
 const VideoPlayer = ({ videoId, className = "" }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -9,26 +9,27 @@ const VideoPlayer = ({ videoId, className = "" }) => {
   };
 
   return (
-    <div className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl ${className}`}>
+    <div
+      className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl ${className}`}
+    >
       {!isPlaying ? (
         <>
           <div className="absolute inset-0 flex flex-col items-center justify-center z-[100]">
             <p className="text-4xl font-semibold text-white/90 drop-shadow-md mb-8">
               Click to Watch
             </p>
-            <button 
-              onClick={handlePlay}
-              className="bg-black/80 text-white rounded-full p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform"
+            <button
+              className="bg-black/80 text-white rounded-full p-3 sm:p-4 md:p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform pointer-events-none"
               aria-label="Play video"
             >
-              <Play className="h-14 w-14" />
+              <Play className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14" />
             </button>
           </div>
           <div 
             className="absolute inset-0 bg-cover bg-center z-[90]"
             style={{ 
               backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
-              opacity: 0.8
+              opacity: 0.8,
             }}
           >
             <div className="w-full h-full bg-gray-800/10 backdrop-blur-sm"></div>
