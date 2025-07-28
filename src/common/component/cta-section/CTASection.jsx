@@ -113,7 +113,7 @@ const CTASection = ({
     quote:
       "We added $78,451 in gross profit in the first month alone by implementing this system.",
     author: "Michael Jensen",
-    position: "Sales Director — AutoPrime Motors — Calgary, AB",
+            position: "Sales Director, AutoPrime Motors, Calgary, AB",
   },
   contactEmail = "justin@automotiveai.ca",
   useModalInsteadOfCalendly = false,
@@ -324,15 +324,13 @@ const CTASection = ({
 
         <AnimatedCard delay={0.1}>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-            Ready to Add <span className={styles.gradientText}>$300k</span> in
-            Monthly Gross Profit?
+            {mainHeading}
           </h2>
         </AnimatedCard>
 
         <AnimatedCard delay={0.2}>
           <p className="text-lg md:text-xl mb-10 mx-auto max-w-3xl text-gray-700 dark:text-gray-300">
-            Join hundreds of dealerships who are already using our proven system
-            to increase their sales and profits.
+            {subheading}
           </p>
         </AnimatedCard>
 
@@ -353,12 +351,22 @@ const CTASection = ({
 
         <AnimatedCard delay={0.4}>
           <div className="flex justify-center mb-8 relative z-0">
-            <SparkleButton
-              className="!text-base !py-4 !px-8 !flex !items-center"
-              onClick={useModalInsteadOfCalendly ? onOpen : onCtaClick}
-            >
-              {ctaButtonText}
-            </SparkleButton>
+            {useModalInsteadOfCalendly ? (
+              <SparkleButton
+                className="!text-base !py-4 !px-8 !flex !items-center"
+                onClick={onOpen}
+              >
+                {ctaButtonText}
+              </SparkleButton>
+            ) : (
+                              <a href="/vsldemo">
+                <SparkleButton
+                  className="!text-base !py-4 !px-8 !flex !items-center"
+                >
+                  {ctaButtonText}
+                </SparkleButton>
+              </a>
+            )}
           </div>
         </AnimatedCard>
 

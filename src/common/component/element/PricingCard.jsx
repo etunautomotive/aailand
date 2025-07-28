@@ -75,11 +75,11 @@ export default function PricingCard({ pricingItems, badgeText, offerTitle, offer
                 {buttonText}
               </SparkleButton>
             ) : (
-              <Link href="/demo">
+              <a href="/vsldemo">
                 <SparkleButton className="w-full !py-4 !text-lg flex items-center justify-center">
                   {buttonText}
                 </SparkleButton>
-              </Link>
+              </a>
             )}
           </div>
         </div>

@@ -1,15 +1,15 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "../common/style/globals.css";
 import NavbarWithVariant from "@/common/component/navbar/NavbarWithVariant";
-import { Providers } from "@/common/component/element/Providers";
 import Footer from "@/common/Footer";
+import { ClientProviders } from "./client-providers";
 
 const plus_Jakarta_Sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Automotive AI - Revolutionizing Auto Sales",
   description:
-    "Seamlessly combining AI agents, automated data collection, and bulk SMS with autonomous responses—all integrated with lending platforms for a unified sales process.",
+    "Seamlessly combining AI agents, automated data collection, and bulk SMS with autonomous responses, all integrated with lending platforms for a unified sales process.",
   keywords:
     "automotive sales, AI agents, automated data collection, bulk SMS, Credit App, Dealertrack, automotive CRM",
   author: "Automotive AI",
@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${plus_Jakarta_Sans.className} dark:bg-black min-h-screen flex flex-col`}
       >
-        <Providers>
+        <ClientProviders>
           <div className="flex justify-center items-center w-full">
             <NavbarWithVariant />
           </div>
           <main className="flex-grow w-full overflow-x-hidden">{children}</main>
           <Footer />
-        </Providers>
+        </ClientProviders>
       </body>
     </html>
   );

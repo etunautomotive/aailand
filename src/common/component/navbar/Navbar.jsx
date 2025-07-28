@@ -154,7 +154,7 @@ const Navbar = ({ variant = "default" }) => {
             
             <SparkleButton
               className="!text-sm !py-2.5 !px-5 scale-95"
-              onClick={() => window.open("https://www.automotiveai.ca/demo/", "_blank")}
+              href="/vsldemo"
             >
               Schedule a Demo
             </SparkleButton>

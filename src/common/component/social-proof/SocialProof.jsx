@@ -8,7 +8,7 @@ const dealerAvatars = [
 ];
 
 const SocialProof = ({ dealerCount = 237, avatars = dealerAvatars }) => (
-  <div className="flex items-center bg-white dark:bg-black/80 rounded-full px-6 py-3 shadow-md gap-6">
+  <div className="flex flex-wrap justify-center items-center bg-white dark:bg-black/80 rounded-full px-4 sm:px-6 py-3 shadow-md gap-4 sm:gap-6">
     {/* Avatars */}
     <div className="flex -space-x-3">
       {avatars.map((src, idx) => (
@@ -16,17 +16,17 @@ const SocialProof = ({ dealerCount = 237, avatars = dealerAvatars }) => (
           key={idx}
           src={src}
           alt="Dealer avatar"
-          className="w-10 h-10 rounded-full border-2 border-white dark:border-black object-cover"
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-black object-cover"
           style={{ zIndex: 10 - idx }}
         />
       ))}
     </div>
     {/* Stars */}
-    <div className="flex items-center ml-4">
+    <div className="flex items-center sm:ml-4">
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className="w-6 h-6 text-purple-500 mx-0.5"
+          className="w-5 h-5 sm:w-6 sm:h-6 text-purple-500 mx-0.5"
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -35,7 +35,7 @@ const SocialProof = ({ dealerCount = 237, avatars = dealerAvatars }) => (
       ))}
     </div>
     {/* Text */}
-    <span className="ml-4 font-medium text-gray-800 dark:text-gray-200 text-lg whitespace-nowrap">
+    <span className="text-center sm:text-left sm:ml-4 font-medium text-gray-800 dark:text-gray-200 text-base sm:text-lg">
       Used by {dealerCount} Dealers
     </span>
   </div>

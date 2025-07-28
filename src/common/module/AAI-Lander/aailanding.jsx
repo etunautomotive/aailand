@@ -33,6 +33,10 @@ import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import Pricing from "@/common/module/Pricing/Pricing";
 import { Timeline } from "@/components/ui/timeline";
 import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
+import ProblemSection from "@/common/component/problem-section/problem-section";
+import SolutionSection from "@/common/component/solution-section/solution-section";
+import LeadIntegrations from "@/common/component/lead-integrations/lead-integrations";
+import LandingAgents from "@/common/component/landing-agents/landing-agents";
 
 // Animation variants for SalesLanding page (outside component for performance)
 const staggerContainer = {
@@ -532,63 +536,66 @@ export default function AAILanding() {
   const timelineData = useMemo(
     () => [
       {
-        title: "Step 1: Customize Your Agents",
-        content: (
-          <>
-            <p>
-              We start by mapping out your dealership&apos;s ideal sales process
-              and defining the outcomes you want to achieve — whether it&apos;s
-              more approvals, faster speed to contact, or closing higher-value
-              deals. From there, we break your lead flow into key stages and
-              assign specialized AI agents to each one.
-            </p>
-            <p>
-              Each agent is designed with a distinct personality, purpose, and
-              script logic that mirrors your best-performing reps from tone of
-              voice to how objections are handled. This gives you a masterfully
-              engineered, repeatable system that runs 24/7, and never needs
-              retraining. Once it&apos;s live, your team can plug in and scale
-              without missing a beat.
-            </p>
-          </>
-        ),
-      },
-      {
-        title: "Step 2: Integrate & Connect",
+        title: "Step 0: You Are Here",
         content: (
           <p>
-            We seamlessly connect your traffic sources and AI agents to your
-            existing CRM, website, and lead channels—without disrupting your
-            current sales process. While your team keeps selling, the system
-            quietly learns and optimizes in the background.{" "}
+            Losing $50,000+ monthly to unworked leads and staff turnover.
           </p>
         ),
       },
       {
-        title: "Step 3: Activate Your AI Workforce",
+        title: "Step 1: Create and Connect Your Twilio Account",
         content: (
           <p>
-            With your system fully mapped and agents trained, it&apos;s time to
-            put them to work. Your AI agents immediately begin handling live
-            leads engaging, qualifying, following up, and pushing deals forward
-            around the clock. As they work, we monitor real-time performance,
-            fine-tune workflows, and optimize messaging to drive stronger
-            results with every conversation.
+            Plug into enterprise-grade communication in under 10 minutes. We&apos;ll connect your Twilio account so AI agents can text and call through your existing channels.
           </p>
         ),
       },
       {
-        title: "Step 4: Optimize & Scale",
+        title: "Step 2: Access Our Platform",
         content: (
           <p>
-            Once your agents are in motion, we shift focus to performance tuning
-            and expansion. We analyze response rates, conversion data, and
-            workflow efficiency to identify what&apos;s working best. From
-            there, we double down optimizing scripts, expanding to new lead
-            sources, and cloning top-performing agents across more campaigns.
-            You&apos;ll also get direct access to our strategy team through a
-            private WhatsApp group and scheduled check-ins, ensuring you&apos;re
-            always a step ahead as the system scales with your dealership.
+            Get your AI command center in 24 hours. Monitor every conversation and performance metric from your personalized dashboard. No technical setup required.
+          </p>
+        ),
+      },
+      {
+        title: "Step 3: Customize Your Agents For Each Lead Source",
+        content: (
+          <p>
+            Mirror your best reps, but better. We map your sales process and create specialized AI agents for each stage. Each agent has distinct personality and scripts that match your top performers - running 24/7 without retraining.
+          </p>
+        ),
+      },
+      {
+        title: "Step 4: Launch Database Reactivation",
+        content: (
+          <p>
+           See ROI in 7 days. Re-engage dormant leads and past customers with 4-19% converting to appointments in week one often covering your entire monthly investment from this campaign alone.
+          </p>
+        ),
+      },
+      {
+        title: "Step 5: Integrate & Connect",
+        content: (
+          <p>
+            Zero disruption integration. We connect to your DMS and lead sources while your team keeps selling. Your staff won&apos;t notice until they see more qualified leads in Automotive AI.
+          </p>
+        ),
+      },
+      {
+        title: "Step 6: Activate Your AI Workforce",
+        content: (
+          <p>
+            24/7 sales army goes live. AI agents handle all leads instantly. Engaging, qualifying, and following up around the clock. Response times drop from hours to seconds, follow-up rates hit 100%.
+          </p>
+        ),
+      },
+      {
+        title: "Step 7: Optimize & Scale",
+        content: (
+          <p>
+            Continuous improvement that compounds results. We analyze performance data and optimize everything from responses, workflows, and expansion to new lead sources. Plus direct access to our strategy team via WhatsApp.
           </p>
         ),
       },
@@ -610,14 +617,79 @@ export default function AAILanding() {
   const faqData = useMemo(
     () => [
       {
+        question: "This sounds too good to be true. How do I know it actually works?",
+        answer:
+          "I get it. You've probably been burned by software promises before. Here's the difference: We're not some generic chatbot company. We built this specifically for automotive after losing $2.3M ourselves from poor lead management. Look at the results: Our dealers are going from zero subprime experience to breaking every 30-day record. 20 deals, $30K profit in one month. We have dealers telling us it's \"by far the best system we have ever used.\" These aren't paid testimonials. These are real dealers solving the same problems you face. Plus, we're so confident it works that we offer a 30-day money-back guarantee. No contracts. Month-to-month. If it doesn't deliver results in the first 30 days, you get every penny back.",
+      },
+      {
+        question: "We already have a CRM/BDC system. Why do we need another one?",
+        answer:
+          "You don't need to replace anything. We can assist with pulling your data from PBS, Activix, whatever you're using. Think of it this way: Your current CRM is like having a filing cabinet. Our AI is like having a world-class salesperson who never sleeps, never calls in sick, and works that filing cabinet 24/7. Our dealers keep their existing systems AND add ours because now their leads actually get worked properly. Dealers paying $2,500/month for their current CRM go from 3-9% closing ratio to seeing instant improvements because every lead gets touched within 30 seconds instead of sitting until morning.",
+      },
+      {
+        question: "Our sales team won't want to use this. They like doing things their own way.",
+        answer:
+          "Here's what actually happens: Your sales team will LOVE this system because it makes their job easier, not harder. Instead of chasing cold leads and doing data entry, they get pre-qualified, ready-to-buy customers handed to them. Our dealers tell us they were skeptical at first, but now they say they'd \"never go back to doing things the old way.\" The AI handles the grunt work. The follow-ups, the qualification, the objection handling. Your salespeople get to do what they do best: close deals. It's like giving them a personal assistant who works 24/7.",
+      },
+      {
+        question: "What if the AI says something wrong or offends a customer?",
+        answer:
+          "This isn't some generic ChatGPT bot. Every AI agent is custom-trained on YOUR processes, YOUR brand voice, and YOUR dealership values. We spend the first 48 hours programming it to sound exactly like your best salesperson. And your BDC/Sales people monitor every conversation and can jump in anytime. Plus, after handling millions of automotive conversations, our AI actually handles objections BETTER than most salespeople. It never gets frustrated, never has a bad day, and always follows your proven scripts perfectly.",
+      },
+      {
+        question: "This seems expensive. How do I know I'll get ROI?",
+        answer:
+          "Let's do the math. You're currently losing $2.3M annually from poor lead management. That's $191,000 per month in missed opportunities. Our system costs $5,000/month. If it captures just ONE additional deal per month (which is conservative since most dealers see 10-20 more), you've paid for it. But here's the real kicker: Remember those \"dead\" leads in your database? We're seeing 4-19% conversion on old data. If you have 1,000 old leads and convert just 4%, that's 40 re-engaged customers. Close 15% of those (6 deals) at $5,000 gross profit each = $30,000 profit from leads you already paid for. Most dealers cover their entire monthly investment just from database reactivation in 1-2 weeks.",
+      },
+      {
+        question: "We're a small dealership. Is this only for big stores?",
+        answer:
+          "Actually, smaller dealerships see the biggest impact because you can't afford to waste ANY leads. Look at it this way: If you're getting 50 leads per month and only converting 6% (3 deals), our system typically gets you to 31% conversion (15+ deals). That's 12 additional deals per month from the same lead spend. The beauty is it scales to your size. Small store? You get the same AI power as the big guys. You're not paying per lead or per conversation. It's one flat rate whether you process 50 leads or 500.",
+      },
+      {
+        question: "What happens if we want to cancel? Are we locked into a contract?",
+        answer:
+          "Zero contracts. Month-to-month only. We earn your business every single month. Why? Because we're confident in our results. If we locked you into a contract and the system didn't work, you'd hate us and tell everyone. Instead, we focus on delivering value every month so you WANT to stay. Most software companies demand contracts because they know their product doesn't deliver. We do the opposite. Prove our worth first, then earn your continued business.",
+      },
+      {
+        question: "How long does it take to set up? We don't have time for a complicated implementation.",
+        answer:
+          "You'll be live and generating results in 48 hours. Not weeks or months. 48 hours. Here's the process: Day 1, we set up your pre-onboarding meeting to create and connect your twilio and preferred large language model. Day 2, we create your database reactivation agent and set your agents persona fields, objections handles etc and we launch your database reactivation campaign. By Day 3, you're seeing appointments and credit applications from leads you thought were dead. No complicated training. No disruption to your current operations. Your team keeps doing what they do best while the AI handles everything else in the background.",
+      },
+      {
+        question: "How do I know you'll be around in a year? What if you go out of business?",
+        answer:
+          "Fair question. We're not some venture-funded startup burning cash. We're profitable from day one because our system actually works and dealers gladly pay for results. We're already at 123+ dealerships in just 3 months since launch, with zero churn. When dealers see 10-20 additional deals per month, they don't cancel. They refer their friends. Plus, all your data stays in your control. You own your customer information, your conversations, everything. We're the tool, you own the results.",
+      },
+      {
+        question: "Our salespeople have their own style and process. Will AI sound robotic or generic?",
+        answer:
+          "The opposite. Each salesperson gets their own AI agent trained on THEIR specific style and process. We ask detailed questions about how they communicate, their selling approach, even which sales trainers they follow. The AI learns to sound like them, not like a robot. We can make it sound like Grant Cardone, Jeremy Miner, or however your team naturally communicates. Customers often prefer talking to our AI over inexperienced salespeople because it's consistent and knowledgeable. Your top performer's approach can now be replicated across unlimited leads simultaneously. It's like cloning your best salesperson's skills without the human limitations.",
+      },
+      {
+        question: "We've tried other AI chatbots before and they were terrible. How is this different?",
+        answer:
+          "Those were generic chatbots built for every industry. We're built specifically for automotive, RV, and powersports. We understand your inventory, your financing, your trade-in process. Generic AI says \"let me connect you with an agent\" when asked about interest rates. Our AI knows your lenders, your approval rates, your inventory levels. It can handle real objections and actually move deals forward. Plus, we're not just a chatbot. We're a complete operating system that handles lead management, follow-ups, credit pulls, and integrates with DealerTrack and Credit App. It's like comparing a toy car to a Ferrari.",
+      },
+      {
+        question: "Our market is different. Will this work in our specific area or customer base?",
+        answer:
+          "We customize everything for your specific market and customer base. Whether you're working with prime customers and want to book appointments or working subprime leads over the phone, we adapt to your process. We've worked with dealers from coast to coast, different demographics, different credit profiles. The beauty of AI is you can train it exactly to your specific customer language and objections, then handles them consistently. Your market isn't different in terms of basic human psychology. People want to be heard, understood, and helped. Our AI does that better than most humans because it never gets tired, frustrated, or has a bad day.",
+      },
+      {
+        question: "Is our data protected?",
+        answer:
+          "Absolutely. We use enterprise-grade security with 99.9% uptime and bank-level encryption to protect all your information. But here's what's most important: YOU own all your data. Every customer record, every piece of information belongs to you, not us. We're just the tool processing it. Unlike some companies that hold your data hostage, you can export everything at any time. We're not in the business of owning your customer relationships we're in the business of helping you work them better. Plus, this is actually MORE secure than your current process. No more customer data sitting on salespeople's personal phones or scattered across different systems. Everything is centralized, sanitized, and tracked. If you ever decide to leave the system, you take all your data with you. We believe in earning your business through results, not by trapping your information.",
+      },
+      {
         question: "What does Automotive AI actually do?",
         answer:
-          "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to credit submissions, the system streamlines every step—while giving you full visibility into conversations, applications, and progress.",
+          "Automotive AI is a sales and finance system built to engage leads, collect full credit applications, and hand off ready-to-close deals to your team. It's used to activate old CRM data, work paid or organic leads, and even bring in new applications directly from your website. From lead engagement to credit submissions, the system streamlines every step while giving you full visibility into conversations, applications, and progress.",
       },
       {
         question: "Can it really talk to leads like a human?",
         answer:
-          "Yes—and that's where it shines. The AI agents use custom-built conversation flows that mirror real sales conversations. They acknowledge customer messages, respond naturally, and stay on track even if a lead goes off-topic. You can even adjust the pacing of replies to avoid that 'bot' feel. Over time, the AI gets smarter, but it always stays within the approved tone and flow you choose.",
+          "Yes, and that's where it shines. The AI agents use custom-built conversation flows that mirror real sales conversations. They acknowledge customer messages, respond naturally, and stay on track even if a lead goes off-topic. You can even adjust the pacing of replies to avoid that 'bot' feel. Over time, the AI gets smarter, but it always stays within the approved tone and flow you choose.",
       },
       {
         question: "What happens if someone mentions a co-applicant?",
@@ -627,7 +699,7 @@ export default function AAILanding() {
       {
         question: "What's included in the system?",
         answer:
-          "You get a complete pipeline view of every deal stage, real-time updates during every conversation, and access to call recordings and transcripts. The system can also generate cover sheets for paper files and supports team collaboration across departments. It comes with access to a full sales academy—complete with training videos, interactive workbooks, and mindset development to help your reps improve performance fast.",
+          "You get a complete pipeline view of every deal stage, real-time updates during every conversation, and access to call recordings and transcripts. The system can also generate cover sheets for paper files and supports team collaboration across departments. It comes with access to a full sales academy complete with training videos, interactive workbooks, and mindset development to help your reps improve performance fast.",
       },
       {
         question: "Can it connect with our current systems?",
@@ -647,7 +719,7 @@ export default function AAILanding() {
       {
         question: "Is there a long-term commitment?",
         answer:
-          "No. Everything is month-to-month. The platform is designed to prove its value quickly—most dealers see ROI within the first few days of going live. You stay because it works, not because you're locked into a contract.",
+          "No. Everything is month-to-month. The platform is designed to prove its value quickly. Most dealers see ROI within the first few days of going live. You stay because it works, not because you're locked into a contract.",
       },
     ],
     []
@@ -662,7 +734,7 @@ export default function AAILanding() {
       },
       {
         icon: <Check className="w-5 h-5" />,
-        text: "Used by 74+ Dealerships",
+        text: "Trusted by 123+ Dealerships",
         detail: "Proven results across North America",
         color: "purple",
       },
@@ -683,24 +755,24 @@ export default function AAILanding() {
         <VslHero
           heading={
             <>
-              Welcome to the operating system for the{" "}
-              <PurpleHighlight>modern dealer.</PurpleHighlight>
+              Revolutionary Auto, RV & Powersports AI Sales Force That{" "}
+              <PurpleHighlight>Works Your Leads 24/7</PurpleHighlight>
             </>
           }
           subheading="Lean team. Smart tech. More Revenue. Massive profits."
           videoId="wamN2O6Zo2U"
-          aboveVideoText="Watch: How Dealers Are using Automotive AI's 6 pillars of automation to Stop Bleeding Profit in 2025"
+          aboveVideoText="Watch: How AI Sales Force is Recapturing $50,000+ in Lost Deals Every Month"
           actionButton={
             <>
               <SparkleButton
-                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200"
-                onClick={onOpen}
+                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
+                href="/vsldemo"
               >
                 Book a Strategy Call
               </SparkleButton>
             </>
           }
-          dealerCount={74}
+          dealerCount={123}
         />
         {/* Testimonial Section */}
         <motion.div
@@ -730,62 +802,115 @@ export default function AAILanding() {
             />
           </motion.div>
         </motion.div>
+        {/* Problem Section */}
+        <ProblemSection />
+        
+        {/* Schedule Demo CTA - After Problem Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            href="/vsldemo"
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
+        
+        {/* Solution Section */}
+        {console.log("AAI Landing: About to render SolutionSection")}
+        <SolutionSection />
+        
+        {/* Schedule Demo CTA - After Solution Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            href="/vsldemo"
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
+        {/* Additional Testimonials Section */}
+        <motion.div
+          className="mt-12 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={scaleIn}>
+            <InfiniteMovingCards
+              items={testimonialsMovingCardsData}
+              direction="left"
+              speed="fast"
+            />
+          </motion.div>
+        </motion.div>
         {/* What You'll Learn Section */}
         <WhatYoullLearn
           title={
             <>
-              The 6 Pillars of Automation We Deliver for Guaranteed Scale While{" "}
-              <PurpleHighlight>Increasing Profit</PurpleHighlight>
+              <PurpleHighlight>AI-Powered</PurpleHighlight> Support Across Departments
             </>
           }
           features={[
             {
               icon: <Bot className="text-purple-600 w-8 h-8" />,
-              title: "Sales Automation",
+              title: "Retail Sales",
               description:
-                "AI agents revive old leads, follow up instantly, and pre-qualify buyers 24/7. Say goodbye to missed opportunities and bottlenecks.",
-            },
-            {
-              icon: <Brain className="text-purple-600 w-8 h-8" />,
-              title: "Staffing & Training",
-              description:
-                "From job ads to onboarding and role-based training, we equip your team to perform — faster and with less turnover.",
-            },
-            {
-              icon: <FileText className="text-purple-600 w-8 h-8" />,
-              title: "Sales Process Compliance",
-              description:
-                "Centralized logs of all texts, calls, and follow-ups. Catch dropped balls, protect customer data, and enforce consistency.",
+                "Our AI sales agents provide comprehensive support for your frontline retail sales team, helping close more deals and improve customer interactions.",
             },
             {
               icon: <TrendingUp className="text-purple-600 w-8 h-8" />,
-              title: "Finance Department Automation",
+              title: "Non-Prime Financing",
               description:
-                "Push credit apps into Dealertrack or Credit App, and package every deal for speed and precision.",
-            },
-            {
-              icon: <PhoneCall className="text-purple-600 w-8 h-8" />,
-              title: "Internal Staff Optimization",
-              description:
-                "Let AI handle inbound leads, outbound follow-up, appointment booking, and routing freeing your best closers to focus.",
+                "Specialized AI assistance for qualifying leads with customers facing challenging financing scenarios, ensuring customers are qualified and ready to buy.",
             },
             {
               icon: <Target className="text-purple-600 w-8 h-8" />,
               title: "Fixed Operations",
               description:
-                "Drive more service traffic, automate service reminders, and boost service revenue year-round.",
+                "Streamlined support for service, parts, and maintenance departments to maximize efficiency and bookings",
+            },
+            {
+              icon: <PhoneCall className="text-purple-600 w-8 h-8" />,
+              title: "BDC",
+              description:
+                "Enhanced capabilities for your Business Development Center, improving lead management and customer communication.",
             },
           ]}
         />
+        {/* Lead Integrations Section */}
+        <LeadIntegrations />
+        
+        {/* Schedule Demo CTA - After Lead Integrations Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            href="/vsldemo"
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
+        {/* Timeline Section */}
+        <Timeline data={timelineData} />
+        {/* Landing Agents Section */}
+        <LandingAgents />
+        
+        {/* Schedule Demo CTA - After Landing Agents Section */}
+        <div className="w-full flex justify-center py-8">
+          <SparkleButton
+            className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
+            href="/vsldemo"
+          >
+            Schedule a Demo
+          </SparkleButton>
+        </div>
         <AgentsPage
-          header="Meet Your New Co-Pilots, Built For Scale."
-          subheader="Our platform features specialized AI agents designed specifically for automotive dealerships. Each agent is trained on industry-specific processes and optimized to handle different aspects of the sales journey, from initial contact to deal closure."
+          header="Don't have an Agent You're Looking for? Build a Custom One."
+          subheader="Our foundational technology empowers you to create custom AI agents tailored to any process or department within your dealership. Choose from our proven foundation models and leverage our intuitive AI Agent Builder to design specialized solutions that fit your unique workflow requirements. Whether you need support for service scheduling, parts inventory, finance processing, or any other dealership operation, our platform provides the flexibility to build exactly what your business needs."
           agentData={agentsData}
           ctaTitle="Ready to transform your dealership?"
           ctaSubtitle="Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
-          onCtaClick={onOpen}
         />
-        <Timeline data={timelineData} />
         <Pricing
           sectionTitle="AutomotiveAI Platform Pricing"
           mainTitle="Monthly pricing, no long-term commitment required"
@@ -797,16 +922,15 @@ export default function AAILanding() {
           offerSubtitle="Early Adopter Pricing"
           features={pricingFeatures}
           buttonText="Book a Strategy Call"
-          useModalInsteadOfCalendly={true}
-          onCtaClick={onOpen}
+          useModalInsteadOfCalendly={false}
         />
         <div className="w-full flex justify-center mt-16">
           <FAQ title="Frequently Asked Questions" faqs={faqData} />
         </div>
         <CTASection
           badgeText="Early Adopter Special"
-          mainHeading="Transform Your Dealership with AI-Powered Automation"
-          subheading="Join the growing network of forward-thinking dealers who are leveraging AI to increase sales, reduce costs, and boost profits."
+          mainHeading="Ready to Plug the $710,000 Leak That's Draining Your Dealership?"
+          subheading="Join 123+ smart dealerships who are already using our proven AI Sales Army to eliminate the annual loss from poor lead management and turn 'dead' data into profit-generating machines."
           features={ctaFeatures}
           ctaButtonText="Book a Strategy Call"
           testimonial={{
@@ -814,7 +938,7 @@ export default function AAILanding() {
               "AAI helped me break every 30-day record I had. 20 deals, over $30K profit all in one month.",
             author: "Jaedynn Cutler",
             position:
-              "Finance Manager — Approval Express Canada — Vancouver, BC",
+              "Finance Manager, Approval Express Canada, Vancouver, BC",
           }}
           contactEmail="wes@automotiveai.ca"
           useModalInsteadOfCalendly={true}

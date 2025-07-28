@@ -22,7 +22,7 @@ export const CardItem = [
     img: PipelineLight,
     title: "Pipeline Management",
     content:
-      "Our intelligent pipeline system automates lead progression based on real-time data and completed processes. AI-powered agents automatically move leads through stages as they complete key milestones, from initial contact to deal closure. The system analyzes interaction data, response patterns, and process completion to optimize the sales journey—all while maintaining full manual control when needed.",
+      "Our intelligent pipeline system automates lead progression based on real-time data and completed processes. AI-powered agents automatically move leads through stages as they complete key milestones, from initial contact to deal closure. The system analyzes interaction data, response patterns, and process completion to optimize the sales journey while maintaining full manual control when needed.",
   },
   {
     img: ContactLight,
@@ -49,13 +49,13 @@ export const SolutionAllItem = [
     img: BulkSMSLight,
     title: "Bulk SMS",
     content:
-      "We've proven it with over 10 dealers: Bulk SMS outreach delivers response rates of 25-30% and conversion rates around 5%. With an average gross per copy of $4,000–$6,000, and dealers managing thousands of names at any time, this translates into hundreds of thousands in gross revenue—all driven by a single tool in our system. It's automation that doesn't just scale—it delivers measurable impact.",
+      "We've proven it with over 10 dealers: Bulk SMS outreach delivers response rates of 25-30% and conversion rates around 5%. With an average gross per copy of $4,000 to $6,000, and dealers managing thousands of names at any time, this translates into hundreds of thousands in gross revenue. All driven by a single tool in our system. It's automation that doesn't just scale, it delivers measurable impact.",
   },
   {
     img: PipelineLight,
     title: "Pipeline Management",
     content:
-      "We build our pipeline to be simple. We provide access for full control of stages and properties. Easily configure your process—we just provide the foundation for you to do so.",
+      "We build our pipeline to be simple. We provide access for full control of stages and properties. Easily configure your process. We just provide the foundation for you to do so.",
   },
   {
     img: ContactLight,

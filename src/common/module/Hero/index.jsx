@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
 
           <p className="lg:w-[70%] text-center lg:text-2xl mt-16 mb-20 dark:text-neutral-300 text-neutral-700">
-            One platform with industry-specific AI agents for every step of the automotive sales process—from lead generation to loan approval, built with decades of dealership expertise.
+            One platform with industry-specific AI agents for every step of the automotive sales process, from lead generation to loan approval, built with decades of dealership expertise.
           </p>
         </div>
 

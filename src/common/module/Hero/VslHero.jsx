@@ -4,6 +4,7 @@ import VideoPlayer from "@/common/component/video player/videoplayer";
 import { motion } from "framer-motion";
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import SocialProof from "@/common/component/social-proof/SocialProof";
+import { AlertTriangle } from "lucide-react";
 
 const dealerAvatars = [
   "https://randomuser.me/api/portraits/men/32.jpg",
@@ -62,8 +63,8 @@ const VslHero = ({
   const renderHeading = (heading) => heading;
 
   return (
-    <motion.div
-      className="h-auto md:mb-10 max-w-[1500px] px-5 lg:px-10 mt-20 relative"
+    <motion.div 
+      className="h-auto md:mb-10 max-w-[1500px] px-4 sm:px-6 lg:px-10 mt-20 relative"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -71,17 +72,16 @@ const VslHero = ({
       <div className="flex flex-col justify-center md:top-0 mt-28 lg:mt-36 items-center">
         <div className="flex flex-col items-center justify-center">
           <motion.div
-            className="xl:w-[80%] 2xl:w-[80%] flex justify-center"
+            className="w-full xl:w-[80%] 2xl:w-[80%] flex justify-center"
             variants={headingVariants}
           >
-            {heading && (
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2 px-6 mb-2">
-                {renderHeading(heading)}
-              </h1>
-            )}
+            {heading &&
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center break-words bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent py-2 px-4 mb-2 leading-tight">
+                  {renderHeading(heading)}
+              </h1>}
           </motion.div>
           {subheading && (
-            <div className="text-xl md:text-2xl font-semibold text-center text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+            <div className="text-xl md:text-2xl font-semibold text-center text-neutral-600 dark:text-neutral-200 mb-2 mt-2 px-4">
               {subheading}
             </div>
           )}
@@ -97,16 +97,21 @@ const VslHero = ({
             custom={2}
           >
             {aboveVideoText && (
-              <div className="max-w-4xl mx-auto w-full text-sm md:text-base font-normal text-center text-neutral-500 dark:text-neutral-200 mb-1 mt-1">
-                {aboveVideoText}
+              <div className="max-w-4xl mx-auto w-full mb-1 mt-1 flex justify-center px-4">
+                <div className="bg-red-100 border-2 border-red-400 rounded-lg px-3 py-2 flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                  <div className="text-sm text-center sm:text-left font-normal text-red-700">
+                    {aboveVideoText}
+                  </div>
+                </div>
               </div>
             )}
             <div className="w-full max-w-4xl mb-8 md:mb-12 relative z-10">
               <VideoPlayer videoId={videoId} />
             </div>
             {actionButton && (
-              <motion.div
-                className="mt-8 md:mt-6 mb-4 relative z-30 w-full flex justify-center"
+              <motion.div 
+                className="mt-6 mb-4 relative z-[10]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
