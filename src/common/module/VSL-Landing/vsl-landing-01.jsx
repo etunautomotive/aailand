@@ -151,7 +151,13 @@ const VSLLanding01 = () => {
               {/* Headlines */}
               <motion.div variants={fadeInUp} className="space-y-3">
                 <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-                  <PurpleHighlight>Never Work A Lead Again</PurpleHighlight>
+                  <PurpleHighlight>Close More, Work Less.</PurpleHighlight>
+                  <br />
+                  AI Handles 100% of Lead Flow
+                  <br />
+                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-normal -mt-4">
+                    (better than you have ever seen)
+                  </span>
                 </h1>
                 
                 <h2 className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
