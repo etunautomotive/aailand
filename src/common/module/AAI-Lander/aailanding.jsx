@@ -44,6 +44,9 @@ import ProblemSection from "@/common/component/problem-section/problem-section";
 import SolutionSection from "@/common/component/solution-section/solution-section";
 import LeadIntegrations from "@/common/component/lead-integrations/lead-integrations";
 import LandingAgents from "@/common/component/landing-agents/landing-agents";
+import ScrollingBrands from "@/common/component/scrolling-brands/ScrollingBrands";
+
+
 
 // Animation variants for SalesLanding page (outside component for performance)
 const staggerContainer = {
@@ -626,7 +629,7 @@ export default function AAILanding() {
       {
         question: "This sounds too good to be true. How do I know it actually works?",
         answer:
-          "I get it. You've probably been burned by software promises before. Here's the difference: We're not some generic chatbot company. We built this specifically for automotive after losing $2.3M ourselves from poor lead management. Look at the results: Our dealers are going from zero subprime experience to breaking every 30-day record. 20 deals, $30K profit in one month. We have dealers telling us it's \"by far the best system we have ever used.\" These aren't paid testimonials. These are real dealers solving the same problems you face. Plus, we're so confident it works that we offer a 30-day money-back guarantee. No contracts. Month-to-month. If it doesn't deliver results in the first 30 days, you get every penny back.",
+          "I get it. You've probably been burned by software promises before. Here's the difference: We're not some generic chatbot company. We built this specifically for automotive after losing $710,000 ourselves from poor lead management. Look at the results: Our dealers are going from zero subprime experience to breaking every 30-day record. 20 deals, $30K profit in one month. We have dealers telling us it's \"by far the best system we have ever used.\" These aren't paid testimonials. These are real dealers solving the same problems you face. Plus, we're so confident it works that we offer white glove service to ensure your AI implementation is a success.",
       },
       {
         question: "We already have a CRM/BDC system. Why do we need another one?",
@@ -646,7 +649,7 @@ export default function AAILanding() {
       {
         question: "This seems expensive. How do I know I'll get ROI?",
         answer:
-          "Let's do the math. You're currently losing $2.3M annually from poor lead management. That's $191,000 per month in missed opportunities. Our system costs $5,000/month. If it captures just ONE additional deal per month (which is conservative since most dealers see 10-20 more), you've paid for it. But here's the real kicker: Remember those \"dead\" leads in your database? We're seeing 4-19% conversion on old data. If you have 1,000 old leads and convert just 4%, that's 40 re-engaged customers. Close 15% of those (6 deals) at $5,000 gross profit each = $30,000 profit from leads you already paid for. Most dealers cover their entire monthly investment just from database reactivation in 1-2 weeks.",
+          "Let's do the math. You're currently losing $710,000 annually from poor lead management. That's $59,000 per month in missed opportunities. Our system costs $5,000/month. If it captures just ONE additional deal per month (which is conservative since most dealers see 10-20 more), you've paid for it. But here's the real kicker: Remember those \"dead\" leads in your database? We're seeing 4-19% conversion on old data. If you have 1,000 old leads and convert just 4%, that's 40 re-engaged customers. Close 15% of those (6 deals) at $5,000 gross profit each = $30,000 profit from leads you already paid for. Most dealers cover their entire monthly investment just from database reactivation in 1-2 weeks.",
       },
       {
         question: "We're a small dealership. Is this only for big stores?",
@@ -666,7 +669,7 @@ export default function AAILanding() {
       {
         question: "How do I know you'll be around in a year? What if you go out of business?",
         answer:
-          "Fair question. We're not some venture-funded startup burning cash. We're profitable from day one because our system actually works and dealers gladly pay for results. We're already at 123+ dealerships in just 3 months since launch, with zero churn. When dealers see 10-20 additional deals per month, they don't cancel. They refer their friends. Plus, all your data stays in your control. You own your customer information, your conversations, everything. We're the tool, you own the results.",
+          "Fair question. We're not some venture-funded startup burning cash. We're profitable from day one because our system actually works and dealers gladly pay for results. We're already at 40+ dealerships in just 3 months since launch, with zero churn. When dealers see 10-20 additional deals per month, they don't cancel. They refer their friends. Plus, all your data stays in your control. You own your customer information, your conversations, everything. We're the tool, you own the results.",
       },
       {
         question: "Our salespeople have their own style and process. Will AI sound robotic or generic?",
@@ -735,16 +738,16 @@ export default function AAILanding() {
     () => [
       {
         icon: <Shield className="w-5 h-5" />,
-        text: "30-Day Money-Back Guarantee",
-        detail: "Try our system risk-free with our satisfaction guarantee",
+        text: "White Glove Service",
+        detail: "Our team ensure's your AI implentation is a sucess.",
         color: "purple",
       },
-      {
-        icon: <Check className="w-5 h-5" />,
-        text: "Trusted by 123+ Dealerships",
-        detail: "Proven results across North America",
-        color: "purple",
-      },
+                  {
+              icon: <Check className="w-5 h-5" />,
+              text: "Trusted by 40+ Dealerships",
+              detail: "Proven results across North America",
+              color: "purple",
+            },
       {
         icon: <Star className="w-5 h-5" />,
         text: "Dedicated Support",
@@ -773,14 +776,25 @@ export default function AAILanding() {
             <>
               <SparkleButton
                 className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
-                href="/vsldemo"
               >
                 Book a Strategy Call
               </SparkleButton>
             </>
           }
-          dealerCount={123}
+          dealerCount={40}
         />
+
+        {/* Scrolling Brands */}
+        <div className="mt-8 mb-8 relative z-10">
+          <div className="text-center mb-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+              Trusted by leading automotive brands
+            </p>
+          </div>
+          <ScrollingBrands />
+
+
+        </div>
         {/* Testimonial Section */}
         <motion.div
           className="mt-12 mb-12"
@@ -937,17 +951,16 @@ export default function AAILanding() {
         <CTASection
           badgeText="Early Adopter Special"
           mainHeading="Ready to Plug the $710,000 Leak That's Draining Your Dealership?"
-          subheading="Join 123+ smart dealerships who are already using our proven AI Sales Army to eliminate the annual loss from poor lead management and turn 'dead' data into profit-generating machines."
+          subheading="Join 40+ smart dealerships who are already using our proven AI Sales Army to eliminate the annual loss from poor lead management and turn 'dead' data into profit-generating machines."
           features={ctaFeatures}
           ctaButtonText="Book a Strategy Call"
           testimonial={{
             quote:
-              "AAI helped me break every 30-day record I had. 20 deals, over $30K profit all in one month.",
-            author: "Jaedynn Cutler",
-            position:
-              "Finance Manager, Approval Express Canada, Vancouver, BC",
+              "System is amazing, I have 10 out so far this month and pushing for 15-20 for 100+k doing it all front to back myself. Couldnt do it without AAI",
+            author: "Thomas",
+            position: "Superior Motors",
           }}
-          contactEmail="justin@automotiveai.ca"
+          contactEmail="sales@automotiveai.ca"
           useModalInsteadOfCalendly={false}
         />
         <FreeModuleModal

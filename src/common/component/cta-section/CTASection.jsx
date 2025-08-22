@@ -91,8 +91,8 @@ const CTASection = ({
   features = [
     {
       icon: <Shield className="w-5 h-5" />,
-      text: "30-Day Money-Back Guarantee",
-      detail: "Risk-free investment in your business growth",
+      text: "White Glove Service",
+      detail: "Our team ensure's your AI implentation is a sucess.",
       color: "purple",
     },
     {
@@ -395,10 +395,10 @@ const CTASection = ({
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Questions? Contact us at{" "}
             <a
-              href="mailto:support@automotiveai.ca"
+              href="mailto:sales@automotiveai.ca"
               className="font-medium underline text-purple-600 hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300"
             >
-              justin@automotiveai.ca
+              sales@automotiveai.ca
             </a>
           </p>
         </AnimatedCard>

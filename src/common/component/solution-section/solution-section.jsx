@@ -216,7 +216,7 @@ const SolutionSection = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-400 text-center">The Breakthrough:</h3>
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-200">
               After 18 months of development and testing with{" "}
-              <span className="text-green-600 dark:text-green-400 font-bold">123+ dealerships</span>, we&apos;ve cracked the code on the biggest
+              <span className="text-green-600 dark:text-green-400 font-bold">40+ dealerships</span>, we&apos;ve cracked the code on the biggest
               problem in automotive sales:
             </p>
             <p className="text-xl md:text-2xl font-bold text-center text-black dark:text-white bg-green-100/20 dark:bg-green-900/20 rounded-xl p-6 border border-green-300/30 dark:border-green-800/30">
@@ -482,7 +482,7 @@ const SolutionSection = () => {
             <span className="font-semibold">Don&apos;t just take our word for it.</span>
           </div>
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Here&apos;s what happened when 123+ dealers implemented this system...
+            Here&apos;s what happened when 40+ dealers implemented this system...
           </p>
         </motion.div>
       </div>

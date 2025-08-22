@@ -26,9 +26,9 @@ const VSLDemo = () => {
         {/* Critical Alert Banner */}
         <div className="text-center mb-8 pt-16 relative z-10">
           <div className="inline-block bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-500/50 rounded-lg px-6 py-3 mb-8">
-            <p className="text-red-700 dark:text-red-300 font-semibold text-sm">
-              ⚠️ CRITICAL: Only 4 Implementation Slots Remaining in August 2025 - Next Available: September 2025
-            </p>
+                          <p className="text-red-700 dark:text-red-300 font-semibold text-sm">
+                ⚠️ Only <strong className="text-red-800 dark:text-red-200">6 Implementation Slots</strong> Remaining for September 2025 - Next Available: October 2025
+              </p>
           </div>
         </div>
 
@@ -111,14 +111,14 @@ const VSLDemo = () => {
                 </div>
               </div>
 
-                             <div className="bg-yellow-100 dark:bg-yellow-800/30 rounded-lg p-3 border border-yellow-300 dark:border-yellow-600/30">
+                                           <div className="bg-yellow-100 dark:bg-yellow-800/30 rounded-lg p-3 border border-yellow-300 dark:border-yellow-600/30">
                 <div className="flex items-center justify-between">
                   <div>
-                                         <p className="text-yellow-800 dark:text-yellow-200 font-bold text-lg">4/10</p>
-                     <p className="text-yellow-700 dark:text-yellow-300 text-sm">Spots Remaining for August 2025</p>
+                    <p className="text-yellow-800 dark:text-yellow-200 font-bold text-lg">6/10</p>
+                    <p className="text-yellow-700 dark:text-yellow-300 text-sm">Spots Remaining for September 2025</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-red-400 font-bold text-sm">Next Available: August 2025</p>
+                    <p className="text-red-400 font-bold text-sm">Next Available: October 2025</p>
                   </div>
                 </div>
               </div>
@@ -131,7 +131,7 @@ const VSLDemo = () => {
             {/* Header */}
             <div className="text-center mb-4">
                              <h3 className="text-black dark:text-white font-bold text-xl mb-2">Book Your Profit Recovery Call</h3>
-               <p className="text-gray-700 dark:text-gray-300 text-sm">30-minute call • No commitment required • See immediate results</p>
+               <p className="text-gray-700 dark:text-gray-300 text-sm">15-minute call • No commitment required • See immediate results</p>
             </div>
 
             {/* Pixel effects */}
@@ -153,7 +153,7 @@ const VSLDemo = () => {
             {/* Bottom urgency */}
                          <div className="mt-4 text-center">
                <p className="text-red-600 dark:text-red-300 font-semibold text-sm">
-                 (Only 4 August slots remaining)
+                 (Only 6 September slots remaining)
                </p>
                <div className="flex items-center justify-center gap-4 mt-2 text-xs text-gray-600 dark:text-gray-400">
                  <span>✓ Secure</span>
