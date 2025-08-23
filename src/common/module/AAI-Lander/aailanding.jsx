@@ -112,7 +112,7 @@ function FreeModuleModal({
           <>
             <div className="p-7 pb-3">
               <h2 className="text-xl font-semibold text-center">
-                Book Your Strategy Call
+                See it For Yourself
               </h2>
               <p className="text-sm text-gray-500 text-center my-3">
                 Join the growing network of forward-thinking dealers who are
@@ -776,8 +776,9 @@ export default function AAILanding() {
             <>
               <SparkleButton
                 className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
+                href="/vsldemo"
               >
-                Book a Strategy Call
+                See it For Yourself
               </SparkleButton>
             </>
           }
@@ -832,7 +833,7 @@ export default function AAILanding() {
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
             href="/vsldemo"
           >
-            Schedule a Demo
+            See it For Yourself
           </SparkleButton>
         </div>
         
@@ -846,7 +847,7 @@ export default function AAILanding() {
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
             href="/vsldemo"
           >
-            Schedule a Demo
+            See it For Yourself
           </SparkleButton>
         </div>
         {/* Additional Testimonials Section */}
@@ -908,7 +909,7 @@ export default function AAILanding() {
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
             href="/vsldemo"
           >
-            Schedule a Demo
+            See it For Yourself
           </SparkleButton>
         </div>
         {/* Timeline Section */}
@@ -922,7 +923,7 @@ export default function AAILanding() {
             className="!text-lg !py-4 !px-8 hover:scale-105 transition-transform duration-200"
             href="/vsldemo"
           >
-            Schedule a Demo
+            See it For Yourself
           </SparkleButton>
         </div>
         <AgentsPage
@@ -942,7 +943,7 @@ export default function AAILanding() {
           offerTitle="Automotive AI Dealer Advantage"
           offerSubtitle="Early Adopter Pricing"
           features={pricingFeatures}
-          buttonText="Book a Strategy Call"
+          buttonText="See it For Yourself"
           useModalInsteadOfCalendly={false}
         />
         <div className="w-full flex justify-center mt-16">
@@ -953,7 +954,7 @@ export default function AAILanding() {
           mainHeading="Ready to Plug the $710,000 Leak That's Draining Your Dealership?"
           subheading="Join 40+ smart dealerships who are already using our proven AI Sales Army to eliminate the annual loss from poor lead management and turn 'dead' data into profit-generating machines."
           features={ctaFeatures}
-          ctaButtonText="Book a Strategy Call"
+          ctaButtonText="See it For Yourself"
           testimonial={{
             quote:
               "System is amazing, I have 10 out so far this month and pushing for 15-20 for 100+k doing it all front to back myself. Couldnt do it without AAI",

@@ -23,7 +23,7 @@ const ProblemSection = () => {
     },
     {
       icon: <Clock className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />,
-      title: "65% of leads don&apos;t hear back within 24 hours of visiting your site",
+      title: "65% of leads don't hear back within 24 hours of visiting your site",
       subtitle: "(Foureyes 2025)",
     },
     {

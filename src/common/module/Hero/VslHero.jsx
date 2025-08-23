@@ -3,15 +3,10 @@ import GridSparkles from "@/common/component/element/GridSparkles";
 import VideoPlayer from "@/common/component/video player/videoplayer";
 import { motion } from "framer-motion";
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
-import SocialProof from "@/common/component/social-proof/SocialProof";
+
 import { AlertTriangle } from "lucide-react";
 
-const dealerAvatars = [
-  "https://randomuser.me/api/portraits/men/32.jpg",
-  "https://randomuser.me/api/portraits/women/44.jpg",
-  "https://randomuser.me/api/portraits/men/45.jpg",
-  "https://randomuser.me/api/portraits/men/46.jpg"
-];
+
 
 const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, dealerCount = 237 }) => {
   const headingVariants = {
@@ -112,10 +107,7 @@ const VslHero = ({ heading, subheading, videoId, actionButton, aboveVideoText, d
                 {actionButton}
               </motion.div>
             )}
-            {/* Social Proof Bar - use new component */}
-            <div className="mt-4">
-              <SocialProof dealerCount={dealerCount} />
-            </div>
+
           </motion.div>
         </div>
       </div>

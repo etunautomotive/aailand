@@ -87,7 +87,7 @@ const VSLLanding01 = () => {
                 </h1>
                 
                 <h2 className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Convert <strong className="text-black dark:text-white">fresh + "dead"</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, qualification, and CRM sync. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
+                  Convert <strong className="text-black dark:text-white">fresh + &quot;dead&quot;</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, qualification, and CRM sync. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
                 </h2>
               </motion.div>
 
@@ -130,7 +130,7 @@ const VSLLanding01 = () => {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn't have done it without Automotive AI</strong>
+                      <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn&apos;t have done it without Automotive AI</strong>
                     </span>
                     <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- Superior Motors</span>
                   </div>

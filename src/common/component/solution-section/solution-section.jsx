@@ -122,7 +122,7 @@ const SolutionSection = () => {
       solution: "100% lead capture and instant response"
     },
     {
-      problem: "65% of leads don&apos;t hear back within 24 hours",
+      problem: "65% of leads don't hear back within 24 hours",
       solution: "Under 30-second response time, 24/7"
     },
     {

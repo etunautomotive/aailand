@@ -16,6 +16,7 @@ export const metadata = {
   author: "Automotive AI",
   email: "sales@automotiveai.ca",
   viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
+  icons: '/darkautoai.svg'
 };
 
 export default function RootLayout({ children }) {

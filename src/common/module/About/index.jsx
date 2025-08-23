@@ -96,7 +96,7 @@ const About = () => {
             ))}
           </div>
 
-          {/* Second row - Morgan and Justin centered */}
+          {/* Second row - Morgannp centered */}
           <div className="flex justify-center gap-8">
             {teamMembers.slice(3).map((member, index) => (
               <div

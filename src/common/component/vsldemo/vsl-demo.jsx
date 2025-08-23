@@ -41,43 +41,78 @@ const VSLDemo = () => {
           <div className="space-y-6">
             
             {/* What Happens on This Call */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                  <span className="text-black font-bold text-sm">⚡</span>
+            <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                  <span className="text-black font-bold text-xs">⚡</span>
                 </div>
-                                 <h2 className="text-xl font-semibold text-black dark:text-white">
-                  What Happens on This Call?
+                <h2 className="text-lg font-semibold text-black dark:text-white">
+                  What happens on the call
                 </h2>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Live Profit Recovery Demo</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Watch AI agents handle YOUR actual customer scenarios and recover &quot;dead&quot; leads from your database</p>
-                   </div>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
+                  <div>
+                    <p className="text-black dark:text-white font-semibold text-sm">Live Demo of Skilled AI Agents</p>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">$710,000 Loss Analysis</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">We&apos;ll show you exactly how much you&apos;re losing monthly and how to plug the leak immediately</p>
-                   </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
+                  <div>
+                    <p className="text-black dark:text-white font-semibold text-sm">Chose The Agents That Would Work In Your Dealership</p>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Custom ROI Calculator</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Get your personalized revenue recovery projection - most dealers see $60,000+ from old leads alone within the first 30 days</p>
-                   </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
+                  <div>
+                    <p className="text-black dark:text-white font-semibold text-sm">4-Day Rollout Plan To Get Your System Cranking</p>
+                  </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Q3 Implementation Roadmap</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Receive a clear, step-by-step plan to stop the bleeding and start profiting within 14 days</p>
-                   </div>
+              </div>
+            </div>
+
+            {/* Microproof Bullets */}
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 text-xs sm:text-sm">
+                <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                  <svg className="w-2.5 h-2.5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    <strong className="text-black dark:text-white">19 appointments Booked in the first 24 hours off 200 old leads.</strong>
+                  </span>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- The Used Car Depot</span>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-xs sm:text-sm">
+                <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                  <svg className="w-2.5 h-2.5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    <strong className="text-black dark:text-white">I used to book 60 appointments in a month, my AI got 71 in the first week.</strong>
+                  </span>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- GTA Auto Finance</span>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 text-xs sm:text-sm">
+                <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                  <svg className="w-2.5 h-2.5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-gray-700 dark:text-gray-300">
+                    <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn&apos;t have done it without Automotive AI</strong>
+                  </span>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- Superior Motors</span>
                 </div>
               </div>
             </div>
