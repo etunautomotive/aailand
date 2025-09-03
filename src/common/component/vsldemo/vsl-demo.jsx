@@ -4,7 +4,6 @@ import React from "react";
 import CalendlyWidget from "@/common/component/calendly/CalendlyWidget";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import GridSparkles from "@/common/component/element/GridSparkles";
-import PixelCanvas from "@/common/component/element/PixelCanvas";
 import Script from "next/script";
 
 const VSLDemo = () => {
@@ -32,14 +31,22 @@ const VSLDemo = () => {
           </div>
         </div>
 
-
-
-        {/* Two-column layout: Benefits on left, calendar on right */}
+        {/* Two-column layout */}
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
           
-          {/* Left Column - Benefits */}
+          {/* Left Column - Hero Content + What Happens */}
           <div className="space-y-6">
             
+            {/* Main Headline */}
+            <div>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-black dark:text-white">
+                Never Work A Lead Again
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                Convert fresh + "dead" leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification—expect 4-10 extra deals/month without adding headcount.
+              </p>
+            </div>
+
             {/* What Happens on This Call */}
             <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-3">
@@ -117,32 +124,20 @@ const VSLDemo = () => {
               </div>
             </div>
 
-            {/* Limited Availability */}
-                         <div className="p-6 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-500/50 rounded-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-yellow-400 text-xl">⚠️</span>
-                                 <h3 className="text-yellow-700 dark:text-yellow-300 font-bold text-lg">Limited Availability: Only 10 New Dealerships Per Month</h3>
+            {/* Trust Indicators */}
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-1">✅</span>
+                <div>
+                  <span className="font-semibold text-black dark:text-white">Trusted by 40 dealers</span>
+                  <span className="text-gray-600 dark:text-gray-400"> across auto, RV, and powersports</span>
+                </div>
               </div>
-              
-              <div className="mb-4">
-                                 <p className="text-yellow-800 dark:text-yellow-200 font-semibold mb-2">Why Only 10 Dealerships?</p>
-                 <div className="space-y-2 text-sm text-yellow-700 dark:text-yellow-100">
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>Dedicated implementation specialist for each dealer</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>Custom AI training on your specific dealership</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>White-glove setup</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>No long term commitment</span>
-                  </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-1">✅</span>
+                <div>
+                  <span className="font-semibold text-black dark:text-white">9 appointments</span>
+                  <span className="text-gray-600 dark:text-gray-400"> from 100 "dead" leads in 7 days</span>
                 </div>
               </div>
 
@@ -169,21 +164,13 @@ const VSLDemo = () => {
                <p className="text-gray-700 dark:text-gray-300 text-sm">15-minute call • No commitment required • See immediate results</p>
             </div>
 
-            {/* Pixel effects */}
-            <div className="absolute top-0 left-0 w-32 h-32 z-0 opacity-5 group-hover:opacity-20 transition-opacity duration-500">
-              <PixelCanvas color="blue" gap={10} speed={45} />
-            </div>
-            <div className="absolute bottom-0 right-0 w-32 h-32 z-0 opacity-5 group-hover:opacity-20 transition-opacity duration-500">
-              <PixelCanvas color="purple" gap={10} speed={45} />
-            </div>
-
-                         {/* Calendly widget */}
-             <div className="relative z-10">
-               <CalendlyWidget
-                 url="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
-                 height="600px"
-               />
-             </div>
+              {/* Calendly Widget */}
+              <div className="relative">
+                <CalendlyWidget
+                  url="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
+                  height="650px"
+                />
+              </div>
 
             {/* Bottom urgency */}
                          <div className="mt-4 text-center">
@@ -197,6 +184,7 @@ const VSLDemo = () => {
                </div>
             </div>
           </div>
+
         </div>
       </ComponentTransition>
     </div>

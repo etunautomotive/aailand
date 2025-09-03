@@ -18,9 +18,4 @@ export const NavigationItem = [
     src: "/about",
     title: "About",
   },
-
-  {
-    src: "/pricing",
-    title: "Pricing",
-  },
 ];
