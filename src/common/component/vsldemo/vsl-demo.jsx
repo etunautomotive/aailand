@@ -4,7 +4,6 @@ import React from "react";
 import CalendlyWidget from "@/common/component/calendly/CalendlyWidget";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import GridSparkles from "@/common/component/element/GridSparkles";
-import PixelCanvas from "@/common/component/element/PixelCanvas";
 import Script from "next/script";
 
 const VSLDemo = () => {
@@ -27,141 +26,122 @@ const VSLDemo = () => {
         <div className="text-center mb-8 pt-16 relative z-10">
           <div className="inline-block bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-500/50 rounded-lg px-6 py-3 mb-8">
             <p className="text-red-700 dark:text-red-300 font-semibold text-sm">
-              ⚠️ CRITICAL: Only 4 Implementation Slots Remaining in August 2025 - Next Available: September 2025
+              ⚠️ CRITICAL: Only 8 Implementation Slots Remaining in September 2025 - Next Available: October 2025
             </p>
           </div>
         </div>
 
-
-
-        {/* Two-column layout: Benefits on left, calendar on right */}
+        {/* Two-column layout */}
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
           
-          {/* Left Column - Benefits */}
+          {/* Left Column - Hero Content + What Happens */}
           <div className="space-y-6">
             
+            {/* Main Headline */}
+            <div>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-black dark:text-white">
+                Never Work A Lead Again
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                Convert fresh + "dead" leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification—expect 4-10 extra deals/month without adding headcount.
+              </p>
+            </div>
+
             {/* What Happens on This Call */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm">
+            <div className="bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-700/50 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-                  <span className="text-black font-bold text-sm">⚡</span>
+                <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+                  <span className="text-black text-xl">⚡</span>
                 </div>
-                                 <h2 className="text-xl font-semibold text-black dark:text-white">
+                <h2 className="text-xl font-bold text-black dark:text-white">
                   What Happens on This Call?
                 </h2>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Live Profit Recovery Demo</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Watch AI agents handle YOUR actual customer scenarios and recover &quot;dead&quot; leads from your database</p>
-                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">$710,000 Loss Analysis</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">We&apos;ll show you exactly how much you&apos;re losing monthly and how to plug the leak immediately</p>
-                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Custom ROI Calculator</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Get your personalized revenue recovery projection - most dealers see $60,000+ from old leads alone within the first 30 days</p>
-                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-400 font-bold mt-1">✓</span>
-                                     <div>
-                     <p className="text-black dark:text-white font-semibold">Q3 Implementation Roadmap</p>
-                     <p className="text-gray-700 dark:text-gray-300 text-sm">Receive a clear, step-by-step plan to stop the bleeding and start profiting within 14 days</p>
-                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Limited Availability */}
-                         <div className="p-6 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-500/50 rounded-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-yellow-400 text-xl">⚠️</span>
-                                 <h3 className="text-yellow-700 dark:text-yellow-300 font-bold text-lg">Limited Availability: Only 10 New Dealerships Per Month</h3>
-              </div>
               
-              <div className="mb-4">
-                                 <p className="text-yellow-800 dark:text-yellow-200 font-semibold mb-2">Why Only 10 Dealerships?</p>
-                 <div className="space-y-2 text-sm text-yellow-700 dark:text-yellow-100">
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>Dedicated implementation specialist for each dealer</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>Custom AI training on your specific dealership</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>White-glove setup</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
-                    <span>No long term commitment</span>
-                  </div>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">✓</span>
+                  <p className="text-gray-700 dark:text-gray-300">Live scan of your fresh + old lead flows</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">✓</span>
+                  <p className="text-gray-700 dark:text-gray-300">See the exact scripts booking in your market</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">✓</span>
+                  <p className="text-gray-700 dark:text-gray-300">14-day rollout (integrations + compliance)</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 mt-1">✓</span>
+                  <p className="text-gray-700 dark:text-gray-300">Revenue Recovery Guarantee: If we don't book qualified appts from existing leads in 14 days, you don't pay</p>
                 </div>
               </div>
+            </div>
 
-                             <div className="bg-yellow-100 dark:bg-yellow-800/30 rounded-lg p-3 border border-yellow-300 dark:border-yellow-600/30">
-                <div className="flex items-center justify-between">
-                  <div>
-                                         <p className="text-yellow-800 dark:text-yellow-200 font-bold text-lg">4/10</p>
-                     <p className="text-yellow-700 dark:text-yellow-300 text-sm">Spots Remaining for August 2025</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-red-400 font-bold text-sm">Next Available: August 2025</p>
-                  </div>
+            {/* Trust Indicators */}
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-1">✅</span>
+                <div>
+                  <span className="font-semibold text-black dark:text-white">Trusted by 40 dealers</span>
+                  <span className="text-gray-600 dark:text-gray-400"> across auto, RV, and powersports</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-1">✅</span>
+                <div>
+                  <span className="font-semibold text-black dark:text-white">9 appointments</span>
+                  <span className="text-gray-600 dark:text-gray-400"> from 100 "dead" leads in 7 days</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-green-500 mt-1">✅</span>
+                <div>
+                  <span className="font-semibold text-black dark:text-white">5 cars</span>
+                  <span className="text-gray-600 dark:text-gray-400"> in 10 days from reactivated pipeline</span>
                 </div>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column - Calendly Widget */}
-                     <div className="bg-white dark:bg-gray-900/30 p-6 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm relative overflow-hidden group shadow-sm">
-            {/* Header */}
-            <div className="text-center mb-4">
-                             <h3 className="text-black dark:text-white font-bold text-xl mb-2">Book Your Profit Recovery Call</h3>
-               <p className="text-gray-700 dark:text-gray-300 text-sm">30-minute call • No commitment required • See immediate results</p>
-            </div>
+          {/* Right Column - Calendly Booking */}
+          <div className="lg:sticky lg:top-24">
+            <div className="bg-white dark:bg-gray-900/30 rounded-xl border border-gray-200 dark:border-gray-700/50 p-6 shadow-lg">
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-bold text-black dark:text-white mb-2">
+                  📅 Book 15-Min Lead Flow Audit
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  15-minute call • No commitment required • See immediate results
+                </p>
+              </div>
 
-            {/* Pixel effects */}
-            <div className="absolute top-0 left-0 w-32 h-32 z-0 opacity-5 group-hover:opacity-20 transition-opacity duration-500">
-              <PixelCanvas color="blue" gap={10} speed={45} />
-            </div>
-            <div className="absolute bottom-0 right-0 w-32 h-32 z-0 opacity-5 group-hover:opacity-20 transition-opacity duration-500">
-              <PixelCanvas color="purple" gap={10} speed={45} />
-            </div>
+              {/* Calendly Widget */}
+              <div className="relative">
+                <CalendlyWidget
+                  url="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
+                  height="650px"
+                />
+              </div>
 
-                         {/* Calendly widget */}
-             <div className="relative z-10">
-               <CalendlyWidget
-                 url="https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1"
-                 height="600px"
-               />
-             </div>
-
-            {/* Bottom urgency */}
-                         <div className="mt-4 text-center">
-               <p className="text-red-600 dark:text-red-300 font-semibold text-sm">
-                 (Only 4 August slots remaining)
-               </p>
-               <div className="flex items-center justify-center gap-4 mt-2 text-xs text-gray-600 dark:text-gray-400">
-                 <span>✓ Secure</span>
-                 <span>✓ No spam</span>
-                 <span>✓ No Long Term Commitment</span>
-               </div>
+              {/* Bottom Security/Trust Indicators */}
+              <div className="mt-4 space-y-3">
+                <p className="text-center text-red-600 dark:text-red-400 font-semibold text-sm">
+                  (Only 8 September slots remaining)
+                </p>
+                <div className="flex items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                  <span>✓ Secure</span>
+                  <span>✓ No spam</span>
+                  <span>✓ No Long Term Commitment</span>
+                </div>
+                <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-3">
+                  By booking, you consent to receive SMS/email about your demo. TCPA/CASL compliant. Opt-out anytime.
+                </p>
+              </div>
             </div>
           </div>
+
         </div>
       </ComponentTransition>
     </div>
