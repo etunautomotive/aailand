@@ -43,7 +43,7 @@ const VSLDemo = () => {
                 Never Work A Lead Again
               </h1>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Convert fresh + "dead" leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification—expect 4-10 extra deals/month without adding headcount.
+                Convert fresh + &quot;dead&quot; leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification—expect 4-10 extra deals/month without adding headcount.
               </p>
             </div>
 
@@ -137,7 +137,7 @@ const VSLDemo = () => {
                 <span className="text-green-500 mt-1">✅</span>
                 <div>
                   <span className="font-semibold text-black dark:text-white">9 appointments</span>
-                  <span className="text-gray-600 dark:text-gray-400"> from 100 "dead" leads in 7 days</span>
+                  <span className="text-gray-600 dark:text-gray-400"> from 100 &quot;dead&quot; leads in 7 days</span>
                 </div>
               </div>
 
