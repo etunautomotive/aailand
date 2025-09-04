@@ -37,15 +37,7 @@ const SparkleButton = ({ onClick, href, children, className = "" }) => {
 
   return (
     <div className={styles["sparkle-button"]}>
-<<<<<<< HEAD
       <ButtonElement {...buttonProps} className={`${styles.button} ${className}`}>
-=======
-      <button
-        onClick={onClick}
-        className={`${styles.button} ${className}`}
-        style={{ position: "relative", zIndex: 1 }}
-      >
->>>>>>> 8ba03ff (fixed mobile UI)
         <span className={styles.spark}></span>
         <span className={styles.backdrop}></span>
         <svg

@@ -755,13 +755,6 @@ export default function AAILanding() {
           actionButton={
             <>
               <SparkleButton
-<<<<<<< HEAD
-                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200 !z-50"
-                href="/vsldemo"
-=======
-                className="!text-sm !py-2 !px-6 hover:scale-105 transition-transform duration-200"
-                onClick={onOpen}
->>>>>>> 8ba03ff (fixed mobile UI)
               >
                 See it For Yourself
               </SparkleButton>

@@ -15,16 +15,11 @@ const VideoPlayer = ({ videoId, className = "" }) => {
     >
       {!isPlaying ? (
         <>
-<<<<<<< HEAD
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-[100]">
-            <p className="text-4xl font-semibold text-white/90 drop-shadow-md mb-8">
-=======
           <div
             className="absolute inset-0 flex flex-col items-center justify-center z-20 cursor-pointer"
             onClick={handlePlay}
           >
             <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white/90 drop-shadow-md mb-4 sm:mb-6 md:mb-8 px-4 text-center">
->>>>>>> 8ba03ff (fixed mobile UI)
               Click to Watch
             </p>
             <button
@@ -38,15 +33,9 @@ const VideoPlayer = ({ videoId, className = "" }) => {
               <Play className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14" />
             </button>
           </div>
-<<<<<<< HEAD
-          <div 
-            className="absolute inset-0 bg-cover bg-center z-[90]"
-            style={{ 
-=======
           <div
             className="absolute inset-0 bg-cover bg-center z-10"
             style={{
->>>>>>> 8ba03ff (fixed mobile UI)
               backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
               opacity: 0.8,
             }}
@@ -61,11 +50,7 @@ const VideoPlayer = ({ videoId, className = "" }) => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-<<<<<<< HEAD
-          className="absolute top-0 left-0 w-full h-full z-[100]"
-=======
           className="absolute top-0 left-0 w-full h-full z-20"
->>>>>>> 8ba03ff (fixed mobile UI)
         ></iframe>
       )}
     </div>
