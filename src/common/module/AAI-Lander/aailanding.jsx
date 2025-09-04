@@ -30,7 +30,6 @@ import {
   Star,
 } from "lucide-react";
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
-import Pricing from "@/common/module/Pricing/Pricing";
 import { Timeline } from "@/components/ui/timeline";
 import { DEALERSHIP_ID, USER_ID } from "@/common/constant/form";
 import ProblemSection from "@/common/component/problem-section/problem-section";
@@ -605,18 +604,6 @@ export default function AAILanding() {
     ],
     []
   );
-  const pricingFeatures = useMemo(
-    () => [
-      "AI-powered lead engagement and qualification",
-      "Real-time deal tracking and analytics",
-      "Customizable conversation flows",
-      "Integration with major CRMs and DMS",
-      "24/7 customer support",
-      "Monthly performance reviews",
-      "No long-term contracts",
-    ],
-    []
-  );
   const faqData = useMemo(
     () => [
       {
@@ -930,19 +917,6 @@ export default function AAILanding() {
           agentData={agentsData}
           ctaTitle="Ready to transform your dealership?"
           ctaSubtitle="Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
-        />
-        <Pricing
-          sectionTitle="AutomotiveAI Platform Pricing"
-          mainTitle="Monthly pricing, no long-term commitment required"
-          subtitle={
-            "We believe in earning your business every single month.\nNo contracts. No pressure. Just results."
-          }
-          badgeText="Limited Time Offer"
-          offerTitle="Automotive AI Dealer Advantage"
-          offerSubtitle="Early Adopter Pricing"
-          features={pricingFeatures}
-          buttonText="See it For Yourself"
-          useModalInsteadOfCalendly={false}
         />
         <div className="w-full flex justify-center mt-16">
           <FAQ title="Frequently Asked Questions" faqs={faqData} />

@@ -10,7 +10,8 @@ const VideoPlayer = ({ videoId, className = "" }) => {
 
   return (
     <div
-      className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl ${className}`}
+      className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl cursor-pointer ${className}`}
+      onClick={handlePlay}
     >
       {!isPlaying ? (
         <>
@@ -27,8 +28,12 @@ const VideoPlayer = ({ videoId, className = "" }) => {
               Click to Watch
             </p>
             <button
-              className="bg-black/80 text-white rounded-full p-3 sm:p-4 md:p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform pointer-events-none"
+              className="bg-black/80 text-white rounded-full p-3 sm:p-4 md:p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform"
               aria-label="Play video"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePlay();
+              }}
             >
               <Play className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14" />
             </button>
