@@ -60,7 +60,7 @@ const VSLLanding01 = () => {
           <div className="text-center mb-6 relative z-10">
             <div className="inline-block bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-500/50 rounded-lg px-6 py-3">
               <p className="text-red-700 dark:text-red-300 font-semibold text-sm">
-                ⚠️ Only <strong className="text-red-800 dark:text-red-200">6 Implementation Slots</strong> Remaining for September 2025 - Next Available: October 2025
+                ⚠️ Only <strong className="text-red-800 dark:text-red-200">8 Implementation Slots</strong> Remaining for September 2025 - Next Available: October 2025
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ const VSLLanding01 = () => {
               variants={staggerContainer}
             >
               {/* Headlines */}
-              <motion.div variants={fadeInUp} className="space-y-3">
+              <motion.div variants={fadeInUp} className="space-y-4">
                 <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
                   <PurpleHighlight>Close More, Work Less.</PurpleHighlight>
                   <br />
@@ -85,10 +85,15 @@ const VSLLanding01 = () => {
                     (better than you have ever seen)
                   </span>
                 </h1>
-                
-                <h2 className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Convert <strong className="text-black dark:text-white">fresh + &quot;dead&quot;</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, qualification, and CRM sync. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
-                </h2>
+              </motion.div>
+
+              {/* Main Description */}
+              <motion.div variants={fadeInUp} className="space-y-4">
+                <div className="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-xl border border-gray-200 dark:border-gray-700/50">
+                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Convert <strong className="text-black dark:text-white">fresh + &quot;dead&quot;</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
+                  </p>
+                </div>
               </motion.div>
 
               {/* VSL Video */}
@@ -99,40 +104,46 @@ const VSLLanding01 = () => {
               </motion.div>
 
               {/* Microproof Bullets */}
-              <motion.div variants={fadeInUp} className="space-y-3">
-                <div className="flex items-start gap-3 text-xs sm:text-sm">
-                  <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <Check className="w-2.5 h-2.5 text-green-600 dark:text-green-400" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong className="text-black dark:text-white">19 appointments Booked in the first 24 hours off 200 old leads.</strong>
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- The Used Car Depot</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 text-xs sm:text-sm">
-                  <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <Check className="w-2.5 h-2.5 text-green-600 dark:text-green-400" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong className="text-black dark:text-white">I used to book 60 appointments in a month, my AI got 71 in the first week.</strong>
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- GTA Auto Finance</span>
+              <motion.div variants={fadeInUp} className="space-y-4">
+                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
+                  <div className="flex items-start gap-3 text-sm">
+                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="text-black dark:text-white">19 appointments Booked in the first 24 hours off 200 old leads.</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- The Used Car Depot</span>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 text-xs sm:text-sm">
-                  <div className="flex-shrink-0 w-4 h-4 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <Check className="w-2.5 h-2.5 text-green-600 dark:text-green-400" />
+                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
+                  <div className="flex items-start gap-3 text-sm">
+                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="text-black dark:text-white">I used to book 60 appointments in a month, my AI got 71 in the first week.</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- GTA Auto Finance</span>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn&apos;t have done it without Automotive AI</strong>
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- Superior Motors</span>
+                </div>
+                
+                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
+                  <div className="flex items-start gap-3 text-sm">
+                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-300">
+                        <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn&apos;t have done it without Automotive AI</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- Superior Motors</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -210,7 +221,7 @@ const VSLLanding01 = () => {
                 {/* Bottom urgency */}
                 <div className="relative z-10 mt-3 text-center">
                   <p className="text-red-600 dark:text-red-300 font-semibold text-xs">
-                    (Only 6 September slots remaining)
+                    (Only 8 September slots remaining)
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-1 text-xs text-gray-600 dark:text-gray-400">
                     <span>✓ Secure</span>
@@ -239,21 +250,29 @@ const VSLLanding01 = () => {
                 Why Only 10 Dealerships?
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-sm">✓</span>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm">Dedicated implementation specialist for each dealer</span>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
+                  </div>
+                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">Dedicated implementation specialist for each dealer</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-sm">✓</span>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm">Custom AI training on your specific dealership</span>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
+                  </div>
+                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">Custom AI training on your specific dealership</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-sm">✓</span>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm">White-glove setup</span>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
+                  </div>
+                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">White-glove setup</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500 font-bold text-sm">✓</span>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm">No long term commitment</span>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
+                  </div>
+                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">No long term commitment</span>
                 </div>
               </div>
             </div>
