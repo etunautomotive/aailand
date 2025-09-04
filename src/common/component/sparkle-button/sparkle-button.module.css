@@ -14,6 +14,8 @@
 .button {
   --cut: 0.1em;
   --active: 0;
+  --spark: 1.8s;
+  --transition: 0.25s;
   --bg: radial-gradient(
       40% 50% at center 100%,
       hsl(270 calc(var(--active) * 97%) 72% / var(--active)),
@@ -26,11 +28,11 @@
     ),
     hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
   background: var(--bg);
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 500;
   border: 0;
   cursor: pointer;
-  padding: 0.9em 1.3em;
+  padding: 0.75em 1.5em;
   display: flex;
   align-items: center;
   gap: 0.25em;
@@ -113,7 +115,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  border: 0.25em solid hsl(260 97% 50% / 0.5);
+  border: 0.2em solid hsl(260 97% 60% / 0.8);
   border-radius: 100px;
   opacity: var(--active, 0);
   transition: opacity var(--transition);
@@ -140,17 +142,17 @@
 .spark:before {
   content: "";
   position: absolute;
-  width: 120%;
+  width: 140%;
   aspect-ratio: 1;
   top: 0%;
   left: 50%;
   z-index: -1;
-  translate: -50% -15%;
+  translate: -50% -20%;
   rotate: 0;
   transform: rotate(-90deg);
-  opacity: calc((var(--active)) + 0.4);
+  opacity: calc(max(0.3, (var(--active)) + 0.8));
   background: conic-gradient(from 0deg, transparent 0 345deg, #a855f7 360deg);
-  filter: blur(2px);
+  filter: blur(1px);
   transition: opacity var(--transition);
   animation: rotate var(--spark) linear infinite both;
 }

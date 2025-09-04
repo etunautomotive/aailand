@@ -755,6 +755,7 @@ export default function AAILanding() {
           actionButton={
             <>
               <SparkleButton
+                href="/vsldemo"
               >
                 See it For Yourself
               </SparkleButton>

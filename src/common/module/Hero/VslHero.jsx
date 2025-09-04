@@ -6,8 +6,6 @@ import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 
 import { AlertTriangle } from "lucide-react";
 
-
-
 const VslHero = ({
   heading,
   subheading,
