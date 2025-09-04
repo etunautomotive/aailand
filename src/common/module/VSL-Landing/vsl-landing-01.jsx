@@ -3,9 +3,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
+import VideoPlayer from "@/common/component/video player/videoplayer";
 import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
 import { Check, Calendar } from "lucide-react";
 import ScrollingBrands from "@/common/component/scrolling-brands/ScrollingBrands";
+
+
 
 // Animation variants
 const fadeInUp = {
@@ -31,9 +34,14 @@ const staggerContainer = {
   },
 };
 
-const VSLDemo = () => {
+const VSLLanding01 = () => {
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white relative overflow-hidden">
+
+
+
+
       <ComponentTransition>
         {/* Main Content Container */}
         <div className="relative z-10 pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -85,6 +93,13 @@ const VSLDemo = () => {
                   <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                     Convert <strong className="text-black dark:text-white">fresh + &quot;dead&quot;</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
                   </p>
+                </div>
+              </motion.div>
+
+              {/* VSL Video */}
+              <motion.div variants={fadeInUp} className="w-full">
+                <div className="relative">
+                  <VideoPlayer videoId="wamN2O6Zo2U" />
                 </div>
               </motion.div>
 
@@ -176,6 +191,9 @@ const VSLDemo = () => {
 
               {/* Scheduler Widget */}
               <div className="bg-white dark:bg-gray-900/30 p-3 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm relative overflow-hidden group shadow-sm">
+                
+
+
                 {/* Header */}
                 <div className="relative z-10 text-center mb-3">
                   <div className="flex items-center justify-center gap-2 mb-2">
@@ -185,6 +203,8 @@ const VSLDemo = () => {
                     </h3>
                   </div>
                 </div>
+
+
 
                 {/* Calendly Widget */}
                 <div className="relative z-10" id="calendly-inline-widget">
@@ -225,8 +245,8 @@ const VSLDemo = () => {
             variants={fadeInUp}
             className="mt-8 lg:mt-12"
           >
-            <div className="p-6 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-500/50 rounded-xl">
-              <h3 className="text-center text-purple-800 dark:text-purple-200 font-semibold text-lg mb-6">
+            <div className="p-4 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-500/50 rounded-lg">
+              <h3 className="text-center text-purple-800 dark:text-purple-200 font-semibold text-base mb-3">
                 Why Only 10 Dealerships?
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -263,4 +283,4 @@ const VSLDemo = () => {
   );
 };
 
-export default VSLDemo;
+export default VSLLanding01;

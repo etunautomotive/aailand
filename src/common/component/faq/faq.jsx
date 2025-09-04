@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const defaultFaqs = [
   {
     question: 'This sounds too good to be true. How do I know it actually works?',
-    answer: 'I get it. You\'ve probably been burned by software promises before. Here\'s the difference: We\'re not some generic chatbot company. We built this specifically for automotive after losing $2.3M ourselves from poor lead management. Look at the results: Our dealers are going from zero subprime experience to breaking every 30-day record. 20 deals, $30K profit in one month. We have dealers telling us it\'s "by far the best system we have ever used." These aren\'t paid testimonials. These are real dealers solving the same problems you face. Plus, we\'re so confident it works that we offer a 30-day money-back guarantee. No contracts. Month-to-month. If it doesn\'t deliver results in the first 30 days, you get every penny back.'
+    answer: 'I get it. You\'ve probably been burned by software promises before. Here\'s the difference: We\'re not some generic chatbot company. We built this specifically for automotive after losing $710,000 ourselves from poor lead management. Look at the results: Our dealers are going from zero subprime experience to breaking every 30-day record. 20 deals, $30K profit in one month. We have dealers telling us it\'s "by far the best system we have ever used." These aren\'t paid testimonials. These are real dealers solving the same problems you face. Plus, we\'re so confident it works that we offer a 30-day money-back guarantee. No contracts. Month-to-month. If it doesn\'t deliver results in the first 30 days, you get every penny back.'
   },
   {
     question: 'We already have a CRM/BDC system. Why do we need another one?',
@@ -20,7 +20,7 @@ const defaultFaqs = [
   },
   {
     question: 'This seems expensive. How do I know I\'ll get ROI?',
-    answer: 'Let\'s do the math. You\'re currently losing $2.3M annually from poor lead management. That\'s $191,000 per month in missed opportunities. Our system costs $5,000/month. If it captures just ONE additional deal per month (which is conservative since most dealers see 10-20 more), you\'ve paid for it. But here\'s the real kicker: Remember those "dead" leads in your database? We\'re seeing 4-19% conversion on old data. If you have 1,000 old leads and convert just 4%, that\'s 40 re-engaged customers. Close 15% of those (6 deals) at $5,000 gross profit each = $30,000 profit from leads you already paid for. Most dealers cover their entire monthly investment just from database reactivation in 1-2 weeks.'
+    answer: 'Let\'s do the math. You\'re currently losing $710,000 annually from poor lead management. That\'s $59,000 per month in missed opportunities. Our system costs $5,000/month. If it captures just ONE additional deal per month (which is conservative since most dealers see 10-20 more), you\'ve paid for it. But here\'s the real kicker: Remember those "dead" leads in your database? We\'re seeing 4-19% conversion on old data. If you have 1,000 old leads and convert just 4%, that\'s 40 re-engaged customers. Close 15% of those (6 deals) at $5,000 gross profit each = $30,000 profit from leads you already paid for. Most dealers cover their entire monthly investment just from database reactivation in 1-2 weeks.'
   },
   {
     question: 'We\'re a small dealership. Is this only for big stores?',
@@ -36,7 +36,7 @@ const defaultFaqs = [
   },
   {
     question: 'How do I know you\'ll be around in a year? What if you go out of business?',
-    answer: 'Fair question. We\'re not some venture-funded startup burning cash. We\'re profitable from day one because our system actually works and dealers gladly pay for results. We\'re already at 123+ dealerships in just 3 months since launch, with zero churn. When dealers see 10-20 additional deals per month, they don\'t cancel. They refer their friends. Plus, all your data stays in your control. You own your customer information, your conversations, everything. We\'re the tool, you own the results.'
+    answer: 'Fair question. We\'re not some venture-funded startup burning cash. We\'re profitable from day one because our system actually works and dealers gladly pay for results. We\'re already at 40+ dealerships in just 3 months since launch, with zero churn. When dealers see 10-20 additional deals per month, they don\'t cancel. They refer their friends. Plus, all your data stays in your control. You own your customer information, your conversations, everything. We\'re the tool, you own the results.'
   },
   {
     question: 'Our salespeople have their own style and process. Will AI sound robotic or generic?',
@@ -68,7 +68,7 @@ const defaultFaqs = [
   },
   {
     question: 'What if I\'m not satisfied with the training?',
-    answer: 'We offer a 30-day satisfaction guarantee. If you implement the system as taught and don\'t see results, we\'ll refund your investment in full.'
+    answer: 'We offer white glove service to ensure your AI implementation is a success. Our team works closely with you to guarantee results.'
   },
 ];
 

@@ -10,24 +10,32 @@ const VideoPlayer = ({ videoId, className = "" }) => {
 
   return (
     <div
-      className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl ${className}`}
+      className={`relative rounded-lg overflow-hidden bg-gray-100 aspect-video shadow-xl cursor-pointer ${className}`}
+      onClick={handlePlay}
     >
       {!isPlaying ? (
         <>
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-[100]">
-            <p className="text-4xl font-semibold text-white/90 drop-shadow-md mb-8">
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center z-20 cursor-pointer"
+            onClick={handlePlay}
+          >
+            <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white/90 drop-shadow-md mb-4 sm:mb-6 md:mb-8 px-4 text-center">
               Click to Watch
             </p>
             <button
-              className="bg-black/80 text-white rounded-full p-3 sm:p-4 md:p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform pointer-events-none"
+              className="bg-black/80 text-white rounded-full p-3 sm:p-4 md:p-5 hover:bg-purple-600 transition-colors duration-300 hover:scale-105 transform"
               aria-label="Play video"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePlay();
+              }}
             >
               <Play className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14" />
             </button>
           </div>
-          <div 
-            className="absolute inset-0 bg-cover bg-center z-[90]"
-            style={{ 
+          <div
+            className="absolute inset-0 bg-cover bg-center z-10"
+            style={{
               backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
               opacity: 0.8,
             }}
@@ -42,7 +50,7 @@ const VideoPlayer = ({ videoId, className = "" }) => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          className="absolute top-0 left-0 w-full h-full z-[100]"
+          className="absolute top-0 left-0 w-full h-full z-20"
         ></iframe>
       )}
     </div>
