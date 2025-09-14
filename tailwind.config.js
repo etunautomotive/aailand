@@ -7,7 +7,8 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heroui/theme/dist/components/modal.js"
+    "./node_modules/@heroui/theme/dist/components/modal.js",
+    "./node_modules/@heroui/theme/dist/components/slider.js"
   ],
   theme: {
   	extend: {

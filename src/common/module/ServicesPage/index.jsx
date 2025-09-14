@@ -368,7 +368,7 @@ const ServicesPage = () => {
             <SparkleButton
               onClick={() =>
                 window.open(
-                  "https://calendly.com/wes-automotiveai/30min?hide_event_type_details=1",
+                  "https://calendly.com/wes-automotiveai/01?hide_event_type_details=1",
                   "_blank"
                 )
               }
