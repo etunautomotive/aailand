@@ -1,10 +1,43 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Homepage from "@/common/module/Home";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import { useTheme } from "next-themes";
 
 export default function Home() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = theme === 'dark';
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="flex justify-center w-full overflow-hidden">
-      <div className="w-full max-w-[1500px] mx-auto overflow-hidden">
-        <Homepage />
+    <div className="relative w-full min-h-screen overflow-hidden">
+      {/* Subtle Animated Background */}
+      {mounted && (
+        <BackgroundGradientAnimation 
+          containerClassName="fixed inset-0 z-0 h-screen w-screen"
+          gradientBackgroundStart={isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
+          gradientBackgroundEnd={isDark ? "rgb(15, 15, 15)" : "rgb(255, 255, 255)"}
+          firstColor="183, 148, 244"
+          secondColor="196, 181, 253"
+          thirdColor="167, 139, 250"
+          fourthColor="186, 164, 247"
+          fifthColor="221, 214, 254"
+          pointerColor="196, 181, 253"
+          size="30%"
+          blendingValue="normal"
+          interactive={true}
+        />
+      )}
+      
+      <div className="relative flex justify-center w-full">
+        <div className="w-full max-w-[1500px] mx-auto relative z-20">
+          <Homepage />
+        </div>
       </div>
     </div>
   );

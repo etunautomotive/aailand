@@ -60,48 +60,34 @@ const Solution = () => {
           <ComponentTransition
             delay={index * 0.1}
             key={index}
-            className="flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col items-center text-center p-6 transition-all duration-300"
-            style={{
-              borderColor: `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/20`,
-              "--hover-border-color": `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/40`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor =
-                e.currentTarget.style.getPropertyValue("--hover-border-color");
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/20`;
-            }}
+            className="relative group z-[9] overflow-hidden rounded-3xl transition-all duration-300"
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-xl">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={400}
-                  height={400}
-                  className="w-full h-auto hover:scale-105 transition-transform duration-300"
-                />
-                <button
-                  onClick={() => setSelectedImage(item.img)}
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white dark:bg-black text-black dark:text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg hover:scale-105 transform"
-                >
-                  Click to Expand
-                </button>
+            {/* Glass morphism container */}
+            <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-3xl shadow-lg p-6 flex flex-col items-center text-center h-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
+              <div className="relative z-10 w-full">
+                <div className="relative overflow-hidden rounded-xl">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={400}
+                    height={400}
+                    className="w-full h-auto hover:scale-105 transition-transform duration-300 rounded-xl"
+                  />
+                  <button
+                    onClick={() => setSelectedImage(item.img)}
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 dark:bg-black/10 backdrop-blur-md text-black dark:text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg hover:scale-105 transform border border-white/20 dark:border-white/10"
+                  >
+                    Click to Expand
+                  </button>
+                </div>
+                <h1 className="text-2xl font-bold mt-4 text-black dark:text-white">
+                  {item.title}
+                </h1>
+                <p className="mt-2 text-neutral-700 dark:text-neutral-300">
+                  {item.content}
+                </p>
               </div>
-              <h1 className="text-2xl font-bold mt-4 text-black dark:text-white">
-                {item.title}
-              </h1>
-              <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                {item.content}
-              </p>
             </div>
           </ComponentTransition>
         ))}
@@ -113,48 +99,34 @@ const Solution = () => {
           <ComponentTransition
             delay={index * 0.1}
             key={index}
-            className="flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col items-center text-center p-6 transition-all duration-300"
-            style={{
-              borderColor: `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/20`,
-              "--hover-border-color": `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/40`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor =
-                e.currentTarget.style.getPropertyValue("--hover-border-color");
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = `${getTypeColor(item.title)
-                .split(" ")[1]
-                .replace("via-", "")}/20`;
-            }}
+            className="relative group z-[9] overflow-hidden rounded-3xl transition-all duration-300"
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-xl">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={400}
-                  height={400}
-                  className="w-full h-auto hover:scale-105 transition-transform duration-300"
-                />
-                <button
-                  onClick={() => setSelectedImage(item.img)}
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white dark:bg-black text-black dark:text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg hover:scale-105 transform"
-                >
-                  Click to Expand
-                </button>
+            {/* Glass morphism container */}
+            <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-3xl shadow-lg p-6 flex flex-col items-center text-center h-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
+              <div className="relative z-10 w-full">
+                <div className="relative overflow-hidden rounded-xl">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={400}
+                    height={400}
+                    className="w-full h-auto hover:scale-105 transition-transform duration-300 rounded-xl"
+                  />
+                  <button
+                    onClick={() => setSelectedImage(item.img)}
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 dark:bg-black/10 backdrop-blur-md text-black dark:text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg hover:scale-105 transform border border-white/20 dark:border-white/10"
+                  >
+                    Click to Expand
+                  </button>
+                </div>
+                <h1 className="text-2xl font-bold mt-4 text-black dark:text-white">
+                  {item.title}
+                </h1>
+                <p className="mt-2 text-neutral-700 dark:text-neutral-300">
+                  {item.content}
+                </p>
               </div>
-              <h1 className="text-2xl font-bold mt-4 text-black dark:text-white">
-                {item.title}
-              </h1>
-              <p className="mt-2 text-neutral-700 dark:text-neutral-300">
-                {item.content}
-              </p>
             </div>
           </ComponentTransition>
         ))}

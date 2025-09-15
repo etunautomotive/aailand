@@ -109,92 +109,78 @@ const AgentCard = ({ agent, index }) => {
     >
       <ComponentTransition
         delay={index * 0.1}
-        className="flex border-[1px] relative group z-[9] overflow-hidden rounded-3xl flex-col p-6 transition-all duration-300 h-full"
-        style={{
-          borderColor: `${getTypeColor(agent.title)
-            .split(" ")[1]
-            .replace("via-", "")}/20`,
-          "--hover-border-color": `${getTypeColor(agent.title)
-            .split(" ")[1]
-            .replace("via-", "")}/40`,
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor =
-            e.currentTarget.style.getPropertyValue("--hover-border-color");
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = `${getTypeColor(agent.title)
-            .split(" ")[1]
-            .replace("via-", "")}/20`;
-        }}
+        className="relative group z-[9] overflow-hidden rounded-3xl transition-all duration-300 h-full"
       >
-        {/* Add PixelCanvas for the pixel art effect */}
-        <PixelCanvas
-          color={getAgentColor(agent.title)}
-          gap={10}
-          speed={45}
-          className="opacity-5 group-hover:opacity-40 transition-opacity duration-500"
-        />
+        {/* Glass morphism container */}
+        <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-3xl shadow-lg p-6 flex flex-col h-full">
+          {/* Add PixelCanvas for the pixel art effect */}
+          <PixelCanvas
+            color={getAgentColor(agent.title)}
+            gap={10}
+            speed={45}
+            className="opacity-5 group-hover:opacity-40 transition-opacity duration-500"
+          />
 
-        <div
-          className="absolute -inset-0.5 bg-gradient-to-r rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
-          style={{
-            background: `linear-gradient(90deg, ${getTypeColor(agent.title)
-              .split(" ")[1]
-              .replace("via-", "")} 0%, ${getTypeColor(agent.title)
-              .split(" ")[1]
-              .replace("via-", "")} 100%)`,
-          }}
-        />
+          <div
+            className="absolute -inset-0.5 bg-gradient-to-r rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
+            style={{
+              background: `linear-gradient(90deg, ${getTypeColor(agent.title)
+                .split(" ")[1]
+                .replace("via-", "")} 0%, ${getTypeColor(agent.title)
+                .split(" ")[1]
+                .replace("via-", "")} 100%)`,
+            }}
+          />
 
-        <div className="flex flex-col h-full relative z-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div>
-              <h2
-                className={`text-xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
-                  agent.title,
-                  resolvedTheme
-                )} bg-clip-text text-transparent`}
-              >
-                {agent.title}
-              </h2>
+          <div className="flex flex-col h-full relative z-10">
+            <div className="flex items-center gap-4 mb-4">
+              <div>
+                <h2
+                  className={`text-xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
+                    agent.title,
+                    resolvedTheme
+                  )} bg-clip-text text-transparent`}
+                >
+                  {agent.title}
+                </h2>
 
-              <span
-                className={`px-2 py-0.5 text-xs rounded-full ${getStatusBadge(
-                  status.status
-                )}`}
-              >
-                {status.text}
-              </span>
+                <span
+                  className={`px-2 py-0.5 text-xs rounded-full ${getStatusBadge(
+                    status.status
+                  )}`}
+                >
+                  {status.text}
+                </span>
+              </div>
             </div>
-          </div>
 
-          <p className="text-neutral-700 dark:text-neutral-300 flex-grow">
-            {agent.content}
-          </p>
+            <p className="text-neutral-700 dark:text-neutral-300 flex-grow">
+              {agent.content}
+            </p>
 
-          <Link
-            href={`/agents#${agent.title.toLowerCase().replace(" ", "-")}`}
-            className={`mt-6 inline-flex items-center text-sm font-medium bg-gradient-to-r ${getGradientText(
-              agent.title,
-              resolvedTheme
-            )} bg-clip-text text-transparent group-hover:underline`}
-          >
-            Learn more
-            <svg
-              className="ml-1 w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            <Link
+              href={`/agents#${agent.title.toLowerCase().replace(" ", "-")}`}
+              className={`mt-6 inline-flex items-center text-sm font-medium bg-gradient-to-r ${getGradientText(
+                agent.title,
+                resolvedTheme
+              )} bg-clip-text text-transparent group-hover:underline`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
+              Learn more
+              <svg
+                className="ml-1 w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </ComponentTransition>
     </motion.div>
