@@ -10,6 +10,8 @@ import {
 } from "@heroui/react";
 import { Check, Star, Crown, Zap, Target, Settings } from "lucide-react";
 import GlassButton from "@/components/ui/GlassButton";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import { useTheme } from "next-themes";
 
 // Animation variants
 const fadeInUp = {
@@ -83,7 +85,7 @@ const pricingTiers = [
     id: "enterprise",
     name: "Enterprise",
     price: "CAD $17,997",
-    period: "onboarding + CAD $5,000/month",
+    period: "onboarding + $5,000/month",
     description: "Custom enterprise solution",
     icon: <Target className="w-6 h-6" />,
     color: "warning",
@@ -263,7 +265,15 @@ export default function Pricing({
   useModalInsteadOfCalendly = false,
   onCtaClick
 }) {
-  const [selectedTier, setSelectedTier] = useState(null);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [selectedTier, setSelectedTier] = useState(pricingTiers.find(t => t.popular) || pricingTiers[0]);
+  const isDark = theme === 'dark';
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     window.scrollTo({
@@ -274,72 +284,85 @@ export default function Pricing({
 
   const handlePlanSelect = (tier) => {
     setSelectedTier(tier);
-    if (useModalInsteadOfCalendly && onCtaClick) {
+    
+    // Redirect to appropriate Stripe checkout based on plan
+    const stripeLinks = {
+      'essentials': 'https://buy.stripe.com/cNi5kE7ZqaGVeyK5Bo7g40D',
+      'fast-track': 'https://buy.stripe.com/9B6fZi6Vm4ixaiuaVI7g40E',
+      'growth-partner': 'https://buy.stripe.com/eVq4gA5Ri9CR9eqgg27g40G',
+      'enterprise': null // No link for enterprise - should contact for custom pricing
+    };
+    
+    const stripeLink = stripeLinks[tier.id];
+    
+    if (stripeLink) {
+      window.open(stripeLink, '_blank');
+    } else if (useModalInsteadOfCalendly && onCtaClick) {
       onCtaClick();
-    } else if (tier.id === 'enterprise') {
-      window.location.href = '/bookademo';
     }
-    // For other plans, just highlight the column (selectedTier state handles this)
   };
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Subtle Animated Background - same as home page */}
-      <div className="fixed inset-0 z-0 h-screen w-screen">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50 dark:from-black dark:via-black dark:to-gray-900" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-purple-500/5 rounded-full blur-3xl" />
-      </div>
+      {/* Animated Background - same as home page */}
+      {mounted && (
+        <BackgroundGradientAnimation 
+          containerClassName="fixed inset-0 z-0 h-screen w-screen"
+          gradientBackgroundStart={isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
+          gradientBackgroundEnd={isDark ? "rgb(15, 15, 15)" : "rgb(255, 255, 255)"}
+          firstColor="183, 148, 244"
+          secondColor="196, 181, 253"
+          thirdColor="167, 139, 250"
+          fourthColor="186, 164, 247"
+          fifthColor="221, 214, 254"
+          pointerColor="196, 181, 253"
+          size="30%"
+          blendingValue="normal"
+          interactive={true}
+        />
+      )}
 
       <div className="relative flex justify-center w-full">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-12 sm:pb-20 relative z-20">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInUp} className="mb-4">
-            <Chip
-              color="primary"
-              variant="flat"
-              size="lg"
-              startContent={<Star className="w-4 h-4" />}
-            >
-              {sectionTitle}
-            </Chip>
-          </motion.div>
+          
           
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-medium bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent mb-4 sm:mb-6"
           >
             {mainTitle}
           </motion.h1>
           
           <motion.p 
             variants={fadeInUp}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4 sm:px-0"
           >
             {subtitle}
           </motion.p>
         </motion.div>
 
-        {/* Plan Headers */}
-          <motion.div
-            className="mb-8"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 rounded-2xl overflow-hidden shadow-xl">
-              <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200/30 dark:border-gray-700/30 rounded-2xl">
+        {/* Layout section */}
+        <motion.div
+          className="mb-8"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          {/* Desktop: Comparison Table */}
+          <div className="hidden md:block">
+            <div className="bg-white/60 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+              <div className="relative bg-white/40 dark:bg-zinc-900/30 backdrop-blur-xl border border-white/10 dark:border-white/5 rounded-2xl">
             {/* Plan Headers Row */}
-            <div className="grid grid-cols-1 md:grid-cols-5 border-b border-gray-200 dark:border-gray-700">
+            <div className="grid grid-cols-5 border-b border-gray-200 dark:border-gray-700">
               {/* Feature column header */}
-              <div className="hidden md:block p-8 border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+              <div className="p-8 border-r border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-zinc-900/70 backdrop-blur-xl">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">Compare Plans</h3>
               </div>
               
@@ -349,9 +372,15 @@ export default function Pricing({
                   key={tier.id} 
                   variants={fadeInUp}
                   className={`text-center relative flex flex-col ${
-                    index < pricingTiers.length - 1 ? 'border-r border-gray-200 dark:border-gray-700' : ''
-                  } p-8 ${tier.popular ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-white dark:bg-gray-800'} ${
-                    selectedTier?.id === tier.id ? 'ring-2 ring-blue-500 bg-blue-100 dark:bg-blue-900/30' : ''
+                    index === 0
+                      ? 'border-r border-gray-200 dark:border-gray-700'
+                      : index === pricingTiers.length - 1
+                        ? ''
+                        : 'border-l border-r border-gray-200 dark:border-gray-700'
+                  } p-8 ${
+                    selectedTier?.id === tier.id
+                      ? 'ring-2 ring-inset ring-white/30 dark:ring-white/20 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl'
+                      : 'bg-white/50 dark:bg-zinc-900/40'
                   }`}
                 >
                   {/* Fixed height container for chip - always present to maintain consistent spacing */}
@@ -389,7 +418,7 @@ export default function Pricing({
                   
                   {/* Pricing Section - Fixed Height */}
                   <div className="h-20 flex flex-col justify-center items-center mb-6">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white leading-tight">
+                    <div className={`${tier.id === 'enterprise' ? 'text-2xl' : 'text-3xl'} font-bold text-gray-900 dark:text-white leading-tight`}>
                       {tier.price}
                     </div>
                     <div className="text-base text-gray-600 dark:text-gray-400 mt-2">
@@ -419,11 +448,11 @@ export default function Pricing({
               ))}
             </div>
 
-            {/* Feature Comparison Rows */}
+            {/* Feature Comparison Rows - Desktop Only */}
             {featureComparison.map((category, categoryIndex) => (
               <div key={category.category}>
                 {/* Category Header */}
-                <div className="bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div className="bg-white/60 dark:bg-zinc-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700">
                   <div className="p-6 text-center">
                     <h4 className="text-lg font-bold text-gray-900 dark:text-white">
                       {category.category}
@@ -436,10 +465,10 @@ export default function Pricing({
                   <motion.div
                     key={`${categoryIndex}-${featureIndex}`}
                     variants={fadeInUp}
-                    className="grid grid-cols-1 md:grid-cols-5 border-b border-gray-200/50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors"
+                    className="grid grid-cols-5 border-b border-gray-200/50 dark:border-gray-700/50 last:border-b-0 hover:bg-gray-50/50 dark:hover:bg-zinc-900/40 transition-colors"
                   >
                     {/* Feature Name */}
-                    <div className="p-6 border-r border-gray-200 dark:border-gray-700 md:border-r bg-gray-50/30 dark:bg-gray-800/30">
+                    <div className="p-6 border-r border-gray-200 dark:border-gray-700 bg-gray-50/30 dark:bg-gray-800/30">
                       <span className="text-base font-semibold text-gray-900 dark:text-white">
                         {feature.name}
                       </span>
@@ -473,11 +502,15 @@ export default function Pricing({
                         <div 
                           key={`${tier.id}-${featureIndex}`}
                           className={`p-6 text-center ${
-                            !isLast ? 'border-r border-gray-200 dark:border-gray-700' : ''
+                            tierIndex === 0
+                              ? 'border-r border-gray-200 dark:border-gray-700'
+                              : isLast
+                                ? ''
+                                : 'border-l border-r border-gray-200 dark:border-gray-700'
                           } ${
-                            isPopular ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-white dark:bg-gray-800'
-                          } ${
-                            isSelected ? 'bg-blue-100 dark:bg-blue-900/30 ring-2 ring-blue-500' : ''
+                            isSelected
+                              ? 'ring-2 ring-inset ring-white/30 dark:ring-white/20 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl'
+                              : 'bg-white/40 dark:bg-zinc-900/30'
                           }`}
                         >
                           {typeof featureValue === 'boolean' ? (
@@ -501,32 +534,110 @@ export default function Pricing({
               </div>
             ))}
             </div>
+            </div>
+          </div>
+
+          {/* Mobile: Plan-focused Feature Comparison */}
+          <div className="block md:hidden mt-8">
+            {/* Plan selector tabs */}
+            <div className="flex overflow-x-auto gap-2 no-scrollbar pb-2 -mx-4 px-4">
+              {pricingTiers.map((tier) => (
+                <GlassButton
+                  key={tier.id}
+                  size="sm"
+                  onClick={() => setSelectedTier(tier)}
+                  className={`flex-shrink-0 whitespace-nowrap ${
+                    selectedTier?.id === tier.id
+                      ? 'bg-purple-600/90 text-white border-purple-500/60 hover:bg-purple-600 hover:border-purple-400'
+                      : 'bg-white/70 dark:bg-zinc-900/60 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-700'
+                  }`}
+                >
+                  {tier.name}
+                </GlassButton>
+              ))}
+            </div>
+
+            {/* Selected plan details */}
+            <div className="mt-4 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+              <div className="p-5 border-b border-gray-200/60 dark:border-gray-700/60">
+                <div className="flex items-center">
+                  <div className={`inline-flex p-2 rounded-full mr-3 ${
+                    selectedTier?.color === 'primary' ? 'bg-blue-500/20' :
+                    selectedTier?.color === 'secondary' ? 'bg-purple-500/20' :
+                    selectedTier?.color === 'warning' ? 'bg-orange-500/20' :
+                    'bg-gray-500/20'
+                  }`}>
+                    {selectedTier?.icon}
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-gray-900 dark:text-white">{selectedTier?.name}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{selectedTier?.description}</div>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">{selectedTier?.price}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{selectedTier?.period}</div>
+                </div>
+
+                {/* CTA under pricing */}
+                <div className="mt-4">
+                  <GlassButton
+                    onClick={() => handlePlanSelect(selectedTier)}
+                    size="lg"
+                    className="w-full"
+                  >
+                    {selectedTier?.id === 'enterprise' ? 'Contact Sales' : 'Select Option'}
+                  </GlassButton>
+                </div>
+              </div>
+
+              {/* Features for selected plan */}
+              <div className="divide-y divide-gray-200/60 dark:divide-gray-700/60">
+                {featureComparison.map((category) => (
+                  <div key={category.category}>
+                    <div className="px-5 py-3 bg-white/60 dark:bg-zinc-900/70">
+                      <h4 className="text-base font-bold text-gray-900 dark:text-white">{category.category}</h4>
+                    </div>
+                    <div className="px-5 py-2">
+                      {category.features.map((feature, idx) => {
+                        let featureValue;
+                        switch(selectedTier?.id) {
+                          case 'essentials':
+                            featureValue = feature.essentials; break;
+                          case 'fast-track':
+                            featureValue = feature.fastTrack; break;
+                          case 'growth-partner':
+                            featureValue = feature.growthPartner; break;
+                          case 'enterprise':
+                            featureValue = feature.enterprise; break;
+                          default:
+                            featureValue = false;
+                        }
+                        return (
+                          <div key={idx} className="flex items-center justify-between py-3">
+                            <span className="text-sm font-medium text-gray-900 dark:text-white pr-3">{feature.name}</span>
+                            {typeof featureValue === 'boolean' ? (
+                              featureValue ? (
+                                <Check className="w-5 h-5 text-green-600" />
+                              ) : (
+                                <div className="w-5 h-5 flex items-center justify-center">
+                                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                                </div>
+                              )
+                            ) : (
+                              <span className="text-sm text-gray-800 dark:text-gray-200 text-right">{featureValue}</span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-        >
-          <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-12 max-w-3xl mx-auto shadow-xl">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Not sure which plan is right for you?
-            </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-              Book a call with our team to discuss your dealership's specific needs and get personalized recommendations.
-            </p>
-            <GlassButton
-              href="/bookademo"
-              size="lg"
-              variant="primary"
-            >
-              {buttonText}
-            </GlassButton>
-          </div>
-        </motion.div>
         </div>
       </div>
 
