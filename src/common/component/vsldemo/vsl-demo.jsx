@@ -1,11 +1,35 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import PurpleHighlight from "@/common/component/Herohighlight/hero-highlight";
-import { Check, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import ScrollingBrands from "@/common/component/scrolling-brands/ScrollingBrands";
+import GlassNavbar from "@/components/ui/GlassNavbar";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import { useTheme } from "next-themes";
+
+// Star rating component
+const StarRating = ({ rating = 5 }) => {
+  return (
+    <div className="flex items-center gap-1">
+      {[...Array(5)].map((_, index) => (
+        <svg
+          key={index}
+          className={`w-3 h-3 ${
+            index < rating 
+              ? "text-yellow-400 fill-yellow-400" 
+              : "text-gray-300 fill-gray-300 dark:text-gray-600 dark:fill-gray-600"
+          }`}
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M9.049 2.927c.3-.921 1.612-.921 1.912 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+};
 
 // Animation variants
 const fadeInUp = {
@@ -32,102 +56,153 @@ const staggerContainer = {
 };
 
 const VSLDemo = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = theme === 'dark';
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white relative overflow-hidden">
-      <ComponentTransition>
-        {/* Main Content Container */}
-        <div className="relative z-10 pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="relative w-full min-h-screen">
+      {/* Glass Navbar */}
+      <GlassNavbar />
+      
+      {/* Subtle Animated Background - full viewport width */}
+      {mounted && (
+        <BackgroundGradientAnimation 
+          containerClassName="fixed inset-0 z-0 h-screen w-screen"
+          gradientBackgroundStart={isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
+          gradientBackgroundEnd={isDark ? "rgb(15, 15, 15)" : "rgb(255, 255, 255)"}
+          firstColor="183, 148, 244"
+          secondColor="196, 181, 253"
+          thirdColor="167, 139, 250"
+          fourthColor="186, 164, 247"
+          fifthColor="221, 214, 254"
+          pointerColor="196, 181, 253"
+          size="30%"
+          blendingValue="normal"
+          interactive={true}
+        />
+      )}
+      
+      <div className="relative flex justify-center w-full">
+        <div className="w-full max-w-[1500px] mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-32 relative z-20">
+          <ComponentTransition>
+            {/* Main Content Container */}
+            <div className="relative z-10 pb-8 sm:pb-12 px-3 sm:px-4 md:px-6 lg:px-8">{/* Optimized spacing and padding for mobile */}
           
-          {/* Scrolling Brands */}
-          <div className="mb-8 relative z-10">
-            <div className="text-center mb-4">
-              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                Trusted by leading automotive brands
-              </p>
-            </div>
-            <ScrollingBrands />
-          </div>
-          
-          {/* Critical Alert Banner */}
-          <div className="text-center mb-6 relative z-10">
-            <div className="inline-block bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-500/50 rounded-lg px-6 py-3">
-              <p className="text-red-700 dark:text-red-300 font-semibold text-sm">
-                ⚠️ Only <strong className="text-red-800 dark:text-red-200">8 Implementation Slots</strong> Remaining for September 2025 - Next Available: October 2025
-              </p>
-            </div>
-          </div>
-          {/* Desktop: Two-column layout, Mobile: Stacked */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start min-h-screen lg:min-h-0">
+          {/* Full Width Headlines */}
+          <motion.div variants={fadeInUp} className="space-y-1 mb-6 lg:mb-8 text-center">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent px-2 sm:px-4 mb-6 md:mb-8 leading-[1.15] sm:leading-[1.1] tracking-tight py-2">
+              {/* Mobile-optimized line breaks */}
+              <span className="block sm:hidden">Book a Demo Today to See</span>
+              <span className="block sm:hidden">Why Dealers are Using</span>
+              <span className="block sm:hidden">Automotive Ai</span>
+              
+              {/* Desktop line breaks */}
+              <span className="hidden sm:block">Book a Demo Today to See Why </span>
+              <span className="hidden sm:block">Dealers are Using Automotive Ai</span>
+            </h1>
+          </motion.div>
+
+          {/* Mobile: Stacked layout, Desktop: Two-column layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 items-start min-h-[calc(100vh-10rem)] sm:min-h-[calc(100vh-12rem)] lg:min-h-0">
             
             {/* Left Column - Content */}
             <motion.div
-              className="space-y-4 lg:space-y-5"
+              className="space-y-1.5 sm:space-y-2 lg:space-y-3"
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
             >
-              {/* Headlines */}
-              <motion.div variants={fadeInUp} className="space-y-4">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-                  <PurpleHighlight>Close More, Work Less.</PurpleHighlight>
-                  <br />
-                  AI Handles 100% of Lead Flow
-                  <br />
-                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-normal -mt-4">
-                    (better than you have ever seen)
-                  </span>
-                </h1>
-              </motion.div>
 
-              {/* Main Description */}
-              <motion.div variants={fadeInUp} className="space-y-4">
-                <div className="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-xl border border-gray-200 dark:border-gray-700/50">
-                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                    Convert <strong className="text-black dark:text-white">fresh + &quot;dead&quot;</strong> leads into booked appointments the same day with &lt;60s replies, 5+ automatic follow-ups, objection handling, and qualification. <strong className="text-black dark:text-white">Expect 4-10 extra deals/month per Sales Person</strong> on the System without adding headcount.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Microproof Bullets */}
-              <motion.div variants={fadeInUp} className="space-y-4">
-                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
-                  <div className="flex items-start gap-3 text-sm">
-                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+              {/* Testimonial Bullets */}
+              <motion.div variants={fadeInUp} className="space-y-1 sm:space-y-1.5">
+                {/* Named testimonials first */}
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="text-black dark:text-white">19 appointments Booked in the first 24 hours off 200 old leads.</strong>
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white">AAI helped me break every 30-day record. 230 re-engaged customers, $67K Gross in one month from reactivating our old leads.</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- The Used Car Depot</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Jaedynn Cutler, Approval Express Canada</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white">Before Auto AI, we were at a 40-60% contact rate on paid leads, now we are up to 84%!! HUGE DIFFERENCE!!</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Kevin Maisch, Advanced Auto Finance</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white">System is amazing, I have 10 out so far this month and pushing for 15-20 for 100k+ doing it all front to back myself. Couldn&apos;t do it without AAI</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Thomas Powell, Straightline Kia</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white">It&apos;s like having a sniper on your sales team. Never misses, never gets tired. Total game changer.</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Michael Filzwieser, Vancouver Auto Credit</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Company-only testimonials last */}
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white"> 19 leads re-engaged in the first 24 hours off 200 old leads.</strong>
+                      </span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- The Used Car Depot</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
-                  <div className="flex items-start gap-3 text-sm">
-                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+                <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2 sm:p-2.5 rounded-lg border border-white/20 dark:border-white/10 shadow-lg">
+                  <div className="flex flex-col text-xs">
+                    <div className="mb-2">
+                      <StarRating rating={5} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="text-black dark:text-white">I used to book 60 appointments in a month, my AI got 71 in the first week.</strong>
+                      <span className="text-gray-700 dark:text-gray-200">
+                        <strong className="text-black dark:text-white">Our team used to book 60 appointments in a month, we re-activated our old leads with AI and got 71 in the first week. You'd be crazy not to try it.</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- GTA Auto Finance</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700/30 shadow-sm">
-                  <div className="flex items-start gap-3 text-sm">
-                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                      <Check className="w-3 h-3 text-green-600 dark:text-green-400" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-gray-700 dark:text-gray-300">
-                        <strong className="text-black dark:text-white">10 Deals closed in the first 18 days of August I couldn&apos;t have done it without Automotive AI</strong>
-                      </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-1">- Superior Motors</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Alex, GTA Auto Finance</span>
                     </div>
                   </div>
                 </div>
@@ -137,50 +212,19 @@ const VSLDemo = () => {
 
             {/* Right Column - Scheduler */}
             <motion.div
-              className="lg:sticky lg:top-24 space-y-4"
+              className="lg:sticky lg:top-24 space-y-1.5 sm:space-y-2 mt-4 lg:mt-0"
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
             >
-              {/* What Happens on This Call */}
-              <div className="p-3 bg-gray-50 dark:bg-gray-900/50 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold text-xs">⚡</span>
-                  </div>
-                  <h2 className="text-lg font-semibold text-black dark:text-white">
-                    What happens on the call
-                  </h2>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
-                    <div>
-                      <p className="text-black dark:text-white font-semibold text-sm">Live Demo of Skilled AI Agents</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
-                    <div>
-                      <p className="text-black dark:text-white font-semibold text-sm">Chose The Agents That Would Work In Your Dealership</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-green-400 font-bold mt-0.5 text-sm">✓</span>
-                    <div>
-                      <p className="text-black dark:text-white font-semibold text-sm">4-Day Rollout Plan To Get Your System Cranking</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Scheduler Widget */}
-              <div className="bg-white dark:bg-gray-900/30 p-3 rounded-xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm relative overflow-hidden group shadow-sm">
+              <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-white/20 dark:border-white/10 shadow-lg relative overflow-hidden group">
                 {/* Header */}
-                <div className="relative z-10 text-center mb-3">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <Calendar className="w-5 h-5 text-purple-600" />
-                    <h3 className="text-lg font-bold text-black dark:text-white">
+                <div className="relative z-10 text-center mb-2 sm:mb-3">
+                  <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+                    <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+                    <h3 className="text-base sm:text-lg font-bold text-black dark:text-white text-center leading-tight">
                       Book a 15-Min Call To See It For Yourself
                     </h3>
                   </div>
@@ -191,18 +235,15 @@ const VSLDemo = () => {
                   <iframe
                     src="https://calendly.com/wes-automotiveai/automotive-ai-demo-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=b400ff"
                     width="100%"
-                    height="380"
+                    height="400"
                     frameBorder="0"
                     title="Book 15-Min Lead Flow Audit"
                     className="rounded-lg"
                   ></iframe>
                 </div>
 
-                {/* Bottom urgency */}
+                {/* Bottom features */}
                 <div className="relative z-10 mt-3 text-center">
-                  <p className="text-red-600 dark:text-red-300 font-semibold text-xs">
-                    (Only 8 September slots remaining)
-                  </p>
                   <div className="flex items-center justify-center gap-3 mt-1 text-xs text-gray-600 dark:text-gray-400">
                     <span>✓ Secure</span>
                     <span>✓ No spam</span>
@@ -220,45 +261,23 @@ const VSLDemo = () => {
             </motion.div>
           </div>
 
-          {/* Why Only 10 Dealerships - Full Width */}
+          {/* Social Proof at Bottom */}
           <motion.div 
             variants={fadeInUp}
-            className="mt-8 lg:mt-12"
+            className="mt-8 lg:mt-12 relative z-10"
           >
-            <div className="p-6 bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-500/50 rounded-xl">
-              <h3 className="text-center text-purple-800 dark:text-purple-200 font-semibold text-lg mb-6">
-                Why Only 10 Dealerships?
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
-                  </div>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">Dedicated implementation specialist for each dealer</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
-                  </div>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">Custom AI training on your specific dealership</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
-                  </div>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">White-glove setup</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mt-0.5">
-                    <span className="text-green-600 dark:text-green-400 font-bold text-xs">✓</span>
-                  </div>
-                  <span className="text-purple-800 dark:text-purple-200 text-sm font-medium leading-relaxed">No long term commitment</span>
-                </div>
-              </div>
+            <div className="text-center mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                Trusted by leading automotive brands
+              </p>
             </div>
+            <ScrollingBrands />
           </motion.div>
+
+            </div>
+          </ComponentTransition>
         </div>
-      </ComponentTransition>
+      </div>
     </div>
   );
 };

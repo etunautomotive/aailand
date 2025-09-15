@@ -1,12 +1,14 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AlertTriangle, CheckCircle, ChevronDown } from "lucide-react";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import { InfiniteMovingCards } from "@/common/component/testimonial/infinitemovingcards";
-import DiaBackground from "@/common/component/element/DiaBackground";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
 import ScrollingBrands from "@/common/component/scrolling-brands/ScrollingBrands";
-import TextType from "@/components/ui/TextType";
+import GlassNavbar from "@/components/ui/GlassNavbar";
+import GlassButton from "@/components/ui/GlassButton";
+import { useTheme } from "next-themes";
 
 // Animation variants
 const staggerContainer = {
@@ -58,15 +60,42 @@ const bounce = {
 };
 
 const BookADemo = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = theme === 'dark';
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <div className="relative flex justify-center w-full">
-      {/* Dia background - only above the fold */}
-      <DiaBackground className="absolute inset-0 z-0 h-screen" />
+    <div className="relative w-full">
+      {/* Glass Navbar */}
+      <GlassNavbar />
       
-      <div className="w-full max-w-[1500px] mx-auto pt-32 sm:pt-36 md:pt-40 relative z-10">
+      <div className="relative flex justify-center w-full">
+        {/* Subtle Animated Background - visible above the fold only */}
+        {mounted && (
+          <BackgroundGradientAnimation 
+            containerClassName="absolute inset-0 z-10 h-screen w-full"
+            gradientBackgroundStart={isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
+            gradientBackgroundEnd={isDark ? "rgb(15, 15, 15)" : "rgb(255, 255, 255)"}
+            firstColor="183, 148, 244"
+            secondColor="196, 181, 253"
+            thirdColor="167, 139, 250"
+            fourthColor="186, 164, 247"
+            fifthColor="221, 214, 254"
+            pointerColor="196, 181, 253"
+            size="30%"
+            blendingValue="normal"
+            interactive={true}
+          />
+        )}
+        
+        <div className="w-full max-w-[1500px] mx-auto pt-20 sm:pt-24 md:pt-28 relative z-20">
         {/* Hero Section */}
-        <div className="relative min-h-[calc(100vh-5rem)] sm:min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-7rem)] flex flex-col">
+        <div className="relative min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-4rem)] flex flex-col">
 
 
           {/* Hero Content */}
@@ -79,36 +108,35 @@ const BookADemo = () => {
             <div className="flex flex-col justify-center md:top-0 mt-2 lg:mt-3 items-center w-full">
               <div className="relative z-10 flex flex-col items-center justify-center">
                 <motion.div 
-                  className="text-base md:text-lg text-center text-gray-500 dark:text-gray-400 mb-4 md:mb-6 px-4 tracking-tight"
+                  className="text-lg md:text-xl lg:text-2xl text-center text-gray-500 dark:text-gray-400 mb-6 md:mb-8 px-4 tracking-tight"
                   variants={fadeInUp}
                 >
                   We help you capture the other 90% while lowering BDC costs, so you can scale your dealership.
                 </motion.div>
                 
                 <motion.div
-                  className="w-full xl:w-[80%] 2xl:w-[80%] flex justify-center"
+                  className="w-full xl:w-[85%] 2xl:w-[85%] flex justify-center"
                   variants={fadeInUp}
                 >
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center break-words bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent px-4 mb-6 md:mb-8 leading-[1.2] tracking-tight py-2">
-                    Spending Money on Leads or Advertising?
-                    <br />
-                    9 Out of 10 of Your Dollars
-                    <br />
-                    Are Going to Waste..
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent px-4 mb-8 md:mb-12 leading-[1.1] tracking-tight py-2">
+                    <span className="block">Spending Money on Leads or Advertising?</span>
+                    <span className="block">9 Out of 10 of Your Dollars</span>
+                    <span className="block">Are Going to Waste..</span>
                   </h1>
                 </motion.div>
 
                 {/* CTA Button */}
                 <motion.div 
-                  className="w-full flex justify-center mt-0 mb-16 md:mb-24 z-20"
+                  className="w-full flex justify-center mt-4 mb-20 md:mb-28 z-20"
                   variants={fadeInUp}
                 >
-                  <SparkleButton
-                    className="!text-sm !py-2 !px-4 md:!py-2.5 md:!px-5 transition-transform duration-200"
+                  <GlassButton
                     href="/vsldemo"
+                    size="lg"
+                    variant="primary"
                   >
                     See How AI Fixes This
-                  </SparkleButton>
+                  </GlassButton>
                 </motion.div>
 
                 {/* Trusted By Banner */}
@@ -151,135 +179,164 @@ const BookADemo = () => {
 
         {/* Problem vs Solution Section */}
         <motion.section 
-          className="w-full py-12 md:py-16 text-black dark:text-white"
+          className="w-full py-16 md:py-24"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
           variants={staggerContainer}
         >
-          <div className="max-w-[1500px] mx-auto px-5 lg:px-10">
+          <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
             {/* Section Heading */}
-            <motion.h2
-              className="text-2xl md:text-3xl lg:text-4xl text-center mb-8 md:mb-12 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent tracking-tight leading-[1.2] py-2"
+            <motion.div className="text-center mb-16" variants={fadeInUp}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl mb-4 bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent tracking-tight leading-tight">
+                Where Leads Slip Through The Cracks, And How We Stop It.
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Every step of the lead journey has gaps where potential customers disappear. Here's how AI seals every crack.
+              </p>
+            </motion.div>
+
+            {/* Comparison Headers */}
+            <motion.div 
+              className="grid grid-cols-2 gap-8 mb-12"
               variants={fadeInUp}
             >
-              Where Leads Slip Through The Cracks, And How We Stop It.
-            </motion.h2>
-            
-            <motion.div 
-              className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto"
-              variants={staggerContainer}
-            >
-              {/* Industry Problems */}
+              <div className="flex items-center justify-start">
+                <AlertTriangle className="w-5 h-5 text-red-600 dark:text-red-400 mr-2" />
+                <h3 className="text-lg font-medium text-red-600 dark:text-red-400">
+                  Where Leads Are Lost Across the Industry
+                </h3>
+              </div>
+              <div className="flex items-center justify-start">
+                <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" />
+                <h3 className="text-lg font-medium text-green-600 dark:text-green-400">
+                  How Automotive Ai Stops The Loss
+                </h3>
+              </div>
+            </motion.div>
+
+            {/* Comparison Items */}
+            <div className="space-y-8">
+              {/* Leads never make it into CRM */}
               <motion.div 
-                className="bg-red-50 dark:bg-red-900/20 rounded-xl p-6 md:p-8 border border-red-200 dark:border-red-800/30"
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
                 variants={fadeInUp}
               >
-                <h3 className="text-lg text-red-600 dark:text-red-400 mb-6 text-center tracking-tight">
-                  Industry Problems
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">14% of leads never make it into CRM</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Average speed to lead is 47 hours</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Only 8% of salespeople follow up 5+ times</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">60% avg contact rate on internet leads</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Salespeople follow up an average of 1.2×</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Sales burnout from deal fatigue and objection handling</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Humans can only work one lead at a time</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Data entry wastes salespeople &amp; BDC time</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">67-80% staff turnover annually</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Only 6.2% of paid leads actually sell</p>
-                  </div>
-                  <div className="flex items-start">
-                    <AlertTriangle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">90+ days to train new hires</p>
-                  </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Leads never captured in CRM</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">14%</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">AI captures every lead</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">100%</div>
                 </div>
               </motion.div>
 
-              {/* Automotive AI Solutions */}
+              {/* Speed to lead */}
               <motion.div 
-                className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 md:p-8 border border-green-200 dark:border-green-800/30"
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
                 variants={fadeInUp}
               >
-                <h3 className="text-lg text-green-600 dark:text-green-400 mb-6 text-center tracking-tight">
-                  Automotive AI Solutions
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">100% lead capture and instant CRM entry</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">30-second speed to lead, boosting conversions by 391%</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">100% follow-up rate</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">80%+ contact rate</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">14 automated follow-ups, then long-term nurture</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Veteran‑level AI objection handling reduces sales burnout</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Unlimited conversations (scale to thousands)</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Automatic data entry</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Zero staff turnover or training costs</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Convert 4-19% of dead leads back into the sales cycle</p>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-1" />
-                    <p className="text-sm text-gray-700 dark:text-gray-300 tracking-tight">Instant expertise across every lead source</p>
-                  </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average speed to lead</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">47 <span className="text-lg">hours</span></div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Ai speed to lead</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">30 <span className="text-lg">seconds</span></div>
                 </div>
               </motion.div>
+
+              {/* Follow up rate */}
+              <motion.div 
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
+                variants={fadeInUp}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average Times Followed Up</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1.2x</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Ai follow up on paid traffic</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">14x</div>
+                </div>
+              </motion.div>
+
+              {/* Contact rate */}
+              <motion.div 
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
+                variants={fadeInUp}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average contact rate on paid traffic</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">60%</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Ai contact rate on paid traffic</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">85%+</div>
+                </div>
+              </motion.div>
+
+              {/* Staff turnover */}
+              <motion.div 
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
+                variants={fadeInUp}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average staff turnover annually</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">67-80%</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Ai staff turnover</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">0%</div>
+                </div>
+              </motion.div>
+
+              {/* Paid leads that sell */}
+              <motion.div 
+                className="grid grid-cols-2 gap-8 items-center py-6 border-b border-gray-200 dark:border-gray-700"
+                variants={fadeInUp}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Average closing rate on internet leads</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">6.2%</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Re-engagment rate on old leads</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">4-19%</div>
+                </div>
+              </motion.div>
+
+              {/* Human vs AI Capacity */}
+              <motion.div 
+                className="grid grid-cols-2 gap-8 items-center py-6"
+                variants={fadeInUp}
+              >
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">Amount of leads a human can work at once</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">AI capacity</p>
+                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1000's</div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Bottom CTA Box */}
+            <motion.div 
+              className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center border border-blue-200/50 dark:border-blue-800/30"
+              variants={fadeInUp}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+                391% boost in conversions with 30-second speed to lead
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+                Stop losing leads to competitors. 78% of buyers choose the first company that respond first, our AI ensure you're first every time.
+              </p>
+              <GlassButton href="/vsldemo" size="lg" variant="primary">
+                See AI In Action
+              </GlassButton>
             </motion.div>
           </div>
         </motion.section>
@@ -331,16 +388,18 @@ const BookADemo = () => {
               <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-200 mb-8 max-w-3xl mx-auto tracking-tight">
               Join 45+ dealerships using AI to eliminate wasted ad spend and turn lost leads into closed deals.
               </p>
-              <SparkleButton
-                className="!text-sm !py-2 !px-4 md:!py-2.5 md:!px-5 transition-transform duration-200"
+              <GlassButton
                 href="/vsldemo"
+                size="md"
+                variant="primary"
               >
                 See How AI Fixes This
-              </SparkleButton>
+              </GlassButton>
             </motion.div>
           </div>
         </motion.div>
 
+        </div>
       </div>
     </div>
   );

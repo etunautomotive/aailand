@@ -97,6 +97,11 @@ module.exports = {
 			'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 			"scrolling-banner": "scrolling-banner var(--duration) linear infinite",
 			"scrolling-banner-vertical": "scrolling-banner-vertical var(--duration) linear infinite",
+			'first': 'moveVertical 30s ease infinite',
+			'second': 'moveInCircle 20s reverse infinite',
+			'third': 'moveInCircle 40s linear infinite',
+			'fourth': 'moveHorizontal 40s ease infinite',
+			'fifth': 'moveInCircle 20s ease infinite',
 		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

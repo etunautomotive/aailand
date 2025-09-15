@@ -41,7 +41,7 @@ const TextType = ({
   }, [variableSpeed, typingSpeed]);
 
   const getCurrentTextColor = () => {
-    if (textColors.length === 0) return '#ffffff';
+    if (textColors.length === 0) return 'inherit';
     return textColors[currentTextIndex % textColors.length];
   };
 
@@ -156,7 +156,10 @@ const TextType = ({
       className: `inline-block whitespace-pre-wrap tracking-tight ${className}`,
       ...props
     },
-    <span className="inline" style={{ color: getCurrentTextColor() }}>
+    <span 
+      className="inline" 
+      style={textColors.length > 0 ? { color: getCurrentTextColor() } : {}}
+    >
       {displayedText}
     </span>,
     showCursor && (
