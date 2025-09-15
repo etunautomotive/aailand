@@ -207,7 +207,7 @@ const BookADemo = () => {
                   Where Leads Are Lost Across the Industry
                 </h3>
               </div>
-              <div className="flex items-center justify-start">
+              <div className="flex items-center justify-start border-l-4 border-green-500 pl-6">
                 <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" />
                 <h3 className="text-lg font-medium text-green-600 dark:text-green-400">
                   How Automotive Ai Stops The Loss
@@ -224,11 +224,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Leads never captured in CRM</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">14%</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">14%</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">AI captures every lead</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">100%</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">100%</div>
                 </div>
               </motion.div>
 
@@ -239,11 +239,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Average speed to lead</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">47 <span className="text-lg">hours</span></div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">47 <span className="text-lg">hours</span></div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Ai speed to lead</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">30 <span className="text-lg">seconds</span></div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">30 <span className="text-lg">seconds</span></div>
                 </div>
               </motion.div>
 
@@ -254,11 +254,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Average Times Followed Up</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1.2x</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">1.2x</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Ai follow up on paid traffic</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">14x</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">14x</div>
                 </div>
               </motion.div>
 
@@ -269,11 +269,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Average contact rate on paid traffic</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">60%</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">60%</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Ai contact rate on paid traffic</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">85%+</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">85%+</div>
                 </div>
               </motion.div>
 
@@ -284,11 +284,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Average staff turnover annually</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">67-80%</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">67-80%</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Ai staff turnover</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">0%</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">0%</div>
                 </div>
               </motion.div>
 
@@ -299,11 +299,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Average closing rate on internet leads</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">6.2%</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">6.2%</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Re-engagment rate on old leads</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">4-19%</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">4-19%</div>
                 </div>
               </motion.div>
 
@@ -314,11 +314,11 @@ const BookADemo = () => {
               >
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-700 dark:text-gray-300">Amount of leads a human can work at once</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1</div>
+                  <div className="text-4xl font-medium text-red-600 dark:text-red-400">1</div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">AI capacity</p>
-                  <div className="text-4xl font-medium text-gray-900 dark:text-white">1000's</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">1000's</div>
                 </div>
               </motion.div>
             </div>
