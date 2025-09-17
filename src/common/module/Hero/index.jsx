@@ -6,6 +6,7 @@ import GlassButton from "@/components/ui/GlassButton";
 import TextType from "@/components/ui/TextType";
 import ScrollingBrands from "@/common/component/scrolling-brands/ScrollingBrands";
 import { ChevronDown } from "lucide-react";
+import ShinyTextOnLoad from "@/components/ui/ShinyTextOnLoad";
 
 // Animation variants
 const fadeInUp = {
@@ -166,8 +167,13 @@ const Hero = () => {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
-            AAI Works Your Paid Leads
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
+            <ShinyTextOnLoad 
+              text="AAI Works Your Paid Leads" 
+              speed={2}
+              shimmerDuration={4000}
+              className="text-3xl md:text-4xl font-light"
+            />
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
             Transform your paid campaigns with AI-powered automation that never sleeps
@@ -254,8 +260,13 @@ const Hero = () => {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
-            AAI Takes Your Notes For You
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
+            <ShinyTextOnLoad 
+              text="AAI Takes Your Notes" 
+              speed={2}
+              shimmerDuration={4000}
+              className="text-3xl md:text-4xl font-light"
+            />
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
             Automatically capture and organize customer interactions without lifting a finger
@@ -310,8 +321,13 @@ const Hero = () => {
         variants={staggerContainer}
       >
         <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
-            AAI Handles Your Follow-ups
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
+            <ShinyTextOnLoad 
+              text="AAI Handles Your Follow-ups" 
+              speed={2}
+              shimmerDuration={4000}
+              className="text-3xl md:text-4xl font-light"
+            />
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
             Never miss another follow-up with AI that remembers every conversation and next steps

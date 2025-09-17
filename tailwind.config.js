@@ -91,6 +91,10 @@ module.exports = {
 				from: {transform: "translateY(0)"},
 				to: {transform: "translateY(calc(-50% - var(--gap)/2))"},
 			},
+			shine: {
+				'0%': { 'background-position': '100%' },
+				'100%': { 'background-position': '-100%' },
+			},
 		},
   				animation: {
 			'pricing-pulse': 'pricing-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -102,6 +106,7 @@ module.exports = {
 			'third': 'moveInCircle 40s linear infinite',
 			'fourth': 'moveHorizontal 40s ease infinite',
 			'fifth': 'moveInCircle 20s ease infinite',
+			'shine': 'shine 5s linear infinite',
 		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apple-style mobile navbar support */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Enhanced backdrop blur for better glassmorphism */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Smooth scrolling for mobile navigation */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent horizontal overflow on mobile */
+  body {
+    overflow-x: hidden;
+  }
+}
+
 @keyframes moveHorizontal {
   0% {
     transform: translateX(-50%) translateY(-10%);

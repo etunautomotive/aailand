@@ -22,7 +22,7 @@
     "framer-motion": "^12.12.1",
     "gsap": "^3.13.0",
     "lucide-react": "^0.510.0",
-    "motion": "^12.23.12",
+    "motion": "^12.23.13",
     "next": "14.0.3",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",

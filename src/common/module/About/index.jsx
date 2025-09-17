@@ -45,13 +45,13 @@ const About = () => {
 
   return (
     <ComponentTransition className="h-auto max-w-[1500px] px-10 xl:px-20">
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="max-w-[1500px] mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-7xl py-5 px-10 text-center dark:bg-gradient-to-r from-white from-50% to-black bg-text bg-clip-text text-transparent font-bold">
+            <h1 className="text-4xl md:text-7xl py-5 px-10 text-center bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent font-bold">
               Our Team
             </h1>
-            <p className="text-base md:text-2xl text-neutral-500 text-center">
+            <p className="text-base md:text-2xl text-neutral-600 dark:text-neutral-400 text-center">
               Meet the visionaries and leaders behind our success
             </p>
           </div>
@@ -61,7 +61,7 @@ const About = () => {
             {teamMembers.slice(0, 3).map((member, index) => (
               <div
                 key={index}
-                className="text-center group hover:scale-105 transition-all duration-300"
+                className="text-center group hover:scale-105 transition-all duration-300 p-6 rounded-2xl bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/10 hover:bg-white/10 dark:hover:bg-white/10"
               >
                 <div className="relative mb-6 inline-block">
                   <div
@@ -101,7 +101,7 @@ const About = () => {
             {teamMembers.slice(3).map((member, index) => (
               <div
                 key={index + 3}
-                className="text-center group hover:scale-105 transition-all duration-300 max-w-xs"
+                className="text-center group hover:scale-105 transition-all duration-300 max-w-xs p-6 rounded-2xl bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/10 hover:bg-white/10 dark:hover:bg-white/10"
               >
                 <div className="relative mb-6 inline-block">
                   <div
