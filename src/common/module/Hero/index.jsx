@@ -206,19 +206,43 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
-            <div className="text-center text-gray-500 dark:text-gray-400">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📊</span>
-              </div>
-              <p>Content frame for paid leads automation</p>
+          {/* Glass morphism container for video */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+            {/* Gradient border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            
+            {/* Video container with aspect ratio */}
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+              <video
+                className="w-full h-full object-cover rounded-xl"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                poster="" // You can add a poster image if you have one
+              >
+                <source src="/videos/canadadrives-lead-qualifcation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Overlay gradient for better text visibility if needed */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+            </div>
+            
+            {/* Video description */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Watch how AAI works with Canada Drives and other paid lead sources to maximize conversions
+              </p>
             </div>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* AAI Reactivates Dormant Leads Section */}
-      <motion.div
+      {/* AAI Reactivates Dormant Leads Section - Commented out for now */}
+      {/* <motion.div
         className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
         initial="hidden"
         whileInView="visible"
@@ -247,7 +271,7 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
       {/* AAI Takes Your Notes For You Section */}
       <motion.div
@@ -270,12 +294,36 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
-            <div className="text-center text-gray-500 dark:text-gray-400">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">📝</span>
-              </div>
-              <p>Content frame for automated note-taking</p>
+          {/* Glass morphism container for video */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+            {/* Gradient border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            
+            {/* Video container with aspect ratio */}
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+              <video
+                className="w-full h-full object-cover rounded-xl"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                poster="" // You can add a poster image if you have one
+              >
+                <source src="/videos/data-extraction-highlight-ricky-daily.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Overlay gradient for better text visibility if needed */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+            </div>
+            
+            {/* Video description */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Watch how AAI automatically extracts and organizes customer data from conversations
+              </p>
             </div>
           </div>
         </motion.div>
@@ -302,19 +350,43 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
-            <div className="text-center text-gray-500 dark:text-gray-400">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                <span className="text-2xl">⏰</span>
-              </div>
-              <p>Content frame for automated follow-ups</p>
+          {/* Glass morphism container for video */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+            {/* Gradient border effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            
+            {/* Video container with aspect ratio */}
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+              <video
+                className="w-full h-full object-cover rounded-xl"
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                poster="" // You can add a poster image if you have one
+              >
+                <source src="/videos/automated follow ups.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Overlay gradient for better text visibility if needed */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+            </div>
+            
+            {/* Video description */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Watch how AAI automatically manages follow-ups and keeps your leads engaged
+              </p>
             </div>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* AAI Manages Your Pipeline Section */}
-      <motion.div
+      {/* AAI Manages Your Pipeline Section - Commented out for now */}
+      {/* <motion.div
         className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
         initial="hidden"
         whileInView="visible"
@@ -343,7 +415,7 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
     </div>
   );
