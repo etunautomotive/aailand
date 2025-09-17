@@ -3,13 +3,9 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
-import { useTheme } from "next-themes";
 import GridSparkles from "@/common/component/element/GridSparkles";
-import Image from "@/common/component/element/Image";
 import PixelCanvas from "@/common/component/element/PixelCanvas";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
-import Link from "next/link";
-// AppleCards removed from bottom section
 
 // Default agent data with detailed information and status
 const defaultAgentData = [
@@ -126,7 +122,7 @@ const getTypeColor = (color) => {
   }
 };
 
-const getGradientText = (color, theme) => {
+const getGradientText = (color) => {
   // Use consistent gradients to avoid hydration mismatch
   switch (color.toLowerCase()) {
     case "green":
@@ -156,7 +152,6 @@ const getStatusBadge = (status, color) => {
 };
 
 const AgentDetailCard = ({ agent, index }) => {
-  const { theme, resolvedTheme } = useTheme();
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, {
     once: false,
@@ -243,8 +238,7 @@ const AgentDetailCard = ({ agent, index }) => {
             <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2">
               <h2
                 className={`text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
-                  agent.color,
-                  resolvedTheme
+                  agent.color
                 )} bg-clip-text text-transparent text-center md:text-left break-words`}
               >
                 {agent.title}
@@ -277,8 +271,7 @@ const AgentDetailCard = ({ agent, index }) => {
                 <li key={i} className="flex items-start">
                   <div
                     className={`mt-1 mr-3 w-4 h-4 rounded-full flex-shrink-0 bg-gradient-to-r ${getGradientText(
-                      agent.color,
-                      resolvedTheme
+                      agent.color
                     )}`}
                   ></div>
                   <span className="text-neutral-700 dark:text-neutral-300">
@@ -298,8 +291,7 @@ const AgentDetailCard = ({ agent, index }) => {
                 <li key={i} className="flex items-start">
                   <div
                     className={`mt-1 mr-3 w-4 h-4 rounded-full flex-shrink-0 bg-gradient-to-r ${getGradientText(
-                      agent.color,
-                      resolvedTheme
+                      agent.color
                     )}`}
                   ></div>
                   <span className="text-neutral-700 dark:text-neutral-300">
@@ -391,7 +383,6 @@ const AgentsPage = ({
   ctaTitle = "Ready to transform your dealership?",
   ctaSubtitle = "Our AI agents work together seamlessly to optimize every step of your sales process, from lead generation to deal closure."
 }) => {
-  const { theme, resolvedTheme } = useTheme();
 
   return (
     <div className="h-auto w-full max-w-[1500px] px-4 sm:px-5 lg:px-10 py-12 sm:py-20 relative overflow-hidden">

@@ -132,9 +132,7 @@ const CTASection = ({
   }, []);
 
   // Determine the current theme
-  const isDarkMode =
-    mounted &&
-    (theme === "dark" || (theme === "system" && resolvedTheme === "dark"));
+  const isDarkMode = mounted && theme === "dark";
 
   // Function to format phone number
   const formatPhoneNumber = (phone) => {

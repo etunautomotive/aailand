@@ -6,7 +6,7 @@ import { ThemeProvider } from "next-themes";
 
 export function Providers({ children }) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider enableSystem={false} attribute="class">
       {children}
     </ThemeProvider>
   );

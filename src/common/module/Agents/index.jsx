@@ -4,20 +4,10 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ComponentTransition from "@/common/component/element/ComponentTransition";
 import { VerticalIntelligenceCards } from "@/common/constant/CardItem";
-import { useTheme } from "next-themes";
 import GridSparkles from "@/common/component/element/GridSparkles";
-import Image from "@/common/component/element/Image";
-import Link from "next/link";
 import PixelCanvas from "@/common/component/element/PixelCanvas";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 
-// Agent icons
-const agentIcons = {
-  "AAI Text": "/agent-text-icon.svg",
-  "AAI Call": "/agent-call-icon.svg",
-  "AAI Finance": "/agent-finance-icon.svg",
-  "AAI Close": "/agent-close-icon.svg",
-};
 
 const getTypeColor = (type) => {
   switch (type.toLowerCase()) {
@@ -34,8 +24,8 @@ const getTypeColor = (type) => {
   }
 };
 
-const getGradientText = (type, theme) => {
-  // Use a consistent gradient regardless of theme to avoid hydration mismatch
+const getGradientText = (type) => {
+  // Use a consistent gradient to avoid hydration mismatch
   switch (type.toLowerCase()) {
     case "aai text":
       return "from-green-400 to-green-200";
@@ -78,7 +68,6 @@ const getStatusBadge = (status) => {
 };
 
 const AgentCard = ({ agent, index }) => {
-  const { theme, resolvedTheme } = useTheme();
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: false, amount: 0.5 });
   const status = agentStatus[agent.title];
@@ -137,8 +126,7 @@ const AgentCard = ({ agent, index }) => {
               <div>
                 <h2
                   className={`text-xl font-semibold tracking-tight bg-gradient-to-r ${getGradientText(
-                    agent.title,
-                    resolvedTheme
+                    agent.title
                   )} bg-clip-text text-transparent`}
                 >
                   {agent.title}
@@ -158,11 +146,10 @@ const AgentCard = ({ agent, index }) => {
               {agent.content}
             </p>
 
-            <Link
+            <a
               href={`/agents#${agent.title.toLowerCase().replace(" ", "-")}`}
               className={`mt-6 inline-flex items-center text-sm font-medium bg-gradient-to-r ${getGradientText(
-                agent.title,
-                resolvedTheme
+                agent.title
               )} bg-clip-text text-transparent group-hover:underline`}
             >
               Learn more
@@ -179,7 +166,7 @@ const AgentCard = ({ agent, index }) => {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </ComponentTransition>

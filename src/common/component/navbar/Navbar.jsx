@@ -52,7 +52,7 @@ const Navbar = ({ variant = "default" }) => {
     });
   }, []);
 
-  const currentTheme = theme === "system" ? resolvedTheme : theme;
+  const currentTheme = theme;
 
   const scheduleDemoHandler = () => {
     window.open(
@@ -131,10 +131,8 @@ const Navbar = ({ variant = "default" }) => {
             </div>
           )}
 
-          <div className="lg:hidden flex items-center">
-            <div className="px-2">
-              <DarkmodeSwitch />
-            </div>
+          <div className="lg:hidden flex items-center gap-2">
+            <DarkmodeSwitch />
             <NavMobile open={open} handleOpen={handleOpen} close={close} variant={variant} />
           </div>
 

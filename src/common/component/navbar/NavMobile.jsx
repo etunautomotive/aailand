@@ -14,6 +14,7 @@ import {
   useDisclosure,
 } from "@heroui/react";
 import { useState } from "react";
+import { NavigationItem } from "@/common/constant/NavigationItem";
 
 const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
   const [form, setForm] = useState({ firstName: '', lastName: '', phone: '' });
@@ -41,83 +42,113 @@ const NavMobile = ({ open, handleOpen, close, variant = "default" }) => {
 
   return (
     <div>
-      <label className={`hamburger relative z-[999] ${open ? "open" : ""}`}>
-        <input
-          type="checkbox"
-          className="inputToogle"
-          checked={open}
-          onChange={handleOpen}
-        />
+      <button
+        onClick={handleOpen}
+        className={clsx(
+          "relative z-[999] p-2 rounded-xl transition-all duration-300 backdrop-blur-sm border",
+          open
+            ? "bg-white/20 border-white/30"
+            : "bg-white/10 border-white/20 hover:bg-white/15"
+        )}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="12"
-          viewBox="0 0 150 19"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
           fill="none"
-          className="scale-75"
+          className={clsx(
+            "transition-all duration-300",
+            open ? "rotate-180 text-white" : "text-black dark:text-white"
+          )}
         >
-          <line
-            y1="1.5"
-            x2="150"
-            y2="1.5"
-            className={clsx(
-              open ? "!stroke-white translate-y-2 rotate-45" : "",
-              "stroke-black dark:stroke-white transition-all duration-500 ease-in-out"
-            )}
-            strokeWidth="3"
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 15a3 3 0 0 0 0-6 3 3 0 0 0 0 6Z"
           />
-          <line
-            y1="9.5"
-            x2="150"
-            y2="9.5"
-            className={clsx(
-              open ? "opacity-0" : "",
-              "stroke-black dark:stroke-white transition-all duration-300 ease-in-out"
-            )}
-            strokeWidth="3"
-          />
-          <line
-            y1="17.5"
-            x2="150"
-            y2="17.5"
-            className={clsx(
-              open ? "!stroke-white -translate-y-2 -rotate-45" : "",
-              "stroke-black dark:stroke-white transition-all duration-500 ease-in-out"
-            )}
-            strokeWidth="3"
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 1v6m0 6v6m5.196-15.804L15.536 5.804m-7.072 0L6.864 3.196m15.804 5.196L19.196 6.864m0 10.272l2.572 1.332M1 12l2.8-.6m15.6 0L22 12l-2.6-.6M6.864 17.136l-2.572 1.332m10.272 0l2.572-1.332"
           />
         </svg>
-      </label>
+      </button>
       <div
         className={clsx(
-          "fixed inset-0 bg-gradient-to-b from-blue-500/10 via-violet-500/5 to-transparent backdrop-blur-xl transition-all duration-500",
+          "fixed inset-0 bg-black/30 backdrop-blur-sm transition-all duration-300 z-50",
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="absolute top-5 right-5">
-          <DarkmodeSwitch />
-        </div>
-        <NavigationMenuMobile open={open} close={close} variant={variant} />
-        <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center gap-4">
-          {variant !== "sales" && (
-            <SparkleButton
-              className="!text-sm !py-2.5 !px-5"
-              onClick={() => {
-                window.location.href = "/signin";
-                close();
-              }}
+        {/* Glass morphism container positioned in top-right */}
+        <div className="absolute top-20 right-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl w-64 transform transition-all duration-300 overflow-hidden">
+          {/* Close button */}
+          <div className="absolute -top-3 -right-3">
+            <button
+              onClick={close}
+              className="w-8 h-8 rounded-full bg-orange-500 border-2 border-white flex items-center justify-center hover:bg-orange-600 transition-colors shadow-lg"
             >
-              Sign In
-            </SparkleButton>
-          )}
-          <SparkleButton
-            className="!text-sm !py-2.5 !px-5 scale-95"
-            onClick={onOpen}
-          >
-            Schedule a Demo
-          </SparkleButton>
+              <svg
+                className="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation items */}
+          <div className="p-4 space-y-1">
+            {NavigationItem.map((item, index) => (
+              <Link
+                key={index}
+                href={item.src}
+                onClick={close}
+                className={clsx(
+                  "block w-full text-left px-4 py-3 rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 font-medium",
+                  index === 0 && "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                )}
+              >
+                {item.title}
+              </Link>
+            ))}
+
+            {/* Divider */}
+            <div className="border-t border-gray-200 dark:border-gray-700 my-3"></div>
+
+            {/* Action buttons */}
+            {variant !== "sales" && (
+              <button
+                onClick={() => {
+                  window.location.href = "https://app.automotiveai.ca/signin";
+                  close();
+                }}
+                className="block w-full text-left px-4 py-3 rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 font-medium"
+              >
+                Sign In
+              </button>
+            )}
+
+            <button
+              onClick={onOpen}
+              className="block w-full text-left px-4 py-3 rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 font-medium"
+            >
+              Schedule a Demo
+            </button>
+          </div>
         </div>
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable>

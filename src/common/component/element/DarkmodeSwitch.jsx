@@ -12,8 +12,7 @@ const DarkmodeSwitch = () => {
   if (!mounted) {
     return null
   }
-  const isDarkTheme =
-  mounted && (resolvedTheme === 'dark' || resolvedTheme === 'system');
+  const isDarkTheme = mounted && resolvedTheme === 'dark';
 
 const toggleTheme = () =>
   setTheme(resolvedTheme === 'light' ? 'dark' : 'light');

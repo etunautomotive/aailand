@@ -170,6 +170,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-4xl font-light mb-4">
             <ShinyTextOnLoad 
               text="AAI Works Your Paid Leads" 
+              shimmerWords={["Paid", "Leads"]}
               speed={2}
               shimmerDuration={4000}
               className="text-3xl md:text-4xl font-light"
@@ -263,6 +264,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-4xl font-light mb-4">
             <ShinyTextOnLoad 
               text="AAI Takes Your Notes" 
+              shimmerWords={["Notes"]}
               speed={2}
               shimmerDuration={4000}
               className="text-3xl md:text-4xl font-light"
@@ -324,6 +326,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-4xl font-light mb-4">
             <ShinyTextOnLoad 
               text="AAI Handles Your Follow-ups" 
+              shimmerWords={["Follow-ups"]}
               speed={2}
               shimmerDuration={4000}
               className="text-3xl md:text-4xl font-light"
