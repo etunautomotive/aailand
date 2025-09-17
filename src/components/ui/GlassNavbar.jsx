@@ -12,10 +12,6 @@ const NavigationItem = [
     title: "Home",
   },
   {
-    src: "/services",
-    title: "Services",
-  },
-  {
     src: "/agents",
     title: "Agents",
   },

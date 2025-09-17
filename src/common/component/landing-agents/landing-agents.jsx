@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
-import { useTheme } from "next-themes";
-import { Card, CardHeader, CardBody, Image } from "@heroui/react";
+import AppleCards from "@/common/component/apple-cards/apple-cards";
 import { 
   Database, 
   MessageCircle, 
@@ -78,86 +78,7 @@ const getStatusBadge = (status, color) => {
   }
 };
 
-const AgentCard = ({ agent }) => {
-  const { resolvedTheme } = useTheme();
-
-  // Function to get the appropriate image for each agent
-  const getAgentImage = (agentTitle) => {
-    switch (agentTitle) {
-      case "Database Reactivation Agent":
-        return "/agentdatabase.png?v=1";
-      case "Facebook Messenger Agent":
-        return "/agentmessenger.png?v=1";
-      case "Paid Lead Agent":
-        return "/agentpaidlead.png?v=1";
-      case "Website Leads Agent":
-        return "/agentwebsite.png?v=1";
-      case "Follow-Up Agent":
-        return "/agentfollowup.png?v=1";
-      case "Powersports Agent":
-        return "/agentpowersport.png?v=1";
-      case "Personal Loan Agent":
-        return "/agentpersonalloan.png?v=1";
-      case "RV Agent":
-        return "/agentrv.png?v=1";
-      case "Service Agent":
-        return "/agentpartsandservice.png?v=1";
-      case "After Sale Agent":
-        return "/agentaftersale.png?v=1";
-      case "Referral Sales Agent":
-        return "/agentreferral.png?v=1";
-      case "Co-App Agent":
-        return "/agentcoapp.png?v=1";
-      default:
-        return "https://heroui.com/images/hero-card-complete.jpeg";
-    }
-  };
-
-  return (
-    <Card className={`py-4 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl ${
-        agent.status === "live" 
-          ? "hover:shadow-green-500/10" 
-          : agent.color === "purple" 
-            ? "hover:shadow-purple-500/10"
-            : agent.color === "red"
-              ? "hover:shadow-red-500/10"
-              : agent.color === "yellow"
-                ? "hover:shadow-yellow-500/10"
-                : "hover:shadow-blue-500/10"
-      }`}>
-        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          {/* Status Badge */}
-          <div className="w-full flex justify-end items-start mb-2">
-            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusBadge(agent.status, agent.color)}`}>
-              {agent.status === "live" ? "AAI Text" : "Coming Soon"}
-            </span>
-          </div>
-          
-          {/* Title and Description */}
-          <h4 className={`font-bold text-large bg-gradient-to-r ${getTypeColor(agent.color)} bg-clip-text text-transparent`}>
-            {agent.title}
-          </h4>
-          <small className="text-default-500 text-left">
-            {agent.description}
-          </small>
-        </CardHeader>
-        
-        <CardBody className="overflow-visible py-2">
-          <img
-            alt={`${agent.title} preview`}
-            className="object-cover rounded-xl w-full aspect-square"
-            src={getAgentImage(agent.title)}
-            width={270}
-            height={270}
-            loading="lazy"
-            onError={(e) => {
-              e.target.src = "https://heroui.com/images/hero-card-complete.jpeg";
-            }}
-          />
-        </CardBody>
-      </Card>
-  );
-};
+const AgentCard = () => null;
 
 const LandingAgents = () => {
   // Define the specific agents as requested
@@ -185,14 +106,14 @@ const LandingAgents = () => {
 
   return (
     <section
-      className="w-full py-16 md:py-24 text-black dark:text-white"
+      className="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-black dark:text-white relative"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Header */}
         <div
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 leading-tight bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent">
             Meet Your New Co-Pilots, Built For Scale.
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -200,25 +121,59 @@ const LandingAgents = () => {
           </p>
         </div>
 
-        {/* Live Agents Grid */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12"
-        >
-          {agentData.filter(agent => agent.status === "live").map((agent, index) => (
-            <AgentCard key={agent.id} agent={agent} />
-          ))}
+        {/* Apple-style cards carousel using agent images */}
+        <div className="mb-12 relative">
+          {/* Soft edge masks to remove any perceived white container background while retaining blur */}
+          <div aria-hidden className="pointer-events-none absolute -left-6 top-0 h-full w-6 bg-gradient-to-r from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
+          <div aria-hidden className="pointer-events-none absolute -right-6 top-0 h-full w-6 bg-gradient-to-l from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
+          <AppleCards
+            items={agentData
+              .filter((agent) => agent.status === "live")
+              .map((agent) => ({
+                src: (() => {
+                  switch (agent.title) {
+                    case "Database Reactivation Agent":
+                      return "/agentdatabase.png?v=1";
+                    case "Facebook Messenger Agent":
+                      return "/agentmessenger.png?v=1";
+                    case "Paid Lead Agent":
+                      return "/agentpaidlead.png?v=1";
+                    case "Website Leads Agent":
+                      return "/agentwebsite.png?v=1";
+                    case "Follow-Up Agent":
+                      return "/agentfollowup.png?v=1";
+                    case "Powersports Agent":
+                      return "/agentpowersport.png?v=1";
+                    case "Personal Loan Agent":
+                      return "/agentpersonalloan.png?v=1";
+                    case "RV Agent":
+                      return "/agentrv.png?v=1";
+                    case "Service Agent":
+                      return "/agentpartsandservice.png?v=1";
+                    case "After Sale Agent":
+                      return "/agentaftersale.png?v=1";
+                    case "Referral Sales Agent":
+                      return "/agentreferral.png?v=1";
+                    case "Co-App Agent":
+                      return "/agentcoapp.png?v=1";
+                    default:
+                      return "/agentdatabase.png?v=1";
+                  }
+                })(),
+                title: agent.title,
+                category: "Text Agent",
+                content: (
+                  <div className="space-y-4 text-neutral-700 dark:text-neutral-200">
+                    <p>{agent.description}</p>
+                  </div>
+                ),
+              }))}
+          />
         </div>
 
 
 
-        {/* Bottom CTA */}
-        <div
-          className="text-center mt-12"
-        >
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-600/20 to-green-500/20 rounded-full px-6 py-3 border border-green-500/30 backdrop-blur-sm">
-            <span className="text-green-400 font-semibold">Each agent specializes in a different stage of your sales funnel</span>
-          </div>
-        </div>
+        {/* Removed bottom chip CTA per request */}
       </div>
     </section>
   );

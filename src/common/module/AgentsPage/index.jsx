@@ -9,6 +9,7 @@ import Image from "@/common/component/element/Image";
 import PixelCanvas from "@/common/component/element/PixelCanvas";
 import SparkleButton from "@/common/component/sparkle-button/SparkleButton";
 import Link from "next/link";
+// AppleCards removed from bottom section
 
 // Default agent data with detailed information and status
 const defaultAgentData = [
@@ -491,6 +492,8 @@ const AgentsPage = ({
           <AgentDetailCard key={agent.id} agent={agent} index={index} />
         ))}
       </div>
+
+      {/* Apple style cards carousel removed */}
 
       {/* CTA Section */}
       <div className="mt-16 sm:mt-32 text-center px-2 sm:px-4">

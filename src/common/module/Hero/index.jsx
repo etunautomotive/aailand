@@ -185,6 +185,166 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
+      {/* AAI Works Your Paid Leads Section */}
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
+            AAI Works Your Paid Leads
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+            Transform your paid lead campaigns with AI-powered automation that never sleeps
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="relative group"
+        >
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                <span className="text-2xl">📊</span>
+              </div>
+              <p>Content frame for paid leads automation</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* AAI Reactivates Dormant Leads Section */}
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
+            AAI Reactivates Dormant Leads
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+            Turn your old leads into new opportunities with intelligent re-engagement campaigns
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="relative group"
+        >
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                <span className="text-2xl">🔄</span>
+              </div>
+              <p>Content frame for dormant lead reactivation</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* AAI Takes Your Notes For You Section */}
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
+            AAI Takes Your Notes For You
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+            Automatically capture and organize customer interactions without lifting a finger
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="relative group"
+        >
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                <span className="text-2xl">📝</span>
+              </div>
+              <p>Content frame for automated note-taking</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* AAI Handles Your Follow-ups Section */}
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
+            AAI Handles Your Follow-ups
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+            Never miss another follow-up with AI that remembers every conversation and next steps
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="relative group"
+        >
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                <span className="text-2xl">⏰</span>
+              </div>
+              <p>Content frame for automated follow-ups</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* AAI Manages Your Pipeline Section */}
+      <motion.div
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4">
+            AAI Manages Your Pipeline
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+            Keep your sales pipeline organized and moving with intelligent lead management
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          variants={fadeInUp}
+          className="relative group"
+        >
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-8 min-h-[400px] flex items-center justify-center">
+            <div className="text-center text-gray-500 dark:text-gray-400">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                <span className="text-2xl">📈</span>
+              </div>
+              <p>Content frame for pipeline management</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
     </div>
   );
 };

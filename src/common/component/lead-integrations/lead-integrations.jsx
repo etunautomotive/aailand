@@ -55,14 +55,14 @@ export default function LeadIntegrations() {
   const leadSources = [
     {
       icon: Database,
-      title: "Old Data",
+      title: "Un-Sold Leads",
       description: "Re-engage dormant leads from your existing database with intelligent outreach.",
       color: "from-purple-500 to-violet-500",
     },
     {
       icon: Facebook,
       title: "Facebook Leads",
-      description: "Automate follow-ups and nurture prospects generated from social media campaigns.",
+      description: "Automate outbound messages and follow-ups and nurture prospects generated from social media campaigns.",
       color: "from-purple-600 to-indigo-500",
     },
     {
@@ -74,7 +74,7 @@ export default function LeadIntegrations() {
     {
       icon: CreditCard,
       title: "Credit Leads",
-      description: "Streamline the processing and qualification of credit-based customer inquiries.",
+      description: "Streamline the processing and qualification from your favorite lead providers.",
       color: "from-indigo-500 to-purple-500",
     },
     {
@@ -116,17 +116,7 @@ export default function LeadIntegrations() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white dark:bg-black text-black dark:text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #8b5cf6 0%, transparent 50%), 
-                           radial-gradient(circle at 75% 75%, #a855f7 0%, transparent 50%)`,
-          }}
-        ></div>
-      </div>
+    <section className="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-black dark:text-white relative overflow-hidden">
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         {/* Header */}
@@ -137,30 +127,19 @@ export default function LeadIntegrations() {
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-full px-6 py-3 mb-6 border border-purple-500/30 backdrop-blur-sm"
-            variants={fadeInUp}
-          >
-            <Zap className="w-5 h-5 text-purple-400" />
-            <span className="text-purple-300 font-semibold">AI Integration Hub</span>
-          </motion.div>
-
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 leading-loose bg-gradient-to-r from-black from-50% to-neutral-500 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent"
+            style={{ lineHeight: '1.4 !important' }}
             variants={fadeInUp}
           >
-            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
-              AI Agents
-            </span>{" "}
-            for Every Lead Source
+            AI Agents for Every Lead Source
           </motion.h2>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            Our AI operating system is designed to seamlessly integrate and optimize various lead sources, ensuring{" "}
-            <span className="text-purple-400 font-semibold">no potential customer is left behind.</span>
+            Use the right agent for the right lead source. Each AI agent is specifically trained with context and expertise for their designated lead source, ensuring customers receive the most relevant and effective qualification approach.
           </motion.p>
         </motion.div>
 
@@ -212,7 +191,7 @@ export default function LeadIntegrations() {
             return (
               <motion.div
                 key={index}
-                className="group relative bg-gray-50/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-white/10 hover:border-purple-400/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
+                className="group relative bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-white/10 hover:border-purple-400/50 transition-shadow transform-gpu will-change-transform will-change-opacity hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
                 variants={fadeInUp}
               >
                 {/* Gradient Background */}
@@ -228,10 +207,10 @@ export default function LeadIntegrations() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-300">
+                <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-none">
                   {source.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-none">
                   {source.description}
                 </p>
 
@@ -252,7 +231,7 @@ export default function LeadIntegrations() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
-          <div className="bg-gradient-to-r from-purple-50/80 via-violet-50/80 to-indigo-50/80 dark:from-purple-900/30 dark:via-violet-900/30 dark:to-indigo-900/30 rounded-3xl p-8 md:p-12 border border-purple-200/50 dark:border-purple-500/20 backdrop-blur-sm">
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 dark:border-white/10 shadow-lg">
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-violet-600 dark:from-purple-400 dark:to-violet-400 bg-clip-text text-transparent">
                 One System. Every Lead Source. Maximum Conversion.
