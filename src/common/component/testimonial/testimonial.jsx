@@ -1,6 +1,16 @@
 import React from 'react';
 import { MessageSquare } from 'lucide-react';
 
+// Mask name to Firstname LastInitial
+const maskName = (name = "") => {
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0];
+  const first = parts[0];
+  const lastInitial = parts[parts.length - 1][0] || "";
+  return lastInitial ? `${first} ${lastInitial}.` : first;
+};
+
 const Testimonial = ({
   quote,
   name,
@@ -15,7 +25,7 @@ const Testimonial = ({
         <p className="text-gray-700 italic">{quote}</p>
       </div>
       <div className="mt-4">
-        <p className="font-semibold">{name}</p>
+        <p className="font-semibold">{maskName(name)}</p>
         {(position || dealership || location) && (
           <p className="text-sm text-gray-500">
             {position}

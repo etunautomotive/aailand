@@ -31,6 +31,16 @@ const StarRating = ({ rating = 5 }) => {
   );
 };
 
+// Mask name to Firstname LastInitial for privacy
+const maskName = (name = "") => {
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0];
+  const first = parts[0];
+  const lastInitial = parts[parts.length - 1][0] || "";
+  return lastInitial ? `${first} ${lastInitial}.` : first;
+};
+
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -55,7 +65,7 @@ const staggerContainer = {
   },
 };
 
-const VSLDemo = () => {
+const VSLDemo = ({ calendlyUrl = "https://calendly.com/wes-automotiveai/automotive-ai-demo-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=b400ff", useCalendlyInlineWidget = false }) => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const isDark = theme === 'dark';
@@ -64,6 +74,20 @@ const VSLDemo = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Load Calendly script only when using inline widget mode
+  useEffect(() => {
+    if (!useCalendlyInlineWidget) return;
+    const existing = document.querySelector(
+      'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [useCalendlyInlineWidget]);
 
   return (
     <div className="relative w-full min-h-screen">
@@ -131,7 +155,7 @@ const VSLDemo = () => {
                       <span className="text-gray-700 dark:text-gray-200">
                         <strong className="text-black dark:text-white">AAI helped me break every 30-day record. 230 re-engaged customers, $67K Gross in one month from reactivating our old leads.</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Jaedynn Cutler, Approval Express Canada</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Jaedynn Cutler")}, Approval Express Canada</span>
                     </div>
                   </div>
                 </div>
@@ -145,7 +169,7 @@ const VSLDemo = () => {
                       <span className="text-gray-700 dark:text-gray-200">
                         <strong className="text-black dark:text-white">Before Auto AI, we were at a 40-60% contact rate on paid leads, now we are up to 84%!! HUGE DIFFERENCE!!</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Kevin Maisch, Advanced Auto Finance</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Kevin Maisch")}, Advanced Auto Finance</span>
                     </div>
                   </div>
                 </div>
@@ -159,7 +183,7 @@ const VSLDemo = () => {
                       <span className="text-gray-700 dark:text-gray-200">
                         <strong className="text-black dark:text-white">System is amazing, I have 10 out so far this month and pushing for 15-20 for 100k+ doing it all front to back myself. Couldn&apos;t do it without AAI</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Thomas Powell, Straightline Kia</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Thomas Powell")}, Straightline Kia</span>
                     </div>
                   </div>
                 </div>
@@ -173,7 +197,7 @@ const VSLDemo = () => {
                       <span className="text-gray-700 dark:text-gray-200">
                         <strong className="text-black dark:text-white">It&apos;s like having a sniper on your sales team. Never misses, never gets tired. Total game changer.</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Michael Filzwieser, Vancouver Auto Credit</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Michael Filzwieser")}, Vancouver Auto Credit</span>
                     </div>
                   </div>
                 </div>
@@ -202,7 +226,7 @@ const VSLDemo = () => {
                       <span className="text-gray-700 dark:text-gray-200">
                         <strong className="text-black dark:text-white">Our team used to book 60 appointments in a month, we re-activated our old leads with AI and got 71 in the first week. You'd be crazy not to try it.</strong>
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- Alex, GTA Auto Finance</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Alex")}, GTA Auto Finance</span>
                     </div>
                   </div>
                 </div>
@@ -231,15 +255,23 @@ const VSLDemo = () => {
                 </div>
 
                 {/* Calendly Widget */}
-                <div className="relative z-10" id="calendly-inline-widget">
-                  <iframe
-                    src="https://calendly.com/wes-automotiveai/automotive-ai-demo-clone?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=b400ff"
-                    width="100%"
-                    height="400"
-                    frameBorder="0"
-                    title="Book 15-Min Lead Flow Audit"
-                    className="rounded-lg"
-                  ></iframe>
+                <div className="relative z-10">
+                  {useCalendlyInlineWidget ? (
+                    <div
+                      className="calendly-inline-widget"
+                      data-url={calendlyUrl}
+                      style={{ minWidth: "320px", height: "400px" }}
+                    />
+                  ) : (
+                    <iframe
+                      src={calendlyUrl}
+                      width="100%"
+                      height="400"
+                      frameBorder="0"
+                      title="Book 15-Min Lead Flow Audit"
+                      className="rounded-lg"
+                    ></iframe>
+                  )}
                 </div>
 
                 {/* Bottom features */}

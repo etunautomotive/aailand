@@ -94,7 +94,7 @@ const GlassNavbar = () => {
           {/* CTA Links - Desktop only */}
           <div className="hidden md:flex items-center space-x-0.5">
             <Link
-              href="/bookademo"
+              href="/vsldemo"
               className="px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5 whitespace-nowrap"
             >
               Schedule a Demo
@@ -229,7 +229,7 @@ const GlassNavbar = () => {
                     transition={{ delay: (NavigationItem.length + 1) * 0.05 }}
                   >
                     <Link
-                      href="/bookademo"
+                      href="/vsldemo"
                       onClick={close}
                       className="block w-full text-left px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-white/10 transition-colors duration-200 font-medium text-sm"
                     >

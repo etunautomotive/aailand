@@ -46,58 +46,60 @@ const bounce = {
 const Hero = () => {
 
   return (
-    <div className="relative min-h-screen flex flex-col px-3 sm:px-4 md:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-28 lg:pt-32">
-      {/* Above-the-fold wrapper (match bookademo height) */}
-      <div className="relative min-h-[calc(100vh-3rem)] sm:min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-4rem)] flex flex-col">
-      {/* Hero Content */}
+    <div className="relative min-h-screen flex flex-col px-3 sm:px-4 md:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-28">
+      {/* Above-the-fold wrapper with improved flex layout */}
+      <div className="relative min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] flex flex-col">
+      {/* Hero Content with improved flex properties */}
       <motion.div
-        className="flex-1 flex items-center justify-center"
+        className="flex-1 flex items-center justify-center min-h-0"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
       >
-        <div className="w-full max-w-[1500px] mx-auto">
-          <div className="flex flex-col items-center justify-center text-center h-full">
-            {/* Subtitle */}
+        <div className="w-full max-w-[1500px] mx-auto flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-center text-center w-full flex-shrink-0">
+            {/* Subtitle with better mobile spacing */}
             <motion.p 
-              className="text-lg md:text-xl lg:text-2xl text-gray-500 dark:text-gray-400 mb-6 md:mb-8 px-4 tracking-tight"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 dark:text-gray-400 mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4 tracking-tight flex-shrink-0"
               variants={fadeInUp}
             >
-              A new AI system created by sales people, for sales people.
+              A new AI system created by Auto Sales People, for Sales People.
             </motion.p>
             
-            {/* Main Heading with TextType Effect */}
+            {/* Main Heading with TextType Effect - improved flex layout */}
             <motion.div
-              className="w-full xl:w-[85%] 2xl:w-[85%] flex justify-center"
+              className="w-full max-w-6xl mx-auto flex justify-center flex-shrink-0"
               variants={fadeInUp}
             >
-              <div className="text-center px-4 mb-8 md:mb-10">
-                {/* Static part */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent leading-[1.3] tracking-tighter py-4">
-                  The AI way to work leads
+              <div className="text-center px-4 sm:px-6 md:px-8 mb-6 sm:mb-8 md:mb-10 w-full max-w-5xl mx-auto">
+                {/* Main Header */}
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent leading-tight tracking-tight py-1 sm:py-2 whitespace-nowrap mb-4 sm:mb-6">
+                  The AI Way to Work Leads
                 </h1>
                 
-                {/* Dynamic typing text */}
-                <div className="mt-8">
+                {/* Dynamic typing text with improved mobile scaling */}
+                <div className="mt-4 sm:mt-6 md:mt-8">
                   <TextType
                     text={[
-                      "Engage your leads in 30 seconds",
-                      "Increase your conversion by 391%",
-                      "Maximize your lead spend",
-                      "Re-engage your old leads",
-                      "Turn wasted spend into revenue",
-                      "Let AI handle your follow ups",
-                      "Let AI handle your objections",
-                      "Let AI do your data entry",
-                      "Book more appointments",
-                      "Close more deals",
-                      "Increase your revenue",
-                      "Increase your profitability",
-                      "Increase your ROI",
-                      "Scale your dealership",
+                      "For All Auto Dealerships",
+                      "For All Lead Sources",
+                      "Engage Your Leads in 30 Seconds",
+                      "Increase Your Conversion by 391%",
+                      "Maximize Your Lead Spend",
+                      "Re-engage Your Old Leads",
+                      "Turn Wasted Spend into Revenue",
+                      "Let AI Handle Your Follow Ups",
+                      "Let AI Handle Your Objections",
+                      "Let AI Do Your Data Entry",
+                      "Book More Appointments",
+                      "Close More Deals",
+                      "Increase Your Revenue",
+                      "Increase Your Profitability",
+                      "Increase Your ROI",
+                      "Scale Your Dealership",
                     ]}
-                    as="h2"
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-black dark:text-white font-medium leading-relaxed"
+                    as="h3"
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-black dark:text-white font-medium leading-relaxed break-words"
                     typingSpeed={80}
                     deletingSpeed={50}
                     pauseDuration={2500}
@@ -112,9 +114,9 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Button with improved mobile spacing */}
             <motion.div 
-              className="w-full flex justify-center mt-4 mb-8 md:mb-12 z-20"
+              className="w-full flex justify-center mt-2 sm:mt-4 mb-6 sm:mb-8 md:mb-12 z-20 flex-shrink-0"
               variants={fadeInUp}
             >
               <GlassButton
@@ -122,26 +124,26 @@ const Hero = () => {
                 size="lg"
                 variant="primary"
               >
-                Maximize Your Leads Today
+                See How It Works
               </GlassButton>
             </motion.div>
           </div>
         </div>
       </motion.div>
 
-      {/* Scrolling Brands - above the fold */}
-      <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-0">
+      {/* Scrolling Brands - above the fold with improved mobile layout */}
+      <div className="w-full max-w-[1500px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8 mt-4 sm:mt-6 mb-0 flex-shrink-0">
         <div className="text-center mb-2">
-          <p className="text-xs text-gray-600 dark:text-gray-400 tracking-tight">
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 tracking-tight">
             Trusted by leading automotive brands
           </p>
         </div>
         <ScrollingBrands />
       </div>
 
-      {/* Scroll Indicator - match bookademo styling */}
+      {/* Scroll Indicator with improved mobile spacing */}
       <motion.div
-        className="flex justify-center mt-6 md:mt-8 pb-16"
+        className="flex justify-center mt-4 sm:mt-6 md:mt-8 pb-8 sm:pb-12 md:pb-16 flex-shrink-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
@@ -149,7 +151,7 @@ const Hero = () => {
         <a href="#paid-leads" className="flex flex-col items-center">
           <motion.div className="flex flex-col items-center cursor-pointer" variants={bounce} animate="animate">
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-2 tracking-tight">Scroll to see more</p>
-            <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500" />
+            <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 dark:text-gray-500" />
           </motion.div>
         </a>
       </motion.div>
@@ -157,26 +159,26 @@ const Hero = () => {
       </div>
 
 
-      {/* AAI Works Your Paid Leads Section */}
+      {/* AAI Works Your Paid Leads Section with improved mobile layout */}
       <motion.div
         id="paid-leads"
-        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        className="w-full max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8 mb-12 sm:mb-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         variants={staggerContainer}
       >
-        <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+        <motion.div variants={fadeInUp} className="text-center mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 sm:mb-4 px-2">
             <ShinyTextOnLoad 
               text="AAI Works Your Paid Leads" 
               shimmerWords={["Paid", "Leads"]}
               speed={2}
               shimmerDuration={4000}
-              className="text-3xl md:text-4xl font-light"
+              className="text-2xl sm:text-3xl md:text-4xl font-light"
             />
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto px-2">
             Transform your paid campaigns with AI-powered automation that never sleeps
           </p>
         </motion.div>
@@ -185,15 +187,15 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          {/* Glass morphism container for video */}
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+          {/* Glass morphism container for video with improved mobile padding */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden p-2 sm:p-4">
             {/* Gradient border effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
             
             {/* Video container with aspect ratio */}
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+            <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black/20">
               <video
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 controls
                 autoPlay
                 loop
@@ -207,12 +209,12 @@ const Hero = () => {
               </video>
               
               {/* Overlay gradient for better text visibility if needed */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-lg sm:rounded-xl" />
             </div>
             
-            {/* Video description */}
-            <div className="mt-4 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+            {/* Video description with improved mobile text */}
+            <div className="mt-3 sm:mt-4 text-center px-2">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 Watch how AAI works with third party lead providers to maximize conversions
               </p>
             </div>
@@ -252,25 +254,25 @@ const Hero = () => {
         </motion.div>
       </motion.div> */}
 
-      {/* AAI Takes Your Notes For You Section */}
+      {/* AAI Takes Your Notes For You Section with improved mobile layout */}
       <motion.div
-        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        className="w-full max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8 mb-12 sm:mb-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         variants={staggerContainer}
       >
-        <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+        <motion.div variants={fadeInUp} className="text-center mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 sm:mb-4 px-2">
             <ShinyTextOnLoad 
               text="AAI Takes Your Notes" 
               shimmerWords={["Notes"]}
               speed={2}
               shimmerDuration={4000}
-              className="text-3xl md:text-4xl font-light"
+              className="text-2xl sm:text-3xl md:text-4xl font-light"
             />
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto px-2">
             Automatically capture and organize customer interactions without lifting a finger
           </p>
         </motion.div>
@@ -279,15 +281,15 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          {/* Glass morphism container for video */}
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+          {/* Glass morphism container for video with improved mobile padding */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden p-2 sm:p-4">
             {/* Gradient border effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
             
             {/* Video container with aspect ratio */}
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+            <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black/20">
               <video
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 controls
                 autoPlay
                 loop
@@ -301,12 +303,12 @@ const Hero = () => {
               </video>
               
               {/* Overlay gradient for better text visibility if needed */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-lg sm:rounded-xl" />
             </div>
             
-            {/* Video description */}
-            <div className="mt-4 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+            {/* Video description with improved mobile text */}
+            <div className="mt-3 sm:mt-4 text-center px-2">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 Watch how AAI automatically extracts and organizes customer data from conversations
               </p>
             </div>
@@ -314,25 +316,25 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* AAI Handles Your Follow-ups Section */}
+      {/* AAI Handles Your Follow-ups Section with improved mobile layout */}
       <motion.div
-        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+        className="w-full max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-8 mb-12 sm:mb-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
         variants={staggerContainer}
       >
-        <motion.div variants={fadeInUp} className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+        <motion.div variants={fadeInUp} className="text-center mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 sm:mb-4 px-2">
             <ShinyTextOnLoad 
               text="AAI Handles Your Follow-ups" 
               shimmerWords={["Follow-ups"]}
               speed={2}
               shimmerDuration={4000}
-              className="text-3xl md:text-4xl font-light"
+              className="text-2xl sm:text-3xl md:text-4xl font-light"
             />
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 max-w-2xl mx-auto px-2">
             Never miss another follow-up with AI that remembers every conversation and next steps
           </p>
         </motion.div>
@@ -341,15 +343,15 @@ const Hero = () => {
           variants={fadeInUp}
           className="relative group"
         >
-          {/* Glass morphism container for video */}
-          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg overflow-hidden p-4">
+          {/* Glass morphism container for video with improved mobile padding */}
+          <div className="bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden p-2 sm:p-4">
             {/* Gradient border effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 via-blue-500/30 to-purple-500/30 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
             
             {/* Video container with aspect ratio */}
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black/20">
+            <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden bg-black/20">
               <video
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 controls
                 autoPlay
                 loop
@@ -363,12 +365,12 @@ const Hero = () => {
               </video>
               
               {/* Overlay gradient for better text visibility if needed */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-lg sm:rounded-xl" />
             </div>
             
-            {/* Video description */}
-            <div className="mt-4 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+            {/* Video description with improved mobile text */}
+            <div className="mt-3 sm:mt-4 text-center px-2">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 Watch how AAI automatically manages follow-ups and keeps your leads engaged
               </p>
             </div>

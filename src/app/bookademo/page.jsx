@@ -131,7 +131,7 @@ const BookADemo = () => {
                   variants={fadeInUp}
                 >
                   <GlassButton
-                    href="/vsldemo"
+                    href="/cddemo"
                     size="lg"
                     variant="primary"
                   >
@@ -334,7 +334,7 @@ const BookADemo = () => {
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
                 Stop losing leads to competitors. 78% of buyers choose the first company that respond first, our AI ensure you're first every time.
               </p>
-              <GlassButton href="/vsldemo" size="lg" variant="primary">
+              <GlassButton href="/cddemo" size="lg" variant="primary">
                 See AI In Action
               </GlassButton>
             </motion.div>
@@ -389,7 +389,7 @@ const BookADemo = () => {
               Join 45+ dealerships using AI to eliminate wasted ad spend and turn lost leads into closed deals.
               </p>
               <GlassButton
-                href="/vsldemo"
+                href="/cddemo"
                 size="md"
                 variant="primary"
               >

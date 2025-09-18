@@ -106,7 +106,7 @@ const LandingAgents = () => {
 
   return (
     <section
-      className="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-black dark:text-white relative"
+      className="w-full pt-32 pb-8 md:pt-40 md:pb-12 text-black dark:text-white relative"
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Header */}
@@ -124,8 +124,8 @@ const LandingAgents = () => {
         {/* Apple-style cards carousel using agent images */}
         <div className="mb-12 relative">
           {/* Soft edge masks to remove any perceived white container background while retaining blur */}
-          <div aria-hidden className="pointer-events-none absolute -left-6 top-0 h-full w-6 bg-gradient-to-r from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
-          <div aria-hidden className="pointer-events-none absolute -right-6 top-0 h-full w-6 bg-gradient-to-l from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
+          <div aria-hidden className="pointer-events-none absolute -left-8 top-0 h-full w-10 sm:w-8 md:w-6 bg-gradient-to-r from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
+          <div aria-hidden className="pointer-events-none absolute -right-8 top-0 h-full w-10 sm:w-8 md:w-6 bg-gradient-to-l from-[hsl(var(--background))] to-transparent backdrop-blur-sm" />
           <AppleCards
             items={agentData
               .filter((agent) => agent.status === "live")

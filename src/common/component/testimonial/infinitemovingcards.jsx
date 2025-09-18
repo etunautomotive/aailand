@@ -7,6 +7,16 @@ function cn(...classes) {
 import React, { useEffect, useState } from "react";
 import styles from "./infinitemovingcards.module.css";
 
+// Mask name to Firstname LastInitial.
+const maskName = (name = "") => {
+  const parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0];
+  const first = parts[0];
+  const lastInitial = parts[parts.length - 1][0] || "";
+  return lastInitial ? `${first} ${lastInitial}.` : first;
+};
+
 // Star rating component
 const StarRating = ({ rating = 5 }) => {
   return (
@@ -149,7 +159,7 @@ export const InfiniteMovingCards = ({
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                   <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
-                    {item.name}
+                    {maskName(item.name)}
                   </span>
                   <span className="text-sm leading-[1.6] font-normal text-neutral-500 dark:text-gray-400">
                     {item.title}

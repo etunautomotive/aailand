@@ -37,6 +37,7 @@ export default function Agents() {
 
       <div className="relative flex justify-center w-full">
         <div className="w-full max-w-[1500px] mx-auto relative z-20 overflow-hidden">
+          <LandingAgents />
           <LeadIntegrations />
           <WhatYoullLearn
             title="AI-Powered Support Across Departments"
@@ -68,7 +69,6 @@ export default function Agents() {
               },
             ]}
           />
-          <LandingAgents />
         </div>
       </div>
     </div>

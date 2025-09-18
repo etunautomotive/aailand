@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel.jsx";
 
 const AppleCards = ({ items = [] }) => {
   const cards = items.map((item, index) => (

@@ -116,7 +116,7 @@ export default function LeadIntegrations() {
   ];
 
   return (
-    <section className="w-full pt-32 pb-16 md:pt-40 md:pb-24 text-black dark:text-white relative overflow-hidden">
+    <section className="w-full pt-24 pb-16 md:pt-32 md:pb-24 text-black dark:text-white relative overflow-hidden">
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         {/* Header */}
