@@ -15,8 +15,14 @@ export const metadata = {
     "automotive sales, AI agents, automated data collection, bulk SMS, Credit App, Dealertrack, automotive CRM",
   author: "Automotive AI",
   email: "sales@automotiveai.ca",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:4000"),
   icons: '/darkautoai.svg'
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 1.0,
 };
 
 export default function RootLayout({ children }) {

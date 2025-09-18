@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const WhatYoullLearn = ({ title, features, subtitle }) => {
+const WhatYoullLearn = ({ title = "What You'll Learn", features = [], subtitle }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,7 +62,7 @@ const WhatYoullLearn = ({ title, features, subtitle }) => {
           </motion.p>
         )}
         <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
-          {features.map((feature, idx) => (
+          {(features || []).map((feature, idx) => (
             <motion.div
               key={idx}
               custom={idx}
