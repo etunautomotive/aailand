@@ -224,7 +224,7 @@ const VSLDemo = ({ calendlyUrl = "https://calendly.com/wes-automotiveai/automoti
                     </div>
                     <div className="flex flex-col">
                       <span className="text-gray-700 dark:text-gray-200">
-                        <strong className="text-black dark:text-white">Our team used to book 60 appointments in a month, we re-activated our old leads with AI and got 71 in the first week. You'd be crazy not to try it.</strong>
+                        <strong className="text-black dark:text-white">Our team used to book 60 appointments in a month, we re-activated our old leads with AI and got 71 in the first week. You&apos;d be crazy not to try it.</strong>
                       </span>
                       <span className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">- {maskName("Alex")}, GTA Auto Finance</span>
                     </div>

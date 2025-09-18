@@ -198,7 +198,7 @@ export default function Comparison() {
 			</div>
 
 			<p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-				See how AI can transform your dealership's performance with realistic projections.
+				See how AI can transform your dealership&apos;s performance with realistic projections.
 			</p>
 
 			<div className="grid md:grid-cols-2 gap-2">

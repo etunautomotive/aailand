@@ -192,7 +192,7 @@ const BookADemo = () => {
                 Where Leads Slip Through The Cracks, And How We Stop It.
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                Every step of the lead journey has gaps where potential customers disappear. Here's how AI seals every crack.
+                Every step of the lead journey has gaps where potential customers disappear. Here&apos;s how AI seals every crack.
               </p>
             </motion.div>
 
@@ -318,7 +318,7 @@ const BookADemo = () => {
                 </div>
                 <div className="flex justify-between items-center border-l-4 border-green-500 pl-6">
                   <p className="text-sm text-gray-700 dark:text-gray-300">AI capacity</p>
-                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">1000's</div>
+                  <div className="text-4xl font-medium text-green-600 dark:text-green-400">1000&apos;s</div>
                 </div>
               </motion.div>
             </div>
@@ -332,7 +332,7 @@ const BookADemo = () => {
                 391% boost in conversions with 30-second speed to lead
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-                Stop losing leads to competitors. 78% of buyers choose the first company that respond first, our AI ensure you're first every time.
+                Stop losing leads to competitors. 78% of buyers choose the first company that respond first, our AI ensure you&apos;re first every time.
               </p>
               <GlassButton href="/cddemo" size="lg" variant="primary">
                 See AI In Action
@@ -359,7 +359,7 @@ const BookADemo = () => {
             className="text-lg text-center text-neutral-600 dark:text-neutral-200 mb-8 tracking-tight"
             variants={fadeInUp}
           >
-            Here's what 45+ dealers are saying about their results
+            Here&apos;s what 45+ dealers are saying about their results
           </motion.h2>
           <motion.div variants={scaleIn}>
             <InfiniteMovingCards

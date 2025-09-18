@@ -1,13 +1,6 @@
 import React from 'react';
 
-interface ShinyTextProps {
-  text: string;
-  disabled?: boolean;
-  speed?: number;
-  className?: string;
-}
-
-const ShinyText: React.FC<ShinyTextProps> = ({ text, disabled = false, speed = 5, className = '' }) => {
+const ShinyText = ({ text, disabled = false, speed = 5, className = '' }) => {
   const animationDuration = `${speed}s`;
 
   return (
