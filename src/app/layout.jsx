@@ -4,6 +4,7 @@ import NavbarWithVariant from "@/common/component/navbar/NavbarWithVariant";
 import Footer from "@/common/Footer";
 import { ClientProviders } from "./client-providers";
 import FacebookPixel from "@/common/component/FacebookPixel";
+import GoogleTagManager, { GoogleTagManagerNoScript } from "@/common/component/GoogleTagManager";
 
 const plus_Jakarta_Sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -28,9 +29,13 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <GoogleTagManager />
+      </head>
       <body
         className={`${plus_Jakarta_Sans.className} dark:bg-black min-h-screen flex flex-col`}
       >
+        <GoogleTagManagerNoScript />
         <FacebookPixel />
         <ClientProviders>
           <div className="flex justify-center items-center w-full">
