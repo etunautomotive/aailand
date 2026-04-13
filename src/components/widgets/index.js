@@ -1,6 +1,0 @@
-export { ChatWidget } from './chat-widget'
-export { ProfileWidget } from './profile-widget'
-export { PipelineWidget } from './pipeline-widget'
-export { ReactivationWidget } from './reactivation-widget'
-export { DataCaptureWidget } from './data-capture-widget'
-export { AutomotiveWidget } from './automotive-widget'
