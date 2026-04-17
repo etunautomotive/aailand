@@ -20,11 +20,6 @@ export function Hero() {
           />
         )}
 
-        {/* Eyebrow */}
-        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 animate-fade-in-up" style={{animationDelay: '0.15s'}}>
-          Built By Closers
-        </p>
-
         {/* Headline */}
         <h1 className="text-6xl md:text-8xl font-bold font-headline tracking-tight max-w-6xl leading-[1.05] text-secondary animate-fade-in-up -mt-4" style={{animationDelay: '0.2s'}}>
           The fastest <span className="text-primary">ROI</span> your{' '}
