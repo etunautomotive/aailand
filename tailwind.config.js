@@ -12,56 +12,51 @@ module.exports = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			'space-grotesk': ['var(--font-space-grotesk)', 'sans-serif'],
+  			'inter': ['var(--font-inter)', 'sans-serif'],
+  			'headline': ['var(--font-space-grotesk)', 'sans-serif'],
+  			'body': ['var(--font-inter)', 'sans-serif'],
+  			'label': ['var(--font-inter)', 'sans-serif'],
+  		},
   		colors: {
-  			dark: {
-  				colors: {
-  					background: '#F2F2F2'
-  				}
-  			},
-  			light: {
-  				colors: {
-  					background: '#F2F2F2'
-  				}
-  			},
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			primary: '#FF7A1F',
+  			secondary: '#2A2420',
+  			tertiary: '#FFF4E6',
+  			neutral: '#FFFFFF',
+  			'on-surface': '#2A2420',
+  			'on-surface-variant': '#666666',
+  			background: '#FFFFFF',
+  			foreground: '#2A2420',
   			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				DEFAULT: '#FFFFFF',
+  				foreground: '#2A2420'
   			},
   			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				DEFAULT: '#FFFFFF',
+  				foreground: '#2A2420'
   			},
   			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
+  				DEFAULT: '#E8E3DE',
+  				foreground: '#2A2420'
   			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
+  				DEFAULT: '#FF7A1F',
+  				foreground: '#FFFFFF'
   			},
   			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
+  				DEFAULT: '#D32F2F',
+  				foreground: '#FFFFFF'
   			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
+  			border: '#E8E3DE',
+  			input: '#FFFFFF',
+  			ring: '#FF7A1F',
   			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
+  				'1': '#FF7A1F',
+  				'2': '#2A2420',
+  				'3': '#FFF4E6',
+  				'4': '#F5F1ED',
+  				'5': '#E8E3DE'
   			}
   		},
   				keyframes: {

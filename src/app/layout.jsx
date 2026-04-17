@@ -1,11 +1,20 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "../common/style/globals.css";
 import NavbarWithVariant from "@/common/component/navbar/NavbarWithVariant";
-import Footer from "@/common/Footer";
 import { ClientProviders } from "./client-providers";
 import GoogleTagManager, { GoogleTagManagerNoScript } from "@/common/component/GoogleTagManager";
 
-const plus_Jakarta_Sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"]
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"]
+});
 
 export const metadata = {
   title: "Automotive AI - Revolutionizing Auto Sales",
@@ -27,20 +36,20 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
+    >
       <head>
         <GoogleTagManager />
       </head>
       <body
-        className={`${plus_Jakarta_Sans.className} dark:bg-black min-h-screen flex flex-col`}
+        className="font-inter dark:bg-black min-h-screen flex flex-col"
       >
         <GoogleTagManagerNoScript />
         <ClientProviders>
-          <div className="flex justify-center items-center w-full">
-            <NavbarWithVariant />
-          </div>
           <main className="flex-grow w-full overflow-x-hidden">{children}</main>
-          <Footer />
         </ClientProviders>
       </body>
     </html>

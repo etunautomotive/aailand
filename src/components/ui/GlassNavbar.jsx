@@ -50,7 +50,7 @@ const GlassNavbar = () => {
   return (
     <>
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex items-center gap-4 px-5 py-2.5 bg-white/10 dark:bg-black/10 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-full shadow-lg min-w-fit">
+        <div className="flex items-center gap-4 px-6 py-2.5 bg-white dark:bg-card backdrop-blur-sm border border-border rounded-xl shadow-sm min-w-fit">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             {/* Light mode logo (dark) */}
@@ -74,16 +74,16 @@ const GlassNavbar = () => {
               <Link 
                 key={index}
                 href={item.src}
-                className={`px-3 py-1.5 text-sm font-medium transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5 whitespace-nowrap relative group ${
-                  pathname === item.src 
-                    ? "text-gray-900 dark:text-white" 
-                    : "text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                className={`px-3 py-1.5 text-sm font-medium transition-colors duration-200 rounded-lg hover:bg-secondary dark:hover:bg-secondary/50 whitespace-nowrap relative group ${
+                  pathname === item.src
+                    ? "text-primary dark:text-accent"
+                    : "text-foreground/70 dark:text-foreground/70 hover:text-foreground dark:hover:text-foreground"
                 }`}
               >
                 {item.title}
                 {/* Active indicator */}
                 <div
-                  className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gray-900 dark:bg-white transition-all duration-300 ${
+                  className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-primary dark:bg-accent transition-all duration-300 ${
                     pathname === item.src ? "w-4" : "w-0 group-hover:w-4"
                   }`}
                 />
@@ -95,14 +95,14 @@ const GlassNavbar = () => {
           <div className="hidden md:flex items-center space-x-0.5">
             <Link
               href="/vsldemo"
-              className="px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5 whitespace-nowrap"
+              className="px-3 py-1.5 text-sm font-medium text-foreground/70 dark:text-foreground/70 hover:text-foreground dark:hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-secondary dark:hover:bg-secondary/50 whitespace-nowrap"
             >
               Schedule a Demo
             </Link>
 
             <a
               href="https://app.automotiveai.ca/signin"
-              className="px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5 whitespace-nowrap"
+              className="px-3 py-1.5 text-sm font-medium text-foreground/70 dark:text-foreground/70 hover:text-foreground dark:hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-secondary dark:hover:bg-secondary/50 whitespace-nowrap"
             >
               Sign In
             </a>
@@ -111,7 +111,7 @@ const GlassNavbar = () => {
           {/* Theme Toggle - Desktop only */}
           <button
             onClick={toggleTheme}
-            className="hidden md:block p-1.5 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5"
+            className="hidden md:block p-1.5 text-foreground/70 dark:text-foreground/70 hover:text-foreground dark:hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-secondary dark:hover:bg-secondary/50"
             aria-label="Toggle theme"
           >
             {mounted ? (
@@ -130,7 +130,7 @@ const GlassNavbar = () => {
           <div className="md:hidden">
             <button
               onClick={handleOpen}
-              className="p-1.5 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 rounded-full hover:bg-white/10 dark:hover:bg-white/5"
+              className="p-1.5 text-foreground/70 dark:text-foreground/70 hover:text-foreground dark:hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-secondary dark:hover:bg-secondary/50"
               aria-label="Toggle mobile menu"
             >
               <Menu className="w-5 h-5" />
@@ -163,10 +163,10 @@ const GlassNavbar = () => {
             >
               <button
                 onClick={close}
-                className="w-8 h-8 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/20 flex items-center justify-center hover:bg-white/30 dark:hover:bg-black/30 transition-colors shadow-lg"
+                className="w-8 h-8 rounded-lg bg-secondary dark:bg-secondary/50 backdrop-blur-sm border border-border flex items-center justify-center hover:bg-secondary/80 dark:hover:bg-secondary/60 transition-colors shadow-sm"
                 aria-label="Close menu"
               >
-                <X className="w-4 h-4 text-gray-800 dark:text-gray-200" />
+                <X className="w-4 h-4 text-foreground dark:text-foreground" />
               </button>
             </motion.div>
 
@@ -176,7 +176,7 @@ const GlassNavbar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed top-20 right-6 w-48 bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/30 dark:border-white/20 rounded-2xl shadow-2xl z-40 overflow-hidden"
+              className="fixed top-20 right-6 w-48 bg-card dark:bg-card backdrop-blur-sm border border-border rounded-xl shadow-md z-40 overflow-hidden"
             >
 
               {/* Menu Content */}
@@ -194,8 +194,8 @@ const GlassNavbar = () => {
                         href={item.src}
                         onClick={close}
                         className={clsx(
-                          "block w-full text-left px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-white/10 transition-colors duration-200 font-medium text-sm",
-                          pathname === item.src && "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                          "block w-full text-left px-3 py-2 rounded-lg text-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-secondary/50 transition-colors duration-200 font-medium text-sm",
+                          pathname === item.src && "bg-secondary dark:bg-secondary/50 text-primary dark:text-accent"
                         )}
                       >
                         {item.title}
@@ -205,7 +205,7 @@ const GlassNavbar = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-white/20 dark:border-white/10 my-2"></div>
+                <div className="border-t border-border my-2"></div>
 
                 {/* Action Buttons */}
                 <div className="space-y-0.5">
@@ -217,7 +217,7 @@ const GlassNavbar = () => {
                     <a
                       href="https://app.automotiveai.ca/signin"
                       onClick={close}
-                      className="block w-full text-left px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-white/10 transition-colors duration-200 font-medium text-sm"
+                      className="block w-full text-left px-3 py-2 rounded-lg text-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-secondary/50 transition-colors duration-200 font-medium text-sm"
                     >
                       Sign In
                     </a>
@@ -231,7 +231,7 @@ const GlassNavbar = () => {
                     <Link
                       href="/vsldemo"
                       onClick={close}
-                      className="block w-full text-left px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-white/10 transition-colors duration-200 font-medium text-sm"
+                      className="block w-full text-left px-3 py-2 rounded-lg text-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-secondary/50 transition-colors duration-200 font-medium text-sm"
                     >
                       Schedule a Demo
                     </Link>
@@ -239,7 +239,7 @@ const GlassNavbar = () => {
                 </div>
 
                 {/* Theme Toggle for Mobile */}
-                <div className="mt-2 pt-2 border-t border-white/20 dark:border-white/10">
+                <div className="mt-2 pt-2 border-t border-border">
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ const GlassNavbar = () => {
                   >
                     <button
                       onClick={toggleTheme}
-                      className="flex items-center w-full px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-white/20 dark:hover:bg-white/10 transition-colors duration-200 font-medium text-sm"
+                      className="flex items-center w-full px-3 py-2 rounded-lg text-foreground dark:text-foreground hover:bg-secondary dark:hover:bg-secondary/50 transition-colors duration-200 font-medium text-sm"
                     >
                       {mounted ? (
                         <>

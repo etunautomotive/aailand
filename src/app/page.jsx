@@ -1,44 +1,51 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Homepage from "@/common/module/Home";
-import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
-import { useTheme } from "next-themes";
+'use client'
+
+import { Navbar } from '@/components/navbar'
+import { Hero } from '@/components/sections/hero'
+import { SocialProof } from '@/components/sections/social-proof'
+import { PainPoints } from '@/components/sections/pain-points'
+import { Benefits } from '@/components/sections/benefits'
+import { HowItWorks } from '@/components/sections/how-it-works'
+import { VsTraditional } from '@/components/sections/vs-traditional'
+import { CaseStudy } from '@/components/sections/case-study'
+import { Pricing } from '@/components/sections/pricing'
+import { Testimonials } from '@/components/sections/testimonials'
+import { CTA } from '@/components/sections/cta'
+import { FAQ } from '@/components/sections/faq'
+import { Footer } from '@/components/sections/footer'
+
+function SectionDivider() {
+  return (
+    <div className="flex justify-center">
+      <div className="h-px w-48 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
+    </div>
+  )
+}
 
 export default function Home() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const isDark = theme === 'dark';
-
-  // Prevent hydration mismatch by only rendering theme-dependent content after mount
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Subtle Animated Background */}
-      {mounted && (
-        <BackgroundGradientAnimation 
-          containerClassName="fixed inset-0 z-0 h-screen w-screen"
-          gradientBackgroundStart={isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"}
-          gradientBackgroundEnd={isDark ? "rgb(15, 15, 15)" : "rgb(255, 255, 255)"}
-          firstColor="183, 148, 244"
-          secondColor="196, 181, 253"
-          thirdColor="167, 139, 250"
-          fourthColor="186, 164, 247"
-          fifthColor="221, 214, 254"
-          pointerColor="196, 181, 253"
-          size="30%"
-          blendingValue="normal"
-          interactive={true}
-        />
-      )}
-      
-      <div className="relative flex justify-center w-full">
-        <div className="w-full max-w-[1500px] mx-auto relative z-20">
-          <Homepage />
-        </div>
-      </div>
-    </div>
-  );
+    <main className="min-h-screen bg-white">
+      <Navbar />
+      <Hero />
+      <SocialProof />
+      <PainPoints />
+      <SectionDivider />
+      <Benefits />
+      <SectionDivider />
+      <HowItWorks />
+      <SectionDivider />
+      <CaseStudy />
+      <SectionDivider />
+      <VsTraditional />
+      <SectionDivider />
+      <Pricing />
+      <SectionDivider />
+      <Testimonials />
+      <SectionDivider />
+      <FAQ />
+      <SectionDivider />
+      <CTA />
+      <Footer />
+    </main>
+  )
 }
