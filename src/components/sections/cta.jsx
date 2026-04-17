@@ -8,7 +8,7 @@ export function CTA() {
     <section className="py-32 px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         {/* Eyebrow */}
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">See It For Yourself</p>
         </div>
 
