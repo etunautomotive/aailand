@@ -17,7 +17,14 @@ const cols = [
     links: [
       ['About', '/about'],
       ['Blog', '/blog'],
+      ['Brand kit', '/brand-kit'],
+    ],
+  },
+  {
+    h: 'contact',
+    links: [
       ['Book a walkthrough', '/#book'],
+      ['Log in', '/login'],
       ['sales@automotiveai.ca', 'mailto:sales@automotiveai.ca'],
     ],
   },
@@ -61,7 +68,7 @@ export function Footer() {
             </div>
           </div>
 
-          <nav className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
+          <nav className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
             {cols.map((c) => (
               <div key={c.h}>
                 <h4 className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
