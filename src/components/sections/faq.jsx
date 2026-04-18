@@ -12,7 +12,7 @@ export function FAQ() {
   }
 
   return (
-    <section className="py-32 px-8 bg-white">
+    <section className="py-32 px-8 bg-surface">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-4">FAQ</p>

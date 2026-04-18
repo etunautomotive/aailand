@@ -1,77 +1,60 @@
 'use client'
 
-import { Check } from 'lucide-react'
+import { Check, X } from 'lucide-react'
+
+const rows = [
+  { label: 'First response time', them: '42 min avg', us: 'under 30 sec' },
+  { label: 'Messages per lead', them: '1–2, then dies', us: 'sustained convo, weeks' },
+  { label: 'Dead lead reactivation', them: 'manual quarterly push', us: 'continuous' },
+  { label: 'Objection handling', them: 'rep-dependent', us: 'built into every convo' },
+  { label: 'DMS sync', them: 'one-way import', us: 'bi-directional live' },
+  { label: 'Headcount needed', them: '4+ BDC reps', us: 'same team, 10× volume' },
+]
 
 export function VsTraditional() {
   return (
-    <section className="py-24 px-8 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-12 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-6">The Difference</p>
-        </div>
-
-        {/* Narrative Section - Centered */}
-        <div className="space-y-8 text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="font-bold text-4xl md:text-5xl text-secondary font-space-grotesk leading-tight">
-            Other tools send two messages and declare victory.
+    <section className="relative bg-surface-alt py-20 md:py-36 overflow-hidden">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="mb-16 max-w-3xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">
+            the difference
+          </p>
+          <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display text-secondary">
+            Other tools send two messages
+            <br />
+            <span className="text-secondary/45">and declare victory.</span>
           </h2>
-          <div className="space-y-4 text-secondary/80 text-base leading-relaxed">
-            <p>Most tools in this space send a first message, maybe a second, then punt to appointment and call it done. That's not a conversation. That's a notification with extra steps.</p>
-            <p>Automotive AI sustains full, back-and-forth conversations across thousands of leads simultaneously. It handles objections. It builds trust. It collects credit applications over text. It does the part that every other tool tries to build and can't.</p>
-            <p className="text-secondary font-medium">The founding team sold $300K/month in cars. The system talks the way they did. Because they built it.</p>
-          </div>
-          <ul className="space-y-4 pt-4 inline-block text-left">
-            <li className="flex items-start space-x-3">
-              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <span className="text-base text-secondary/80">Responds in 30 seconds. Sustains the conversation for weeks.</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <span className="text-base text-secondary/80">Handles 2,000+ leads a month. No added headcount.</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <span className="text-base text-secondary/80">Bi-directional DMS sync. Your data stays where it belongs.</span>
-            </li>
-          </ul>
+          <p className="mt-6 max-w-[58ch] text-secondary/70 text-[16px] leading-relaxed">
+            Most tools in the category send a first message, maybe a second, punt to appointment, call it done. That's a notification with extra steps. Automotive AI sustains real back-and-forth across thousands of leads at once — handles objections, builds trust, collects credit apps over text.
+          </p>
         </div>
 
-        {/* Comparison Charts - Side by side on larger screens, centered */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div className="border-b-2 border-secondary/20 pb-8">
-            <div className="text-xs uppercase tracking-widest text-secondary/60 font-bold mb-8">Traditional CRM</div>
-            <div className="space-y-6">
-              <div>
-                <div className="text-xs font-bold text-secondary mb-3">Follow-up Rate</div>
-                <div className="h-2 w-full bg-secondary/20 rounded-full overflow-hidden">
-                  <div className="h-2 bg-secondary/40 w-1/4 rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-bold text-secondary mb-3">Lead Retention</div>
-                <div className="h-2 w-full bg-secondary/20 rounded-full overflow-hidden">
-                  <div className="h-2 bg-secondary/40 w-1/3 rounded-full"></div>
-                </div>
-              </div>
+        <div className="overflow-hidden rounded-[22px] border border-secondary/10 bg-white">
+          <div className="grid grid-cols-[1.3fr_1fr_1fr] tabular">
+            <div className="bg-secondary/[0.02] px-6 py-5 text-[11px] font-mono uppercase tracking-widest text-secondary/45">
+              metric
             </div>
-          </div>
-
-          <div className="border-b-2 border-primary pb-8">
-            <div className="text-xs uppercase tracking-widest text-primary font-bold mb-8">Automotive AI</div>
-            <div className="space-y-6">
-              <div>
-                <div className="text-xs font-bold text-secondary mb-3">Follow-up Rate</div>
-                <div className="h-2 w-full bg-secondary/20 rounded-full overflow-hidden">
-                  <div className="h-2 bg-primary w-full rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-bold text-secondary mb-3">Lead Retention</div>
-                <div className="h-2 w-full bg-secondary/20 rounded-full overflow-hidden">
-                  <div className="h-2 bg-primary w-5/6 rounded-full"></div>
-                </div>
-              </div>
+            <div className="px-6 py-5 text-[11px] font-mono uppercase tracking-widest text-secondary/45 border-l border-secondary/10">
+              traditional CRM
             </div>
+            <div className="px-6 py-5 text-[11px] font-mono uppercase tracking-widest text-primary border-l border-secondary/10 bg-primary/[0.04]">
+              automotive AI
+            </div>
+            {rows.map((r, i) => (
+              <div key={r.label} className="contents">
+                <div className={`px-6 py-5 border-t border-secondary/10 text-[15px] font-medium text-secondary ${i === rows.length - 1 ? '' : ''}`}>
+                  {r.label}
+                </div>
+                <div className="px-6 py-5 border-t border-l border-secondary/10 text-[14px] text-secondary/65 flex items-center gap-2">
+                  <X className="h-3.5 w-3.5 text-secondary/40" />
+                  {r.them}
+                </div>
+                <div className="px-6 py-5 border-t border-l border-secondary/10 bg-primary/[0.04] text-[14px] text-secondary flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-primary" strokeWidth={2.5} />
+                  {r.us}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

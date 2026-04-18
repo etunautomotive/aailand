@@ -1,88 +1,48 @@
 'use client'
 
-import { Button } from '../ui/Button'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export function CTA() {
   return (
-    <section className="py-32 px-8 bg-white">
-      <div className="max-w-5xl mx-auto">
-        {/* Eyebrow */}
-        <div className="mb-8 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">See It For Yourself</p>
-        </div>
-
-        {/* Main Content - Centered */}
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Left: Content */}
-          <div className="space-y-8">
-            <h2 className="text-5xl md:text-6xl font-bold font-space-grotesk text-secondary leading-tight">
-              Your next 10 deals are already in your database.
-            </h2>
-
-            <p className="text-lg text-secondary/70 leading-relaxed">
-              You're reading a website for a CRM right now. You've read a hundred of these. Here's the difference: this one was built by people who sold cars, not people who sell software. Book 30 minutes and we'll show you what's sitting in your data.
-            </p>
-
-            {/* Feature Highlights */}
-            <div className="space-y-4 pt-4">
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
-                <p className="text-secondary/80">Live in days, not months. Results on day one.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
-                <p className="text-secondary/80">No long-term contracts. No cancellation runaround.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
-                <p className="text-secondary/80">Real support from real people. We pick up on the first ring.</p>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-8">
-              <Button variant="primary" className="flex items-center justify-center gap-2">
-                Start Free Trial
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button variant="secondary">
-                Schedule Demo
-              </Button>
-            </div>
-          </div>
-
-          {/* Visual Element - Below on mobile, hidden on desktop for center focus */}
-          <div className="relative hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-tertiary/20 to-transparent rounded-[2rem] blur-2xl"></div>
-            <div className="relative bg-gradient-to-br from-tertiary/60 to-tertiary/30 border border-secondary/10 rounded-[2rem] p-12 space-y-8">
-              <div className="space-y-4">
-                <div className="text-sm text-secondary/70 font-medium">Expected Results (First 30 Days)</div>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-end">
-                    <span className="text-sm text-secondary/70">Extra Deals</span>
-                    <div className="text-3xl font-bold font-space-grotesk text-primary">6-12</div>
-                  </div>
-                  <div className="w-full h-1 bg-secondary/10 rounded-full overflow-hidden">
-                    <div className="h-full w-11/12 bg-gradient-to-r from-primary to-primary/60 rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t border-secondary/10 pt-6">
-                <div className="text-sm text-secondary/70 font-medium mb-4">Revenue Impact</div>
-                <div className="text-4xl font-bold font-space-grotesk text-secondary">$30-60K</div>
-                <p className="text-xs text-secondary/60 mt-2">First month gross profit increase</p>
-              </div>
-
-              <div className="bg-white/50 border border-secondary/10 rounded-xl p-4">
-                <p className="text-xs text-secondary/70 leading-relaxed">
-                  <span className="font-semibold text-secondary">Your annual cost pays for itself in the first month.</span> Everything after that is pure profit.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section
+      id="book"
+      className="relative py-32 md:py-48 overflow-hidden bg-secondary text-white"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-70"
+        style={{
+          background:
+            'radial-gradient(50% 70% at 50% 55%, rgba(232,102,26,0.35) 0%, rgba(232,102,26,0) 65%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+        }}
+      />
+      <div className="relative mx-auto max-w-[1100px] px-6 md:px-10 text-center">
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary">
+          see it for yourself
+        </p>
+        <h2 className="mt-6 font-headline text-[48px] md:text-[88px] font-bold leading-[0.98] tracking-display text-white">
+          Your next 10 deals are
+          <br />
+          <span className="italic font-normal text-white/75">
+            already in your DMS.
+          </span>
+        </h2>
+        <Link
+          href="/#demo"
+          className="group mt-12 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-medium text-white shadow-ember transition-all hover:-translate-y-0.5"
+        >
+          Book a walkthrough
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </div>
     </section>
   )

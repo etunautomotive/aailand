@@ -1,278 +1,204 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/Button'
-import { BrandingCard } from '@/components/ui/branding-card'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/sections/footer'
+import { ArrowRight } from 'lucide-react'
+
+const palette = [
+  { name: 'primary', hex: '#E8661A', use: 'CTAs, key highlights, single accent color' },
+  { name: 'secondary', hex: '#2A2420', use: 'headlines, primary UI, dark surfaces' },
+  { name: 'surface', hex: '#FDFBF7', use: 'default page background, warm off-white' },
+  { name: 'surface-alt', hex: '#F6EFE4', use: 'alternate section background' },
+  { name: 'surface-ink', hex: '#1A1512', use: 'CTA + footer dark surfaces' },
+  { name: 'border', hex: '#E8DFD2', use: 'card + divider borders' },
+]
+
+const tokens = {
+  type: [
+    ['Display', 'Geist · font-headline', '-0.035em tracking, 0.95 leading'],
+    ['Body', 'Geist · font-geist', "default 16px, text-wrap: pretty"],
+    ['Eyebrow / label', 'JetBrains Mono · tracking-[0.28em]', "uppercase, 10–11px"],
+    ['Metrics', 'Geist tabular-nums · .tabular', 'tabular figures for columns'],
+  ],
+  spacing: [['4px', '--spacing-xs'], ['8px', '--spacing-sm'], ['16px', '--spacing-md'], ['32px', '--spacing-xl'], ['64px', '--spacing-3xl']],
+  radius: [['14px', 'inputs'], ['22px', 'cards'], ['28px', 'featured surfaces'], ['9999px', 'pills + buttons']],
+  shadows: [
+    ['ink-sm', '0 2px 8px -2px rgba(42,36,32,0.08)'],
+    ['ink', '0 12px 32px -12px rgba(42,36,32,0.18)'],
+    ['ink-lg', '0 24px 60px -20px rgba(42,36,32,0.22)'],
+    ['ember', '0 18px 40px -14px rgba(232,102,26,0.35)'],
+  ],
+}
 
 export default function BrandKitPage() {
-  const primaryGradient = [
-    '#1A1A1A',
-    '#2D2015',
-    '#533D2B',
-    '#7A5A3E',
-    '#A67C52',
-    '#CC9966',
-    '#E6B399',
-    '#F2CCBB',
-    '#F9E5D3',
-    '#FFFFFF'
-  ]
-
-  const secondaryGradient = [
-    '#0D0D0D',
-    '#1A1714',
-    '#2A2420',
-    '#3D3630',
-    '#5A4F4A',
-    '#7A7066',
-    '#99857A',
-    '#B3998F',
-    '#CDBFB5',
-    '#E6D9CF'
-  ]
-
-  const tertiaryGradient = [
-    '#1A1410',
-    '#332E26',
-    '#4D4233',
-    '#664D33',
-    '#7F6B4D',
-    '#998A66',
-    '#B3A380',
-    '#CCC0A6',
-    '#E6D9C6',
-    '#FFFFFF'
-  ]
-
-  const neutralGradient = [
-    '#0A0A0A',
-    '#1A1A1A',
-    '#333333',
-    '#4D4D4D',
-    '#666666',
-    '#808080',
-    '#999999',
-    '#B3B3B3',
-    '#CCCCCC',
-    '#FFFFFF'
-  ]
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header with back link */}
-      <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-secondary/6 z-40">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-5 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold font-space-grotesk text-secondary hover:opacity-70 transition-opacity">
-            Automotive<span className="text-primary">AI</span>
+    <div className="bg-surface text-secondary">
+      <Navbar />
+
+      {/* Hero */}
+      <section className="relative pt-36 pb-14 grain overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">brand kit</p>
+          <h1 className="mt-5 font-headline text-[56px] md:text-[96px] font-bold leading-[0.95] tracking-display max-w-[16ch]">
+            The system
+            <br />
+            <span className="text-secondary/45">that keeps us consistent.</span>
+          </h1>
+          <p className="mt-8 max-w-[60ch] text-lg text-secondary/70 leading-relaxed">
+            Colors, type, spacing, shadows, tone. Use these when building marketing, partner decks, or integration materials.
+          </p>
+        </div>
+      </section>
+
+      {/* Palette */}
+      <section className="py-20">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-10 flex items-baseline justify-between">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-display">Color</h2>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-secondary/45">6 tokens</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            {palette.map((c) => (
+              <div key={c.name} className="rounded-[22px] border border-secondary/10 bg-white overflow-hidden group">
+                <div
+                  className="aspect-[16/10] w-full transition-transform duration-500 group-hover:scale-[1.02] origin-center"
+                  style={{ backgroundColor: c.hex }}
+                />
+                <div className="p-5">
+                  <div className="flex items-baseline justify-between">
+                    <div className="font-headline text-lg font-semibold capitalize">{c.name}</div>
+                    <div className="tabular font-mono text-[12px] text-secondary/55">{c.hex}</div>
+                  </div>
+                  <p className="mt-1 text-[13px] text-secondary/60">{c.use}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Typography */}
+      <section className="bg-surface-alt py-20">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-display mb-10">Typography</h2>
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">display · Geist</p>
+              <div className="mt-4 font-headline text-[88px] leading-[0.9] font-bold tracking-display">Aa</div>
+              <p className="mt-4 text-[13px] text-secondary/60">-0.035em tracking, balance-wrap, 0.95 leading on hero.</p>
+            </div>
+            <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">body · Geist</p>
+              <div className="mt-4 font-geist text-[72px] leading-[0.95]">Aa</div>
+              <p className="mt-4 text-[13px] text-secondary/60">16px default, text-wrap: pretty, 500 weight available.</p>
+            </div>
+            <div className="rounded-[22px] bg-white border border-secondary/10 p-8 md:col-span-2">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">rules</p>
+              <dl className="mt-5 divide-y divide-secondary/10">
+                {tokens.type.map(([k, f, d]) => (
+                  <div key={k} className="grid grid-cols-[1fr_2fr] md:grid-cols-[1fr_2fr_3fr] gap-4 py-4">
+                    <dt className="font-headline font-semibold text-secondary">{k}</dt>
+                    <dd className="font-mono text-[12px] text-secondary/70">{f}</dd>
+                    <dd className="hidden md:block text-[13px] text-secondary/60">{d}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spacing + Radius + Shadows */}
+      <section className="py-20">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10 grid lg:grid-cols-3 gap-5">
+          <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">spacing · 4px base</p>
+            <ul className="mt-6 space-y-3">
+              {tokens.spacing.map(([px, token]) => (
+                <li key={token} className="flex items-center gap-4">
+                  <div className="h-2 bg-primary/80 rounded-full" style={{ width: px }} />
+                  <span className="tabular font-mono text-[12px] text-secondary/70">{px}</span>
+                  <span className="font-mono text-[11px] text-secondary/45">{token}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">radius</p>
+            <div className="mt-6 space-y-3">
+              {tokens.radius.map(([r, use]) => (
+                <div key={r} className="flex items-center gap-4">
+                  <div
+                    className="h-10 w-10 bg-tertiary border border-secondary/15"
+                    style={{ borderRadius: r === '9999px' ? '9999px' : r }}
+                  />
+                  <span className="tabular font-mono text-[12px] text-secondary/70 w-16">{r}</span>
+                  <span className="text-[13px] text-secondary/60">{use}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">shadows</p>
+            <div className="mt-6 space-y-5">
+              {tokens.shadows.map(([name, val]) => (
+                <div key={name} className="flex items-center gap-4">
+                  <div
+                    className="h-10 w-10 rounded-xl bg-white"
+                    style={{ boxShadow: val }}
+                  />
+                  <span className="font-mono text-[12px] text-secondary/70 w-14">{name}</span>
+                  <span className="hidden md:inline font-mono text-[11px] text-secondary/40 truncate">{val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tone + Voice */}
+      <section className="bg-surface-alt py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-display mb-10">Tone + voice</h2>
+          <div className="grid md:grid-cols-4 gap-5">
+            {[
+              ['Authentic', 'Grounded in dealership floor experience. No consultant-speak.'],
+              ['Specific', 'Organic numbers over round ones. 47 beats "50+".'],
+              ['Plainspoken', 'No "elevate", "seamless", "unleash". Short words, short sentences.'],
+              ['Confident', 'No exclamation marks in success. No "Oops" in errors. State it.'],
+            ].map(([t, d]) => (
+              <div key={t} className="rounded-[22px] bg-white border border-secondary/10 p-6">
+                <h3 className="font-headline text-lg font-semibold">{t}</h3>
+                <p className="mt-2 text-[14px] text-secondary/65 leading-relaxed">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="mx-auto max-w-[1100px] px-6 md:px-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold leading-[1.02] tracking-display">
+              Need the source files?
+            </h2>
+            <p className="mt-4 text-secondary/65 max-w-[52ch]">
+              Logos, Figma tokens, and partner assets live in a shared drive. Email the design team for access.
+            </p>
+          </div>
+          <Link
+            href="mailto:design@automotiveai.ca"
+            className="group inline-flex items-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-white font-medium shadow-ink-sm hover:-translate-y-0.5 transition-all"
+          >
+            Email design
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
-          <h1 className="text-xl font-bold font-space-grotesk text-secondary">Brand Kit</h1>
         </div>
-      </div>
+      </section>
 
-      {/* Main content */}
-      <div className="pt-32 pb-20 px-6 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Page Title */}
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk text-secondary mb-3">Design System</h2>
-            <p className="text-base md:text-lg text-secondary/65 max-w-2xl leading-relaxed">
-              Everything you need to maintain consistency across all touchpoints. Use these guidelines when creating marketing materials, internal documents, or partner resources.
-            </p>
-          </div>
-
-          {/* Bento Grid Layout - Premium asymmetrical design */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 auto-rows-max">
-            {/* PRIMARY COLOR - HERO (3x2 span) */}
-            <div className="md:col-span-3 lg:col-span-3 lg:row-span-2">
-              <BrandingCard
-                category="Color"
-                title="Primary"
-                subtitle="#FF7A1F"
-                displayElement="🎨"
-                colors={['#FF7A1F', '#FFB380', '#FFCC99', '#FFE0CC', '#FFF4E6', '#FFFFFF', '#F5F1ED', '#E6D9C6']}
-              />
-            </div>
-
-            {/* SECONDARY COLOR (3x1) */}
-            <div className="md:col-span-3 lg:col-span-3 lg:row-span-1">
-              <BrandingCard
-                category="Color"
-                title="Secondary"
-                subtitle="#2A2420"
-                displayElement="🎨"
-                colors={['#0D0D0D', '#1A1714', '#2A2420', '#3D3630', '#5A4F4A', '#7A7066', '#99857A', '#B3998F']}
-              />
-            </div>
-
-            {/* HEADLINE TYPOGRAPHY (2x1) */}
-            <div className="md:col-span-3 lg:col-span-4">
-              <BrandingCard
-                category="Typography"
-                title="Headline"
-                subtitle="Space Grotesk"
-                displayElement={<span className="font-space-grotesk text-5xl">Aa</span>}
-                colors={['#2A2420', '#808080', '#B3B3B3', '#FFFFFF']}
-              />
-            </div>
-
-            {/* TERTIARY COLOR (2x1) */}
-            <div className="md:col-span-3 lg:col-span-2 lg:row-span-1">
-              <BrandingCard
-                category="Color"
-                title="Tertiary"
-                subtitle="#FFF4E6"
-                displayElement="🎨"
-                colors={['#FFF4E6', '#FFE0CC', '#FFCC99', '#FFB380', '#FF7A1F', '#F5F1ED', '#E6D9C6', '#FFFFFF']}
-              />
-            </div>
-
-            {/* BODY TYPOGRAPHY (2x1) */}
-            <div className="md:col-span-2 lg:col-span-3">
-              <BrandingCard
-                category="Typography"
-                title="Body"
-                subtitle="Inter"
-                displayElement={<span className="font-inter text-4xl">Aa</span>}
-                colors={['#2A2420', '#666666', '#999999', '#CCCCCC']}
-              />
-            </div>
-
-            {/* BUTTONS (1x1) */}
-            <div className="md:col-span-1 lg:col-span-1">
-              <BrandingCard
-                category="Components"
-                title="Buttons"
-                subtitle="Variants"
-                displayElement="◻"
-                colors={['#FF7A1F', '#2A2420', '#F5F1ED', '#E6D9C6']}
-              />
-            </div>
-
-            {/* LABEL TYPOGRAPHY (1x1) */}
-            <div className="md:col-span-1 lg:col-span-2">
-              <BrandingCard
-                category="Typography"
-                title="Label"
-                subtitle="Inter"
-                displayElement={<span className="font-inter text-sm font-bold">Aa</span>}
-                colors={['#2A2420', '#666666', '#999999', '#CCCCCC']}
-              />
-            </div>
-
-            {/* ICONS (2x1) */}
-            <div className="md:col-span-3 lg:col-span-4">
-              <BrandingCard
-                category="Components"
-                title="Icon System"
-                subtitle="Lucide Icons"
-                displayElement="⚙"
-                colors={['#FF7A1F', '#2A2420', '#F5F1ED', '#FFFFFF']}
-              />
-            </div>
-
-            {/* NEUTRAL COLOR (1x1) */}
-            <div className="md:col-span-1 lg:col-span-2">
-              <BrandingCard
-                category="Color"
-                title="Neutral"
-                subtitle="#F5F1ED"
-                displayElement="🎨"
-                colors={['#0A0A0A', '#333333', '#666666', '#999999', '#CCCCCC', '#E6D9C6', '#F5F1ED', '#FFFFFF']}
-              />
-            </div>
-
-            {/* SPACING (1x1) */}
-            <div className="md:col-span-1 lg:col-span-1">
-              <BrandingCard
-                category="Design"
-                title="Spacing"
-                subtitle="8px base"
-                displayElement="█"
-                colors={['#F5F1ED', '#E6D9C6', '#CCCCCC', '#999999']}
-              />
-            </div>
-
-            {/* BORDER RADIUS (1x1) */}
-            <div className="md:col-span-1 lg:col-span-1">
-              <BrandingCard
-                category="Design"
-                title="Radius"
-                subtitle="rounded-2xl"
-                displayElement="◯"
-                colors={['#FF7A1F', '#2A2420', '#F5F1ED', '#FFFFFF']}
-              />
-            </div>
-
-            {/* SHADOWS (1x1) */}
-            <div className="md:col-span-1 lg:col-span-1">
-              <BrandingCard
-                category="Design"
-                title="Shadows"
-                subtitle="Soft UI"
-                displayElement="◆"
-                colors={['#F5F1ED', '#E6D9C6', '#CCCCCC', '#999999']}
-              />
-            </div>
-          </div>
-
-          {/* Guidelines Section */}
-          <div className="mt-24 pt-16 border-t border-secondary/8">
-            <h2 className="text-3xl font-bold font-space-grotesk text-secondary mb-10">Usage Guidelines</h2>
-
-            <div className="grid md:grid-cols-2 gap-10">
-              <div>
-                <h3 className="text-xl font-bold font-space-grotesk text-primary mb-4">Typography</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li><strong>Space Grotesk:</strong> Headlines, navigation, and brand elements</li>
-                  <li><strong>Inter:</strong> Body copy, labels, and UI text</li>
-                  <li><strong>Scale:</strong> Follow the established type hierarchy</li>
-                  <li><strong>Weight:</strong> Use bold (700) for emphasis, regular (400) for body</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold font-space-grotesk text-primary mb-4">Colors</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li><strong>Primary (#FF7A1F):</strong> Calls-to-action and key highlights</li>
-                  <li><strong>Secondary (#2A2420):</strong> Headlines and main text</li>
-                  <li><strong>Tertiary (#FFF4E6):</strong> Background accents and highlights</li>
-                  <li><strong>Neutral (#F5F1ED):</strong> Subtle backgrounds and dividers</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold font-space-grotesk text-primary mb-4">Components</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li><strong>Buttons:</strong> rounded-full with hover shadows</li>
-                  <li><strong>Cards:</strong> rounded-2xl with soft shadows</li>
-                  <li><strong>Spacing:</strong> 8px base unit (multiples of 8)</li>
-                  <li><strong>Icons:</strong> Use Lucide React icons</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold font-space-grotesk text-primary mb-4">Tone & Voice</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li><strong>Authentic:</strong> Grounded in real dealership experience</li>
-                  <li><strong>Empathetic:</strong> Show we understand your challenges</li>
-                  <li><strong>Results-Driven:</strong> Focus on outcomes, not features</li>
-                  <li><strong>Simple:</strong> Clear, jargon-free communication</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer CTA */}
-          <div className="mt-24 pt-16 border-t border-secondary/8 text-center">
-            <p className="text-secondary/60 mb-6 text-sm md:text-base">
-              Questions about the brand kit? Reach out to our design team.
-            </p>
-            <Button variant="primary">
-              Contact Design Team
-            </Button>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   )
 }

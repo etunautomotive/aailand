@@ -52,7 +52,7 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-32 px-8 bg-white overflow-hidden">
+    <section className="py-32 px-8 bg-surface-alt overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-20 space-y-4">

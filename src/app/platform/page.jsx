@@ -1,231 +1,307 @@
 'use client'
 
+import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/sections/footer'
-import { Button } from '@/components/ui/Button'
-import { MessageSquare, BarChart3, Database, Zap, Calendar, FileText, CreditCard, Bell, Users, Settings, Bot, Radio } from 'lucide-react'
+import { FAQ } from '@/components/sections/faq'
+import {
+  MessageSquare, BarChart3, Database, Zap, Calendar, FileText,
+  CreditCard, Bell, Users, Bot, Radio, ArrowRight,
+} from 'lucide-react'
+
+const categories = [
+  {
+    name: 'communication',
+    feats: [
+      { icon: MessageSquare, title: 'One inbox, every channel', desc: 'SMS, email, Messenger, voice, webchat. Conversations live in one place instead of five tabs.' },
+      { icon: Bot, title: 'Real conversations at scale', desc: 'Not templates. Not drip sequences. Sustained back-and-forth that handles objections and sounds like your best closer.' },
+      { icon: Radio, title: 'Outbound voice', desc: 'Automated calls with recording and transcription. Reaches leads your team never has time to dial.' },
+    ],
+  },
+  {
+    name: 'intelligence',
+    feats: [
+      { icon: BarChart3, title: 'Lead scoring that means something', desc: "Every lead ranked by buy readiness. Reps stop guessing and call people who actually want to talk." },
+      { icon: Database, title: 'Conversation sentiment', desc: 'Hot leads surface automatically. No manual triage. Cold leads stay asleep until something changes.' },
+      { icon: FileText, title: 'Credit report reading', desc: 'Upload a credit report. Instant summary. Minutes instead of an hour.' },
+    ],
+  },
+  {
+    name: 'operations',
+    feats: [
+      { icon: Calendar, title: 'Google Calendar two-way', desc: 'Appointments booked by the system appear on your calendar live. No double-booking, no manual entry.' },
+      { icon: Zap, title: 'Automation by default', desc: 'New lead arrives, followup fires, rep gets notified, contact gets tagged. Event-driven, not toggles.' },
+      { icon: CreditCard, title: 'Credit applications over text', desc: 'The system builds enough trust to gather SIN, paystubs, and licenses through conversation.' },
+    ],
+  },
+  {
+    name: 'management',
+    feats: [
+      { icon: BarChart3, title: 'Role-based dashboards', desc: "Admins see everything. Leads see their team. Reps see their pipeline. No noise, no surprises." },
+      { icon: Users, title: 'Team visibility', desc: 'See who followed up, who didn\'t, where deals stall. Coach what you can actually observe.' },
+      { icon: Bell, title: 'Notifications everywhere', desc: 'In-app, browser push, mobile push. No lead sits untouched because nobody opened the dashboard.' },
+    ],
+  },
+]
+
+const integrations = [
+  ['Tekion DMS', 'bi-directional, DMS source of truth'],
+  ['Twilio', 'SMS infrastructure'],
+  ['Vapi', 'voice calling + transcription'],
+  ['Stripe', 'billing + payments'],
+  ['SendGrid', 'email delivery'],
+  ['Google Calendar', 'two-way appointment sync'],
+  ['Gmail', 'automatic lead capture'],
+  ['Google Sheets', 'contact data import'],
+  ['Document AI', 'invoice + document parsing'],
+  ['Facebook / Meta', 'Messenger conversations'],
+  ['Firebase', 'mobile push'],
+]
+
+const principles = [
+  ['Complete data isolation', 'Every dealership is a walled garden. Your data, config, pipelines. Nothing bleeds between accounts.'],
+  ['AI through everything', 'Not bolted on. Intelligence runs through comms, analysis, automation from day one.'],
+  ['Real-time across the team', 'When something happens, everyone who needs to know finds out immediately. App, browser, mobile.'],
+  ['Access control that makes sense', 'Superadmin, Admin, Team Lead, Rep. Each role sees exactly what it needs.'],
+  ['Runs on any device', 'PWA. Installs like a native app. Push notifications. Offline-capable. No app store required.'],
+  ['Automation is default', "Workflows aren't a premium unlock. They're how the system works from day one."],
+]
+
+const useCases = [
+  { tag: '01 / reactivation', title: 'Database reactivation', body: 'Thousands of aged contacts with nothing but a name and number. The system reaches them, converses, turns forgotten names into booked appointments and credit apps.', metric: '82 credit apps / month' },
+  { tag: '02 / inbound', title: 'Inbound response', body: 'A lead comes in from Facebook, your site, a listing. System replies in under 30 seconds with a real conversation — qualifies, objects, books.', metric: 'first appointment in hours' },
+  { tag: '03 / outbound', title: 'Outbound campaigns', body: '200–500 messages a day re-engaging customers, promoting inventory, seasonal pushes. System handles every reply; team handles the warm ones.', metric: '6–12 extra deals / month' },
+]
 
 export default function Platform() {
-  const featureCategories = [
-    {
-      category: 'Communication',
-      features: [
-        { icon: MessageSquare, title: 'One Inbox. Every Channel.', desc: 'SMS, email, Facebook Messenger, voice, and webchat. Your team stops switching between five apps. Every conversation lives in one place.' },
-        { icon: Bot, title: 'Real Conversations at Scale', desc: 'Not templates. Not drip sequences. Full back-and-forth conversations that handle objections, build trust, and sound like your best closer wrote them.' },
-        { icon: Radio, title: 'Outbound Voice', desc: 'Automated calls with recording and transcription. The system reaches leads your team doesn\'t have time to dial.' },
-      ]
-    },
-    {
-      category: 'Intelligence',
-      features: [
-        { icon: BarChart3, title: 'Lead Scoring That Means Something', desc: 'Every lead ranked by how ready they are to buy. Your reps stop guessing and start calling the people who actually want to talk.' },
-        { icon: Database, title: 'Conversation Sentiment', desc: 'The system knows which conversations are warm and which are cold. Hot leads surface automatically. No manual triage.' },
-        { icon: FileText, title: 'Credit Report Reading', desc: 'Upload a credit report. Get an instant summary. Your team spends minutes on what used to take an hour.' },
-      ]
-    },
-    {
-      category: 'Operations',
-      features: [
-        { icon: Calendar, title: 'Google Calendar Sync', desc: 'Two-way sync. Appointments booked through the system show up on your calendar. No double-booking. No manual entry.' },
-        { icon: Zap, title: 'Automation That Runs Itself', desc: 'New lead arrives, follow-up fires, rep gets notified, contact gets tagged. Event-driven workflows handle the busywork so your team doesn\'t.' },
-        { icon: CreditCard, title: 'Credit Applications', desc: 'Collect credit apps through conversation. The system builds enough trust to gather SIN numbers, paystubs, and licenses over text.' },
-      ]
-    },
-    {
-      category: 'Management',
-      features: [
-        { icon: BarChart3, title: 'Role-Based Dashboards', desc: 'Admins see everything. Team leads see their team. Reps see their own pipeline. Everyone gets the view they need without the noise they don\'t.' },
-        { icon: Users, title: 'Team Visibility', desc: 'See who\'s following up, who\'s not, and where deals are stalling. Coach what you can actually see.' },
-        { icon: Bell, title: 'Notifications Everywhere', desc: 'In-app, browser push, and mobile push. No lead sits untouched because someone didn\'t check the dashboard.' },
-      ]
-    }
-  ]
-
-  const integrations = [
-    { name: 'Tekion DMS', desc: 'Bi-directional sync. DMS stays source of truth.' },
-    { name: 'Twilio', desc: 'SMS messaging infrastructure' },
-    { name: 'Vapi', desc: 'Voice calling and transcription' },
-    { name: 'Stripe', desc: 'Billing and payments' },
-    { name: 'SendGrid', desc: 'Email delivery' },
-    { name: 'Google Calendar', desc: 'Two-way appointment sync' },
-    { name: 'Gmail', desc: 'Automatic lead capture' },
-    { name: 'Google Sheets', desc: 'Contact data import' },
-    { name: 'Document AI', desc: 'Invoice and document processing' },
-    { name: 'Facebook / Meta', desc: 'Messenger conversations' },
-    { name: 'Firebase', desc: 'Mobile push notifications' },
-  ]
-
-  const principles = [
-    { title: 'Complete Data Isolation', desc: 'Every dealership is a walled garden. Your data, your config, your pipelines. Nothing bleeds between accounts. Ever.' },
-    { title: 'AI Runs Through Everything', desc: 'Not bolted on. Not an add-on you pay extra for. The intelligence layer is built into communication, analysis, and automation from the ground up.' },
-    { title: 'Real-Time Across the Team', desc: 'When something happens, everyone who needs to know finds out immediately. In-app, browser, and mobile push.' },
-    { title: 'Access Control That Makes Sense', desc: 'Superadmin, Admin, Team Lead, Rep. Each role sees exactly what they need. Reps don\'t see other reps. Leads don\'t see other teams.' },
-    { title: 'Works on Any Device', desc: 'Progressive web app. Install it like a native app on any phone. Push notifications. Offline support. No app store required.' },
-    { title: 'Automation Is the Default', desc: 'Workflows and sequences aren\'t a premium feature you unlock later. They\'re how the system works from day one.' },
-  ]
-
   return (
-    <main className="min-h-screen bg-white">
+    <div className="bg-surface text-secondary">
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">The Platform</p>
-          <h1 className="text-7xl md:text-8xl font-bold font-space-grotesk tracking-tight max-w-5xl leading-[0.95] text-secondary">
-            One system. <span className="text-primary">Everything</span> your dealership needs.
+      <section className="relative pt-36 pb-24 grain overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 -top-40 h-[520px] -z-10 opacity-70"
+          style={{
+            background: 'radial-gradient(55% 55% at 50% 20%, rgba(232,102,26,0.16) 0%, rgba(232,102,26,0) 70%)',
+          }}
+        />
+        <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">the platform</p>
+          <h1 className="mt-5 font-headline text-[56px] md:text-[104px] font-bold leading-[0.95] tracking-display max-w-[18ch]">
+            One system.
+            <br />
+            <span className="italic font-normal text-secondary/85">Every tool your dealership</span>
+            <br />
+            <span className="text-primary">actually uses.</span>
           </h1>
-          <p className="text-xl text-secondary/70 max-w-2xl font-medium leading-relaxed">
-            Lead management, multi-channel conversations, automated follow-up, campaign execution, reporting, and credit processing. All in one place. No more duct-taping five tools together.
+          <p className="mt-8 max-w-[60ch] text-lg md:text-xl text-secondary/70 leading-relaxed">
+            Lead management, multi-channel conversations, automated followup, campaign execution, reporting, credit processing. One roof. No more duct-taping five tools together.
           </p>
-          <Button variant="primary">
-            Book a Demo
-          </Button>
-        </div>
-      </section>
-
-      {/* Key Metrics */}
-      <section className="px-8 py-20 bg-tertiary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="text-center">
-              <div className="text-5xl font-bold font-space-grotesk text-primary mb-3">30s</div>
-              <p className="text-secondary/70 font-medium">First response to any lead</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold font-space-grotesk text-primary mb-3">85%+</div>
-              <p className="text-secondary/70 font-medium">Conversation rate on outreach</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold font-space-grotesk text-primary mb-3">80-100</div>
-              <p className="text-secondary/70 font-medium">Credit apps per month from dead contacts</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold font-space-grotesk text-primary mb-3">10+</div>
-              <p className="text-secondary/70 font-medium">Hours per week given back to your team</p>
-            </div>
+          <div className="mt-10 flex gap-4">
+            <Link href="/#book" className="group inline-flex items-center gap-2 rounded-full bg-secondary px-7 py-4 text-white font-medium shadow-ink transition-all hover:-translate-y-0.5 hover:shadow-ink-lg">
+              Book a walkthrough
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link href="/pricing" className="inline-flex items-center gap-2 rounded-full border border-secondary/20 px-7 py-4 font-medium hover:bg-secondary/5">
+              See pricing
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Features by Category */}
-      <section className="px-8 py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-4">What's Inside</p>
-            <h2 className="text-5xl font-bold font-space-grotesk text-secondary">
-              Every tool your dealership actually uses. Nothing it doesn't.
-            </h2>
-          </div>
-
-          {featureCategories.map((cat, catIdx) => (
-            <div key={catIdx} className="mb-20">
-              <h3 className="text-2xl font-bold font-space-grotesk text-primary mb-8">{cat.category}</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {cat.features.map((feature, idx) => {
-                  const Icon = feature.icon
-                  return (
-                    <div key={idx} className="bg-white border border-secondary/10 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-                      <Icon className="w-10 h-10 text-primary mb-4" />
-                      <h4 className="text-lg font-bold font-space-grotesk text-secondary mb-2">{feature.title}</h4>
-                      <p className="text-secondary/70 text-sm">{feature.desc}</p>
-                    </div>
-                  )
-                })}
-              </div>
+      {/* Stats strip */}
+      <section className="border-y border-secondary/10 bg-surface-alt">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10 grid grid-cols-2 md:grid-cols-4 tabular divide-x divide-secondary/10">
+          {[
+            { v: '30s', l: 'first response time' },
+            { v: '86%', l: 'outreach conversation rate' },
+            { v: '82', l: 'credit apps / month' },
+            { v: '11.4h', l: 'weekly hours given back' },
+          ].map((s) => (
+            <div key={s.l} className="p-8">
+              <div className="font-headline text-4xl md:text-5xl font-bold text-secondary">{s.v}</div>
+              <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-secondary/50">{s.l}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Architecture Principles */}
-      <section className="px-8 py-24 bg-tertiary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-4">How It's Built</p>
-            <h2 className="text-5xl font-bold font-space-grotesk text-secondary">
-              Architecture decisions that matter to your business.
+      {/* Features */}
+      <section className="py-20 md:py-36">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-16 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">what's inside</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              Every tool your dealership
+              <br />
+              <span className="text-secondary/45">actually uses.</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {principles.map((principle, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 border border-secondary/10">
-                <h3 className="text-xl font-bold font-space-grotesk text-secondary mb-3">{principle.title}</h3>
-                <p className="text-secondary/70">{principle.desc}</p>
+
+          <div className="space-y-20">
+            {categories.map((cat) => (
+              <div key={cat.name}>
+                <div className="flex items-baseline justify-between mb-8">
+                  <h3 className="font-mono text-[12px] uppercase tracking-[0.3em] text-primary">— {cat.name}</h3>
+                  <span className="hairline flex-1 ml-6" />
+                </div>
+                <div className="grid md:grid-cols-3 gap-5">
+                  {cat.feats.map(({ icon: Icon, title, desc }) => (
+                    <article key={title} className="group relative flex flex-col rounded-[22px] border border-secondary/10 bg-white p-7 transition-all hover:-translate-y-0.5 hover:shadow-ink">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-tertiary text-secondary">
+                        <Icon className="h-5 w-5" strokeWidth={1.75} />
+                      </span>
+                      <h4 className="mt-8 font-headline text-lg font-semibold">{title}</h4>
+                      <p className="mt-2 text-[14.5px] text-secondary/65 leading-relaxed">{desc}</p>
+                    </article>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Architecture */}
+      <section className="bg-surface-alt py-28">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-14 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">how it's built</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              Architecture decisions that
+              <br />
+              <span className="text-secondary/45">affect your business.</span>
+            </h2>
+          </div>
+          <dl className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-secondary/15 border-y border-secondary/15 md:grid-flow-row">
+            {principles.map(([t, d], i) => (
+              <div key={t} className={`p-8 md:p-10 ${i >= 2 ? 'md:border-t md:border-secondary/15' : ''}`}>
+                <dt className="font-mono text-[11px] uppercase tracking-widest text-secondary/40">0{i + 1}</dt>
+                <div className="mt-4">
+                  <p className="font-headline text-2xl font-semibold">{t}</p>
+                  <p className="mt-3 text-[15px] text-secondary/70 leading-relaxed max-w-[52ch]">{d}</p>
+                </div>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       {/* Integrations */}
-      <section className="px-8 py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-4">Integrations</p>
-            <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-8">
-              Connects to what you already run.
-            </h2>
-            <p className="text-secondary/70 max-w-2xl mx-auto">
-              11 native integrations. Your DMS stays the source of truth. Data flows bi-directionally. No CSV exports. No manual syncing. No spreadsheet gymnastics.
+      <section className="py-20 md:py-36">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">integrations</p>
+              <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+                Plugs into what
+                <br />
+                <span className="text-secondary/45">you already run.</span>
+              </h2>
+            </div>
+            <p className="max-w-[40ch] text-secondary/65">
+              11 native integrations. Your DMS stays source of truth. Data flows bi-directionally. Zero CSV gymnastics.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {integrations.map((integration, idx) => (
-              <div key={idx} className="bg-white border border-secondary/10 rounded-2xl p-6 text-center hover:shadow-lg transition-shadow">
-                <h4 className="font-bold font-space-grotesk text-secondary mb-1">{integration.name}</h4>
-                <p className="text-sm text-secondary/70">{integration.desc}</p>
-              </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-secondary/10 rounded-[22px] overflow-hidden bg-white">
+            {integrations.map(([name, desc], i) => (
+              <li
+                key={name}
+                className={`p-6 flex items-baseline justify-between gap-6 border-secondary/10
+                  ${i % 3 !== 0 ? 'md:border-l' : ''}
+                  ${i >= 3 ? 'border-t' : 'border-t md:border-t-0'}
+                  ${i === 0 || i === 1 || i === 2 ? 'md:border-t-0' : ''}`}
+              >
+                <div>
+                  <div className="font-headline font-semibold text-secondary">{name}</div>
+                  <div className="mt-1 text-[13px] text-secondary/55">{desc}</div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-secondary/25 shrink-0" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Use cases */}
+      <section className="bg-surface-alt py-28">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-16 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">use cases</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              Three ways dealers make money
+              <br />
+              <span className="text-primary">on day one.</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {useCases.map((uc) => (
+              <article key={uc.tag} className="flex flex-col rounded-[22px] bg-white border border-secondary/10 p-7 hover:-translate-y-0.5 hover:shadow-ink transition-all">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">{uc.tag}</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold">{uc.title}</h3>
+                <p className="mt-3 text-[14.5px] text-secondary/65 leading-relaxed">{uc.body}</p>
+                <p className="tabular mt-auto pt-6 font-mono text-[12px] uppercase tracking-widest text-primary border-t border-secondary/10">
+                  {uc.metric}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section className="px-8 py-24 bg-tertiary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-4">Use Cases</p>
-            <h2 className="text-5xl font-bold font-space-grotesk text-secondary">
-              Three ways dealers make money on day one.
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 border border-secondary/10">
-              <h3 className="text-2xl font-bold font-space-grotesk text-primary mb-4">Database Reactivation</h3>
-              <p className="text-secondary/70 mb-4">You have thousands of contacts with nothing but a name and number. The system reaches them, starts conversations, and turns forgotten names into booked appointments and full credit applications.</p>
-              <p className="font-bold text-secondary">80-100+ credit apps per month from contacts nobody was touching.</p>
+      {/* Proof */}
+      <section className="py-24">
+        <div className="mx-auto max-w-[1100px] px-6 md:px-10">
+          <figure className="relative rounded-[22px] border border-secondary/10 bg-white p-8 md:p-12 shadow-ink-sm">
+            <div className="flex items-start gap-6">
+              <div className="hidden md:flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-tertiary font-headline font-bold text-secondary">
+                M
+              </div>
+              <div className="flex-1">
+                <blockquote className="font-headline text-2xl md:text-[2rem] font-semibold leading-[1.18] text-secondary">
+                  "Eleven integrations, one dashboard. Our BDC stopped asking where a lead came from. It's all there — the message thread, the call recording, the credit app, the calendar invite. In one pane."
+                </blockquote>
+                <figcaption className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+                  <div className="text-sm font-medium text-secondary">Mike Rodriguez</div>
+                  <div className="text-[12px] text-secondary/55">Sales Manager · Riverside Auto Group, 2 rooftops</div>
+                  <div className="tabular ml-auto font-mono text-[11px] uppercase tracking-widest text-primary">
+                    11.4 hrs / week returned
+                  </div>
+                </figcaption>
+              </div>
             </div>
-            <div className="bg-white rounded-2xl p-8 border border-secondary/10">
-              <h3 className="text-2xl font-bold font-space-grotesk text-primary mb-4">Inbound Lead Response</h3>
-              <p className="text-secondary/70 mb-4">A lead comes in from Facebook, your website, or a listing site. The system responds in under 30 seconds. Not with a template. With a real conversation that qualifies, handles objections, and books.</p>
-              <p className="font-bold text-secondary">First appointment booked within hours of going live.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 border border-secondary/10">
-              <h3 className="text-2xl font-bold font-space-grotesk text-primary mb-4">Outbound Campaigns</h3>
-              <p className="text-secondary/70 mb-4">Send 200-500 messages a day to re-engage old customers, promote inventory, or run seasonal pushes. The system handles every reply. Your team handles the warm ones.</p>
-              <p className="font-bold text-secondary">6-12 extra deals in the first month from leads that were sitting idle.</p>
-            </div>
-          </div>
+          </figure>
         </div>
       </section>
 
+      <FAQ />
+
       {/* CTA */}
-      <section className="px-8 py-24 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-6">
+      <section className="relative py-20 md:py-36 overflow-hidden bg-secondary text-white">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-60"
+          style={{
+            background: 'radial-gradient(45% 60% at 80% 20%, rgba(232,102,26,0.35) 0%, rgba(232,102,26,0) 60%)',
+          }}
+        />
+        <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
+          <h2 className="font-headline text-5xl md:text-7xl font-bold leading-[0.98] tracking-display max-w-4xl">
             See what's sitting in your database.
           </h2>
-          <p className="text-lg text-secondary/70 mb-10">
-            Book 30 minutes. We'll connect to your data and show you exactly where the opportunities are. Most dealers see their first results before the demo is over.
+          <p className="mt-6 max-w-[56ch] text-white/70 text-lg">
+            Book 30 minutes. We'll connect to your data and show you exactly where the opportunities are. Most dealers see first results before the demo ends.
           </p>
-          <button className="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-primary/30 transition-all">
-            Book Your Demo
-          </button>
+          <Link href="/#book" className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 font-medium text-white shadow-ember transition-all hover:-translate-y-0.5">
+            Book your walkthrough
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
       <Footer />
-    </main>
+    </div>
   )
 }

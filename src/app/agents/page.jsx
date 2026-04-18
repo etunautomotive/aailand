@@ -1,242 +1,211 @@
 'use client'
 
+import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/sections/footer'
-import { Button } from '@/components/ui/Button'
-import { MessageSquare, Phone, Brain, TrendingUp, Lock, Zap, FileText, Target } from 'lucide-react'
+import { FAQ } from '@/components/sections/faq'
+import {
+  MessageSquare, Phone, Brain, TrendingUp, Lock, Zap, Target, ArrowRight,
+} from 'lucide-react'
+
+const capabilities = [
+  { icon: MessageSquare, title: 'Sustains full conversations', desc: 'Not just first-touch. Back-and-forth dialogue, tone matching, objection handling, trust-building across massive lead volume.' },
+  { icon: Brain, title: 'Trained on real sales cadence', desc: 'Built by closers who lived the grind. Talks like someone who worked the floor — natural language, appropriate punctuation, chameleon tactics.' },
+  { icon: Target, title: 'Collects what matters', desc: 'Builds enough trust to gather SIN, license, home address, paystubs over text — without the customer realizing the AI is in the loop.' },
+  { icon: TrendingUp, title: 'Cold → qualified', desc: '"Not interested" becomes a booked appointment through persistent, intelligent followup that knows timing, tone, objection psychology.' },
+]
+
+const features = [
+  { icon: Phone, title: 'Multi-channel', items: ['SMS messaging', 'Voice + recording', 'Facebook Messenger', 'Webchat', 'Email'] },
+  { icon: Brain, title: 'Intelligence', items: ['Scoring + qualification', 'Sentiment analysis', 'Credit report parsing', 'Field extraction', 'Objection handling'] },
+  { icon: Zap, title: 'Automation', items: ['Event-driven triggers', 'Followup sequences', 'Scheduled automations', 'Webhook integrations', 'Marketplace templates'] },
+  { icon: Lock, title: 'Security', items: ['PII sanitization', 'Multi-tenant isolation', 'Role-based access', 'Compliance (CASL + TCPA)', 'Data ownership'] },
+]
+
+const results = [
+  ['86%', 'response rate'],
+  ['82', 'credit apps / mo'],
+  ['5–10', 'aged-lead appts / mo'],
+  ['11.4h', 'weekly hours returned'],
+  ['6–12', 'extra deals / mo'],
+  ['10×', 'BDC volume multiplier'],
+]
+
+const useCases = [
+  ['Reactivation engine', 'Aged contacts with minimal data become qualified opportunities through sustained dialogue.', '5–10 appts / mo from never-touched contacts'],
+  ['Inbound qualification', 'Every lead — site, Facebook, phone, email — qualified in under 60 seconds. AI handles objections, reps close.', '30–60 full credit apps / mo'],
+  ['Bulk outreach', '200–500 messages / day on base plan, 500+ on higher tiers. All threads run in parallel.', '6–12 extra deals / mo'],
+  ['BDC at scale', 'One skilled operator manages the throughput of a 10-person BDC when paired with AI prospecting.', 'Scale revenue without proportional hiring'],
+]
 
 export default function Agents() {
-  const capabilities = [
-    {
-      icon: MessageSquare,
-      title: 'Sustains Full Conversations',
-      desc: 'Not just first-touch. The AI handles back-and-forth dialogue, matches tone, handles objections, and builds trust across massive lead volumes.'
-    },
-    {
-      icon: Brain,
-      title: 'Trained on Real Sales Processes',
-      desc: 'Built by closers who lived the grind. The AI communicates like someone who has actually worked the floor — with natural language, appropriate punctuation, and chameleon tactics.'
-    },
-    {
-      icon: Target,
-      title: 'Collects What Matters',
-      desc: 'Can build enough trust to collect SIN numbers, driver licenses, home addresses, and paystubs via text without the customer knowing they are talking to AI.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Turns Cold into Qualified',
-      desc: '"Not interested" becomes a qualified appointment. Persistent, intelligent follow-up that understands timing, tone, and the psychology of objection handling.'
-    },
-  ]
-
-  const features = [
-    {
-      icon: Phone,
-      title: 'Multi-Channel Communication',
-      items: ['SMS messaging', 'Voice calling with recording', 'Facebook Messenger responses', 'Webchat engagement', 'Email communication'],
-    },
-    {
-      icon: Brain,
-      title: 'AI Intelligence',
-      items: ['Lead scoring & qualification', 'Sentiment analysis (warm vs. cold)', 'Credit report analysis', 'Automatic field extraction', 'Objection handling'],
-    },
-    {
-      icon: Zap,
-      title: 'Automation & Workflows',
-      items: ['Event-driven triggers', 'Follow-up sequences', 'Scheduled automations', 'Webhook integrations', 'Marketplace templates'],
-    },
-    {
-      icon: Lock,
-      title: 'Enterprise Security',
-      items: ['PII sanitization', 'Multi-tenant isolation', 'Role-based access control', 'Compliance built-in', 'Data ownership guaranteed'],
-    },
-  ]
-
-  const results = [
-    { metric: '85-95%', label: 'Response Rate' },
-    { metric: '100+', label: 'Credit Apps/Month' },
-    { metric: '5-10', label: 'Old Lead Appointments/Month' },
-    { metric: '10+', label: 'Hours/Week Given Back to Staff' },
-    { metric: '6-12', label: 'Extra Deals in First Month' },
-    { metric: '1 Rep = 10', label: 'Team Volume Multiplier' },
-  ]
-
-  const useCases = [
-    {
-      title: 'Reactivation Engine',
-      desc: 'Contacts sitting in your database with minimal information become fully qualified opportunities through sustained AI dialogue.',
-      outcome: '5-10 appointments per month from never-touched contacts'
-    },
-    {
-      title: 'Inbound Qualification',
-      desc: 'Every lead that comes in — website, Facebook, phone, email — gets qualified in under 60 seconds. AI handles the objections. Reps close.',
-      outcome: '30-60 full credit applications per month'
-    },
-    {
-      title: 'Bulk Outreach Campaigns',
-      desc: 'Send 200-500 messages per day on the base plan. Higher tiers unlock 500+ daily. The AI manages all conversation threads simultaneously.',
-      outcome: '6-12 extra deals per month from bulk campaigns'
-    },
-    {
-      title: 'BDC at Scale',
-      desc: 'One skilled person can manage the work volume of a 10-person BDC team when paired with AI handling the prospecting grunt work.',
-      outcome: 'Scale revenue without proportional hiring'
-    },
-  ]
-
   return (
-    <main className="min-h-screen bg-white">
+    <div className="bg-surface text-secondary">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-24 px-8 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">The Conversation Engine</p>
-          <h1 className="text-7xl md:text-8xl font-bold font-space-grotesk tracking-tight max-w-6xl leading-[0.95] text-secondary">
-            Talks like someone who's <span className="text-primary">worked the floor.</span>
+      <section className="relative pt-36 pb-20 grain overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 -top-40 h-[520px] -z-10 opacity-70"
+          style={{ background: 'radial-gradient(55% 55% at 50% 20%, rgba(232,102,26,0.16) 0%, rgba(232,102,26,0) 70%)' }}
+        />
+        <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">the conversation engine</p>
+          <h1 className="mt-5 font-headline text-[56px] md:text-[104px] font-bold leading-[0.94] tracking-display max-w-[18ch]">
+            Talks like someone
+            <br />
+            <span className="italic font-normal text-secondary/85">who's worked the floor.</span>
           </h1>
-          <p className="text-xl text-secondary/70 max-w-3xl font-medium leading-relaxed">
-            Most tools in this space send a first message and punt to appointment. Ours sustains full, nuanced conversations across thousands of leads simultaneously. It handles objections. It builds trust. It collects credit applications over text. That's the part nobody else has figured out.
+          <p className="mt-8 max-w-[60ch] text-lg md:text-xl text-secondary/70 leading-relaxed">
+            Most tools in the category send a first message and punt. Ours sustains nuanced back-and-forth across thousands of leads at once — handles objections, builds trust, collects credit apps over text. That's the hard part nobody else cracked.
           </p>
         </div>
       </section>
 
-      {/* The Differentiator */}
-      <section className="px-8 py-24 bg-tertiary/30 border-t border-secondary/10 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl p-12 border border-secondary/10">
-            <h2 className="text-4xl font-bold font-space-grotesk text-secondary mb-8 text-center">
-              Everyone else vs. us.
-            </h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-lg font-bold text-primary mb-4">Other AI Tools</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li>✗ Send a first message</li>
-                  <li>✗ Follow up once or twice</li>
-                  <li>✗ Pass to appointment setter</li>
-                  <li>✗ Robotic or off-topic responses</li>
-                  <li>✗ Creates busywork, not opportunity</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-primary mb-4">Automotive AI</h3>
-                <ul className="space-y-3 text-secondary/70">
-                  <li>✓ Sustains full conversations</li>
-                  <li>✓ Handles objections intelligently</li>
-                  <li>✓ Builds enough trust to collect sensitive info</li>
-                  <li>✓ Matches tone and communication style</li>
-                  <li>✓ Creates qualified opportunities at scale</li>
-                </ul>
-              </div>
+      {/* them vs us */}
+      <section className="bg-surface-alt py-24">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="rounded-[22px] bg-white border border-secondary/10 p-8">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">other AI tools</p>
+              <ul className="mt-6 space-y-3 text-[14.5px] text-secondary/65">
+                {['Send one opener', 'Follow up once or twice', 'Punt to appointment setter', 'Robotic, off-topic replies', 'Generates busywork, not opportunity'].map((x) => (
+                  <li key={x} className="flex gap-3"><span className="text-secondary/35">—</span>{x}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-[22px] bg-secondary text-white p-8 shadow-ink-lg">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-white/60">automotive AI</p>
+              <ul className="mt-6 space-y-3 text-[14.5px] text-white/85">
+                {['Sustained conversations', 'Intelligent objection handling', 'Builds trust to collect sensitive info', 'Matches tone + style per lead', 'Qualified pipeline at scale'].map((x) => (
+                  <li key={x} className="flex gap-3"><span className="text-primary">+</span>{x}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Capabilities */}
-      <section className="px-8 py-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-20 text-center">
-            The hard part that nobody else can do.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {capabilities.map((cap, idx) => {
-              const Icon = cap.icon
-              return (
-                <div key={idx} className="bg-white border border-secondary/10 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-                  <Icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold font-space-grotesk text-secondary mb-3">{cap.title}</h3>
-                  <p className="text-secondary/70">{cap.desc}</p>
-                </div>
-              )
-            })}
+      {/* Capabilities */}
+      <section className="py-28">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-14 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">capabilities</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              The hard part
+              <br />
+              <span className="text-secondary/45">nobody else can do.</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {capabilities.map(({ icon: Icon, title, desc }) => (
+              <article key={title} className="group rounded-[22px] border border-secondary/10 bg-white p-7 hover:-translate-y-0.5 hover:shadow-ink transition-all">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-tertiary text-secondary">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                </span>
+                <h3 className="mt-6 font-headline text-xl md:text-2xl font-semibold">{title}</h3>
+                <p className="mt-3 max-w-[54ch] text-[14.5px] text-secondary/65 leading-relaxed">{desc}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Real Results */}
-      <section className="px-8 py-24 bg-secondary/5 border-t border-secondary/10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-20 text-center">
-            Numbers from real dealerships.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {results.map((result, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-12 text-center border border-secondary/10">
-                <div className="text-5xl font-bold font-space-grotesk text-primary mb-3">{result.metric}</div>
-                <p className="text-secondary/70 font-medium">{result.label}</p>
+      {/* Under the hood */}
+      <section className="bg-surface-alt py-28">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-14 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">under the hood</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              What's actually inside.
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            {features.map(({ icon: Icon, title, items }) => (
+              <div key={title} className="rounded-[22px] border border-secondary/10 bg-white p-7">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-tertiary text-secondary">
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="font-headline text-xl font-semibold">{title}</h3>
+                </div>
+                <ul className="mt-6 space-y-2 text-[14px] text-secondary/70">
+                  {items.map((i) => (
+                    <li key={i} className="flex gap-2.5">
+                      <span className="text-primary mt-1">·</span>
+                      {i}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AI Features */}
-      <section className="px-8 py-24 bg-white border-t border-secondary/10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-20 text-center">
-            What's under the hood.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {features.map((feature, idx) => {
-              const Icon = feature.icon
-              return (
-                <div key={idx} className="bg-white border border-secondary/10 rounded-2xl p-8">
-                  <div className="flex items-start gap-4 mb-6">
-                    <Icon className="w-8 h-8 text-primary flex-shrink-0" />
-                    <h3 className="text-xl font-bold font-space-grotesk text-secondary">{feature.title}</h3>
-                  </div>
-                  <ul className="space-y-2">
-                    {feature.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="text-secondary/70 flex gap-2">
-                        <span className="text-primary">•</span> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
+      {/* Use cases */}
+      <section className="py-28">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-14 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">four ways dealers make money</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              Where the money lands.
+            </h2>
           </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="px-8 py-24 bg-tertiary/30 border-t border-secondary/10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-20 text-center">
-            Four ways dealers make money with it.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {useCases.map((useCase, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-10 border border-secondary/10">
-                <h3 className="text-2xl font-bold font-space-grotesk text-primary mb-4">{useCase.title}</h3>
-                <p className="text-secondary/70 mb-6">{useCase.desc}</p>
-                <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
-                  <p className="text-sm font-bold text-primary">{useCase.outcome}</p>
+          <div className="grid md:grid-cols-2 gap-5">
+            {useCases.map(([t, d, m]) => (
+              <article key={t} className="flex flex-col rounded-[22px] bg-white border border-secondary/10 p-8 hover:-translate-y-0.5 hover:shadow-ink transition-all">
+                <h3 className="font-headline text-2xl font-semibold text-secondary">{t}</h3>
+                <p className="mt-3 text-[15px] text-secondary/65 leading-relaxed">{d}</p>
+                <div className="tabular mt-auto pt-6 border-t border-secondary/10 font-mono text-[12px] uppercase tracking-widest text-primary">
+                  → {m}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="px-8 py-24 bg-white border-t border-secondary/10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-5xl font-bold font-space-grotesk text-secondary mb-6">
-            See it handle a real conversation.
+      {/* Results */}
+      <section className="bg-surface-alt py-24">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+          <div className="mb-12 max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">numbers from real rooftops</p>
+            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display">
+              Not projections.
+            </h2>
+          </div>
+          <dl className="tabular grid grid-cols-2 md:grid-cols-3 rounded-[22px] overflow-hidden border border-secondary/10 bg-white">
+            {results.map(([v, l], i) => (
+              <div key={l} className={`p-8 border-secondary/10 ${i % 3 !== 0 ? 'md:border-l' : ''} ${i >= 3 ? 'md:border-t' : ''} ${i >= 2 && i % 2 === 0 ? 'border-l md:border-l' : ''} ${i >= 2 ? 'border-t md:border-t' : ''}`}>
+                <dd className="font-headline text-4xl md:text-5xl font-bold text-primary">{v}</dd>
+                <dt className="mt-2 font-mono text-[10px] uppercase tracking-widest text-secondary/50">{l}</dt>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <FAQ />
+
+      {/* CTA */}
+      <section className="relative py-20 md:py-36 overflow-hidden bg-secondary text-white">
+        <div aria-hidden className="absolute inset-0 opacity-60" style={{ background: 'radial-gradient(45% 60% at 80% 20%, rgba(232,102,26,0.35) 0%, rgba(232,102,26,0) 60%)' }} />
+        <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
+          <h2 className="font-headline text-5xl md:text-7xl font-bold leading-[0.98] tracking-display max-w-4xl">
+            Watch it handle a real conversation.
           </h2>
-          <p className="text-lg text-secondary/70 mb-10">
-            Book 30 minutes. We'll show you the system qualifying a lead, handling objections, and moving a buyer forward in a single conversation. Most dealers who see it once don't leave without signing up.
+          <p className="mt-6 max-w-[54ch] text-white/70 text-lg">
+            Book 30 minutes. We'll show it qualifying a lead, handling objections, moving a buyer forward in one thread. Most dealers who watch it once sign the same week.
           </p>
-          <Button variant="primary">
-            See It In Action
-          </Button>
+          <Link href="/#book" className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 font-medium text-white shadow-ember hover:-translate-y-0.5 transition-all">
+            See it in action
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
       <Footer />
-    </main>
+    </div>
   )
 }

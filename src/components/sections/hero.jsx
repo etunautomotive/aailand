@@ -8,7 +8,7 @@ export function Hero() {
   const [showBanner, setShowBanner] = useState(true)
 
   return (
-    <section className="pt-32 pb-24 px-8 bg-white">
+    <section className="pt-32 pb-24 px-8 bg-surface">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
         {/* Banner replacing badge */}
         {showBanner && (

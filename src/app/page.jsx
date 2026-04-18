@@ -14,38 +14,22 @@ import { CTA } from '@/components/sections/cta'
 import { FAQ } from '@/components/sections/faq'
 import { Footer } from '@/components/sections/footer'
 
-function SectionDivider() {
-  return (
-    <div className="flex justify-center">
-      <div className="h-px w-48 bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
-    </div>
-  )
-}
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="bg-surface text-secondary">
       <Navbar />
       <Hero />
       <SocialProof />
       <PainPoints />
-      <SectionDivider />
       <Benefits />
-      <SectionDivider />
       <HowItWorks />
-      <SectionDivider />
       <CaseStudy />
-      <SectionDivider />
       <VsTraditional />
-      <SectionDivider />
       <Pricing />
-      <SectionDivider />
       <Testimonials />
-      <SectionDivider />
       <FAQ />
-      <SectionDivider />
       <CTA />
       <Footer />
-    </main>
+    </div>
   )
 }
