@@ -9,7 +9,7 @@ const cn = (...classes) => classes.filter(Boolean).join(' ')
 const Textarea = React.forwardRef(({ className, ...props }, ref) => (
   <textarea
     className={cn(
-      'flex w-full rounded-md border-none bg-transparent px-3 py-2.5 text-base text-gray-100 placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 min-h-[44px] resize-none',
+      'flex w-full rounded-md border-none bg-transparent px-3 py-2.5 text-base text-secondary placeholder:text-secondary/50 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 min-h-[44px] resize-none',
       className
     )}
     ref={ref}
@@ -51,7 +51,7 @@ Button.displayName = 'Button'
 const CustomDivider = () => (
   <div className="relative h-6 w-[1.5px] mx-1">
     <div
-      className="absolute inset-0 bg-gradient-to-t from-transparent via-[#9b87f5]/70 to-transparent rounded-full"
+      className="absolute inset-0 bg-gradient-to-t from-transparent via-secondary/25 to-transparent rounded-full"
       style={{
         clipPath: "polygon(0% 0%, 100% 0%, 100% 40%, 140% 50%, 100% 60%, 100% 100%, 0% 100%, 0% 60%, -40% 50%, 0% 40%)",
       }}
@@ -325,12 +325,12 @@ export const PromptInputBox = React.forwardRef(({ onSend = () => {}, isLoading =
               className={cn(
                 'rounded-full transition-all flex items-center gap-1 px-2 py-1 border h-8',
                 showThink
-                  ? 'bg-purple-500/15 border-purple-500 text-purple-500'
+                  ? 'bg-secondary/10 border-secondary text-secondary'
                   : 'bg-transparent border-transparent text-secondary/60 hover:text-secondary'
               )}
             >
               <BrainCog className="w-4 h-4" />
-              {showThink && <span className="text-xs overflow-hidden whitespace-nowrap text-purple-500 flex-shrink-0">Think</span>}
+              {showThink && <span className="text-xs overflow-hidden whitespace-nowrap text-secondary flex-shrink-0">Think</span>}
             </button>
 
             <CustomDivider />
@@ -341,12 +341,12 @@ export const PromptInputBox = React.forwardRef(({ onSend = () => {}, isLoading =
               className={cn(
                 'rounded-full transition-all flex items-center gap-1 px-2 py-1 border h-8',
                 showCanvas
-                  ? 'bg-orange-500/15 border-orange-500 text-orange-500'
+                  ? 'bg-primary/15 border-primary text-primary'
                   : 'bg-transparent border-transparent text-secondary/60 hover:text-secondary'
               )}
             >
               <FolderCode className="w-4 h-4" />
-              {showCanvas && <span className="text-xs overflow-hidden whitespace-nowrap text-orange-500 flex-shrink-0">Canvas</span>}
+              {showCanvas && <span className="text-xs overflow-hidden whitespace-nowrap text-primary flex-shrink-0">Canvas</span>}
             </button>
           </div>
         </div>
