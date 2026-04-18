@@ -157,26 +157,6 @@ export default function BrandKitPage() {
         </div>
       </section>
 
-      {/* Tone + Voice */}
-      <section className="bg-surface-alt py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-10">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-display mb-10">Tone + voice</h2>
-          <div className="grid md:grid-cols-4 gap-5">
-            {[
-              ['Authentic', 'Grounded in dealership floor experience. No consultant-speak.'],
-              ['Specific', 'Organic numbers over round ones. 47 beats "50+".'],
-              ['Plainspoken', 'No "elevate", "seamless", "unleash". Short words, short sentences.'],
-              ['Confident', 'No exclamation marks in success. No "Oops" in errors. State it.'],
-            ].map(([t, d]) => (
-              <div key={t} className="rounded-[22px] bg-white border border-secondary/10 p-6">
-                <h3 className="font-headline text-lg font-semibold">{t}</h3>
-                <p className="mt-2 text-[14px] text-secondary/65 leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24">
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
