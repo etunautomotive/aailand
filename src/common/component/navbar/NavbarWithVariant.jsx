@@ -9,6 +9,11 @@ export default function NavbarWithVariant() {
   if (pathname.startsWith("/bookademo") || pathname.startsWith("/vsldemo")) {
     return null;
   }
+
+  // Home renders its own Navbar in page.jsx — skip layout-level nav to avoid stacking
+  if (pathname === "/") {
+    return null;
+  }
   
   // Use GlassNavbar for all pages
   return <GlassNavbar />;
