@@ -1,25 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import { Button } from '../ui/Button'
-import { UpgradeBanner } from '../ui/upgrade-banner'
 
 export function Hero() {
-  const [showBanner, setShowBanner] = useState(true)
-
   return (
     <section className="pt-32 pb-24 px-8 bg-surface">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
-        {/* Banner replacing badge */}
-        {showBanner && (
-          <UpgradeBanner
-            buttonText="Limited-time offer"
-            description="Get 30% off annual plans"
-            onClose={() => setShowBanner(false)}
-            onClick={() => {}}
-          />
-        )}
-
         {/* Headline */}
         <h1 className="text-6xl md:text-8xl font-bold font-headline tracking-tight max-w-6xl leading-[1.05] text-secondary animate-fade-in-up -mt-4" style={{animationDelay: '0.2s'}}>
           The fastest <span className="text-primary">ROI</span> your{' '}
