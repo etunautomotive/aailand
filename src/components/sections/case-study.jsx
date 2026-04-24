@@ -18,14 +18,14 @@ export function CaseStudy() {
 
       <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
         {/* eyebrow */}
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-secondary/50 mb-8">
+        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50 mb-8">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
           proof · field report no. 04-26
         </div>
 
         {/* headline */}
-        <h2 className="font-headline font-bold leading-[0.95] tracking-display text-secondary text-balance text-[clamp(32px,4.6vw,56px)] max-w-[22ch]">
-          Same team. Same database. 8.2× the deals.
+        <h2 className="font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display text-secondary text-balance max-w-[22ch]">
+          Same team. Same database. <span className="text-secondary/40">8.2× the deals.</span>
         </h2>
 
         {/* data card */}
@@ -34,7 +34,7 @@ export function CaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 grid lg:grid-cols-12 rounded-[24px] border border-secondary/10 bg-white shadow-ink overflow-hidden"
+          className="mt-10 grid lg:grid-cols-12 rounded-[22px] border border-secondary/10 bg-white shadow-ink-sm overflow-hidden"
         >
           {/* identity panel */}
           <div className="lg:col-span-4 bg-secondary text-white p-8 md:p-10 relative overflow-hidden">
@@ -48,14 +48,14 @@ export function CaseStudy() {
             <div aria-hidden className="absolute inset-0 bg-grain opacity-[0.08] mix-blend-overlay" />
 
             <div className="relative flex flex-col h-full">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/50">
+              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/50">
                 client
               </p>
-              <p className="mt-3 font-headline text-[28px] md:text-[32px] font-bold leading-[0.95] tracking-tight">
+              <p className="mt-3 font-headline text-4xl md:text-5xl font-bold leading-[1.02] tracking-display">
                 Riverside<br />Auto Group
               </p>
 
-              <dl className="mt-8 space-y-3 font-mono text-[11px] uppercase tracking-[0.22em] text-white/65 tabular">
+              <dl className="mt-8 space-y-3 font-mono text-[11px] uppercase tracking-widest text-white/65 tabular">
                 <div className="flex justify-between gap-4">
                   <dt className="text-white/45">rooftops</dt>
                   <dd>2</dd>
@@ -75,7 +75,7 @@ export function CaseStudy() {
               </dl>
 
               <div className="mt-auto pt-10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-white/45">
                   measurement window
                 </p>
                 <p className="mt-1.5 font-mono text-[13px] text-white/85 tabular">
@@ -90,17 +90,17 @@ export function CaseStudy() {
             {/* dominant metric */}
             <div className="flex items-end justify-between gap-6 pb-8 border-b border-secondary/10">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-secondary/50">
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">
                   pipeline recovered
                 </p>
-                <p className="mt-3 font-headline text-primary font-bold leading-none tracking-display tabular text-[clamp(56px,9vw,104px)]">
+                <p className="mt-3 font-headline text-primary text-7xl md:text-8xl font-bold leading-none tracking-display tabular">
                   8.2×
                 </p>
                 <p className="mt-2 text-[14px] text-secondary/65 max-w-[28ch]">
                   deals closed from contacts no human had touched in twelve months.
                 </p>
               </div>
-              <p className="shrink-0 font-mono text-[10px] uppercase tracking-[0.28em] text-secondary/40 tabular">
+              <p className="shrink-0 font-mono text-[11px] uppercase tracking-widest text-secondary/40 tabular">
                 vs. prior<br />quarter baseline
               </p>
             </div>
@@ -109,14 +109,14 @@ export function CaseStudy() {
             <dl className="divide-y divide-secondary/10">
               {rows.map((r) => (
                 <div key={r.k} className="flex items-center justify-between gap-6 py-4">
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-secondary/60">
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-secondary/50">
                     {r.k}
                   </dt>
                   <dd className="flex items-baseline gap-3 tabular">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-secondary/40 hidden sm:inline">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-secondary/40 hidden sm:inline">
                       {r.note}
                     </span>
-                    <span className="font-headline font-semibold text-secondary text-[17px] md:text-[19px]">
+                    <span className="font-headline font-semibold text-secondary text-lg md:text-xl">
                       {r.v}
                     </span>
                   </dd>
@@ -128,7 +128,7 @@ export function CaseStudy() {
 
         {/* attribution + read more */}
         <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-1">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-secondary/55">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-secondary/50">
             <span className="text-secondary/85">Mike Rodriguez</span>
             <span className="mx-2 text-secondary/25">·</span>
             sales manager, riverside auto group
