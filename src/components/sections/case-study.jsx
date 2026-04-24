@@ -1,99 +1,146 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { ArrowUpRight } from 'lucide-react'
 
-function Stat({ v, l, big = false, accent = false }) {
-  return (
-    <div
-      className={`rounded-[20px] p-6 transition-all duration-300 hover:-translate-y-0.5 ${
-        accent
-          ? 'bg-primary text-white shadow-ember'
-          : 'bg-white border border-secondary/10 shadow-ink-sm'
-      }`}
-    >
-      <div className={`font-mono text-[10px] uppercase tracking-widest ${accent ? 'text-white/70' : 'text-secondary/45'}`}>
-        {l}
-      </div>
-      <div className={`tabular mt-3 font-headline font-bold ${big ? 'text-6xl' : 'text-4xl'} ${accent ? 'text-white' : 'text-secondary'}`}>
-        {v}
-      </div>
-    </div>
-  )
-}
+const rows = [
+  { k: 'aged leads re-engaged', v: '47 / 8,147', note: 'by day 47' },
+  { k: 'incremental revenue', v: '$184,320', note: 'from zero-touch data' },
+  { k: 'additional headcount', v: '0', note: 'same 12-rep team' },
+  { k: 'first credit app', v: '6 hrs', note: 'after DMS plug-in' },
+]
 
 export function CaseStudy() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
-
   return (
     <section id="case" className="relative bg-surface py-20 md:py-36 overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-10">
-        <motion.div
-          ref={ref}
+      <div aria-hidden className="absolute inset-0 bg-grain opacity-[0.04] mix-blend-multiply" />
+
+      <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
+        {/* eyebrow */}
+        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-secondary/50 mb-8">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+          proof · field report no. 04-26
+        </div>
+
+        {/* headline */}
+        <h2 className="font-headline font-bold leading-[0.95] tracking-display text-secondary text-balance text-[clamp(32px,4.6vw,56px)] max-w-[22ch]">
+          Same team. Same database. 8.2× the deals.
+        </h2>
+
+        {/* data card */}
+        <motion.article
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="grid gap-12 lg:grid-cols-12"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-10%' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-10 grid lg:grid-cols-12 rounded-[24px] border border-secondary/10 bg-white shadow-ink overflow-hidden"
         >
-          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-secondary/50">
-              case study — 47 days
-            </p>
-            <h2 className="mt-4 font-headline text-4xl md:text-6xl font-bold leading-[1.02] tracking-display text-secondary">
-              Riverside Auto Group
-            </h2>
-            <p className="mt-3 text-secondary/60 font-mono text-[12px] tracking-wider">
-              2 rooftops · 12 reps · $2.1M / mo
-            </p>
+          {/* identity panel */}
+          <div className="lg:col-span-4 bg-secondary text-white p-8 md:p-10 relative overflow-hidden">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-60"
+              style={{
+                background: 'radial-gradient(55% 70% at 0% 100%, rgba(232,102,26,0.30) 0%, transparent 70%)',
+              }}
+            />
+            <div aria-hidden className="absolute inset-0 bg-grain opacity-[0.08] mix-blend-overlay" />
 
-            <div className="mt-10 space-y-8">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">challenge</p>
-                <h3 className="mt-2 font-headline text-2xl font-semibold text-secondary">
-                  8,147 contacts. Nobody touching them.
-                </h3>
-                <p className="mt-3 max-w-[52ch] text-[15px] text-secondary/70 leading-relaxed">
-                  Three reps handled all followup across both rooftops. When one took time off, pipeline dried. The DMS was full of aged leads nobody had capacity to reach.
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/45">what we did</p>
-                <h3 className="mt-2 font-headline text-2xl font-semibold text-secondary">
-                  Live in 14 days. First credit app in 6 hours.
-                </h3>
-                <p className="mt-3 max-w-[52ch] text-[15px] text-secondary/70 leading-relaxed">
-                  Plugged into their DMS. Trained on their top rep's actual text cadence. System started reaching aged contacts immediately.
-                </p>
-              </div>
-              <blockquote className="rounded-[20px] border-l-2 border-primary bg-white/70 p-6">
-                <p className="font-headline text-xl font-semibold text-secondary italic">
-                  "The system found money we forgot we had. First month paid for the year."
-                </p>
-                <footer className="mt-4 text-[13px] text-secondary/60">
-                  Mike Rodriguez · Sales Manager, Riverside Auto Group
-                </footer>
-              </blockquote>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 grid grid-cols-2 gap-4 md:gap-5 content-start">
-            <div className="col-span-2">
-              <Stat v="47" l="aged leads re-engaged (30 days)" big accent />
-            </div>
-            <Stat v="12" l="deals closed" />
-            <Stat v="$184K" l="incremental revenue" />
-            <div className="col-span-2 rounded-[20px] bg-gradient-to-br from-secondary to-surface-ink text-white p-7">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-white/60">the delta</p>
-              <p className="mt-3 text-white/80 text-sm">Same dealership. Same team. Same reps.</p>
-              <p className="mt-2 font-headline text-4xl md:text-6xl font-bold text-primary tabular">
-                8.2× deals
+            <div className="relative flex flex-col h-full">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/50">
+                client
               </p>
-              <p className="mt-2 text-white/65 text-sm">from the same database, zero new hires.</p>
+              <p className="mt-3 font-headline text-[28px] md:text-[32px] font-bold leading-[0.95] tracking-tight">
+                Riverside<br />Auto Group
+              </p>
+
+              <dl className="mt-8 space-y-3 font-mono text-[11px] uppercase tracking-[0.22em] text-white/65 tabular">
+                <div className="flex justify-between gap-4">
+                  <dt className="text-white/45">rooftops</dt>
+                  <dd>2</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-white/45">region</dt>
+                  <dd>ab · canada</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-white/45">reps</dt>
+                  <dd>12</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-white/45">monthly vol.</dt>
+                  <dd>$2.1m</dd>
+                </div>
+              </dl>
+
+              <div className="mt-auto pt-10">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+                  measurement window
+                </p>
+                <p className="mt-1.5 font-mono text-[13px] text-white/85 tabular">
+                  day 0 → day 47
+                </p>
+              </div>
             </div>
-            <Stat v="0" l="new headcount added" />
-            <Stat v="6 hrs" l="time to first booked appt" />
           </div>
-        </motion.div>
+
+          {/* receipt */}
+          <div className="lg:col-span-8 p-8 md:p-10 flex flex-col">
+            {/* dominant metric */}
+            <div className="flex items-end justify-between gap-6 pb-8 border-b border-secondary/10">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-secondary/50">
+                  pipeline recovered
+                </p>
+                <p className="mt-3 font-headline text-primary font-bold leading-none tracking-display tabular text-[clamp(56px,9vw,104px)]">
+                  8.2×
+                </p>
+                <p className="mt-2 text-[14px] text-secondary/65 max-w-[28ch]">
+                  deals closed from contacts no human had touched in twelve months.
+                </p>
+              </div>
+              <p className="shrink-0 font-mono text-[10px] uppercase tracking-[0.28em] text-secondary/40 tabular">
+                vs. prior<br />quarter baseline
+              </p>
+            </div>
+
+            {/* data rows */}
+            <dl className="divide-y divide-secondary/10">
+              {rows.map((r) => (
+                <div key={r.k} className="flex items-center justify-between gap-6 py-4">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-secondary/60">
+                    {r.k}
+                  </dt>
+                  <dd className="flex items-baseline gap-3 tabular">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-secondary/40 hidden sm:inline">
+                      {r.note}
+                    </span>
+                    <span className="font-headline font-semibold text-secondary text-[17px] md:text-[19px]">
+                      {r.v}
+                    </span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </motion.article>
+
+        {/* attribution + read more */}
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-1">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-secondary/55">
+            <span className="text-secondary/85">Mike Rodriguez</span>
+            <span className="mx-2 text-secondary/25">·</span>
+            sales manager, riverside auto group
+          </p>
+          <Link
+            href="/comparison"
+            className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-secondary/70 hover:text-secondary transition-colors"
+          >
+            read the full field report
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={2.25} />
+          </Link>
+        </div>
       </div>
     </section>
   )
